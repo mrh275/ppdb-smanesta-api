@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Main Wrapper */
+    .main-wrapper {
+        @apply w-full;
+    }
+    /* End Wrapper */
+
+    /* Navbar */
+    .navbar {
+        @apply w-full flex justify-evenly items-center bg-white shadow-lg px-4 py-2;
+    }
+
+    /* Brand */
+    .brand {
+        @apply w-full flex items-center;
+    }
+
+    .brand-img {
+        @apply w-[38px];
+    }
+
+    .brand-title {
+        @apply inline-block mx-auto text-center font-semibold text-lg;
+    }
+    /* End Brand */
+
+    /* Menu */
+    .nav-menu {
+        @apply absolute;
+    }
+    /* End Menu */
+
+    /* Toggle Menu */
+    .toggle-menu {
+        @apply block cursor-pointer lg:hidden z-50;
+    }
+    .burger {
+        @apply block border-t-[2.5px] border-gray-700 w-5 h-1.5 transition duration-200 origin-top-right;
+    }
+
+    .toggle-menu.show .burger:nth-child(1) {
+        @apply -rotate-45 -translate-y-[1px];
+    }
+
+    .toggle-menu.show .burger:nth-child(2) {
+        @apply opacity-0;
+    }
+
+    .toggle-menu.show .burger:nth-child(3) {
+        @apply rotate-45 translate-y-[1px] translate-x-[1px];
+    }
+
+    /* .nav-menu.show {
+        @apply translate-x-0 shadow-lg lg:shadow-none;
+    } */
+    /* End Toggle Menu */
+
+    /* End Navbar */
+}
