@@ -123,5 +123,63 @@
             </div>
         </div>
         {{-- End Jalur --}}
+
+        {{-- Fasilitas Section --}}
+        <div class="fasilitas-section">
+            <div class="fasilitas-wrapper">
+                <h1 class="fasilitas-title">
+                    Fasilitas Sekolah
+                </h1>
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-school-flag"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    Gedung Permanen
+                                </span>
+                            </li>
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-book"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    Perpustakaan
+                                </span>
+                            </li>
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-computer"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    Laboratorium Komputer
+                                </span>
+                            </li>
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-flask-vial"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    Laboratorium IPA
+                                </span>
+                            </li>
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-mosque"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    Tempat Ibadah
+                                </span>
+                            </li>
+                            <li class="splide__slide">
+                                <i class="fa-solid fa-wifi"></i>
+                                <br>
+                                <span class="fasilitas-sub">
+                                    WiFi
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Fasilitas --}}
     </div>
 @endsection
