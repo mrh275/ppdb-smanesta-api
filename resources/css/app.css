@@ -257,6 +257,37 @@
     }
     /* End Kuota dan Jalur */
 
+    /* Fasilitas */
+    .fasilitas-wrapper {
+        @apply bg-zinc-200 px-6 pt-4 pb-10 my-4;
+    }
+
+    .fasilitas-title {
+        @apply text-2xl text-center font-semibold text-zinc-700 py-4;
+    }
+
+    .fasilitas-wrapper li {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .fasilitas-wrapper .svg-inline--fa,
+    .fasilitas-wrapper .svg-inline--fa {
+        @apply text-[2.3rem] text-zinc-700;
+    }
+
+    .fasilitas-wrapper .fasilitas-sub {
+        @apply text-center font-semibold text-zinc-700;
+    }
+
+    .splide__pagination.fasilitas-pagination {
+        @apply -bottom-6;
+    }
+
+    .splide__pagination__page.fasilitas-page.is-active {
+        @apply bg-[#0099ff];
+    }
+    /* End Fasilitas */
+
     /* Buttons */
     .btn {
         @apply py-2 px-4 rounded-md text-white transition-all ease-in-out duration-200;
