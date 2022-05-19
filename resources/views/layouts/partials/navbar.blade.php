@@ -9,7 +9,16 @@
             <a href="{{ url('') }}" class="nav-link">Beranda</a>
         </li>
         <li class="nav-item">
+            <a href="{{ url('kuota') }}" class="nav-link">Kuota Pendaftaran</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('jalur') }}" class="nav-link">Jalur Pendaftaran</a>
+        </li>
+        <li class="nav-item">
             <a href="{{ url('terms') }}" class="nav-link">Persyaratan</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('data-pendaftar') }}" class="nav-link">Data Pendaftar</a>
         </li>
         <li class="nav-item">
             <a href="{{ url('faq') }}" class="nav-link">FAQ</a>
