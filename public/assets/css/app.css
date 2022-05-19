@@ -432,6 +432,39 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-backdrop-saturate:  ;
     --tw-backdrop-sepia:  ;
 }
+.container{
+    width: 100%;
+}
+@media (min-width: 640px){
+
+    .container{
+        max-width: 640px;
+    }
+}
+@media (min-width: 768px){
+
+    .container{
+        max-width: 768px;
+    }
+}
+@media (min-width: 1024px){
+
+    .container{
+        max-width: 1024px;
+    }
+}
+@media (min-width: 1280px){
+
+    .container{
+        max-width: 1280px;
+    }
+}
+@media (min-width: 1536px){
+
+    .container{
+        max-width: 1536px;
+    }
+}
 /* Main Wrapper */
 .main-wrapper{
     width: 100%;
@@ -439,6 +472,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* End Wrapper */
 /* Navbar */
 .navbar{
+    position: absolute;
+    z-index: 10;
     display: flex;
     width: 100%;
     align-items: center;
@@ -455,9 +490,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 /* Brand */
 .brand{
+    position: relative;
+    z-index: 10;
     display: flex;
     width: 100%;
     align-items: center;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .brand-img{
     width: 38px;
@@ -475,6 +514,43 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Menu */
 .nav-menu{
     position: absolute;
+    top: 3.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    width: 100%;
+    --tw-translate-y: -120%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link{
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    width: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    text-align: center;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(39 39 42 / var(--tw-text-opacity));
+    transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+.nav-link:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 /* End Menu */
 /* Toggle Menu */
@@ -482,6 +558,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     z-index: 50;
     display: block;
     cursor: pointer;
+    padding-top: 0.25rem;
 }
 @media (min-width: 1024px){
 
@@ -517,11 +594,145 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-rotate: 45deg;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-/* .nav-menu.show {
-        @apply translate-x-0 shadow-lg lg:shadow-none;
-    } */
+.nav-menu.show{
+    --tw-translate-y: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    opacity: 1;
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 1024px){
+
+    .nav-menu.show{
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+}
+.navbar.show{
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 /* End Toggle Menu */
+/* Dark Mode */
+.toggle-darkMode{
+    z-index: 10;
+    margin-right: 0.75rem;
+    display: block;
+    cursor: pointer;
+    border-radius: 9999px;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(82 82 91 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+    padding: 0.25rem;
+}
+@media (min-width: 1024px){
+
+    .toggle-darkMode{
+        position: relative;
+    }
+}
+.bxs-sun, .bxs-moon{
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .bxs-sun, .dark .bxs-moon{
+    --tw-translate-x: -1rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.dark, .dark .navbar.fixed-nav, .dark .project, .dark .skills, .dark .footer{
+    --tw-bg-opacity: 1;
+    background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+.dark .nav-menu, .dark .navbar{
+    --tw-bg-opacity: 1;
+    background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+@media (min-width: 1024px){
+
+    .dark .nav-menu, .dark .navbar{
+        background-color: transparent;
+    }
+}
+.dark .about, .dark .contact{
+    --tw-bg-opacity: 1;
+    background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
+.dark .brand-item, .dark .nav-menu, .dark .splash-left, .dark .job-desc-splash, .dark .scroll-down-btn, .dark .about-title, .dark .about-desc, .dark .box-sm h4, .dark .box-sm span, .dark .journey-title, .dark .edu-btn, .dark .work-btn, .dark .journey-edu-wrapper h4, .dark .journey-edu-wrapper small, .dark .project h2, .dark .skills h2, .dark .contact h2, .dark .contact h3, .dark .contact i, .dark .contact p, .dark .contact a, .dark .contact label, .dark .footer, .dark .footer span{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.dark .toggle-menu .burger{
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+/* End Dark Mode */
 /* End Navbar */
+/* Hero Section */
+.hero-section, .cta-section{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.hero-splash, .cta-content{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.hero-title{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+.ppdb{
+    --tw-text-opacity: 1;
+    color: rgb(0 153 255 / var(--tw-text-opacity));
+}
+/* End Hero */
+/* CTA */
+.cta-content{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cta-desc{
+    text-align: justify;
+}
+.cta-btn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+/* End CTA */
+/* Buttons */
+.btn{
+    border-radius: 0.375rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary{
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 153 255 / var(--tw-bg-opacity));
+}
+/* End Buttons */
 .fixed{
     position: fixed;
 }
@@ -595,6 +806,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto{
     width: auto;
 }
+.w-4{
+    width: 1rem;
+}
 .max-w-6xl{
     max-width: 72rem;
 }
@@ -609,6 +823,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden{
     overflow: hidden;
+}
+.overflow-x-hidden{
+    overflow-x: hidden;
 }
 .border-t{
     border-top-width: 1px;
@@ -635,6 +852,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+}
+.pt-14{
+    padding-top: 3.5rem;
 }
 .pt-8{
     padding-top: 2rem;
@@ -684,6 +904,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity));
 }
+.text-white{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-yellow-600{
+    --tw-text-opacity: 1;
+    color: rgb(202 138 4 / var(--tw-text-opacity));
+}
 .underline{
     -webkit-text-decoration-line: underline;
             text-decoration-line: underline;
@@ -697,6 +925,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 @media (prefers-color-scheme: dark){
 
     .dark\:border-gray-700{
@@ -729,6 +958,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
+
 @media (min-width: 640px){
 
     .sm\:ml-0{
@@ -776,6 +1006,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         text-align: right;
     }
 }
+
 @media (min-width: 768px){
 
     .md\:grid-cols-2{
@@ -790,6 +1021,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         border-left-width: 1px;
     }
 }
+
 @media (min-width: 1024px){
 
     .lg\:px-8{

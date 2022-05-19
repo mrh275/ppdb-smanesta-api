@@ -17,12 +17,12 @@
 
     /* Navbar */
     .navbar {
-        @apply w-full flex justify-evenly items-center bg-white shadow-lg px-4 py-2;
+        @apply w-full absolute flex justify-evenly items-center bg-white shadow-lg px-4 py-2 z-10;
     }
 
     /* Brand */
     .brand {
-        @apply w-full flex items-center;
+        @apply w-full flex items-center relative z-10 bg-white;
     }
 
     .brand-img {
@@ -36,13 +36,18 @@
 
     /* Menu */
     .nav-menu {
-        @apply absolute;
+        @apply absolute bg-white w-full top-[3.25rem] rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 transition-all ease-in-out duration-300;
     }
+
+    .nav-link {
+        @apply w-full inline-block text-center text-zinc-800 font-semibold py-1 my-1 hover:text-[#0099ff] transition duration-200;
+    }
+
     /* End Menu */
 
     /* Toggle Menu */
     .toggle-menu {
-        @apply block cursor-pointer lg:hidden z-50;
+        @apply block cursor-pointer lg:hidden z-50 pt-1;
     }
     .burger {
         @apply block border-t-[2.5px] border-gray-700 w-5 h-1.5 transition duration-200 origin-top-right;
@@ -60,10 +65,131 @@
         @apply rotate-45 translate-y-[1px] translate-x-[1px];
     }
 
-    /* .nav-menu.show {
-        @apply translate-x-0 shadow-lg lg:shadow-none;
-    } */
+    .nav-menu.show {
+        @apply translate-y-0 shadow-lg lg:shadow-none opacity-100;
+    }
+
+    .navbar.show {
+        @apply shadow-none;
+    }
     /* End Toggle Menu */
 
+    /* Dark Mode */
+    .toggle-darkMode {
+        @apply block border border-zinc-600 bg-zinc-700 p-1 rounded-full cursor-pointer lg:relative z-10 mr-3;
+    }
+
+    .bxs-sun,
+    .bxs-moon {
+        @apply transition-all ease-in-out duration-300;
+    }
+    .dark .bxs-sun,
+    .dark .bxs-moon {
+        @apply -translate-x-4;
+    }
+
+    .dark,
+    .dark .navbar.fixed-nav,
+    .dark .project,
+    .dark .skills,
+    .dark .footer {
+        @apply bg-zinc-800;
+    }
+
+    .dark .navbar-brand {
+        @apply bg-zinc-800 lg:bg-transparent;
+    }
+
+    .dark .nav-menu,
+    .dark .navbar {
+        @apply bg-zinc-800 lg:bg-transparent;
+    }
+
+    .dark .about,
+    .dark .contact {
+        @apply bg-zinc-700;
+    }
+
+    .dark .brand-item,
+    .dark .nav-menu,
+    .dark .splash-left,
+    .dark .job-desc-splash,
+    .dark .scroll-down-btn,
+    .dark .about-title,
+    .dark .about-desc,
+    .dark .box-sm h4,
+    .dark .box-sm span,
+    .dark .journey-title,
+    .dark .edu-btn,
+    .dark .work-btn,
+    .dark .journey-edu-wrapper h4,
+    .dark .journey-edu-wrapper small,
+    .dark .project h2,
+    .dark .skills h2,
+    .dark .contact h2,
+    .dark .contact h3,
+    .dark .contact i,
+    .dark .contact p,
+    .dark .contact a,
+    .dark .contact label,
+    .dark .footer,
+    .dark .footer span {
+        @apply text-white;
+    }
+
+    .dark .toggle-menu .burger {
+        @apply border-white;
+    }
+
+    .dark .edu-btn.active,
+    .dark .work-btn.active {
+        @apply text-[#0099ff];
+    }
+    /* End Dark Mode */
+
     /* End Navbar */
+
+    /* Hero Section */
+    .hero-section,
+    .cta-section {
+        @apply px-4;
+    }
+
+    .hero-splash,
+    .cta-content {
+        @apply px-4 my-4;
+    }
+
+    .hero-title {
+        @apply text-zinc-700 font-bold text-2xl;
+    }
+
+    .ppdb {
+        @apply text-[#0099ff];
+    }
+    /* End Hero */
+
+    /* CTA */
+    .cta-content {
+        @apply w-full flex flex-col items-center justify-center;
+    }
+
+    .cta-desc {
+        @apply text-justify;
+    }
+
+    .cta-btn {
+        @apply inline-block my-4 mx-auto;
+    }
+    /* End CTA */
+
+    /* Buttons */
+    .btn {
+        @apply py-2 px-4 rounded-md text-white transition-all ease-in-out duration-200;
+    }
+
+    .btn-primary {
+        @apply bg-[#0099ff];
+    }
+    /* End Buttons */
 }
