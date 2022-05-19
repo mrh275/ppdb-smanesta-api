@@ -17,7 +17,7 @@
 
     /* Navbar */
     .navbar {
-        @apply w-full absolute flex justify-evenly items-center bg-white shadow-lg px-4 py-2 z-10;
+        @apply w-full fixed flex justify-evenly items-center bg-white shadow-lg px-4 py-2 z-10;
     }
 
     /* Brand */
@@ -26,17 +26,17 @@
     }
 
     .brand-img {
-        @apply w-[38px];
+        @apply w-[32px];
     }
 
     .brand-title {
-        @apply inline-block mx-auto text-center font-semibold text-lg;
+        @apply inline-block mx-auto text-center font-semibold text-base;
     }
     /* End Brand */
 
     /* Menu */
     .nav-menu {
-        @apply absolute bg-white w-full top-[3.25rem] rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 transition-all ease-in-out duration-300;
+        @apply absolute bg-white w-full top-[3rem] rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 transition-all ease-in-out duration-300;
     }
 
     .nav-link {
@@ -200,14 +200,62 @@
         @apply w-full py-4 text-zinc-700;
     }
 
-    .regular-terms-title {
-        @apply text-center font-semibold text-lg;
+    .special-terms {
+        @apply text-zinc-700;
     }
 
-    .regular-terms-list {
-        @apply list-decimal ml-6;
+    .regular-terms-title,
+    .special-terms-title {
+        @apply font-semibold text-lg;
+    }
+
+    .regular-terms-list,
+    .special-terms-list {
+        @apply list-decimal ml-8;
+    }
+
+    .keterangan {
+        @apply text-zinc-700 inline-block py-4;
+    }
+
+    .terms-btn-wrapper {
+        @apply w-full flex justify-center items-center mt-4 mb-6;
     }
     /* End Terms */
+
+    /* Kuota dan Jalur */
+    .jalur-section {
+        @apply px-6 py-2 my-4;
+    }
+
+    .jalur-wrapper {
+        @apply pt-6;
+    }
+
+    .jalur-title {
+        @apply text-center font-semibold text-2xl text-zinc-700 py-4;
+    }
+
+    .kuota-title,
+    .jalur-list-title {
+        @apply font-semibold text-lg text-zinc-700;
+    }
+
+    .kuota-list,
+    .jalur-list {
+        @apply list-decimal ml-8 text-zinc-700;
+    }
+
+    .kuota-desc,
+    .jalur-desc {
+        @apply py-4 text-zinc-700;
+    }
+
+    .kuota-btn-wrapper,
+    .jalur-btn-wrapper {
+        @apply flex justify-center items-center;
+    }
+    /* End Kuota dan Jalur */
 
     /* Buttons */
     .btn {
@@ -215,7 +263,7 @@
     }
 
     .btn-primary {
-        @apply bg-[#0099ff];
+        @apply bg-[#0099ff] hover:bg-[#0077ff];
     }
     /* End Buttons */
 }
