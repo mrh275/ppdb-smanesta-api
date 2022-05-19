@@ -13,3 +13,24 @@ hMenu.addEventListener("click", function () {
         document.querySelector(".navbar").classList.remove("show");
     }
 });
+
+// Toggle dark mode
+const toggleSwitch = document.querySelector("#toggle-darkMode");
+toggleSwitch.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
+// Fasilitas Carousel
+document.addEventListener("DOMContentLoaded", function () {
+    var splide = new Splide(".splide", {
+        type: "loop",
+        perPage: 2,
+        perMove: 2,
+        arrows: false,
+        classes: {
+            pagination: "splide__pagination fasilitas-pagination",
+            page: "splide__pagination__page fasilitas-page",
+        },
+    });
+    splide.mount();
+});
