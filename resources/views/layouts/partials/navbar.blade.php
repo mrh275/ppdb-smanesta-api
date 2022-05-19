@@ -19,6 +19,13 @@
         </li>
     </ul>
 
+    <div class="toggle-darkMode" id="toggle-darkMode">
+        <span class="darkMode-btn flex w-4 overflow-x-hidden">
+            <i class="bx bxs-moon text-white"></i>
+            <i class="bx bxs-sun text-yellow-600"></i>
+        </span>
+    </div>
+
     <div class="toggle-menu">
         <span class="burger"></span>
         <span class="burger"></span>
