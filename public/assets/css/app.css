@@ -1411,6 +1411,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 /* End Dark Mode */
+.invisible{
+    visibility: hidden;
+}
 .fixed{
     position: fixed;
 }
