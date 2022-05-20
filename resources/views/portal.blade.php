@@ -1,15 +1,15 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="wrapper relative pt-14 lg:pt-28">
+    <div class="wrapper relative pt-20 lg:pt-32">
         {{-- Hero Section --}}
         <div class="hero-section">
             <div class="hero-img">
-                <img src="{{ asset('assets/img/hero-img.png') }}" alt="Hero Img">
+                <img src="{{ asset('assets/img/hero-ppdb.svg') }}" alt="Hero Img">
             </div>
             <div class="hero-splash">
                 <h1 class="hero-title">
-                    Selamat Datang <br>
+                    <span class="lg:text-5xl">Selamat Datang!</span><br>
                     di Portal <span class="ppdb">Penerimaan Peserta Didik Baru (PPDB)</span> <br>
                     SMA Negeri 1 Rawamerta
                 </h1>
@@ -33,7 +33,7 @@
         {{-- End CTA --}}
 
         {{-- Persyaratan --}}
-        <div class="terms-section">
+        <div class="terms-section" id="terms">
             <h1 class="terms-title">
                 Persyaratan Pendaftaran
             </h1>
@@ -81,7 +81,7 @@
         {{-- End Persyaratan --}}
 
         {{-- Jalur Pendaftaran --}}
-        <div class="jalur-section">
+        <div class="jalur-section" id="kuota-jalur">
             <h1 class="jalur-title">
                 Kuota dan Jalur Pendaftaran
             </h1>
@@ -181,5 +181,10 @@
             </div>
         </div>
         {{-- End Fasilitas --}}
+        {{-- FAQ --}}
+        <div class="faq-section" id="faq">
+
+        </div>
+        {{-- End FAQ --}}
     </div>
 @endsection
