@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', function () {
         'title' => 'Portal',
     ]);
 });
+
+Route::resource('/register', RegisterController::class);
