@@ -253,6 +253,71 @@ html {
     }
     /* End Fasilitas */
 
+    /* Register PPDB */
+    .register-section {
+        @apply px-10;
+    }
+
+    .register-title {
+        @apply text-3xl font-bold text-zinc-800;
+    }
+
+    /* Progress Bar */
+    .step-wizard-list {
+        @apply flex py-5 px-[10px] relative z-[2];
+    }
+
+    .step-wizard-item {
+        @apply px-5 flex flex-grow max-w-full flex-col text-center min-w-[170px] relative;
+    }
+
+    .step-wizard-item + .step-wizard-item::after {
+        @apply content-[""] absolute -left-[96%] top-[19px] bg-[#0099ff] w-[350px] h-[2px] -z-10 translate-x-1/2;
+    }
+
+    .progress-count {
+        @apply w-[40px] h-[40px] flex items-center justify-center rounded-[50%] font-semibold mx-auto relative z-10 text-transparent transition-all ease-in-out duration-200 overflow-hidden;
+    }
+
+    .progress-count::after {
+        @apply content-[""] w-[40px] h-[40px] bg-[#0099ff] absolute left-1/2 top-1/2 -translate-x-[200%] -translate-y-[50%] -z-10 rounded-[50%] transition-all ease-in-out duration-200;
+    }
+
+    .progress-count::before {
+        @apply content-[""] h-[10px] w-[20px] border-l-[3px] border-l-white border-b-[3px] border-b-white absolute left-1/2 top-1/2 -translate-x-[50%] -translate-y-[50%] -rotate-45 origin-center;
+    }
+
+    .current-item .progress-count::before,
+    .current-item ~ .step-wizard-item .progress-count::before {
+        @apply hidden;
+    }
+
+    .current-item ~ .step-wizard-item .progress-count::after {
+        @apply w-[10px] h-[10px] -translate-x-[50%];
+    }
+
+    .progress-label {
+        @apply font-semibold text-zinc-800;
+    }
+
+    .current-item ~ .step-wizard-item .progress-label {
+        @apply opacity-50;
+    }
+
+    .current-item .progress-count::after {
+        @apply bg-white border-2 border-[#0099ff] -translate-x-[50%];
+    }
+
+    .current-item > .progress-count {
+        @apply text-[#0099ff];
+    }
+
+    .completed.progress-count::after {
+        @apply -translate-x-[50%];
+    }
+    /* End Progress Bar */
+    /* End Register PPDB */
+
     /* Footer */
     .footer-top {
         @apply px-8 py-4 lg:flex justify-evenly items-center;
