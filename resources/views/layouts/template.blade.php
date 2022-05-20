@@ -29,6 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/js/splide.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.js"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
