@@ -10,6 +10,9 @@
                 <a href="#" class="nav-link">Beranda</a>
             </li>
             <li class="nav-item">
+                <a href="{{ url('register') }}" class="nav-link">Daftar</a>
+            </li>
+            <li class="nav-item">
                 <a href="#terms" class="nav-link">Persyaratan</a>
             </li>
             <li class="nav-item">
