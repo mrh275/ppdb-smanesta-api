@@ -13,4 +13,4 @@ Aplikasi ini dibuat dengan menggunakan teknologi terbaru yang banyak digunakan o
 6. BoxIcons (Web Icons)
 7. SplideJS (Carousel)
 
-### Made with ❤️ by [Muhamad Ramdani Hidayatullah](https://muhamadramdani.my.id)
+### Made with ❤️ by <a href="https://muhamadramdani.my.id" target="_blank">Muhamad Ramdani Hidayatullah</a>
