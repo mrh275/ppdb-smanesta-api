@@ -36,6 +36,7 @@
     <script>
         const url = window.location.pathname;
         if (url == '/register') {
+
             const body = document.getElementsByTagName("BODY")[0]
             body.style.display = 'none';
             if (window.innerWidth < 1024) {
@@ -49,6 +50,15 @@
 
 @push('scripts')
     <script>
+        // Remove some menu when on register page
+        if (window.location.pathname == '/register') {
+            document.getElementById('menu-home').href = "{{ url('') }}"
+            document.getElementById('menu-terms').remove();
+            document.getElementById('menu-kuota').remove();
+            document.getElementById('menu-faq').remove();
+        }
+
+        // Get all progress bar necessary element
         const btnBackDataDiri = document.querySelector('#btn-back-data-diri');
         const btnBackDataOrangTua = document.querySelector('#btn-back-data-orang-tua');
         const btnBackDataPeriodik = document.querySelector('#btn-back-data-periodik');
