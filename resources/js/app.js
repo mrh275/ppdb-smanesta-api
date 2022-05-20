@@ -1,5 +1,23 @@
 require("./bootstrap");
 
+// Navbar Animation on Scroll
+let navbar = document.querySelector(".navbar");
+let offset = 0;
+window.addEventListener("scroll", function () {
+    let st = window.pageYOffset;
+    if (st > offset) {
+        navbar.classList.add("fixed-nav");
+        document.querySelector(".scroll-top-btn").classList.add("bottom-20");
+        document
+            .querySelector(".scroll-top-btn")
+            .classList.remove("-bottom-10");
+    } else {
+        navbar.classList.remove("fixed-nav");
+        document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
+        document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
+    }
+});
+
 // Toggle Menu
 let hMenu = document.querySelector(".toggle-menu");
 hMenu.addEventListener("click", function () {
@@ -21,7 +39,6 @@ toggleSwitch.addEventListener("click", () => {
 });
 
 // Fasilitas Carousel
-
 if (window.innerWidth < 768) {
     // Carousel
     document.addEventListener("DOMContentLoaded", function () {

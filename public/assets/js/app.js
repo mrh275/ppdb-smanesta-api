@@ -2162,8 +2162,24 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Toggle Menu
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Navbar Animation on Scroll
 
+
+var navbar = document.querySelector(".navbar");
+var offset = 0;
+window.addEventListener("scroll", function () {
+  var st = window.pageYOffset;
+
+  if (st > offset) {
+    navbar.classList.add("fixed-nav");
+    document.querySelector(".scroll-top-btn").classList.add("bottom-20");
+    document.querySelector(".scroll-top-btn").classList.remove("-bottom-10");
+  } else {
+    navbar.classList.remove("fixed-nav");
+    document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
+    document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
+  }
+}); // Toggle Menu
 
 var hMenu = document.querySelector(".toggle-menu");
 hMenu.addEventListener("click", function () {
