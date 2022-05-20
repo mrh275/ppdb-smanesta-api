@@ -16,3 +16,5 @@ mix.js("resources/js/app.js", "public/assets/js").postCss(
     "public/assets/css",
     [require("tailwindcss")]
 );
+
+mix.browserSync("127.0.0.1:8000");
