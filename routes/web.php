@@ -18,3 +18,8 @@ Route::get('/', function () {
         'title' => 'Portal',
     ]);
 });
+Route::get('/kuota-jalur', function () {
+    return view('kuota-jalur', [
+        'title' => 'Kuota dan Jalur',
+    ]);
+});
