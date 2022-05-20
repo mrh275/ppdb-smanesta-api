@@ -2183,19 +2183,37 @@ toggleSwitch.addEventListener("click", function () {
   document.body.classList.toggle("dark");
 }); // Fasilitas Carousel
 
-document.addEventListener("DOMContentLoaded", function () {
-  var splide = new Splide(".splide", {
-    type: "loop",
-    perPage: 2,
-    perMove: 2,
-    arrows: false,
-    classes: {
-      pagination: "splide__pagination fasilitas-pagination",
-      page: "splide__pagination__page fasilitas-page"
-    }
+if (window.innerWidth < 768) {
+  // Carousel
+  document.addEventListener("DOMContentLoaded", function () {
+    var splide = new Splide(".splide", {
+      type: "loop",
+      perPage: 2,
+      perMove: 2,
+      arrows: false,
+      classes: {
+        pagination: "splide__pagination fasilitas-pagination",
+        page: "splide__pagination__page fasilitas-page"
+      }
+    });
+    splide.mount();
   });
-  splide.mount();
-});
+} else {
+  // Carousel
+  document.addEventListener("DOMContentLoaded", function () {
+    var splide = new Splide(".splide", {
+      type: "loop",
+      perPage: 3,
+      perMove: 3,
+      arrows: false,
+      classes: {
+        pagination: "splide__pagination fasilitas-pagination",
+        page: "splide__pagination__page fasilitas-page"
+      }
+    });
+    splide.mount();
+  });
+}
 
 /***/ }),
 
