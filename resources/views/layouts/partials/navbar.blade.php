@@ -7,22 +7,22 @@
     <div class="menu-wrapper">
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="{{ url('') }}" class="nav-link">Beranda</a>
+                <a href="#" class="nav-link">Beranda</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('kuota-jalur') }}" class="nav-link">Kuota dan Jalur</a>
+                <a href="#terms" class="nav-link">Persyaratan</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('terms') }}" class="nav-link">Persyaratan</a>
+                <a href="#kuota-jalur" class="nav-link">Kuota dan Jalur</a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('data-pendaftar') }}" class="nav-link">Data Pendaftar</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('faq') }}" class="nav-link">FAQ</a>
+                <a href="#faq" class="nav-link">FAQ</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('contact') }}" class="nav-link">Kontak</a>
+                <a href="#contact" class="nav-link">Kontak</a>
             </li>
         </ul>
 
