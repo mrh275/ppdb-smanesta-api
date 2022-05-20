@@ -4,6 +4,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -138,11 +142,11 @@
 
     /* Terms */
     .terms-section {
-        @apply px-6 py-4 my-4 bg-zinc-200 lg:px-16;
+        @apply px-6 pb-4 pt-16 my-4 bg-zinc-200 lg:px-16;
     }
 
     .terms-title {
-        @apply flex flex-col text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-6 lg:pb-8;
+        @apply flex flex-col text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-20 lg:pb-8;
     }
 
     .terms-desc {
@@ -182,7 +186,7 @@
 
     /* Kuota dan Jalur */
     .jalur-section {
-        @apply px-6 py-2 my-4 lg:px-16 lg:pb-8;
+        @apply px-6 pb-2 pt-16 my-4 lg:px-16 lg:pb-8 lg:pt-20;
     }
 
     .jalur-wrapper {

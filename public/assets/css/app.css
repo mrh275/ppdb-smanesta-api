@@ -3,6 +3,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*
 ! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
@@ -803,8 +807,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     background-color: rgb(228 228 231 / var(--tw-bg-opacity));
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-top: 4rem;
 }
 @media (min-width: 1024px){
 
@@ -828,7 +832,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1024px){
 
     .terms-title{
-        padding-top: 1.5rem;
+        padding-top: 5rem;
         padding-bottom: 2rem;
         font-size: 1.875rem;
         line-height: 2.25rem;
@@ -907,8 +911,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-top: 4rem;
 }
 @media (min-width: 1024px){
 
@@ -916,6 +920,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         padding-left: 4rem;
         padding-right: 4rem;
         padding-bottom: 2rem;
+        padding-top: 5rem;
     }
 }
 .jalur-wrapper{
@@ -1410,6 +1415,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-14{
     padding-top: 3.5rem;
 }
+.pt-20{
+    padding-top: 5rem;
+}
 .pt-8{
     padding-top: 2rem;
 }
@@ -1483,6 +1491,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 @media (prefers-color-scheme: dark){
 
     .dark\:border-gray-700{
@@ -1515,6 +1524,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
+
 @media (min-width: 640px){
 
     .sm\:ml-0{
@@ -1562,6 +1572,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         text-align: right;
     }
 }
+
 @media (min-width: 768px){
 
     .md\:grid-cols-2{
@@ -1576,6 +1587,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         border-left-width: 1px;
     }
 }
+
 @media (min-width: 1024px){
 
     .lg\:hidden{
@@ -1589,6 +1601,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 
     .lg\:pt-28{
         padding-top: 7rem;
+    }
+
+    .lg\:pt-32{
+        padding-top: 8rem;
+    }
+
+    .lg\:text-5xl{
+        font-size: 3rem;
+        line-height: 1;
     }
 }
 
