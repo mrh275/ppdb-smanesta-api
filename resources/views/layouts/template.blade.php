@@ -16,9 +16,11 @@
     {{-- Font --}}
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css" />
+
 </head>
 
 <body>
+    @stack('topjs')
     <div class="main-wrapper">
         @include('layouts.partials.navbar')
         @yield('content')
