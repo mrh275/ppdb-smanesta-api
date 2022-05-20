@@ -475,6 +475,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     position: fixed;
     z-index: 10;
     display: flex;
+    height: 48px;
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
@@ -482,11 +483,28 @@ Ensure the default browser behavior of the `hidden` attribute.
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+}
+@media (min-width: 1024px){
+
+    .navbar{
+        height: auto;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+}
+.navbar.fixed-nav{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Brand */
 .brand{
@@ -497,9 +515,34 @@ Ensure the default browser behavior of the `hidden` attribute.
     align-items: center;
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+@media (min-width: 1024px){
+
+    .brand{
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 }
 .brand-img{
     width: 32px;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 1024px){
+
+    .brand-img{
+        width: 51px;
+    }
+
+    .navbar.fixed-nav .brand-img{
+        width: 35px;
+    }
 }
 .brand-title{
     margin-left: auto;
@@ -509,12 +552,34 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .brand-title{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
 }
 /* End Brand */
 /* Menu */
+.menu-wrapper{
+    align-items: center;
+    justify-content: space-evenly;
+}
+@media (min-width: 1024px){
+
+    .menu-wrapper{
+        display: flex;
+    }
+}
 .nav-menu{
     position: absolute;
-    top: 3rem;
+    left: -3px;
+    top: 47px;
     margin-left: 0.25rem;
     margin-right: 0.25rem;
     width: 100%;
@@ -530,6 +595,27 @@ Ensure the default browser behavior of the `hidden` attribute.
     transition-property: all;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 1024px){
+
+    .nav-menu{
+        position: relative;
+        left: 0px;
+        top: 0px;
+        display: flex;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        --tw-translate-y: 0px;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        background-color: transparent;
+        opacity: 1;
+    }
+
+    .navbar.fixed-nav .nav-menu{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 }
 .nav-link{
     margin-top: 0.25rem;
@@ -551,6 +637,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .nav-link:hover{
     --tw-text-opacity: 1;
     color: rgb(0 153 255 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .nav-link{
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 }
 /* End Menu */
 /* Toggle Menu */
@@ -622,11 +718,32 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-left: 1rem;
     padding-right: 1rem;
 }
+.hero-section{
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 1024px){
+
+    .hero-section{
+        display: flex;
+    }
+}
 .hero-splash, .cta-content{
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+.hero-splash, .hero-img{
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 1024px){
+
+    .hero-splash, .hero-img{
+        width: 50%;
+    }
 }
 .hero-title{
     font-size: 1.5rem;
@@ -634,6 +751,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-weight: 700;
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .hero-title{
+        padding-left: 2rem;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .hero-img img{
+        width: 35rem;
+    }
 }
 .ppdb{
     --tw-text-opacity: 1;
@@ -647,6 +776,13 @@ Ensure the default browser behavior of the `hidden` attribute.
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+@media (min-width: 1024px){
+
+    .cta-content{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 }
 .cta-desc{
     text-align: justify;
@@ -670,6 +806,13 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+@media (min-width: 1024px){
+
+    .terms-section{
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
 .terms-title{
     display: flex;
     flex-direction: column;
@@ -682,8 +825,31 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
 }
+@media (min-width: 1024px){
+
+    .terms-title{
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+}
 .terms-desc{
     text-align: justify;
+}
+.terms-content{
+    align-items: flex-start;
+    justify-content: center;
+}
+@media (min-width: 1024px){
+
+    .terms-content{
+        display: flex;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 .regular-terms{
     width: 100%;
@@ -692,9 +858,23 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
 }
+@media (min-width: 1024px){
+
+    .regular-terms{
+        width: 50%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
 .special-terms{
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .special-terms{
+        width: 50%;
+    }
 }
 .regular-terms-title, .special-terms-title{
     font-size: 1.125rem;
@@ -730,8 +910,22 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+@media (min-width: 1024px){
+
+    .jalur-section{
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-bottom: 2rem;
+    }
+}
 .jalur-wrapper{
     padding-top: 1.5rem;
+}
+@media (min-width: 1024px){
+
+    .jalur-wrapper{
+        padding-top: 0px;
+    }
 }
 .jalur-title{
     padding-top: 1rem;
@@ -742,6 +936,25 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-weight: 600;
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .jalur-title{
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+}
+.jalur-content{
+    align-items: flex-start;
+    justify-content: center;
+}
+@media (min-width: 1024px){
+
+    .jalur-content{
+        display: flex;
+    }
 }
 .kuota-title, .jalur-list-title{
     font-size: 1.125rem;
@@ -779,6 +992,13 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 1rem;
     padding-bottom: 2.5rem;
 }
+@media (min-width: 1024px){
+
+    .fasilitas-wrapper{
+        padding-top: 2rem;
+        padding-bottom: 5rem;
+    }
+}
 .fasilitas-title{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -788,6 +1008,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-weight: 600;
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px){
+
+    .fasilitas-title{
+        padding-bottom: 2rem;
+    }
 }
 .fasilitas-wrapper li{
     display: flex;
@@ -817,7 +1043,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Footer */
 .footer-top{
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 1rem;
@@ -876,8 +1102,27 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+@media (min-width: 1024px){
+
+    .footer-middle{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+.footer-related-link{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
 .backlink-list{
     list-style-type: disc;
+}
+@media (min-width: 1024px){
+
+    .backlink-list{
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
 .backlink-link{
     position: relative;
@@ -905,6 +1150,13 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 1rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+}
+@media (min-width: 1024px){
+
+    .footer-bottom{
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 .footer-bottom-left, .footer-bottom-right{
     text-align: center;
@@ -934,9 +1186,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* End Buttons */
 /* Dark Mode */
 .toggle-darkMode{
+    position: relative;
     z-index: 10;
     margin-right: 0.75rem;
     display: block;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     cursor: pointer;
     border-radius: 9999px;
     border-width: 1px;
@@ -945,12 +1204,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-bg-opacity: 1;
     background-color: rgb(63 63 70 / var(--tw-bg-opacity));
     padding: 0.25rem;
-}
-@media (min-width: 1024px){
-
-    .toggle-darkMode{
-        position: relative;
-    }
 }
 .bxs-sun, .bxs-moon{
     transition-property: all;
@@ -965,31 +1218,35 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-bg-opacity: 1;
     background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
-.dark .navbar-brand{
+.dark .navbar-brand, .dark .navbar{
     --tw-bg-opacity: 1;
     background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 @media (min-width: 1024px){
 
-    .dark .navbar-brand{
+    .dark .navbar-brand, .dark .navbar{
         background-color: transparent;
     }
 }
-.dark .nav-menu, .dark .navbar, .dark .brand{
+.dark .nav-menu, .dark .brand{
     --tw-bg-opacity: 1;
     background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 @media (min-width: 1024px){
 
-    .dark .nav-menu, .dark .navbar, .dark .brand{
+    .dark .nav-menu, .dark .brand{
         background-color: transparent;
     }
+}
+.dark .navbar.fixed-nav{
+    --tw-bg-opacity: 1;
+    background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 .dark .terms-section, .dark .fasilitas-wrapper, .dark .footer-bottom{
     --tw-bg-opacity: 1;
     background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
-.dark .brand, .dark .nav-link, .dark .hero-title, .dark .cta-desc, .dark .terms-title, .dark .terms-desc, .dark .regular-terms, .dark .special-terms, .dark .keterangan, .dark .jalur-title, .dark .kuota-title, .dark .kuota-list, .dark .kuota-desc, .dark .jalur-list-title, .dark .jalur-list, .dark .jalur-desc, .dark .fasilitas-title, .dark .fasilitas-sub, .dark .svg-inline--fa, .dark .footer-top, .dark .footer-brand-text, .dark .footer-text, .dark .backlink-link, .dark .footer-bottom{
+.dark .brand, .dark .brand-title, .dark .nav-link, .dark .hero-title, .dark .cta-desc, .dark .terms-title, .dark .terms-desc, .dark .regular-terms, .dark .special-terms, .dark .keterangan, .dark .jalur-title, .dark .kuota-title, .dark .kuota-list, .dark .kuota-desc, .dark .jalur-list-title, .dark .jalur-list, .dark .jalur-desc, .dark .fasilitas-title, .dark .fasilitas-sub, .dark .svg-inline--fa, .dark .footer-top, .dark .footer-brand-text, .dark .footer-text, .dark .backlink-link, .dark .footer-bottom{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -1015,6 +1272,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .relative{
     position: relative;
+}
+.bottom-20{
+    bottom: 5rem;
+}
+.-bottom-10{
+    bottom: -2.5rem;
 }
 .top-0{
     top: 0px;
@@ -1220,7 +1483,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 @media (prefers-color-scheme: dark){
 
     .dark\:border-gray-700{
@@ -1253,7 +1515,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
-
 @media (min-width: 640px){
 
     .sm\:ml-0{
@@ -1301,7 +1562,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         text-align: right;
     }
 }
-
 @media (min-width: 768px){
 
     .md\:grid-cols-2{
@@ -1316,7 +1576,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         border-left-width: 1px;
     }
 }
-
 @media (min-width: 1024px){
 
     .lg\:hidden{
@@ -1326,6 +1585,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     .lg\:px-8{
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+
+    .lg\:pt-28{
+        padding-top: 7rem;
     }
 }
 

@@ -17,30 +17,43 @@
 
     /* Navbar */
     .navbar {
-        @apply w-full fixed flex justify-evenly items-center bg-white shadow-lg px-4 py-2 z-10;
+        @apply w-full fixed flex h-[48px] lg:h-auto justify-evenly lg:justify-between items-center bg-white lg:shadow-none px-4 lg:py-2 z-10;
+    }
+
+    .navbar.fixed-nav {
+        @apply bg-white shadow-md transition-all duration-200 ease-in-out;
     }
 
     /* Brand */
     .brand {
-        @apply w-full flex items-center relative z-10 bg-white;
+        @apply w-full lg:w-max flex items-center relative z-10 bg-white py-2 lg:py-0;
     }
 
     .brand-img {
-        @apply w-[32px];
+        @apply w-[32px] lg:w-[51px] transition-all ease-in-out duration-200;
+    }
+
+    .navbar.fixed-nav .brand-img {
+        @apply lg:w-[35px];
     }
 
     .brand-title {
-        @apply inline-block mx-auto text-center font-semibold text-base;
+        @apply inline-block mx-auto text-center font-semibold text-base lg:text-xl lg:mx-4 text-zinc-800;
     }
     /* End Brand */
 
     /* Menu */
-    .nav-menu {
-        @apply absolute bg-white w-full top-[3rem] rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 transition-all ease-in-out duration-300;
+    .menu-wrapper {
+        @apply lg:flex items-center justify-evenly;
     }
-
+    .nav-menu {
+        @apply absolute lg:relative bg-white lg:bg-transparent w-full lg:w-max -left-[3px] lg:left-0 top-[47px] lg:top-0 rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 lg:opacity-100 lg:translate-y-0 transition-all ease-in-out duration-300 lg:flex;
+    }
+    .navbar.fixed-nav .nav-menu {
+        @apply lg:py-0;
+    }
     .nav-link {
-        @apply w-full inline-block text-center text-zinc-800 font-semibold py-1 my-1 hover:text-[#0099ff] transition duration-200;
+        @apply w-full lg:w-max inline-block text-center text-zinc-800 font-semibold py-1 my-1 hover:text-[#0099ff] transition duration-200 lg:px-2;
     }
 
     /* End Menu */
@@ -82,13 +95,26 @@
         @apply px-4;
     }
 
+    .hero-section {
+        @apply lg:flex flex-row-reverse items-center justify-center;
+    }
+
     .hero-splash,
     .cta-content {
         @apply px-4 my-4;
     }
 
+    .hero-splash,
+    .hero-img {
+        @apply lg:w-1/2 flex justify-center;
+    }
+
     .hero-title {
-        @apply text-zinc-700 font-bold text-2xl;
+        @apply text-zinc-700 font-bold text-2xl lg:text-3xl lg:pl-8;
+    }
+
+    .hero-img img {
+        @apply lg:w-[35rem];
     }
 
     .ppdb {
@@ -98,7 +124,7 @@
 
     /* CTA */
     .cta-content {
-        @apply w-full flex flex-col items-center justify-center;
+        @apply w-full flex flex-col items-center justify-center lg:py-6;
     }
 
     .cta-desc {
@@ -112,23 +138,27 @@
 
     /* Terms */
     .terms-section {
-        @apply px-6 py-4 my-4 bg-zinc-200;
+        @apply px-6 py-4 my-4 bg-zinc-200 lg:px-16;
     }
 
     .terms-title {
-        @apply flex flex-col text-center font-semibold text-2xl text-zinc-700 py-4;
+        @apply flex flex-col text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-6 lg:pb-8;
     }
 
     .terms-desc {
         @apply text-justify;
     }
 
+    .terms-content {
+        @apply lg:flex justify-center items-start lg:py-4 lg:px-8;
+    }
+
     .regular-terms {
-        @apply w-full py-4 text-zinc-700;
+        @apply w-full py-4 lg:py-0 text-zinc-700 lg:w-1/2;
     }
 
     .special-terms {
-        @apply text-zinc-700;
+        @apply text-zinc-700 lg:w-1/2;
     }
 
     .regular-terms-title,
@@ -152,15 +182,19 @@
 
     /* Kuota dan Jalur */
     .jalur-section {
-        @apply px-6 py-2 my-4;
+        @apply px-6 py-2 my-4 lg:px-16 lg:pb-8;
     }
 
     .jalur-wrapper {
-        @apply pt-6;
+        @apply pt-6 lg:pt-0;
     }
 
     .jalur-title {
-        @apply text-center font-semibold text-2xl text-zinc-700 py-4;
+        @apply text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-4 lg:pb-8;
+    }
+
+    .jalur-content {
+        @apply lg:flex justify-center items-start;
     }
 
     .kuota-title,
@@ -186,11 +220,11 @@
 
     /* Fasilitas */
     .fasilitas-wrapper {
-        @apply bg-zinc-200 px-6 pt-4 pb-10 my-4;
+        @apply bg-zinc-200 px-6 pt-4 pb-10 my-4 lg:pt-8 lg:pb-20;
     }
 
     .fasilitas-title {
-        @apply text-2xl text-center font-semibold text-zinc-700 py-4;
+        @apply text-2xl text-center font-semibold text-zinc-700 py-4 lg:pb-8;
     }
 
     .fasilitas-wrapper li {
@@ -217,7 +251,7 @@
 
     /* Footer */
     .footer-top {
-        @apply px-8 py-4 lg:flex justify-between items-center;
+        @apply px-8 py-4 lg:flex justify-evenly items-center;
     }
     .footer-left,
     .footer-middle,
@@ -241,18 +275,22 @@
     }
 
     .footer-middle {
-        @apply px-6 py-4;
+        @apply px-6 lg:px-20 py-4;
+    }
+
+    .footer-related-link {
+        @apply py-2 font-bold;
     }
 
     .backlink-list {
-        @apply list-disc;
+        @apply list-disc lg:px-5;
     }
     .backlink-link {
         @apply inline-block relative text-zinc-800 transition-all ease-in-out duration-200 hover:translate-x-1.5 hover:text-[#0099ff];
     }
 
     .footer-bottom {
-        @apply bg-zinc-300 flex flex-col justify-center items-center px-4 py-6;
+        @apply bg-zinc-300 flex flex-col lg:flex-row justify-center lg:justify-between items-center px-4 py-6;
     }
 
     .footer-bottom-left,
@@ -273,7 +311,7 @@
 
     /* Dark Mode */
     .toggle-darkMode {
-        @apply block border border-zinc-600 bg-zinc-700 p-1 rounded-full cursor-pointer lg:relative z-10 mr-3;
+        @apply block relative w-max h-max border border-zinc-600 bg-zinc-700 p-1 rounded-full cursor-pointer z-10 mr-3;
     }
 
     .bxs-sun,
@@ -290,14 +328,18 @@
         @apply bg-zinc-800;
     }
 
-    .dark .navbar-brand {
+    .dark .navbar-brand,
+    .dark .navbar {
         @apply bg-zinc-800 lg:bg-transparent;
     }
 
     .dark .nav-menu,
-    .dark .navbar,
     .dark .brand {
         @apply bg-zinc-800 lg:bg-transparent;
+    }
+
+    .dark .navbar.fixed-nav {
+        @apply bg-zinc-800;
     }
 
     .dark .terms-section,
@@ -307,6 +349,7 @@
     }
 
     .dark .brand,
+    .dark .brand-title,
     .dark .nav-link,
     .dark .hero-title,
     .dark .cta-desc,
