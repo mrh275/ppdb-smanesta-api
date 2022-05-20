@@ -8,7 +8,7 @@
                 </div>
                 <div class="footer-text">
                     <p class="py-2">
-                        Address <br>
+                        <strong>Address</strong> <br>
                         Jl. Raya Garunggung - Panyingkiran Kec. Rawamerta Kab. Karawang, Jawa Barat 41382
                     </p>
                     <p>
@@ -27,6 +27,7 @@
             </div>
             <hr class="border-b border-b-zinc-300 w-full lg:hidden">
             <div class="footer-middle">
+                <h3 class="footer-related-link">Link Terkait</h3>
                 <div class="backlink">
                     <ul class="backlink-list">
                         <li class="backlink-item">
