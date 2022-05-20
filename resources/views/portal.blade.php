@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="wrapper relative pt-14 ">
+    <div class="wrapper relative pt-14 lg:pt-28">
         {{-- Hero Section --}}
         <div class="hero-section">
             <div class="hero-img">
@@ -66,16 +66,16 @@
                         <li>Surat Keterangan Domisili</li>
                         <li>Surat Tugas Orang Tua</li>
                     </ul>
-
-                    <span class="keterangan">
-                        <span class="text-red-500">*</span> Persyaratan khusus disesuaikan dengan Jalur Pendaftaran yang dipilih. <br>
-                        <span class="text-red-500">**</span> Untuk melihat persyaratan berdasarkan Jalur Pendaftaran, silahkan klik tombol dibawah ini.
-                    </span>
-
-                    <div class="terms-btn-wrapper">
-                        <a href="{{ url('terms') }}" class="terms-btn btn btn-primary">Baca Persyaratan Pendaftaran</a>
-                    </div>
                 </div>
+
+            </div>
+            <span class="keterangan">
+                <span class="text-red-500">*</span> Persyaratan khusus disesuaikan dengan Jalur Pendaftaran yang dipilih. <br>
+                <span class="text-red-500">**</span> Untuk melihat persyaratan berdasarkan Jalur Pendaftaran, silahkan klik tombol dibawah ini.
+            </span>
+
+            <div class="terms-btn-wrapper">
+                <a href="{{ url('terms') }}" class="terms-btn btn btn-primary">Baca Persyaratan Pendaftaran</a>
             </div>
         </div>
         {{-- End Persyaratan --}}
@@ -100,7 +100,7 @@
                         <span class="text-red-500">*</span> Informasi lebih lengkap tentang Kuota Pendaftaran, silahkan klik tombol dibawah ini.
                     </p>
                     <div class="kuota-btn-wrapper">
-                        <a href="{{ url('kuota') }}" class="btn btn-primary btn-kuota">Kuota Pendaftaran</a>
+                        <a href="{{ url('kuota-jalur') }}" class="btn btn-primary btn-kuota">Kuota Pendaftaran</a>
                     </div>
                 </div>
                 <div class="jalur-wrapper">
@@ -117,7 +117,7 @@
                         <span class="text-red-500">*</span> Informasi lebih lengkap tentang Jalur Pendaftaran, silahkan klik tombol dibawah ini.
                     </p>
                     <div class="jalur-btn-wrapper">
-                        <a href="{{ url('jalur') }}" class="btn btn-primary btn-jalur">Jalur Pendaftaran</a>
+                        <a href="{{ url('kuota-jalur') }}" class="btn btn-primary btn-jalur">Jalur Pendaftaran</a>
                     </div>
                 </div>
             </div>
