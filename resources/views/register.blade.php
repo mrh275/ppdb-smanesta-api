@@ -6,6 +6,7 @@
             <h2 class="register-title">
                 Pendaftaran PPDB
             </h2>
+            {{-- Progress Bar --}}
             <div class="progress-bar">
                 <section class="step-wizard">
                     <ul class="step-wizard-list">
@@ -13,7 +14,7 @@
                             <span class="progress-count"><i class="fa-solid fa-user"></i></span>
                             <span class="progress-label">Data Diri</span>
                         </li>
-                        <li class="step-wizard-item" id="data-orang-tua">
+                        <li class="step-wizard-item " id="data-orang-tua">
                             <span class="progress-count"><i class="fa-solid fa-users"></i></span>
                             <span class="progress-label">Data Orang Tua</span>
                         </li>
@@ -27,6 +28,11 @@
                         </li>
                     </ul>
                 </section>
+            </div>
+            {{-- End Progress Bar --}}
+            <div class="form-section">
+                @include('layouts.partials.forms.biodata')
+                @include('layouts.partials.forms.orang-tua')
             </div>
         </div>
     </div>
@@ -89,11 +95,13 @@
         // End Back Button
 
         // Next Button
-        btnDataDiri.addEventListener('click', function() {
+        function dataDiriNext() {
             dataDiri.classList.remove('current-item');
             dataDiri.firstElementChild.classList.add('completed');
             dataOrangTua.classList.add('current-item');
-        });
+            document.querySelector('.form-biodata-wrapper').classList.add('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+        };
         btnDataOrangTua.addEventListener('click', function() {
             dataOrangTua.classList.remove('current-item');
             dataOrangTua.firstElementChild.classList.add('completed');
