@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->string('kelas');
+            $table->string('asal_sekolah');
             $table->integer('tahun_lulus');
+            $table->string('kelas');
             $table->string('alamat');
             $table->string('dusun');
             $table->string('rt');
