@@ -1247,7 +1247,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .form-biodata{
     position: relative;
 }
-.form-orang-tua-wrapper, .form-periodik-wrapper{
+.form-orang-tua-wrapper, .form-periodik-wrapper, .form-kesejahteraan-wrapper{
     position: absolute;
     left: 0px;
     top: 24px;
@@ -1261,12 +1261,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-biodata-wrapper.completed, .form-orang-tua-wrapper.completed, .form-periodik-wrapper.completed{
+.form-biodata-wrapper.completed, .form-orang-tua-wrapper.completed, .form-periodik-wrapper.completed, .form-kesejahteraan-wrapper.completed{
     --tw-translate-x: -100%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     opacity: 0;
 }
-.form-orang-tua-wrapper.show, .form-periodik-wrapper.show{
+.form-orang-tua-wrapper.show, .form-periodik-wrapper.show, .form-kesejahteraan-wrapper.show{
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     opacity: 1;
