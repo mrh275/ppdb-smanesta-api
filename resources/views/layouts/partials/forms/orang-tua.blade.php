@@ -105,8 +105,8 @@
             </div>
         </div>
         <div class="form-btn">
-            <button type="button" class="btn btn-secondary opacity-0 cursor-default" disabled>Kembali</button>
-            <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="dataDiriNext()">
+            <button type="button" class="btn btn-secondary" onclick="backToDataDiri()">Kembali</button>
+            <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="dataOrangTuaNext()">
                 Simpan
             </button>
         </div>
