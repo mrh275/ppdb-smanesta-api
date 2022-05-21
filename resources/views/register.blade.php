@@ -113,32 +113,103 @@
 
         // Next Button
         function dataDiriNext() {
-            dataDiri.classList.remove('current-item');
-            dataDiri.firstElementChild.classList.add('completed');
-            dataOrangTua.classList.add('current-item');
-            document.querySelector('.form-biodata-wrapper').classList.add('completed')
-            document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+            Swal.fire({
+                title: 'Sedang menyimpan data...',
+                timer: 2000,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            }).
+            then((dismiss) => {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 3000,
+                    timerProgressBar: true,
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Data diri tersimpan'
+                })
+                dataDiri.classList.remove('current-item');
+                dataDiri.firstElementChild.classList.add('completed');
+                dataOrangTua.classList.add('current-item');
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+            })
         };
 
         function dataOrangTuaNext() {
-            dataOrangTua.classList.remove('current-item');
-            dataOrangTua.firstElementChild.classList.add('completed');
-            dataPeriodik.classList.add('current-item');
-            document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
-            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
-            document.querySelector('.form-periodik-wrapper').classList.add('show')
-            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+            Swal.fire({
+                title: 'Sedang menyimpan data...',
+                timer: 2000,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            }).
+            then((dismiss) => {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 3000,
+                    timerProgressBar: true,
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Data orang tua tersimpan'
+                })
+                dataOrangTua.classList.remove('current-item');
+                dataOrangTua.firstElementChild.classList.add('completed');
+                dataPeriodik.classList.add('current-item');
+                document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+                document.querySelector('.form-periodik-wrapper').classList.add('show')
+                document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+            })
+
         };
 
         function dataPeriodikNext() {
-            dataPeriodik.classList.remove('current-item');
-            dataPeriodik.firstElementChild.classList.add('completed');
-            dataKesejahteraan.classList.add('current-item');
-            document.querySelector('.form-periodik-wrapper').classList.add('completed')
-            document.querySelector('.form-periodik-wrapper').classList.remove('show')
-            document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
-            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
-            document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+            Swal.fire({
+                title: 'Sedang menyimpan data...',
+                timer: 2000,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            }).
+            then((dismiss) => {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 3000,
+                    timerProgressBar: true,
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Data periodik tersimpan'
+                })
+                dataPeriodik.classList.remove('current-item');
+                dataPeriodik.firstElementChild.classList.add('completed');
+                dataKesejahteraan.classList.add('current-item');
+                document.querySelector('.form-periodik-wrapper').classList.add('completed')
+                document.querySelector('.form-periodik-wrapper').classList.remove('show')
+                document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+                document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+                document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+            })
+
         };
         // End Next Button
     </script>
