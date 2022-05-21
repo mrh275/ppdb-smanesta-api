@@ -6,101 +6,136 @@
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
-                    <label for="nisn">NISN</label>
-                    <input type="number" class="form-control" id="nisn" name="nisn">
+                    <label for="nama_ayah">Nama Ayah</label>
+                    <input type="text" class="form-control" id="nama_ayah" name="nama_ayah">
                 </div>
                 <div class="form-group">
-                    <label for="nama">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="nama" name="nama">
+                    <label for="tempat_lahir_ayah">Tempat Lahir Ayah</label>
+                    <input type="text" class="form-control" id="tempat_lahir_ayah" name="tempat_lahir_ayah">
                 </div>
                 <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="form-select" id="jenis_kelamin">
+                    <label for="tanggal_lahir_ayah">Tanggal Lahir Ayah</label>
+                    <input type="text" class="form-control" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah">
+                </div>
+                <div class="form-group">
+                    <label for="pendidikan_ayah">Pendidikan Ayah</label>
+                    <select name="pendidikan_ayah" id="input-pendidikan-ayah" class="form-select">
                         <option value="">Pilih :</option>
-                        <option value="L">Laki-laki</option>
-                        <option value="P">Perempuan</option>
+                        <option value="1">Tidak Bersekolah</option>
+                        <option value="2">SD</option>
+                        <option value="3">SMP</option>
+                        <option value="4">SMA</option>
+                        <option value="5">D1</option>
+                        <option value="6">D2</option>
+                        <option value="7">D3</option>
+                        <option value="8">D4/S1</option>
+                        <option value="9">S2</option>
+                        <option value="10">S3</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="tempat_lahir">Tempat Lahir</label>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
-                </div>
-                <div class="form-group">
-                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
-                </div>
-                <div class="form-group">
-                    <label for="asal_sekolah">Asal Sekolah</label>
-                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
-                </div>
-                <div class="form-group">
-                    <label for="angkatan">Tahun Lulus</label>
-                    <select name="angkatan" id="angkatan" class="form-select">
+                    <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                    <select name="pekerjaan_ayah" id="input-pekerjaan-ayah" class="form-select">
                         <option value="">Pilih :</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
+                        <option value="1">Tidak Bekerja</option>
+                        <option value="2">PNS</option>
+                        <option value="3">TNI</option>
+                        <option value="4">Polri</option>
+                        <option value="5">Pegawai Swasta</option>
+                        <option value="6">Wiraswasta</option>
+                        <option value="7">Petani</option>
+                        <option value="8">Buruh</option>
+                        <option value="9">Nelayan</option>
+                        <option value="10">Pedagang</option>
+                        <option value="11">Pensiunan</option>
+                        <option value="12">Peternak</option>
+                        <option value="13">Pengusaha</option>
+                        <option value="99">Lainnya</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="kelas">Kelas</label>
-                    <select name="kelas" id="kelas" class="form-select">
+                    <label for="penghasilan_ayah">Penghasilan Ayah</label>
+                    <select name="penghasilan_ayah" id="input-penghasilan-ayah" class="form-control">
                         <option value="">Pilih :</option>
-                        <option value="1">9A</option>
-                        <option value="2">9B</option>
-                        <option value="3">9C</option>
-                        <option value="4">9D</option>
-                        <option value="5">9E</option>
-                        <option value="6">9F</option>
-                        <option value="7">9G</option>
-                        <option value="8">9H</option>
-                        <option value="9">9I</option>
-                        <option value="10">9J</option>
+                        <option value="1">Tidak Berpenghasilan</option>
+                        <option value="2">Kurang dari Rp. 1.000.000</option>
+                        <option value="3">Rp. 1.000.000 - Rp. 3.000.000</option>
+                        <option value="4">Rp. 3.000.000 - Rp. 5.000.000</option>
+                        <option value="5">Rp. 5.000.000 - Rp. 10.000.000</option>
+                        <option value="6">Rp. 10.000.000 - Rp. 20.000.000</option>
+                        <option value="7">Lebih dari Rp. 20.000.000</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="alamat_ayah">Alamat Ayah</label>
+                    <textarea name="alamat_ayah" class="form-control" id="input-alamat-ayah" rows="3">{{ old('alamat_ayah') }}</textarea>
                 </div>
             </div>
             <div class="form-section-right">
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"></textarea>
+                    <label for="nama_ibu">Nama Ibu</label>
+                    <input type="text" class="form-control" id="nama_ibu" name="nama_ibu">
                 </div>
-                <div class="address-group">
-                    <div class="form-group dusun">
-                        <label for="dusun">Dusun</label>
-                        <input type="text" class="form-control" id="dusun" name="dusun">
-                    </div>
-                    <div class="form-group rt">
-                        <label for="rt">RT</label>
-                        <input type="text" class="form-control" id="rt" name="rt">
-                    </div>
-                    <div class="form-group rw">
-                        <label for="rw">RW</label>
-                        <input type="text" class="form-control" id="rw" name="rw">
-                    </div>
+                <div class="form-group">
+                    <label for="tempat_lahir_ibu">Tempat Lahir Ibu</label>
+                    <input type="text" class="form-control" id="tempat_lahir_ibu" name="tempat_lahir_ibu">
                 </div>
-                <div class="address-group">
-                    <div class="form-group desa">
-                        <label for="desa">Desa</label>
-                        <input type="text" class="form-control" id="desa" name="desa">
-                    </div>
-                    <div class="form-group kecamatan">
-                        <label for="kecamatan">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan">
-                    </div>
+                <div class="form-group">
+                    <label for="tanggal_lahir_ibu">Tanggal Lahir Ibu</label>
+                    <input type="text" class="form-control" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu">
                 </div>
-                <div class="address-group">
-                    <div class="form-group kabupaten">
-                        <label for="kabupaten">Kabupaten</label>
-                        <input type="text" class="form-control" id="kabupaten" name="kabupaten">
-                    </div>
-                    <div class="form-group provinsi">
-                        <label for="provinsi">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi">
-                    </div>
-                    <div class="form-group kode-pos">
-                        <label for="kode_pos">Kode POS</label>
-                        <input type="text" class="form-control" id="kode_pos" name="kode_pos">
-                    </div>
+                <div class="form-group">
+                    <label for="pendidikan_ibu">Pendidikan Ibu</label>
+                    <select name="pendidikan_ibu" id="input-pendidikan-ibu" class="form-select">
+                        <option value="">Pilih :</option>
+                        <option value="1">Tidak Bersekolah</option>
+                        <option value="2">SD</option>
+                        <option value="3">SMP</option>
+                        <option value="4">SMA</option>
+                        <option value="5">D1</option>
+                        <option value="6">D2</option>
+                        <option value="7">D3</option>
+                        <option value="8">D4/S1</option>
+                        <option value="9">S2</option>
+                        <option value="10">S3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                    <select name="pekerjaan_ibu" id="input-pekerjaan-ibu" class="form-select">
+                        <option value="">Pilih :</option>
+                        <option value="1">Tidak Bekerja</option>
+                        <option value="2">PNS</option>
+                        <option value="3">TNI</option>
+                        <option value="4">Polri</option>
+                        <option value="5">Pegawai Swasta</option>
+                        <option value="6">Wiraswasta</option>
+                        <option value="7">Petani</option>
+                        <option value="8">Buruh</option>
+                        <option value="9">Nelayan</option>
+                        <option value="10">Pedagang</option>
+                        <option value="11">Pensiunan</option>
+                        <option value="12">Peternak</option>
+                        <option value="13">Pengusaha</option>
+                        <option value="99">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="penghasilan_ibu">Penghasilan Ibu</label>
+                    <select name="penghasilan_ibu" id="input-penghasilan-ibu" class="form-select">
+                        <option value="">Pilih :</option>
+                        <option value="1">Tidak Berpenghasilan</option>
+                        <option value="2">Kurang dari Rp. 1.000.000</option>
+                        <option value="3">Rp. 1.000.000 - Rp. 3.000.000</option>
+                        <option value="4">Rp. 3.000.000 - Rp. 5.000.000</option>
+                        <option value="5">Rp. 5.000.000 - Rp. 10.000.000</option>
+                        <option value="6">Rp. 10.000.000 - Rp. 20.000.000</option>
+                        <option value="7">Lebih dari Rp. 20.000.000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alamat_ibu">Alamat Ibu</label>
+                    <textarea name="alamat_ibu" class="form-control" id="input-alamat-ibu" rows="3">{{ old('alamat_ibu') }}</textarea>
                 </div>
             </div>
         </div>

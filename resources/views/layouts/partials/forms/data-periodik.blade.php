@@ -6,100 +6,114 @@
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
-                    <label for="nisn">NISN</label>
-                    <input type="number" class="form-control" id="nisn" name="nisn">
+                    <label for="jenjang">Jenjang</label>
+                    <select name="jenjang" id="jenjang" class="form-select">
+                        <option value="">Pilih :</option>
+                        <option value="1">SMP</option>
+                        <option value="2">MTs</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="nama">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="nama" name="nama">
+                    <label for="nama_sekolah_asal">Nama Sekolah Asal</label>
+                    <input type="text" class="form-control" id="nama_sekolah_asal" name="nama_sekolah_asal">
                 </div>
                 <div class="form-group">
                     <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="form-select" id="jenis_kelamin">
-                        <option value="">Pilih :</option>
-                        <option value="L">Laki-laki</option>
-                        <option value="P">Perempuan</option>
-                    </select>
+                    <textarea name="alamat_sekolah_asal" id="alamat_sekolah_asal" cols="30" rows="3" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="tempat_lahir">Tempat Lahir</label>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                    <label for="nomor_ijazah">Nomor Ijazah</label>
+                    <input type="text" class="form-control" id="nomor_ijazah" name="nomor_ijazah">
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
-                </div>
-                <div class="form-group">
-                    <label for="asal_sekolah">Asal Sekolah</label>
-                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
-                </div>
-                <div class="form-group">
-                    <label for="angkatan">Tahun Lulus</label>
-                    <select name="angkatan" id="angkatan" class="form-select">
-                        <option value="">Pilih :</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="kelas">Kelas</label>
-                    <select name="kelas" id="kelas" class="form-select">
-                        <option value="">Pilih :</option>
-                        <option value="1">9A</option>
-                        <option value="2">9B</option>
-                        <option value="3">9C</option>
-                        <option value="4">9D</option>
-                        <option value="5">9E</option>
-                        <option value="6">9F</option>
-                        <option value="7">9G</option>
-                        <option value="8">9H</option>
-                        <option value="9">9I</option>
-                        <option value="10">9J</option>
-                    </select>
+                    <label for="nopes_ujian">Nomor Peserta Ujian Sekolah</label>
+                    <input type="text" class="form-control" id="nopes_ujian" name="nopes_ujian">
                 </div>
             </div>
             <div class="form-section-right">
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"></textarea>
-                </div>
                 <div class="address-group">
-                    <div class="form-group dusun">
-                        <label for="dusun">Dusun</label>
-                        <input type="text" class="form-control" id="dusun" name="dusun">
+                    <div class="form-group hobi">
+                        <label for="hobi">Hobi</label>
+                        <select name="hobi" id="hobi" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1">Belanja</option>
+                            <option value="2">Berkemah</option>
+                            <option value="3">Bermain Bola</option>
+                            <option value="4">Bermain Biola</option>
+                            <option value="5">Main Musik</option>
+                            <option value="6">Futsal</option>
+                            <option value="7">Membaca</option>
+                            <option value="8">Menulis</option>
+                            <option value="9">Mendaki</option>
+                            <option value="10">Menyanyi</option>
+                            <option value="11">Menari</option>
+                            <option value="12">Bermain Game</option>
+                            <option value="13">Fotografi</option>
+                            <option value="14">Videografi</option>
+                            <option value="15">Memancing</option>
+                            <option value="16">Traveling</option>
+                            <option value="17">Berenang</option>
+                            <option value="18">Olahraga</option>
+                            <option value="19">Kesenian</option>
+                            <option value="20">Lainnya</option>
+                        </select>
                     </div>
-                    <div class="form-group rt">
-                        <label for="rt">RT</label>
-                        <input type="text" class="form-control" id="rt" name="rt">
-                    </div>
-                    <div class="form-group rw">
-                        <label for="rw">RW</label>
-                        <input type="text" class="form-control" id="rw" name="rw">
+
+                    <div class="form-group cita-cita">
+                        <label for="cita_cita">Cita-cita</label>
+                        <select name="cita_cita" id="cita_cita" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1">Arsitek</option>
+                            <option value="2">Atlet</option>
+                            <option value="3">Astronot</option>
+                            <option value="4">Bidan</option>
+                            <option value="5">Content Creator Musik</option>
+                            <option value="6">Desainer</option>
+                            <option value="7">Dokter</option>
+                            <option value="8">Entertainer</option>
+                            <option value="9">Guru/Dosen</option>
+                            <option value="10">Koki/Chef</option>
+                            <option value="11">PNS/TNI/Polri</option>
+                            <option value="12">Pembalap</option>
+                            <option value="13">Fotographer</option>
+                            <option value="14">Videographer</option>
+                            <option value="15">Pembawa Acara</option>
+                            <option value="16">Pengacara</option>
+                            <option value="17">Penulis</option>
+                            <option value="18">Pengusaha</option>
+                            <option value="19">Politikus</option>
+                            <option value="20">Lainnya</option>
+                        </select>
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group desa">
-                        <label for="desa">Desa</label>
-                        <input type="text" class="form-control" id="desa" name="desa">
+                        <label for="tinggi_badan">Tinggi Badan (cm)</label>
+                        <input type="number" class="form-control" id="tinggi_badan" name="tinggi_badan">
                     </div>
                     <div class="form-group kecamatan">
-                        <label for="kecamatan">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan">
+                        <label for="berat_badan">Berat Badan (kg)</label>
+                        <input type="number" class="form-control" id="berat_badan" name="berat_badan">
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group kabupaten">
-                        <label for="kabupaten">Kabupaten</label>
-                        <input type="text" class="form-control" id="kabupaten" name="kabupaten">
+                        <label for="jarak_rumah">Jarak Rumah ke Sekolah (m)</label>
+                        <input type="number" class="form-control" id="jarak_rumah" name="jarak_rumah">
                     </div>
                     <div class="form-group provinsi">
-                        <label for="provinsi">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi">
+                        <label for="waktu_tempuh">Waktu Tempuh (menit)</label>
+                        <input type="number" class="form-control" id="waktu_tempuh" name="waktu_tempuh">
                     </div>
-                    <div class="form-group kode-pos">
-                        <label for="kode_pos">Kode POS</label>
-                        <input type="text" class="form-control" id="kode_pos" name="kode_pos">
+                </div>
+                <div class="address-group">
+                    <div class="form-group anak-ke">
+                        <label for="anak_ke">Anak ke berapa</label>
+                        <input type="number" class="form-control" id="anak_ke" name="anak_ke">
+                    </div>
+                    <div class="form-group jumlah-saudara">
+                        <label for="jumlah_saudara">Jumlah Saudara</label>
+                        <input type="number" class="form-control" id="jumlah_saudara" name="jumlah_saudara">
                     </div>
                 </div>
             </div>
