@@ -31,10 +31,12 @@
             </div>
             {{-- End Progress Bar --}}
             <div class="form-section">
-                @include('layouts.partials.forms.biodata')
-                @include('layouts.partials.forms.orang-tua')
-                @include('layouts.partials.forms.data-periodik')
-                @include('layouts.partials.forms.kesejahteraan')
+                <div class="form-wrapper-responsive">
+                    @include('layouts.partials.forms.biodata')
+                    @include('layouts.partials.forms.orang-tua')
+                    @include('layouts.partials.forms.data-periodik')
+                    @include('layouts.partials.forms.kesejahteraan')
+                </div>
             </div>
         </div>
     </div>
@@ -94,6 +96,7 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
         };
 
         function backToDataPeriodik() {
@@ -103,6 +106,8 @@
             document.querySelector('.form-periodik-wrapper').classList.remove('completed')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
         };
         // End Back Button
 
@@ -122,6 +127,7 @@
             document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
+            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
         };
 
         function dataPeriodikNext() {
@@ -131,6 +137,8 @@
             document.querySelector('.form-periodik-wrapper').classList.add('completed')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
         };
         // End Next Button
     </script>
