@@ -1247,7 +1247,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .form-biodata{
     position: relative;
 }
-.form-orang-tua-wrapper{
+.form-orang-tua-wrapper, .form-periodik-wrapper{
     position: absolute;
     left: 0px;
     top: 24px;
@@ -1261,12 +1261,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-biodata-wrapper.completed{
+.form-biodata-wrapper.completed, .form-orang-tua-wrapper.completed, .form-periodik-wrapper.completed{
     --tw-translate-x: -100%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     opacity: 0;
 }
-.form-orang-tua-wrapper.show{
+.form-orang-tua-wrapper.show, .form-periodik-wrapper.show{
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     opacity: 1;
@@ -1313,7 +1313,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-radius: 0.5rem;
     border-width: 1px;
     --tw-border-opacity: 1;
-    border-color: rgb(228 228 231 / var(--tw-border-opacity));
+    border-color: rgb(212 212 216 / var(--tw-border-opacity));
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.25rem;
@@ -1338,7 +1338,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-radius: 0.5rem;
     border-width: 1px;
     --tw-border-opacity: 1;
-    border-color: rgb(228 228 231 / var(--tw-border-opacity));
+    border-color: rgb(212 212 216 / var(--tw-border-opacity));
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.25rem;
@@ -1849,6 +1849,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 @media (prefers-color-scheme: dark){
 
     .dark\:border-gray-700{
@@ -1881,6 +1882,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
+
 @media (min-width: 640px){
 
     .sm\:ml-0{
@@ -1928,6 +1930,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         text-align: right;
     }
 }
+
 @media (min-width: 768px){
 
     .md\:grid-cols-2{
@@ -1942,6 +1945,7 @@ Ensure the default browser behavior of the `hidden` attribute.
         border-left-width: 1px;
     }
 }
+
 @media (min-width: 1024px){
 
     .lg\:hidden{
