@@ -34,6 +34,7 @@
                 @include('layouts.partials.forms.biodata')
                 @include('layouts.partials.forms.orang-tua')
                 @include('layouts.partials.forms.data-periodik')
+                @include('layouts.partials.forms.kesejahteraan')
             </div>
         </div>
     </div>
@@ -94,11 +95,15 @@
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
         };
-        btnBackDataPeriodik.addEventListener('click', function() {
+
+        function backToDataPeriodik() {
             dataPeriodik.classList.add('current-item');
             dataPeriodik.firstElementChild.classList.remove('completed');
             dataKesejahteraan.classList.remove('current-item');
-        });
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-periodik-wrapper').classList.add('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+        };
         // End Back Button
 
         // Next Button
@@ -118,11 +123,15 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
         };
-        btnDataPeriodik.addEventListener('click', function() {
+
+        function dataPeriodikNext() {
             dataPeriodik.classList.remove('current-item');
             dataPeriodik.firstElementChild.classList.add('completed');
             dataKesejahteraan.classList.add('current-item');
-        });
+            document.querySelector('.form-periodik-wrapper').classList.add('completed')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+        };
         // End Next Button
     </script>
 @endpush
