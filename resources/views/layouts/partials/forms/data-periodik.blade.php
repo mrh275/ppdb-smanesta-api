@@ -106,7 +106,7 @@
         </div>
         <div class="form-btn">
             <button type="button" class="btn btn-secondary" onclick="backToDataOrangTua()">Kembali</button>
-            <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="dataOrangTuaNext()">
+            <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="dataPeriodikNext()">
                 Simpan
             </button>
         </div>
