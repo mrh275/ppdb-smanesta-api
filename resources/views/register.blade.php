@@ -33,6 +33,7 @@
             <div class="form-section">
                 @include('layouts.partials.forms.biodata')
                 @include('layouts.partials.forms.orang-tua')
+                @include('layouts.partials.forms.data-periodik')
             </div>
         </div>
     </div>
@@ -77,16 +78,22 @@
         const dataKesejahteraan = document.querySelector('#data-kesejahteraan');
 
         // Back Button
-        btnBackDataDiri.addEventListener('click', function() {
+        function backToDataDiri() {
             dataDiri.classList.add('current-item');
             dataDiri.firstElementChild.classList.remove('completed');
             dataOrangTua.classList.remove('current-item');
-        });
-        btnBackDataOrangTua.addEventListener('click', function() {
+            document.querySelector('.form-biodata-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+        };
+
+        function backToDataOrangTua() {
             dataOrangTua.classList.add('current-item');
             dataOrangTua.firstElementChild.classList.remove('completed');
             dataPeriodik.classList.remove('current-item');
-        });
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+        };
         btnBackDataPeriodik.addEventListener('click', function() {
             dataPeriodik.classList.add('current-item');
             dataPeriodik.firstElementChild.classList.remove('completed');
@@ -102,11 +109,15 @@
             document.querySelector('.form-biodata-wrapper').classList.add('completed')
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
         };
-        btnDataOrangTua.addEventListener('click', function() {
+
+        function dataOrangTuaNext() {
             dataOrangTua.classList.remove('current-item');
             dataOrangTua.firstElementChild.classList.add('completed');
             dataPeriodik.classList.add('current-item');
-        });
+            document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.add('show')
+        };
         btnDataPeriodik.addEventListener('click', function() {
             dataPeriodik.classList.remove('current-item');
             dataPeriodik.firstElementChild.classList.add('completed');
