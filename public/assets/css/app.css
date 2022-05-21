@@ -493,6 +493,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     .navbar{
         height: auto;
         justify-content: space-between;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         --tw-shadow: 0 0 #0000;
@@ -1047,6 +1049,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* End Fasilitas */
 /* Register PPDB */
 .register-section{
+    position: relative;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
 }
@@ -1220,17 +1223,34 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Form PPDB */
 .form-section{
     position: relative;
+    margin-bottom: 2rem;
+    width: 100%;
     overflow: hidden;
     border-radius: 0.75rem;
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.form-wrapper-responsive{
+    position: relative;
+    height: 117vh;
+    width: 100%;
+    overflow: hidden;
     --tw-bg-opacity: 1;
     background-color: rgb(228 228 231 / var(--tw-bg-opacity));
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-wrapper-responsive.periodik{
+    height: 95vh;
+}
+.form-wrapper-responsive.kesejahteraan{
+    height: 86vh;
 }
 .progress-bar.fixed-nav ~ .form-section{
     margin-top: 104px;
@@ -1239,7 +1259,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     position: relative;
 }
 .form-biodata-wrapper{
-    position: relative;
+    position: absolute;
+    left: 0px;
+    top: 24px;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     transition-property: all;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1377,6 +1402,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .kode-pos{
     margin-left: 1rem;
     width: 5rem;
+}
+.hobi, .cita-cita, .anak-ke, .jumlah-saudara{
+    width: 50%;
+}
+.hobi, .anak-ke{
+    margin-right: 0.5rem;
+}
+.cita-cita, .jumlah-saudara{
+    margin-left: 0.5rem;
 }
 .form-btn{
     display: flex;
@@ -1849,7 +1883,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 @media (prefers-color-scheme: dark){
 
     .dark\:border-gray-700{
@@ -1882,7 +1915,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
-
 @media (min-width: 640px){
 
     .sm\:ml-0{
@@ -1930,7 +1962,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         text-align: right;
     }
 }
-
 @media (min-width: 768px){
 
     .md\:grid-cols-2{
@@ -1945,7 +1976,6 @@ Ensure the default browser behavior of the `hidden` attribute.
         border-left-width: 1px;
     }
 }
-
 @media (min-width: 1024px){
 
     .lg\:hidden{

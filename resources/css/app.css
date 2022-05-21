@@ -21,7 +21,7 @@ html {
 
     /* Navbar */
     .navbar {
-        @apply w-full fixed flex h-[48px] lg:h-auto justify-evenly lg:justify-between items-center bg-white lg:shadow-none px-4 lg:py-2 z-10;
+        @apply w-full fixed flex h-[48px] lg:h-auto justify-evenly lg:justify-between items-center bg-white lg:shadow-none px-4 lg:px-10 lg:py-2 z-10;
     }
 
     .navbar.fixed-nav {
@@ -255,7 +255,7 @@ html {
 
     /* Register PPDB */
     .register-section {
-        @apply px-10;
+        @apply relative px-10;
     }
 
     .register-title {
@@ -338,7 +338,19 @@ html {
 
     /* Form PPDB */
     .form-section {
-        @apply bg-zinc-200 rounded-xl shadow-lg px-10 py-6 relative overflow-hidden;
+        @apply rounded-xl shadow-lg relative w-full overflow-hidden mb-8;
+    }
+
+    .form-wrapper-responsive {
+        @apply bg-zinc-200 px-10 py-6 relative w-full h-[117vh] overflow-hidden transition-all ease-in-out duration-200;
+    }
+
+    .form-wrapper-responsive.periodik {
+        @apply h-[95vh];
+    }
+
+    .form-wrapper-responsive.kesejahteraan {
+        @apply h-[86vh];
     }
 
     .progress-bar.fixed-nav ~ .form-section {
@@ -350,7 +362,7 @@ html {
     }
 
     .form-biodata-wrapper {
-        @apply relative transition-all ease-in-out duration-300;
+        @apply absolute w-full left-0 top-[24px] px-10 transition-all ease-in-out duration-300;
     }
 
     .form-biodata {
@@ -440,6 +452,23 @@ html {
 
     .kode-pos {
         @apply w-20 ml-4;
+    }
+
+    .hobi,
+    .cita-cita,
+    .anak-ke,
+    .jumlah-saudara {
+        @apply w-1/2;
+    }
+
+    .hobi,
+    .anak-ke {
+        @apply mr-2;
+    }
+
+    .cita-cita,
+    .jumlah-saudara {
+        @apply ml-2;
     }
 
     .form-btn {
