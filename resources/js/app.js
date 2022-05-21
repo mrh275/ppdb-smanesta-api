@@ -18,6 +18,17 @@ window.addEventListener("scroll", function () {
     }
 });
 
+// Progress Bar fixed on scroll
+let progressBar = document.querySelector(".progress-bar");
+let offsetProgressBar = 91;
+window.addEventListener("scroll", function () {
+    let st = window.pageYOffset;
+    if (st > offsetProgressBar) {
+        progressBar.classList.add("fixed-nav");
+    } else {
+        progressBar.classList.remove("fixed-nav");
+    }
+});
 // Toggle Menu
 let hMenu = document.querySelector(".toggle-menu");
 hMenu.addEventListener("click", function () {

@@ -2179,6 +2179,18 @@ window.addEventListener("scroll", function () {
     document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
     document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
   }
+}); // Progress Bar fixed on scroll
+
+var progressBar = document.querySelector(".progress-bar");
+var offsetProgressBar = 91;
+window.addEventListener("scroll", function () {
+  var st = window.pageYOffset;
+
+  if (st > offsetProgressBar) {
+    progressBar.classList.add("fixed-nav");
+  } else {
+    progressBar.classList.remove("fixed-nav");
+  }
 }); // Toggle Menu
 
 var hMenu = document.querySelector(".toggle-menu");
