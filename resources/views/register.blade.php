@@ -210,9 +210,109 @@
                 document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
                 document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
                 document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+                dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
+                dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
+                dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
+                dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
+                dataDiri.firstElementChild.classList.add('cursor-pointer')
+                dataOrangTua.firstElementChild.classList.add('cursor-pointer')
+                dataPeriodik.firstElementChild.classList.add('cursor-pointer')
+                dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
             })
 
         };
         // End Next Button
+
+        // Jump to Specified Form
+        function jumpToDataDiri() {
+            dataDiri.classList.add('current-item');
+            dataOrangTua.classList.remove('current-item');
+            dataPeriodik.classList.remove('current-item');
+            dataKesejahteraan.classList.remove('current-item');
+            document.querySelector('.form-biodata-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+        };
+
+        function jumpToDataOrangTua() {
+            dataDiri.classList.remove('current-item');
+            dataOrangTua.classList.add('current-item');
+            dataPeriodik.classList.remove('current-item');
+            dataKesejahteraan.classList.remove('current-item');
+            if (!document.querySelector('.form-biodata-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                dataDiri.firstElementChild.classList.add('completed');
+            }
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+            document.querySelector('.form-biodata-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+        };
+
+        function jumpToDataPeriodik() {
+            dataDiri.classList.remove('current-item');
+            dataOrangTua.classList.remove('current-item');
+            dataPeriodik.classList.add('current-item');
+            dataKesejahteraan.classList.remove('current-item');
+            if (!document.querySelector('.form-biodata-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                dataDiri.firstElementChild.classList.add('completed');
+            }
+            if (!document.querySelector('.form-orang-tua-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                dataOrangTua.firstElementChild.classList.add('completed');
+            }
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
+            document.querySelector('.form-biodata-wrapper').classList.remove('show')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.add('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+        };
+
+        function jumpToDataKesejahteraan() {
+            dataDiri.classList.remove('current-item');
+            dataOrangTua.classList.remove('current-item');
+            dataPeriodik.classList.remove('current-item');
+            dataKesejahteraan.classList.add('current-item');
+            if (!document.querySelector('.form-biodata-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                dataDiri.firstElementChild.classList.add('completed');
+            }
+            if (!document.querySelector('.form-orang-tua-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                dataOrangTua.firstElementChild.classList.add('completed');
+            }
+            if (!document.querySelector('.form-periodik-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-periodik-wrapper').classList.add('completed')
+                dataPeriodik.firstElementChild.classList.add('completed');
+            }
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
+            document.querySelector('.form-biodata-wrapper').classList.remove('show')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+        };
+        // End Jump To Specified Form
+        console.log(window.innerWidth)
     </script>
 @endpush
