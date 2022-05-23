@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/png">
 
     {{-- CSS --}}
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/css/splide.min.css">
 
@@ -19,6 +20,8 @@
 
     {{-- Library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.css" />
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 
 </head>
 
@@ -36,6 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.js"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @stack('scripts')
+    @stack('specifyjs')
 </body>
 
 </html>
