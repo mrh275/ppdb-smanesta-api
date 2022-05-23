@@ -21,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/register', RegisterController::class);
+Route::post('/register/upload', [RegisterController::class, 'store']);
