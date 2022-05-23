@@ -19,12 +19,12 @@
                             <span class="progress-label">Data Orang Tua</span>
                         </li>
                         <li class="step-wizard-item" id="data-periodik">
-                            <span class="progress-count"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <span class="progress-count" onclick="jumpToDataPeriodik()"><i class="fa-solid fa-clipboard-user"></i></span>
                             <span class="progress-label">Data Periodik</span>
                         </li>
                         <li class="step-wizard-item " id="data-kesejahteraan">
-                            <span class="progress-count"><i class="fa-solid fa-address-card"></i></span>
-                            <span class="progress-label">Data Kesejahteraan</span>
+                            <span class="progress-count" onclick="jumpToDataKesejahteraan()"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+                            <span class="progress-label">Upload Dokumen</span>
                         </li>
                     </ul>
                 </section>
@@ -313,6 +313,44 @@
             document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
         };
         // End Jump To Specified Form
+
+        // Remove disabled attribute onchange select option
+        const disabledAtt = document.querySelector('#nomor_kip').getAttribute('disabled');
+        document.querySelector('#kip').addEventListener('change', function() {
+            if (document.querySelector('#kip-1').selected) {
+                document.querySelector('#nomor_kip').removeAttribute('disabled');
+            } else {
+                document.querySelector('#nomor_kip').setAttribute('disabled', 'disabled');
+            }
+        })
+        document.querySelector('#kis').addEventListener('change', function() {
+            if (document.querySelector('#kis-1').selected) {
+                document.querySelector('#nomor_kis').removeAttribute('disabled');
+            } else {
+                document.querySelector('#nomor_kis').setAttribute('disabled', 'disabled');
+            }
+        })
+        document.querySelector('#kks').addEventListener('change', function() {
+            if (document.querySelector('#kks-1').selected) {
+                document.querySelector('#nomor_kks').removeAttribute('disabled');
+            } else {
+                document.querySelector('#nomor_kks').setAttribute('disabled', 'disabled');
+            }
+        })
+        document.querySelector('#kps').addEventListener('change', function() {
+            if (document.querySelector('#kps-1').selected) {
+                document.querySelector('#nomor_kps').removeAttribute('disabled');
+            } else {
+                document.querySelector('#nomor_kps').setAttribute('disabled', 'disabled');
+            }
+        })
+        document.querySelector('#pkh').addEventListener('change', function() {
+            if (document.querySelector('#pkh-1').selected) {
+                document.querySelector('#nomor_pkh').removeAttribute('disabled');
+            } else {
+                document.querySelector('#nomor_pkh').setAttribute('disabled', 'disabled');
+            }
+        })
         console.log(window.innerWidth)
     </script>
 @endpush
