@@ -2171,13 +2171,11 @@ window.addEventListener("scroll", function () {
   var st = window.pageYOffset;
 
   if (st > offset) {
-    navbar.classList.add("fixed-nav");
-    document.querySelector(".scroll-top-btn").classList.add("bottom-20");
-    document.querySelector(".scroll-top-btn").classList.remove("-bottom-10");
+    navbar.classList.add("fixed-nav"); // document.querySelector(".scroll-top-btn").classList.add("bottom-20");
+    // document.querySelector(".scroll-top-btn").classList.remove("-bottom-10");
   } else {
-    navbar.classList.remove("fixed-nav");
-    document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
-    document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
+    navbar.classList.remove("fixed-nav"); // document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
+    // document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
   }
 }); // Progress Bar fixed on scroll
 

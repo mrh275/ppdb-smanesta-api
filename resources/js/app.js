@@ -7,14 +7,12 @@ window.addEventListener("scroll", function () {
     let st = window.pageYOffset;
     if (st > offset) {
         navbar.classList.add("fixed-nav");
-        document.querySelector(".scroll-top-btn").classList.add("bottom-20");
-        document
-            .querySelector(".scroll-top-btn")
-            .classList.remove("-bottom-10");
+        // document.querySelector(".scroll-top-btn").classList.add("bottom-20");
+        // document.querySelector(".scroll-top-btn").classList.remove("-bottom-10");
     } else {
         navbar.classList.remove("fixed-nav");
-        document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
-        document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
+        // document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
+        // document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
     }
 });
 
