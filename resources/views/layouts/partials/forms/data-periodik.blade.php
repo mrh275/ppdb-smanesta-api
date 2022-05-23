@@ -116,6 +116,80 @@
                         <input type="number" class="form-control" id="jumlah_saudara" name="jumlah_saudara">
                     </div>
                 </div>
+                <hr class="border-b-2 border-t-0 border-solid border-zinc-400 my-2">
+                <h4 class="title-kesejahteraan">
+                    Data Kesejahteraan
+                </h4>
+                <div class="address-group">
+                    <div class="form-group kip">
+                        <label for="kip">Apakah kamu memiliki KIP?</label>
+                        <select name="kip" id="kip" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1" id="kip-1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group nomor-kip">
+                        <label for="nomor_kip">Nomor KIP</label>
+                        <input type="number" class="form-control" id="nomor_kip" name="nomor_kip" disabled="disabled">
+                    </div>
+                </div>
+                <div class="address-group">
+                    <div class="form-group kis">
+                        <label for="kis">Apakah kamu memiliki KIS?</label>
+                        <select name="kis" id="kis" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1" id="kis-1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group nomor-kis">
+                        <label for="nomor_kis">Nomor KIS</label>
+                        <input type="number" class="form-control" id="nomor_kis" name="nomor_kis" disabled="disabled">
+                    </div>
+                </div>
+                <div class="address-group">
+                    <div class="form-group kks">
+                        <label for="kks">Apakah kamu memiliki KKS?</label>
+                        <select name="kks" id="kks" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1" id="kks-1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group nomor-kks">
+                        <label for="nomor_kks">Nomor KKS</label>
+                        <input type="number" class="form-control" id="nomor_kks" name="nomor_kks" disabled="disabled">
+                    </div>
+                </div>
+                <div class="address-group">
+                    <div class="form-group kps">
+                        <label for="kps">Apakah kamu memiliki KPS?</label>
+                        <select name="kps" id="kps" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1" id="kps-1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group nomor-kps">
+                        <label for="nomor_kps">Nomor KPS</label>
+                        <input type="number" class="form-control" id="nomor_kps" name="nomor_kps" disabled="disabled">
+                    </div>
+                </div>
+                <div class="address-group">
+                    <div class="form-group pkh">
+                        <label for="pkh">Apakah kamu memiliki PKH?</label>
+                        <select name="pkh" id="pkh" class="form-select">
+                            <option value="">Pilih :</option>
+                            <option value="1" id="pkh-1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group nomor-pkh">
+                        <label for="nomor_pkh">Nomor PKH</label>
+                        <input type="number" class="form-control" id="nomor_pkh" name="nomor_pkh" disabled="disabled">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="form-btn">
@@ -125,5 +199,4 @@
             </button>
         </div>
     </form>
-
 </div>
