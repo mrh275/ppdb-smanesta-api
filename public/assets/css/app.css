@@ -1251,7 +1251,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 45rem;
 }
 .form-wrapper-responsive.periodik{
-    height: 37rem;
+    height: 53rem;
 }
 .form-wrapper-responsive.kesejahteraan{
     height: 34rem;
@@ -1385,6 +1385,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
 }
+.form-control:disabled{
+    cursor: not-allowed;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    opacity: 0.8;
+}
 .address-group{
     display: flex;
     align-items: center;
@@ -1407,14 +1413,22 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 1rem;
     width: 5rem;
 }
-.hobi, .cita-cita, .anak-ke, .jumlah-saudara{
+.hobi, .cita-cita, .anak-ke, .jumlah-saudara, .kip, .nomor-kip, .kis, .nomor-kis, .kks, .nomor-kks, .kps, .nomor-kps, .pkh, .nomor-pkh{
     width: 50%;
 }
-.hobi, .anak-ke{
+.hobi, .anak-ke, .kip, .kis, .kks, .kps, .pkh{
     margin-right: 0.5rem;
 }
 .cita-cita, .jumlah-saudara{
     margin-left: 0.5rem;
+}
+.title-kesejahteraan{
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(39 39 42 / var(--tw-text-opacity));
 }
 .form-btn{
     display: flex;
@@ -1681,6 +1695,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: auto;
     margin-right: auto;
 }
+.my-2{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 .ml-1{
     margin-left: 0.25rem;
 }
@@ -1750,11 +1768,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-6xl{
     max-width: 72rem;
 }
-.cursor-default{
-    cursor: default;
-}
 .cursor-pointer{
     cursor: pointer;
+}
+.cursor-default{
+    cursor: default;
 }
 .grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1777,9 +1795,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-b{
     border-bottom-width: 1px;
 }
+.border-b-2{
+    border-bottom-width: 2px;
+}
+.border-t-0{
+    border-top-width: 0px;
+}
+.border-solid{
+    border-style: solid;
+}
 .border-gray-200{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+.border-zinc-400{
+    --tw-border-opacity: 1;
+    border-color: rgb(161 161 170 / var(--tw-border-opacity));
 }
 .border-b-zinc-300{
     --tw-border-opacity: 1;
