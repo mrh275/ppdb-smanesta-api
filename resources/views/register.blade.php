@@ -35,7 +35,7 @@
                     @include('layouts.partials.forms.biodata')
                     @include('layouts.partials.forms.orang-tua')
                     @include('layouts.partials.forms.data-periodik')
-                    @include('layouts.partials.forms.kesejahteraan')
+                    @include('layouts.partials.forms.upload-dokumen')
                 </div>
             </div>
         </div>
@@ -351,6 +351,6 @@
                 document.querySelector('#nomor_pkh').setAttribute('disabled', 'disabled');
             }
         })
-        console.log(window.innerWidth)
+
     </script>
 @endpush
