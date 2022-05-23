@@ -278,7 +278,7 @@ html {
     }
 
     .step-wizard-item + .step-wizard-item::after {
-        @apply content-[""] absolute -left-[94%] top-[19px] 2xl:-left-[96%] 2xl:translate-x-[48%] bg-[#0099ff] w-full h-[2px] -z-10 translate-x-[47%];
+        @apply content-[""] absolute -left-[94%] top-[19px] 2xl:-left-[95%] 2xl:translate-x-[47%] bg-[#0099ff] w-full 2xl:w-[102%] h-[2px] -z-10 translate-x-[47%];
     }
 
     .progress-count {
@@ -342,15 +342,19 @@ html {
     }
 
     .form-wrapper-responsive {
-        @apply bg-zinc-200 px-10 py-6 relative w-full h-[117vh] overflow-hidden transition-all ease-in-out duration-200;
+        @apply bg-zinc-200 px-10 py-6 relative w-full h-[46rem] overflow-hidden transition-all ease-in-out duration-200;
+    }
+
+    .form-wrapper-responsive.orang-tua {
+        @apply h-[45rem];
     }
 
     .form-wrapper-responsive.periodik {
-        @apply h-[95vh];
+        @apply h-[37rem];
     }
 
     .form-wrapper-responsive.kesejahteraan {
-        @apply h-[86vh];
+        @apply h-[34rem];
     }
 
     .progress-bar.fixed-nav ~ .form-section {
