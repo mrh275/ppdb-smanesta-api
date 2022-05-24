@@ -59,17 +59,19 @@
 
 @push('specifyjs')
     <script>
+        Dropzone.autoDiscover = false;
         const dropzone = new Dropzone('form#img-upload', {
             url: "{{ url('register/upload') }}",
             acceptedFiles: '.jpg, .jpeg, .png',
             maxFilesize: 1,
+            thumbnailWidth: 180,
+            thumbnailHeight: 180,
+            addRemoveLinks: true,
+            "dictRemoveFile": '<span class="tooltiptext ">Hapus</span>',
+            dictCancelUpload: "",
             previewTemplate: document.querySelector("div#dropzoneItemTemplate").innerHTML,
             dictFileTooBig: "Ukuran file terlalu besar! Maksimal 1024KB",
             dictInvalidFileType: "Tipe file tidak sesuai. Hanya file .jpg, .jpeg, .png yang diperbolehkan",
         })
-
-        // dropzone.on("error", function(file) {
-        //     dropzone.removeFile(file);
-        // });
     </script>
 @endpush
