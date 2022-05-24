@@ -5,7 +5,7 @@
 
     <div class="form-wrapper form-biodata">
         <div class="w-full">
-            <form method="post" class="dropzone h-[25rem] flex items-center justify-center flex-wrap" id="img-upload" enctype="multipart/form-data">
+            <form method="post" class="dropzone h-[22rem] flex items-center justify-center flex-wrap" id="img-upload" enctype="multipart/form-data">
                 @csrf
                 <div class="dz-message">
                     <div class="mb-4">

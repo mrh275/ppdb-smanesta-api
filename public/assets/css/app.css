@@ -1774,6 +1774,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[25rem\]{
     height: 25rem;
 }
+.h-\[22rem\]{
+    height: 22rem;
+}
 .min-h-screen{
     min-height: 100vh;
 }
