@@ -83,29 +83,62 @@
         // Back Button
         function backToDataDiri() {
             dataDiri.classList.add('current-item');
-            dataDiri.firstElementChild.classList.remove('completed');
             dataOrangTua.classList.remove('current-item');
+            dataPeriodik.classList.remove('current-item');
+            dataKesejahteraan.classList.remove('current-item');
             document.querySelector('.form-biodata-wrapper').classList.remove('completed')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+            document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+            document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
         };
 
         function backToDataOrangTua() {
+            dataDiri.classList.remove('current-item');
             dataOrangTua.classList.add('current-item');
-            dataOrangTua.firstElementChild.classList.remove('completed');
             dataPeriodik.classList.remove('current-item');
+            dataKesejahteraan.classList.remove('current-item');
+            if (!document.querySelector('.form-biodata-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                dataDiri.firstElementChild.classList.add('completed');
+            }
             document.querySelector('.form-orang-tua-wrapper').classList.remove('completed')
+            document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+            document.querySelector('.form-biodata-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+            document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
         };
 
         function backToDataPeriodik() {
+            dataDiri.classList.remove('current-item');
+            dataOrangTua.classList.remove('current-item');
             dataPeriodik.classList.add('current-item');
-            dataPeriodik.firstElementChild.classList.remove('completed');
             dataKesejahteraan.classList.remove('current-item');
+            if (!document.querySelector('.form-biodata-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                dataDiri.firstElementChild.classList.add('completed');
+            }
+            if (!document.querySelector('.form-orang-tua-wrapper').classList.contains('completed')) {
+                document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                dataOrangTua.firstElementChild.classList.add('completed');
+            }
             document.querySelector('.form-periodik-wrapper').classList.remove('completed')
+            document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
+            document.querySelector('.form-biodata-wrapper').classList.remove('show')
+            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.add('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
         };
