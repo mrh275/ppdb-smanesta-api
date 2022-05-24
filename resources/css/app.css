@@ -342,19 +342,19 @@ html {
     }
 
     .form-wrapper-responsive {
-        @apply bg-zinc-200 px-10 py-6 relative w-full h-[46rem] overflow-hidden transition-all ease-in-out duration-200;
+        @apply bg-zinc-200 px-10 py-6 relative w-full h-[43rem] overflow-hidden transition-all ease-in-out duration-200;
     }
 
     .form-wrapper-responsive.orang-tua {
-        @apply h-[45rem];
+        @apply h-[42rem];
     }
 
     .form-wrapper-responsive.periodik {
-        @apply h-[53rem];
+        @apply h-[52rem];
     }
 
     .form-wrapper-responsive.kesejahteraan {
-        @apply h-[34rem];
+        @apply h-[34.8rem];
     }
 
     .progress-bar.fixed-nav ~ .form-section {
