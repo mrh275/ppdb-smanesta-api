@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <label for="penghasilan_ayah">Penghasilan Ayah</label>
-                    <select name="penghasilan_ayah" id="input-penghasilan-ayah" class="form-control">
+                    <select name="penghasilan_ayah" id="input-penghasilan-ayah" class="form-select">
                         <option value="">Pilih :</option>
                         <option value="1">Tidak Berpenghasilan</option>
                         <option value="2">Kurang dari Rp. 1.000.000</option>
