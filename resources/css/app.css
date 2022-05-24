@@ -680,6 +680,10 @@ html {
 }
 
 .dropzone#img-upload .dz-preview .dz-error-mark svg {
-    filter: invert(84%) sepia(84%) saturate(7177%) hue-rotate(371deg)
+    filter: invert(10%) sepia(84%) saturate(7177%) hue-rotate(371deg)
         brightness(101%) contrast(103%);
+}
+
+.dropzone .dz-preview .dz-error-message {
+    font-size: 17px;
 }

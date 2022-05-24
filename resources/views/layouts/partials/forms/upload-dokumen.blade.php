@@ -5,8 +5,19 @@
 
     <div class="form-wrapper form-biodata">
         <div class="w-full">
-            <form method="post" class="dropzone" id="img-upload" enctype="multipart/form-data">
+            <form method="post" class="dropzone h-[25rem] flex items-center justify-center flex-wrap" id="img-upload" enctype="multipart/form-data">
                 @csrf
+                <div class="dz-message">
+                    <div class="mb-4">
+                        <div class="text-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-[4rem] text-[#0099ff]"></i>
+                        </div>
+                        <span class="block text-xl text-zinc-700">Klik untuk memilih file</span>
+                        <span class="block my-1 text-zinc-600">atau</span>
+                        <span class="block text-xl text-zinc-700">Drag and Drop file</span>
+                    </div>
+                    <span class="btn btn-sm btn-primary">Browse files</span>
+                </div>
             </form>
         </div>
     </div>
@@ -18,11 +29,32 @@
     </div>
 </div>
 
-<div class="template-dropzone hidden">
+<!-- Dropzone -->
+<div id="dropzoneItemTemplate" style="display: none;">
     <div class="dz-preview dz-file-preview">
-
+        <div class="dz-image"><img data-dz-thumbnail=""></div>
+        <div class="dz-details">
+            <div class="dz-size"><span data-dz-size=""><strong>3.7</strong> MB</span></div>
+            <div class="dz-filename"><span data-dz-name="">PPDB SMANR1.png</span></div>
+        </div>
+        <div class="dz-progress progress" style="height: 4px;">
+            <div class="dz-upload progress-bar bg-success" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="dz-success-mark">
+                <span class="fa fa-check-circle"></span>
+            </div>
+            <div class="dz-error-mark">
+                <span class="fa fa-times-circle"></span>
+            </div>
+            <div class="dz-error-message">
+                <small data-dz-errormessage></small>
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- End Dropzone -->
 
 
 @push('specifyjs')
@@ -31,7 +63,13 @@
             url: "{{ url('register/upload') }}",
             acceptedFiles: '.jpg, .jpeg, .png',
             maxFilesize: 1,
-            addRemoveLinks: false,
+            previewTemplate: document.querySelector("div#dropzoneItemTemplate").innerHTML,
+            dictFileTooBig: "Ukuran file terlalu besar! Maksimal 1024KB",
+            dictInvalidFileType: "Tipe file tidak sesuai. Hanya file .jpg, .jpeg, .png yang diperbolehkan",
         })
+
+        // dropzone.on("error", function(file) {
+        //     dropzone.removeFile(file);
+        // });
     </script>
 @endpush
