@@ -672,6 +672,26 @@ html {
         @apply text-[#0099ff];
     }
     /* End Dark Mode */
+
+    .dropzone .dz-preview .dz-remove {
+        @apply px-2 py-1 rounded-full border border-red-500 hover:no-underline bg-red-500 block cursor-pointer absolute top-[5px] right-[5px] z-10 text-white transition-all ease-in-out duration-200;
+    }
+
+    .dropzone.dz-clickable .dz-remove .tooltiptext {
+        @apply absolute z-[1500] invisible bottom-[125%] left-1/2 -ml-[60px] w-[120px] bg-zinc-500 text-white text-center rounded-md py-[5px];
+    }
+
+    .dropzone .dz-preview .dz-remove:hover .tooltiptext {
+        @apply visible;
+    }
+
+    .dz-remove .tooltiptext::after {
+        @apply content-[""] absolute top-full left-1/2 -ml-[5px] border-[5px] border-solid;
+    }
+
+    .dropzone .dz-preview .dz-error-message {
+        @apply left-[20px];
+    }
 }
 
 .dropzone#img-upload .dz-preview .dz-success-mark svg {
@@ -686,4 +706,24 @@ html {
 
 .dropzone .dz-preview .dz-error-message {
     font-size: 17px;
+}
+
+.dropzone .dz-preview .dz-image {
+    width: 180px;
+    height: 180px;
+}
+
+.dropzone .dz-preview .dz-details {
+    top: 28px;
+}
+
+.dropzone .dz-preview .dz-remove::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f1f8";
+    font-size: 14px;
+}
+
+.dz-remove .tooltiptext::after {
+    border-color: rgb(113 113 122) transparent transparent transparent;
 }

@@ -1684,6 +1684,66 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 /* End Dark Mode */
+.dropzone .dz-preview .dz-remove{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+    border-radius: 9999px;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(239 68 68 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropzone .dz-preview .dz-remove:hover{
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
+}
+.dropzone.dz-clickable .dz-remove .tooltiptext{
+    visibility: hidden;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    z-index: 1500;
+    margin-left: -60px;
+    width: 120px;
+    border-radius: 0.375rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(113 113 122 / var(--tw-bg-opacity));
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.dropzone .dz-preview .dz-remove:hover .tooltiptext{
+    visibility: visible;
+}
+.dz-remove .tooltiptext::after{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    --tw-content: "";
+    content: var(--tw-content);
+}
+.dropzone .dz-preview .dz-error-message{
+    left: 20px;
+}
 .fixed{
     position: fixed;
 }
@@ -1744,9 +1804,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-4{
     margin-bottom: 1rem;
 }
-.mb-1{
-    margin-bottom: 0.25rem;
-}
 .block{
     display: block;
 }
@@ -1767,12 +1824,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-16{
     height: 4rem;
-}
-.h-72{
-    height: 18rem;
-}
-.h-\[25rem\]{
-    height: 25rem;
 }
 .h-\[22rem\]{
     height: 22rem;
@@ -1892,20 +1943,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
-.text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-}
 .text-\[4rem\]{
     font-size: 4rem;
 }
-.text-3xl{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-}
-.text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
+.text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 }
 .font-semibold{
     font-weight: 600;
@@ -1994,6 +2037,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .dropzone .dz-preview .dz-error-message {
     font-size: 17px;
+}
+
+.dropzone .dz-preview .dz-image {
+    width: 180px;
+    height: 180px;
+}
+
+.dropzone .dz-preview .dz-details {
+    top: 28px;
+}
+
+.dropzone .dz-preview .dz-remove::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f1f8";
+    font-size: 14px;
+}
+
+.dz-remove .tooltiptext::after {
+    border-color: rgb(113 113 122) transparent transparent transparent;
 }
 
 @media (prefers-color-scheme: dark){
