@@ -351,5 +351,9 @@
                 document.querySelector('#nomor_pkh').setAttribute('disabled', 'disabled');
             }
         })
+
+        $(document).ready(function() {
+            $('.form-select').select2();
+        });
     </script>
 @endpush
