@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use DateTimeZone;
 use Faker\Provider\Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -49,9 +51,11 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $files = $request->file('file');
+        $noRegister = 'ppdb2122123';
+        $date = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
 
-        $imgName = date('Y-m-d') . '-' . Str::random(10) . '.' . $files->extension();
-        $files->move(public_path('assets/img'), $imgName);
+        $imgName = $noRegister . '-' . $date->format("Y-m-d-H-i") . '-' . Str::random(10) . '.' . $files->extension();
+        $files->move(public_path('assets/img/' . $noRegister . '/'), $imgName);
 
         return response()->json([
             'status' => 'success',
