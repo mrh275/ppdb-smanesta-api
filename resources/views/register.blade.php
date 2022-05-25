@@ -11,11 +11,11 @@
                 <section class="step-wizard">
                     <ul class="step-wizard-list">
                         <li class="step-wizard-item current-item" id="data-diri">
-                            <span class="progress-count"><i class="fa-solid fa-user"></i></span>
+                            <span class="progress-count" onclick="jumpToDataDiri()"><i class=" fa-solid fa-user"></i></span>
                             <span class="progress-label">Data Diri</span>
                         </li>
                         <li class="step-wizard-item " id="data-orang-tua">
-                            <span class="progress-count"><i class="fa-solid fa-users"></i></span>
+                            <span class="progress-count" onclick="jumpToDataOrangTua()"><i class=" fa-solid fa-users"></i></span>
                             <span class="progress-label">Data Orang Tua</span>
                         </li>
                         <li class="step-wizard-item" id="data-periodik">
@@ -32,10 +32,11 @@
             {{-- End Progress Bar --}}
             <div class="form-section">
                 <div class="form-wrapper-responsive">
-                    @include('layouts.partials.forms.biodata')
+                    {{-- @include('layouts.partials.forms.biodata')
                     @include('layouts.partials.forms.orang-tua')
                     @include('layouts.partials.forms.data-periodik')
-                    @include('layouts.partials.forms.upload-dokumen')
+                    @include('layouts.partials.forms.upload-dokumen') --}}
+                    @include('layouts.partials.forms.print-register')
                 </div>
             </div>
         </div>
