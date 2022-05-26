@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\DataOrangTuaController;
+use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UploadFilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +26,9 @@ Route::get('/', function () {
 
 Route::resource('/register', RegisterController::class);
 Route::post('/register/upload', [RegisterController::class, 'store']);
-Route::resource('/biodata', BiodataController::class);
+Route::middleware(['operator'])->group(function () {
+    Route::post('/biodata', [BiodataController::class, 'store']);
+    Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
+    Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
+    Route::post('/upload-files', [UploadFilesController::class, 'store']);
+});
