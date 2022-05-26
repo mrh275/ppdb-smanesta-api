@@ -11,19 +11,19 @@
                 <section class="step-wizard">
                     <ul class="step-wizard-list">
                         <li class="step-wizard-item current-item" id="data-diri">
-                            <span class="progress-count" onclick="jumpToDataDiri()"><i class=" fa-solid fa-user"></i></span>
+                            <span class="progress-count"><i class=" fa-solid fa-user"></i></span>
                             <span class="progress-label">Data Diri</span>
                         </li>
                         <li class="step-wizard-item " id="data-orang-tua">
-                            <span class="progress-count" onclick="jumpToDataOrangTua()"><i class=" fa-solid fa-users"></i></span>
+                            <span class="progress-count"><i class=" fa-solid fa-users"></i></span>
                             <span class="progress-label">Data Orang Tua</span>
                         </li>
                         <li class="step-wizard-item" id="data-periodik">
-                            <span class="progress-count" onclick="jumpToDataPeriodik()"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <span class="progress-count"><i class="fa-solid fa-clipboard-user"></i></span>
                             <span class="progress-label">Data Periodik</span>
                         </li>
                         <li class="step-wizard-item " id="data-kesejahteraan">
-                            <span class="progress-count" onclick="jumpToDataKesejahteraan()"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+                            <span class="progress-count"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
                             <span class="progress-label">Upload Dokumen</span>
                         </li>
                     </ul>
@@ -148,8 +148,11 @@
         // Next Button
         function dataDiriNext() {
             $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 type: "post",
-                url: "{{ url('biodata') }}",
+                url: $('#biodata-cpd').attr('action'),
                 data: $('#biodata-cpd').serialize(),
                 dataType: "json",
                 success: function(response) {
@@ -183,11 +186,10 @@
                         document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
                     })
                 },
-                error: {
-                    function(xhr, status, error) {
-                        var errorMessage = xhr.status + ': ' + xhr.statusText
-                        alert('Error - ' + errorMessage);
-                    }
+                error: function(xhr, ajaxOptions, thrownError) {
+                    let data = JSON.parse(xhr.responseText);
+                    document.querySelector('#nisn').classList.add('invalid')
+                    document.querySelector('.nisn.tooltiptext').innerHTML = data.errors.nisn
                 }
             });
 
@@ -278,10 +280,10 @@
                         document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
                         document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
                         document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
-                        dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
-                        dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
-                        dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
-                        dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
+                        // dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
+                        // dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
+                        // dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
+                        // dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
                         dataDiri.firstElementChild.classList.add('cursor-pointer')
                         dataOrangTua.firstElementChild.classList.add('cursor-pointer')
                         dataPeriodik.firstElementChild.classList.add('cursor-pointer')
