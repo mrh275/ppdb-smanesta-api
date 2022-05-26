@@ -2247,12 +2247,22 @@ if (window.innerWidth < 768) {
 
 document.querySelector("#login-btn").addEventListener("click", function (e) {
   e.preventDefault();
-  document.querySelector("#login-form").classList.remove("hidden");
+  document.querySelector("#login-form").classList.remove("invisible");
+  document.querySelector("#login-form").classList.remove("opacity-0");
 }); // Close Login Form
 
 document.querySelector("#close-login-btn").addEventListener("click", function (e) {
   e.preventDefault();
-  document.querySelector("#login-form").classList.add("hidden");
+  document.querySelector("#login-form").classList.add("invisible");
+  document.querySelector("#login-form").classList.add("opacity-0");
+}); // Show Password
+
+document.querySelector("#showPassword").addEventListener("change", function (e) {
+  if (this.checked) {
+    document.querySelector("#password").type = "text";
+  } else {
+    document.querySelector("#password").type = "password";
+  }
 });
 
 /***/ }),
