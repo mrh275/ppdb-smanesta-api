@@ -147,35 +147,51 @@
 
         // Next Button
         function dataDiriNext() {
-            Swal.fire({
-                title: 'Sedang menyimpan data...',
-                timer: 2000,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading()
-                }
-            }).
-            then((dismiss) => {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 3000,
-                    timerProgressBar: true,
-                })
+            console.log('data diri next');
+            $.ajax({
+                type: "post",
+                url: "{{ url('biodata') }}",
+                data: $('#biodata-cpd').serialize(),
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Sedang menyimpan data...',
+                        timer: 2000,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).
+                    then((dismiss) => {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
 
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Data diri tersimpan'
-                })
-                dataDiri.classList.remove('current-item');
-                dataDiri.firstElementChild.classList.add('completed');
-                dataOrangTua.classList.add('current-item');
-                document.querySelector('.form-biodata-wrapper').classList.add('completed')
-                document.querySelector('.form-orang-tua-wrapper').classList.add('show')
-                document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
-            })
+                        Toast.fire({
+                            icon: 'success',
+                            title: response.message
+                        })
+                        dataDiri.classList.remove('current-item');
+                        dataDiri.firstElementChild.classList.add('completed');
+                        dataOrangTua.classList.add('current-item');
+                        document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                        document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+                        document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
+                    })
+                },
+                error: {
+                    function(xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText
+                        alert('Error - ' + errorMessage);
+                    }
+                }
+            });
+
         };
 
         function dataOrangTuaNext() {
@@ -424,7 +440,9 @@
         })
 
         $(document).ready(function() {
-            $('.form-select').select2();
+            $('.form-select').select2({
+                width: 'resolve',
+            });
         });
     </script>
 @endpush
