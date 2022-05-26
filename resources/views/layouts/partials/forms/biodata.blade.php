@@ -2,13 +2,19 @@
     <h3 class="form-title form-biodata-title">
         Formulir Data Diri
     </h3>
-    <form action="" method="post" id="biodata-cpd">
-        @csrf
+    <form action="{{ url('biodata') }}" method="post" id="biodata-cpd">
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
-                    <label for="nisn">NISN</label>
+                    <label for="nisn">Nomor Induk Siswa Nasional (NISN)</label>
                     <input type="number" class="form-control" id="nisn" name="nisn">
+                    <div class="invalid-feedback">
+                        <span class="nisn tooltiptext"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nik">Nomor Induk Kependudukan (NIK)</label>
+                    <input type="number" class="form-control" id="nik" name="nik">
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama Lengkap</label>
@@ -35,8 +41,8 @@
                     <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
                 </div>
                 <div class="form-group">
-                    <label for="angkatan">Tahun Lulus</label>
-                    <select name="angkatan" id="angkatan" class="form-select">
+                    <label for="tahun_lulus">Tahun Lulus</label>
+                    <select name="tahun_lulus" id="tahun_lulus" class="form-select">
                         <option value="">Pilih :</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
