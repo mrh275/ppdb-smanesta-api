@@ -22,9 +22,9 @@ Route::get('/', function () {
     return view('portal', [
         'title' => 'Portal',
     ]);
-});
+})->name('portal');
 
-Route::resource('/register', RegisterController::class);
+Route::resource('/register', RegisterController::class)->middleware('auth');
 Route::post('/register/upload', [RegisterController::class, 'store']);
 Route::middleware(['operator'])->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
