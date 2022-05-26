@@ -23,7 +23,7 @@
     </div>
     <div class="form-btn">
         <button type="button" class="btn btn-secondary" onclick="backToDataPeriodik()">Kembali</button>
-        <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="nextUpload()">
+        <button class="btn btn-primary" type="button" id="btn-upload-files" onclick="nextUpload()">
             Simpan
         </button>
     </div>
