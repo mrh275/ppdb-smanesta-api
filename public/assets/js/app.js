@@ -2162,6 +2162,9 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    unset = _require.unset;
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Navbar Animation on Scroll
 
 
@@ -2239,7 +2242,18 @@ if (window.innerWidth < 768) {
     });
     splide.mount();
   });
-}
+} // Show Login Form
+
+
+document.querySelector("#login-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector("#login-form").classList.remove("hidden");
+}); // Close Login Form
+
+document.querySelector("#close-login-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector("#login-form").classList.add("hidden");
+});
 
 /***/ }),
 
