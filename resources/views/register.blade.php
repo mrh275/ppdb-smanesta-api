@@ -147,7 +147,6 @@
 
         // Next Button
         function dataDiriNext() {
-            console.log('data diri next');
             $.ajax({
                 type: "post",
                 url: "{{ url('biodata') }}",
@@ -195,38 +194,51 @@
         };
 
         function dataOrangTuaNext() {
-            Swal.fire({
-                title: 'Sedang menyimpan data...',
-                timer: 2000,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading()
+            $.ajax({
+                type: "post",
+                url: "{{ url('biodata') }}",
+                data: $('#biodata-cpd').serialize(),
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Sedang menyimpan data...',
+                        timer: 2000,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).
+                    then((dismiss) => {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: response.message
+                        })
+                        dataOrangTua.classList.remove('current-item');
+                        dataOrangTua.firstElementChild.classList.add('completed');
+                        dataPeriodik.classList.add('current-item');
+                        document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                        document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+                        document.querySelector('.form-periodik-wrapper').classList.add('show')
+                        document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+                        document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                    })
+                },
+                error: {
+                    function(xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText
+                        alert('Error - ' + errorMessage);
+                    }
                 }
-            }).
-            then((dismiss) => {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 3000,
-                    timerProgressBar: true,
-                })
-
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Data orang tua tersimpan'
-                })
-                dataOrangTua.classList.remove('current-item');
-                dataOrangTua.firstElementChild.classList.add('completed');
-                dataPeriodik.classList.add('current-item');
-                document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
-                document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
-                document.querySelector('.form-periodik-wrapper').classList.add('show')
-                document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
-                document.querySelector('.form-wrapper-responsive').classList.add('periodik')
-            })
-
+            });
         };
 
         function dataPeriodikNext() {
