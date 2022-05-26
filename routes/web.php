@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('/', function () {
 
 Route::resource('/register', RegisterController::class);
 Route::post('/register/upload', [RegisterController::class, 'store']);
+Route::resource('/biodata', BiodataController::class);
