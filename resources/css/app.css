@@ -342,15 +342,15 @@ html {
     }
 
     .form-wrapper-responsive {
-        @apply bg-zinc-200 px-10 py-6 relative w-full h-[43rem] overflow-hidden transition-all ease-in-out duration-200;
+        @apply bg-zinc-200 px-10 py-6 relative w-full h-[50rem] overflow-hidden transition-all ease-in-out duration-200;
     }
 
     .form-wrapper-responsive.orang-tua {
-        @apply h-[42rem];
+        @apply h-[48.5rem];
     }
 
     .form-wrapper-responsive.periodik {
-        @apply h-[52rem];
+        @apply h-[59.5rem];
     }
 
     .form-wrapper-responsive.kesejahteraan {
@@ -420,7 +420,7 @@ html {
     }
 
     .form-group {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center mb-3;
     }
 
     .form-radio-group {
