@@ -242,45 +242,59 @@
         };
 
         function dataPeriodikNext() {
-            Swal.fire({
-                title: 'Sedang menyimpan data...',
-                timer: 2000,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading()
-                }
-            }).
-            then((dismiss) => {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 3000,
-                    timerProgressBar: true,
-                })
+            $.ajax({
+                type: "post",
+                url: "{{ url('biodata') }}",
+                data: $('#biodata-cpd').serialize(),
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Sedang menyimpan data...',
+                        timer: 2000,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).
+                    then((dismiss) => {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
 
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Data periodik tersimpan'
-                })
-                dataPeriodik.classList.remove('current-item');
-                dataPeriodik.firstElementChild.classList.add('completed');
-                dataKesejahteraan.classList.add('current-item');
-                document.querySelector('.form-periodik-wrapper').classList.add('completed')
-                document.querySelector('.form-periodik-wrapper').classList.remove('show')
-                document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
-                document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
-                document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
-                dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
-                dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
-                dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
-                dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
-                dataDiri.firstElementChild.classList.add('cursor-pointer')
-                dataOrangTua.firstElementChild.classList.add('cursor-pointer')
-                dataPeriodik.firstElementChild.classList.add('cursor-pointer')
-                dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
-            })
+                        Toast.fire({
+                            icon: 'success',
+                            title: response.message
+                        })
+                        dataPeriodik.classList.remove('current-item');
+                        dataPeriodik.firstElementChild.classList.add('completed');
+                        dataKesejahteraan.classList.add('current-item');
+                        document.querySelector('.form-periodik-wrapper').classList.add('completed')
+                        document.querySelector('.form-periodik-wrapper').classList.remove('show')
+                        document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+                        document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+                        document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+                        dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
+                        dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
+                        dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
+                        dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
+                        dataDiri.firstElementChild.classList.add('cursor-pointer')
+                        dataOrangTua.firstElementChild.classList.add('cursor-pointer')
+                        dataPeriodik.firstElementChild.classList.add('cursor-pointer')
+                        dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
+                    })
+                },
+                error: {
+                    function(xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText
+                        alert('Error - ' + errorMessage);
+                    }
+                }
+            });
         };
 
         function nextUpload() {
