@@ -298,33 +298,55 @@
         };
 
         function nextUpload() {
-            Swal.fire({
-                title: 'Sedang menyimpan data...',
-                timer: 2000,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading()
+            $.ajax({
+                type: "post",
+                url: "{{ url('biodata') }}",
+                data: $('#biodata-cpd').serialize(),
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Sedang menyimpan data...',
+                        timer: 2000,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).
+                    then((dismiss) => {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: response.message
+                        })
+                        dataKesejahteraan.classList.remove('current-item');
+                        dataKesejahteraan.firstElementChild.classList.add('completed');
+                        document.querySelector('.form-kesejahteraan-wrapper').classList.add('completed')
+                        document.querySelector('.cetak-pendaftaran-wrapper').classList.add('show')
+                        document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+                        document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+                        dataDiri.firstElementChild.classList.add('cursor-pointer')
+                        dataOrangTua.firstElementChild.classList.add('cursor-pointer')
+                        dataPeriodik.firstElementChild.classList.add('cursor-pointer')
+                        dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
+                        document.querySelector(".cetak-pendaftaran-wrapper").classList.remove('translate-x-[125%]')
+                        document.querySelector('.form-wrapper-responsive').classList.add('cetak-bukti')
+                    })
+                },
+                error: {
+                    function(xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText
+                        alert('Error - ' + errorMessage);
+                    }
                 }
-            }).
-            then((dismiss) => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Selamat! Anda sudah terdaftar.'
-                }).then((dismiss) => {
-                    dataKesejahteraan.classList.remove('current-item');
-                    dataKesejahteraan.firstElementChild.classList.add('completed');
-                    document.querySelector('.form-kesejahteraan-wrapper').classList.add('completed')
-                    document.querySelector('.cetak-pendaftaran-wrapper').classList.add('show')
-                    document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
-                    document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
-                    dataDiri.firstElementChild.classList.add('cursor-pointer')
-                    dataOrangTua.firstElementChild.classList.add('cursor-pointer')
-                    dataPeriodik.firstElementChild.classList.add('cursor-pointer')
-                    dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
-                    document.querySelector(".cetak-pendaftaran-wrapper").classList.remove('translate-x-[125%]')
-                    document.querySelector('.form-wrapper-responsive').classList.add('cetak-bukti')
-                })
-            })
+            });
         }
         // End Next Button
 
