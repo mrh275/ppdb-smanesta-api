@@ -2,7 +2,8 @@
     <h3 class="form-title form-biodata-title">
         Formulir Data Diri
     </h3>
-    <form action="" method="post">
+    <form action="" method="post" id="biodata-cpd">
+        @csrf
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
