@@ -357,6 +357,10 @@ html {
         @apply h-[34.8rem];
     }
 
+    .form-wrapper-responsive.cetak-bukti {
+        @apply h-[75rem];
+    }
+
     .progress-bar.fixed-nav ~ .form-section {
         @apply mt-[104px];
     }
@@ -375,7 +379,8 @@ html {
 
     .form-orang-tua-wrapper,
     .form-periodik-wrapper,
-    .form-kesejahteraan-wrapper {
+    .form-kesejahteraan-wrapper,
+    .cetak-pendaftaran-wrapper {
         @apply absolute left-0 top-[24px] w-full px-10 translate-x-full opacity-0 transition-all ease-in-out duration-300;
     }
 
@@ -388,7 +393,8 @@ html {
 
     .form-orang-tua-wrapper.show,
     .form-periodik-wrapper.show,
-    .form-kesejahteraan-wrapper.show {
+    .form-kesejahteraan-wrapper.show,
+    .cetak-pendaftaran-wrapper.show {
         @apply opacity-100 translate-x-0;
     }
 
