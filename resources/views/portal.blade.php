@@ -187,4 +187,30 @@
         </div>
         {{-- End FAQ --}}
     </div>
+
+    {{-- Access Denied Section --}}
+    @if (session('access_denied'))
+        <div class="access-denied-wrapper fixed z-50 top-0 w-full h-screen bg-zinc-600 flex justify-center items-center bg-opacity-50">
+            @include('layouts.partials.components.access-denied')
+        </div>
+    @endif
+
+    {{-- End Access Denied Section --}}
 @endsection
+
+@push('scripts')
+    <script>
+        // Close access denied
+        document
+            .querySelector(".close-popup-denied-btn")
+            .addEventListener("click", function(e) {
+                e.preventDefault();
+                document
+                    .querySelector(".access-denied-wrapper")
+                    .classList.add("hidden");
+                @php
+                    session()->forget('access_denied');
+                @endphp
+            });
+    </script>
+@endpush
