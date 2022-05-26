@@ -1,3 +1,5 @@
+const { unset } = require("lodash");
+
 require("./bootstrap");
 
 // Navbar Animation on Scroll
@@ -79,3 +81,16 @@ if (window.innerWidth < 768) {
         splide.mount();
     });
 }
+// Show Login Form
+document.querySelector("#login-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector("#login-form").classList.remove("hidden");
+});
+
+// Close Login Form
+document
+    .querySelector("#close-login-btn")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector("#login-form").classList.add("hidden");
+    });
