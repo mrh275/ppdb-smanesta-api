@@ -196,7 +196,7 @@
         function dataOrangTuaNext() {
             $.ajax({
                 type: "post",
-                url: "{{ url('biodata') }}",
+                url: "{{ url('orang-tua') }}",
                 data: $('#biodata-cpd').serialize(),
                 dataType: "json",
                 success: function(response) {
@@ -244,7 +244,7 @@
         function dataPeriodikNext() {
             $.ajax({
                 type: "post",
-                url: "{{ url('biodata') }}",
+                url: "{{ url('data-periodik') }}",
                 data: $('#biodata-cpd').serialize(),
                 dataType: "json",
                 success: function(response) {
@@ -300,7 +300,7 @@
         function nextUpload() {
             $.ajax({
                 type: "post",
-                url: "{{ url('biodata') }}",
+                url: "{{ url('upload-files') }}",
                 data: $('#biodata-cpd').serialize(),
                 dataType: "json",
                 success: function(response) {
