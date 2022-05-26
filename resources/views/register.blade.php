@@ -32,10 +32,10 @@
             {{-- End Progress Bar --}}
             <div class="form-section">
                 <div class="form-wrapper-responsive">
-                    {{-- @include('layouts.partials.forms.biodata')
+                    @include('layouts.partials.forms.biodata')
                     @include('layouts.partials.forms.orang-tua')
                     @include('layouts.partials.forms.data-periodik')
-                    @include('layouts.partials.forms.upload-dokumen') --}}
+                    @include('layouts.partials.forms.upload-dokumen')
                     @include('layouts.partials.forms.print-register')
                 </div>
             </div>
@@ -253,8 +253,37 @@
                 dataPeriodik.firstElementChild.classList.add('cursor-pointer')
                 dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
             })
-
         };
+
+        function nextUpload() {
+            Swal.fire({
+                title: 'Sedang menyimpan data...',
+                timer: 2000,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            }).
+            then((dismiss) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Selamat! Anda sudah terdaftar.'
+                }).then((dismiss) => {
+                    dataKesejahteraan.classList.remove('current-item');
+                    dataKesejahteraan.firstElementChild.classList.add('completed');
+                    document.querySelector('.form-kesejahteraan-wrapper').classList.add('completed')
+                    document.querySelector('.cetak-pendaftaran-wrapper').classList.add('show')
+                    document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+                    document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+                    dataDiri.firstElementChild.classList.add('cursor-pointer')
+                    dataOrangTua.firstElementChild.classList.add('cursor-pointer')
+                    dataPeriodik.firstElementChild.classList.add('cursor-pointer')
+                    dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
+                    document.querySelector(".cetak-pendaftaran-wrapper").classList.remove('translate-x-[125%]')
+                    document.querySelector('.form-wrapper-responsive').classList.add('cetak-bukti')
+                })
+            })
+        }
         // End Next Button
 
         // Jump to Specified Form
@@ -270,9 +299,11 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToDataOrangTua() {
@@ -290,10 +321,12 @@
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
             document.querySelector('.form-biodata-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
+            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToDataPeriodik() {
@@ -315,9 +348,11 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.add('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToDataKesejahteraan() {
@@ -339,12 +374,14 @@
             }
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
             document.querySelector('.form-biodata-wrapper').classList.remove('show')
+            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
         // End Jump To Specified Form
 
