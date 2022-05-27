@@ -1594,11 +1594,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* End Footer */
 /* Buttons */
 .btn{
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-sm{
+    border-radius: 0.375rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
     transition-property: all;
@@ -1705,6 +1717,15 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 /* End Dark Mode */
+div.dropzone{
+    padding: 0.25rem;
+}
+.dropzone.dz-clickable .dz-message{
+    margin: 0px;
+}
+.dropzone .dz-preview.dz-image-preview{
+    margin: 0px;
+}
 .dropzone .dz-preview .dz-remove{
     position: absolute;
     top: 5px;
@@ -1845,6 +1866,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+.my-1{
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
 .my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -1852,10 +1877,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-4{
     margin-left: 1rem;
     margin-right: 1rem;
-}
-.my-1{
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
 }
 .ml-1{
     margin-left: 0.25rem;
@@ -1890,14 +1911,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-1{
     margin-bottom: 0.25rem;
 }
-.mt-auto{
-    margin-top: auto;
-}
 .mb-2{
     margin-bottom: 0.5rem;
 }
 .mb-6{
     margin-bottom: 1.5rem;
+}
+.mt-auto{
+    margin-top: auto;
 }
 .block{
     display: block;
@@ -1932,6 +1953,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-full{
     height: 100%;
 }
+.h-max{
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+}
+.h-\[22rem\]{
+    height: 22rem;
+}
 .h-20{
     height: 5rem;
 }
@@ -1941,16 +1970,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[8rem\]{
     height: 8rem;
 }
-.h-\[22rem\]{
-    height: 22rem;
-}
-.h-auto{
-    height: auto;
-}
-.h-max{
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
+.h-\[15rem\]{
+    height: 15rem;
 }
 .min-h-screen{
     min-height: 100vh;
@@ -1990,6 +2011,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[8rem\]{
     width: 8rem;
+}
+.w-\[13rem\]{
+    width: 13rem;
 }
 .max-w-6xl{
     max-width: 72rem;
@@ -2040,6 +2064,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-between{
     justify-content: space-between;
 }
+.justify-evenly{
+    justify-content: space-evenly;
+}
 .gap-4{
     gap: 1rem;
 }
@@ -2080,6 +2107,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-zinc-400{
     --tw-border-opacity: 1;
     border-color: rgb(161 161 170 / var(--tw-border-opacity));
+}
+.border-\[\#0099ff\]{
+    --tw-border-opacity: 1;
+    border-color: rgb(0 153 255 / var(--tw-border-opacity));
 }
 .border-b-zinc-300{
     --tw-border-opacity: 1;
@@ -2203,6 +2234,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-4{
     padding-left: 1rem;
 }
+.pb-2{
+    padding-bottom: 0.5rem;
+}
 .text-center{
     text-align: center;
 }
@@ -2225,12 +2259,19 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.25rem;
     line-height: 1.75rem;
 }
+.text-\[4rem\]{
+    font-size: 4rem;
+}
 .text-base{
     font-size: 1rem;
     line-height: 1.5rem;
 }
-.text-\[4rem\]{
-    font-size: 4rem;
+.text-\[2rem\]{
+    font-size: 2rem;
+}
+.text-xs{
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 .font-semibold{
     font-weight: 600;
@@ -2295,13 +2336,17 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(31 41 55 / var(--tw-text-opacity));
 }
-.text-zinc-600{
-    --tw-text-opacity: 1;
-    color: rgb(82 82 91 / var(--tw-text-opacity));
-}
 .text-zinc-700{
     --tw-text-opacity: 1;
     color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+.text-\[\#0099ff\]{
+    --tw-text-opacity: 1;
+    color: rgb(0 153 255 / var(--tw-text-opacity));
+}
+.text-zinc-600{
+    --tw-text-opacity: 1;
+    color: rgb(82 82 91 / var(--tw-text-opacity));
 }
 .text-\[\#0077ff\]{
     --tw-text-opacity: 1;
@@ -2310,10 +2355,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-red-400{
     --tw-text-opacity: 1;
     color: rgb(248 113 113 / var(--tw-text-opacity));
-}
-.text-\[\#0099ff\]{
-    --tw-text-opacity: 1;
-    color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 .underline{
     -webkit-text-decoration-line: underline;
@@ -2574,10 +2615,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 768px){
-
-    .md\:h-80{
-        height: 20rem;
-    }
 
     .md\:grid-cols-2{
         grid-template-columns: repeat(2, minmax(0, 1fr));
