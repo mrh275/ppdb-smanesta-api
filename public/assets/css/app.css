@@ -1896,6 +1896,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-2{
     margin-bottom: 0.5rem;
 }
+.mb-6{
+    margin-bottom: 1.5rem;
+}
 .block{
     display: block;
 }
@@ -1940,6 +1943,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-\[22rem\]{
     height: 22rem;
+}
+.h-auto{
+    height: auto;
+}
+.h-max{
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
 }
 .min-h-screen{
     min-height: 100vh;
@@ -2438,6 +2449,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-zinc-600:hover{
     --tw-text-opacity: 1;
     color: rgb(82 82 91 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#0099ff\]:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 153 255 / var(--tw-text-opacity));
 }
 
 .focus\:ring:focus{
