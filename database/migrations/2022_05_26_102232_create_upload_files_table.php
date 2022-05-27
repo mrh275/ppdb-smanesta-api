@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('upload_files', function (Blueprint $table) {
             $table->id();
+            $table->string('noreg_ppdb')->unique();
+            $table->string('ijazah')->default('-');
+            $table->string('kk')->default('-');
+            $table->string('akte')->default('-');
+            $table->string('ktp')->default('-');
             $table->timestamps();
         });
     }
