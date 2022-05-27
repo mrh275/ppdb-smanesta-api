@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Biodata;
 use App\Models\User;
 use App\Models\Kelas;
 use App\Models\ListSekolahAsal;
