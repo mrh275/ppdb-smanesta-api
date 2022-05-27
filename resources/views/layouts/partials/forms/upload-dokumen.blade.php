@@ -3,22 +3,82 @@
         Upload Dokumen
     </h3>
 
-    <div class="form-wrapper form-biodata">
+    <div class="form-wrapper form-biodata mb-6">
         <div class="w-full">
-            <form method="post" class="dropzone h-[22rem] flex items-center justify-center flex-wrap" id="img-upload" enctype="multipart/form-data">
-                @csrf
-                <div class="dz-message">
-                    <div class="mb-4">
-                        <div class="text-center">
-                            <i class="fa-solid fa-cloud-arrow-up text-[4rem] text-[#0099ff]"></i>
+            {{-- <form method="post" class="flex flox-col items-center justify-between flex-wrap" id="img-upload" enctype="multipart/form-data"> --}}
+
+            <div class="left-upload w-full flex justify-evenly items-start">
+                <div class="upload-group">
+                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Ijazah/Surat Kelulusan</label>
+                    <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ijazah-upload">
+                        @csrf
+                        <div class="dz-message">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up text-[2rem] text-[#0099ff]"></i>
+                                </div>
+                                <span class="block text-sm text-zinc-700">Klik untuk memilih file</span>
+                                <span class="block my-1 text-xs text-zinc-600">atau</span>
+                                <span class="block text-sm text-zinc-700">Drag and Drop file</span>
+                            </div>
+                            <span class="btn-sm btn-primary">Browse files</span>
                         </div>
-                        <span class="block text-xl text-zinc-700">Klik untuk memilih file</span>
-                        <span class="block my-1 text-zinc-600">atau</span>
-                        <span class="block text-xl text-zinc-700">Drag and Drop file</span>
-                    </div>
-                    <span class="btn btn-sm btn-primary">Browse files</span>
+                    </form>
                 </div>
-            </form>
+                <div class="upload-group">
+                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Kartu Keluarga</label>
+                    <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kk-upload">
+                        @csrf
+                        <div class="dz-message">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up text-[2rem] text-[#0099ff]"></i>
+                                </div>
+                                <span class="block text-sm text-zinc-700">Klik untuk memilih file</span>
+                                <span class="block my-1 text-xs text-zinc-600">atau</span>
+                                <span class="block text-sm text-zinc-700">Drag and Drop file</span>
+                            </div>
+                            <span class="btn-sm btn-primary">Browse files</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="upload-group">
+                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Akte Kelahiran</label>
+                    <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="akte-upload">
+                        @csrf
+                        <div class="dz-message">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up text-[2rem] text-[#0099ff]"></i>
+                                </div>
+                                <span class="block text-sm text-zinc-700">Klik untuk memilih file</span>
+                                <span class="block my-1 text-xs text-zinc-600">atau</span>
+                                <span class="block text-sm text-zinc-700">Drag and Drop file</span>
+                            </div>
+                            <span class="btn-sm btn-primary">Browse files</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="upload-group">
+                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">KTP Orang Tua</label>
+                    <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ktp-upload">
+                        @csrf
+                        <div class="dz-message">
+                            <div class="mb-4">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up text-[2rem] text-[#0099ff]"></i>
+                                </div>
+                                <span class="block text-sm text-zinc-700">Klik untuk memilih file</span>
+                                <span class="block my-1 text-xs text-zinc-600">atau</span>
+                                <span class="block text-sm text-zinc-700">Drag and Drop file</span>
+                            </div>
+                            <span class="btn-sm btn-primary">Browse files</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="right-upload w-1/2"></div>
+            {{-- </form> --}}
         </div>
     </div>
     <div class="form-btn">
@@ -48,7 +108,7 @@
                 <span class="fa fa-times-circle"></span>
             </div>
             <div class="dz-error-message">
-                <small data-dz-errormessage></small>
+                <small data-dz-errormessage>{{ $errors }}</small>
             </div>
         </div>
     </div>
@@ -60,10 +120,56 @@
 @push('specifyjs')
     <script>
         Dropzone.autoDiscover = false;
-        const dropzone = new Dropzone('form#img-upload', {
-            url: "{{ url('register/upload') }}",
+        const ijazahUpload = new Dropzone('#ijazah-upload', {
+            url: "{{ url('upload-files/ijazah') }}",
             acceptedFiles: '.jpg, .jpeg, .png',
             maxFilesize: 1,
+            paramName: 'ijazahFile',
+            thumbnailWidth: 180,
+            thumbnailHeight: 180,
+            addRemoveLinks: true,
+            "dictRemoveFile": '<span class="tooltiptext ">Hapus</span>',
+            dictCancelUpload: "",
+            previewTemplate: document.querySelector("div#dropzoneItemTemplate").innerHTML,
+            dictFileTooBig: "Ukuran file terlalu besar! Maksimal 1024KB",
+            dictInvalidFileType: "Tipe file tidak sesuai. Hanya file .jpg, .jpeg, .png yang diperbolehkan",
+        })
+
+        const kkUpload = new Dropzone('#kk-upload', {
+            url: "{{ url('upload-files/kk') }}",
+            acceptedFiles: '.jpg, .jpeg, .png',
+            maxFilesize: 1,
+            paramName: 'kkFile',
+            thumbnailWidth: 180,
+            thumbnailHeight: 180,
+            addRemoveLinks: true,
+            "dictRemoveFile": '<span class="tooltiptext ">Hapus</span>',
+            dictCancelUpload: "",
+            previewTemplate: document.querySelector("div#dropzoneItemTemplate").innerHTML,
+            dictFileTooBig: "Ukuran file terlalu besar! Maksimal 1024KB",
+            dictInvalidFileType: "Tipe file tidak sesuai. Hanya file .jpg, .jpeg, .png yang diperbolehkan",
+        })
+
+        const akteUpload = new Dropzone('#akte-upload', {
+            url: "{{ url('upload-files/akte') }}",
+            acceptedFiles: '.jpg, .jpeg, .png',
+            maxFilesize: 1,
+            paramName: 'akteFile',
+            thumbnailWidth: 180,
+            thumbnailHeight: 180,
+            addRemoveLinks: true,
+            "dictRemoveFile": '<span class="tooltiptext ">Hapus</span>',
+            dictCancelUpload: "",
+            previewTemplate: document.querySelector("div#dropzoneItemTemplate").innerHTML,
+            dictFileTooBig: "Ukuran file terlalu besar! Maksimal 1024KB",
+            dictInvalidFileType: "Tipe file tidak sesuai. Hanya file .jpg, .jpeg, .png yang diperbolehkan",
+        })
+
+        const ktpUpload = new Dropzone('#ktp-upload', {
+            url: "{{ url('upload-files/ktp') }}",
+            acceptedFiles: '.jpg, .jpeg, .png',
+            maxFilesize: 1,
+            paramName: 'ktpFile',
             thumbnailWidth: 180,
             thumbnailHeight: 180,
             addRemoveLinks: true,
