@@ -39,4 +39,9 @@ Route::middleware(['operator'])->group(function () {
     Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
     Route::post('/upload-files/akte', [UploadFilesController::class, 'uploadAkte']);
     Route::post('/upload-files/ktp', [UploadFilesController::class, 'uploadKTP']);
+    Route::post('/upload-files/kip', [UploadFilesController::class, 'uploadKIP']);
+    Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
+    Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
+    Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
+    Route::get('/cetakPendaftaran', [RegisterController::class, 'cetakPendaftaran']);
 });
