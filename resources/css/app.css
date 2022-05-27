@@ -458,6 +458,10 @@ html {
         @apply opacity-80 bg-white cursor-not-allowed;
     }
 
+    .form-upload {
+        @apply block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400;
+    }
+
     .dropzone#img-upload {
         @apply rounded-xl border-2 border-[#0099ff] border-opacity-50;
     }
@@ -591,7 +595,11 @@ html {
 
     /* Buttons */
     .btn {
-        @apply py-2 px-4 rounded-md text-white transition-all ease-in-out duration-200;
+        @apply py-2 px-4 rounded-lg text-white transition-all ease-in-out duration-200;
+    }
+
+    .btn-sm {
+        @apply py-1 px-2 rounded-md text-white transition-all ease-in-out duration-200;
     }
 
     .btn-primary {
@@ -688,6 +696,17 @@ html {
         @apply text-[#0099ff];
     }
     /* End Dark Mode */
+    div.dropzone {
+        @apply p-1;
+    }
+
+    .dropzone.dz-clickable .dz-message {
+        @apply m-0;
+    }
+
+    .dropzone .dz-preview.dz-image-preview {
+        @apply m-0;
+    }
 
     .dropzone .dz-preview .dz-remove {
         @apply px-2 py-1 rounded-full border border-red-500 hover:no-underline bg-red-500 block cursor-pointer absolute top-[5px] right-[5px] z-10 text-white transition-all ease-in-out duration-200;
