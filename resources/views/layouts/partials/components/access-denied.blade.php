@@ -17,15 +17,17 @@
                 <p class="max-w-md text-gray-600 mb-1">
                     Untuk melakukan pendaftaran silahkan hubungi panitia atau datang langsung ke sekolah kami.
                 </p>
-                <p class="max-w-md text-gray-600 mb-2">
+                <p class="max-w-md text-gray-600 mb-1">
                     Kalo temen-temen gak tau lokasi sekolah kami, bisa klik tombol dibawah ini.
                 </p>
-                <p class="narahubung flex flex-col mb-6">
+                <div class="max-w-md text-gray-600 flex flex-col mb-6">
+                    <h4 class="narahubung-title font-semibold text-zinc-700">
+                        Narahubung :
+                    </h4>
                     <a href="https://wa.me/6285155288214?text=Permisi,%20saya%20tulis%20nama%20anda%20dari%20tulis%20nama%20sekolah%20anda.%20Saya%20ingin%20mendaftar%20ke%20SMAN%201%20Rawamerta" class="text-zinc-700 hover:text-[#0099ff]"><i class="fa-brands fa-whatsapp"></i> Muhamad Ramdani Hidayatullah</a>
                     <a href="https://wa.me/6285710122557?text=Permisi,%20saya%20tulis%20nama%20anda%20dari%20tulis%20nama%20sekolah%20anda.%20Saya%20ingin%20mendaftar%20ke%20SMAN%201%20Rawamerta" class="text-zinc-700 hover:text-[#0099ff]"><i class="fa-brands fa-whatsapp"></i> Wardiyanto, S.Pd.</a>
                     <a href="https://wa.me/6285716339816?text=Permisi,%20saya%20tulis%20nama%20anda%20dari%20tulis%20nama%20sekolah%20anda.%20Saya%20ingin%20mendaftar%20ke%20SMAN%201%20Rawamerta" class="text-zinc-700 hover:text-[#0099ff]"><i class="fa-brands fa-whatsapp"></i> Yuliansyah Dinata, M.Pd.</a>
-                </p>
-
+                </div>
                 <div class="mt-auto">
                     <a href="https://goo.gl/maps/m9zFx47x3Ym1fvSy9" target="_blank" class="btn btn-primary">Lokasi</a>
                 </div>
