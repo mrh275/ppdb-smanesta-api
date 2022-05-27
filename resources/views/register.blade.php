@@ -36,7 +36,6 @@
                     @include('layouts.partials.forms.orang-tua')
                     @include('layouts.partials.forms.data-periodik')
                     @include('layouts.partials.forms.upload-dokumen')
-                    @include('layouts.partials.forms.print-register')
                 </div>
             </div>
         </div>
@@ -147,176 +146,206 @@
 
         // Next Button
         function dataDiriNext() {
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "post",
-                url: $('#biodata-cpd').attr('action'),
-                data: $('#biodata-cpd').serialize(),
-                dataType: "json",
-                success: function(response) {
-                    Swal.fire({
-                        title: 'Sedang menyimpan data...',
-                        timer: 2000,
-                        showConfirmButton: false,
-                        didOpen: () => {
-                            Swal.showLoading()
-                        }
-                    }).
-                    then((dismiss) => {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            showCloseButton: true,
-                            timer: 3000,
-                            timerProgressBar: true,
-                        })
+            Swal.fire({
+                title: 'Apa anda sudah yakin?',
+                text: 'Pastikan data yang anda masukkan sudah benar.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Belum'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: "post",
+                        url: $('#biodata-cpd').attr('action'),
+                        data: $('#biodata-cpd').serialize(),
+                        dataType: "json",
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Sedang menyimpan data...',
+                                timer: 2000,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            }).
+                            then((dismiss) => {
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    showCloseButton: true,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                })
 
-                        Toast.fire({
-                            icon: 'success',
-                            title: response.message
-                        })
-                        dataDiri.classList.remove('current-item');
-                        dataDiri.firstElementChild.classList.add('completed');
-                        dataOrangTua.classList.add('current-item');
-                        document.querySelector('.form-biodata-wrapper').classList.add('completed')
-                        document.querySelector('.form-orang-tua-wrapper').classList.add('show')
-                        document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
-                    })
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    let data = JSON.parse(xhr.responseText);
-                    document.querySelector('#nisn').classList.add('invalid')
-                    document.querySelector('.nisn.tooltiptext').innerHTML = data.errors.nisn
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: response.message
+                                })
+                                dataDiri.classList.remove('current-item');
+                                dataDiri.firstElementChild.classList.add('completed');
+                                dataOrangTua.classList.add('current-item');
+                                document.querySelector('.form-biodata-wrapper').classList.add('completed')
+                                document.querySelector('.form-orang-tua-wrapper').classList.add('show')
+                                document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
+                            })
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            let data = JSON.parse(xhr.responseText);
+                            document.querySelector('#nisn').classList.add('invalid')
+                            document.querySelector('.nisn.tooltiptext').innerHTML = data.errors.nisn
+                        }
+                    });
                 }
             });
-
         };
 
         function dataOrangTuaNext() {
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "post",
-                url: $('#form-data-orang-tua').attr('action'),
-                data: $('#form-data-orang-tua').serialize(),
-                dataType: "json",
-                success: function(response) {
-                    Swal.fire({
-                        title: 'Sedang menyimpan data...',
-                        timer: 2000,
-                        showConfirmButton: false,
-                        didOpen: () => {
-                            Swal.showLoading()
-                        }
-                    }).
-                    then((dismiss) => {
-                        if (response.success == 'warning') {
+            Swal.fire({
+                title: 'Apa anda sudah yakin?',
+                text: 'Pastikan data yang anda masukkan sudah benar.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Belum'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: "post",
+                        url: $('#form-data-orang-tua').attr('action'),
+                        data: $('#form-data-orang-tua').serialize(),
+                        dataType: "json",
+                        success: function(response) {
                             Swal.fire({
-                                icon: response.success,
-                                title: response.message,
-                                text: response.text
-                            })
-                        } else {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
+                                title: 'Sedang menyimpan data...',
+                                timer: 2000,
                                 showConfirmButton: false,
-                                showCloseButton: true,
-                                timer: 3000,
-                                timerProgressBar: true,
-                            })
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            }).
+                            then((dismiss) => {
+                                if (response.success == 'warning') {
+                                    Swal.fire({
+                                        icon: response.success,
+                                        title: response.message,
+                                        text: response.text
+                                    })
+                                } else {
+                                    const Toast = Swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        showCloseButton: true,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                    })
 
-                            Toast.fire({
-                                icon: 'success',
-                                title: response.message
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: response.message
+                                    })
+                                    dataOrangTua.classList.remove('current-item');
+                                    dataOrangTua.firstElementChild.classList.add('completed');
+                                    dataPeriodik.classList.add('current-item');
+                                    document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                                    document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+                                    document.querySelector('.form-periodik-wrapper').classList.add('show')
+                                    document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+                                    document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                                }
                             })
-                            dataOrangTua.classList.remove('current-item');
-                            dataOrangTua.firstElementChild.classList.add('completed');
-                            dataPeriodik.classList.add('current-item');
-                            document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
-                            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
-                            document.querySelector('.form-periodik-wrapper').classList.add('show')
-                            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
-                            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(xhr.responseText);
                         }
-                    })
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.responseText);
+                    });
                 }
             });
+
         };
 
         function dataPeriodikNext() {
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "post",
-                url: $('#form-data-periodik').attr('action'),
-                data: $('#form-data-periodik').serialize(),
-                dataType: "json",
-                success: function(response) {
-                    Swal.fire({
-                        title: 'Sedang menyimpan data...',
-                        timer: 2000,
-                        showConfirmButton: false,
-                        didOpen: () => {
-                            Swal.showLoading()
-                        }
-                    }).
-                    then((dismiss) => {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            showCloseButton: true,
-                            timer: 3000,
-                            timerProgressBar: true,
-                        })
+            Swal.fire({
+                title: 'Apa anda sudah yakin?',
+                text: 'Pastikan data yang anda masukkan sudah benar.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Belum'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: "post",
+                        url: $('#form-data-periodik').attr('action'),
+                        data: $('#form-data-periodik').serialize(),
+                        dataType: "json",
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Sedang menyimpan data...',
+                                timer: 2000,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            }).
+                            then((dismiss) => {
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    showCloseButton: true,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                })
 
-                        Toast.fire({
-                            icon: 'success',
-                            title: response.message
-                        })
-                        dataPeriodik.classList.remove('current-item');
-                        dataPeriodik.firstElementChild.classList.add('completed');
-                        dataKesejahteraan.classList.add('current-item');
-                        document.querySelector('.form-periodik-wrapper').classList.add('completed')
-                        document.querySelector('.form-periodik-wrapper').classList.remove('show')
-                        document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
-                        document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
-                        document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
-                        // dataDiri.firstElementChild.setAttribute('onclick', 'jumpToDataDiri()')
-                        // dataOrangTua.firstElementChild.setAttribute('onclick', 'jumpToDataOrangTua()')
-                        // dataPeriodik.firstElementChild.setAttribute('onclick', 'jumpToDataPeriodik()')
-                        // dataKesejahteraan.firstElementChild.setAttribute('onclick', 'jumpToDataKesejahteraan()')
-                        dataDiri.firstElementChild.classList.add('cursor-pointer')
-                        dataOrangTua.firstElementChild.classList.add('cursor-pointer')
-                        dataPeriodik.firstElementChild.classList.add('cursor-pointer')
-                        dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
-                    })
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.responseText);
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: response.message
+                                })
+                                dataPeriodik.classList.remove('current-item');
+                                dataPeriodik.firstElementChild.classList.add('completed');
+                                dataKesejahteraan.classList.add('current-item');
+                                document.querySelector('.form-periodik-wrapper').classList.add('completed')
+                                document.querySelector('.form-periodik-wrapper').classList.remove('show')
+                                document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
+                                document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
+                                document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
+                                dataDiri.firstElementChild.classList.add('cursor-pointer')
+                                dataOrangTua.firstElementChild.classList.add('cursor-pointer')
+                                dataPeriodik.firstElementChild.classList.add('cursor-pointer')
+                                dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
+                            })
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(xhr.responseText);
+                        }
+                    });
                 }
             });
+
         };
 
         function nextUpload() {
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "post",
-                url: "{{ url('upload-files') }}",
-                data: $('#biodata-cpd').serialize(),
-                dataType: "json",
-                success: function(response) {
+            Swal.fire({
+                title: 'Apa anda sudah yakin?',
+                text: 'Pastikan data yang anda masukkan sudah benar.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Belum'
+            }).then((result) => {
+                if (result.value) {
                     Swal.fire({
                         title: 'Sedang menyimpan data...',
                         timer: 2000,
@@ -326,40 +355,22 @@
                         }
                     }).
                     then((dismiss) => {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            showCloseButton: true,
-                            timer: 3000,
-                            timerProgressBar: true,
-                        })
-
-                        Toast.fire({
-                            icon: 'success',
-                            title: response.message
-                        })
                         dataKesejahteraan.classList.remove('current-item');
                         dataKesejahteraan.firstElementChild.classList.add('completed');
-                        document.querySelector('.form-kesejahteraan-wrapper').classList.add('completed')
-                        document.querySelector('.cetak-pendaftaran-wrapper').classList.add('show')
-                        document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
-                        document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
-                        dataDiri.firstElementChild.classList.add('cursor-pointer')
-                        dataOrangTua.firstElementChild.classList.add('cursor-pointer')
-                        dataPeriodik.firstElementChild.classList.add('cursor-pointer')
-                        dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
-                        document.querySelector(".cetak-pendaftaran-wrapper").classList.remove('translate-x-[125%]')
-                        document.querySelector('.form-wrapper-responsive').classList.add('cetak-bukti')
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Pendaftaran berhasil!',
+                            text: 'Silahkan lakukan verifikasi pendaftaran pada meja Verifikator.'
+                        }).then((dismiss) => {
+                            window.location.href = "{{ url('') }}";
+                            @php
+                                session()->forget('noreg');
+                            @endphp
+                        })
                     })
-                },
-                error: {
-                    function(xhr, status, error) {
-                        var errorMessage = xhr.status + ': ' + xhr.statusText
-                        alert('Error - ' + errorMessage);
-                    }
                 }
             });
+
         }
         // End Next Button
 
@@ -376,11 +387,9 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
-            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
-            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToDataOrangTua() {
@@ -398,12 +407,10 @@
             document.querySelector('.form-orang-tua-wrapper').classList.add('show')
             document.querySelector('.form-biodata-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
-            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
-            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToDataPeriodik() {
@@ -425,11 +432,9 @@
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.add('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
-            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.add('periodik')
             document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
-            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
         function jumpToUploadFiles() {
@@ -451,14 +456,12 @@
             }
             document.querySelector('.form-kesejahteraan-wrapper').classList.remove('completed')
             document.querySelector('.form-biodata-wrapper').classList.remove('show')
-            document.querySelector('.cetak-pendaftaran-wrapper').classList.remove('show')
             document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
             document.querySelector('.form-periodik-wrapper').classList.remove('show')
             document.querySelector('.form-kesejahteraan-wrapper').classList.add('show')
             document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
             document.querySelector('.form-wrapper-responsive').classList.remove('periodik')
             document.querySelector('.form-wrapper-responsive').classList.add('kesejahteraan')
-            document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
         // End Jump To Specified Form
 
