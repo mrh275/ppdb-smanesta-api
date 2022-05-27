@@ -34,5 +34,9 @@ Route::middleware(['operator'])->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
     Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
-    Route::post('/upload-files', [UploadFilesController::class, 'store']);
+    Route::post('/upload-files', [UploadFilesController::class, 'uploadFiles']);
+    Route::post('/upload-files/ijazah', [UploadFilesController::class, 'uploadIjazah']);
+    Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
+    Route::post('/upload-files/akte', [UploadFilesController::class, 'uploadAkte']);
+    Route::post('/upload-files/ktp', [UploadFilesController::class, 'uploadKTP']);
 });
