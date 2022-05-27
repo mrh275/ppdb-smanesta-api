@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('kk')->default('-');
             $table->string('akte')->default('-');
             $table->string('ktp')->default('-');
+            $table->string('kip')->default('-');
+            $table->string('kis')->default('-');
+            $table->string('kks')->default('-');
+            $table->string('pkh')->default('-');
             $table->timestamps();
         });
     }
