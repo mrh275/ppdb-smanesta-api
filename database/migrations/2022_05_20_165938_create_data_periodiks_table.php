@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('data_periodiks', function (Blueprint $table) {
             $table->id();
+            $table->string('noreg_ppdb');
+            $table->string('kip');
+            $table->string('kis');
+            $table->string('kks');
+            $table->string('kps');
+            $table->string('pkh');
             $table->timestamps();
         });
     }

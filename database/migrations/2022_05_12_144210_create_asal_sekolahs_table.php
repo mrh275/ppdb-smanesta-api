@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('asal_sekolahs', function (Blueprint $table) {
             $table->id();
-            $table->string('nisn_smp');
+            $table->string('noreg_ppdb');
             $table->integer('jenjang');
             $table->string('nama_sekolah');
             $table->string('alamat_sekolah');
