@@ -5,7 +5,7 @@
 
     <button class="btn btn-primary" type="button" onclick="cetakBukti()">Cetak Bukti Pendaftaran</button>
     <a href="{{ url('') }}" class="btn btn-secondary">Tutup Halaman</a>
-    <div class="card-bukti-pendaftaran my-4 px-[28rem]">
+    <div class="card-bukti-pendaftaran my-4 px-[11rem] 2xl:px-[28rem]">
         <div class="card-body bg-white w-full mx-auto rounded-lg" id="cetak-bukti-pendaftaran">
             <div class="cetak-header flex justify-start items-center pt-6 pb-4 px-8">
                 <img src="{{ asset('assets/img/LOGO-SMALL.png') }}" alt="Logo Sekolah" class="cetak-logo w-20 h-20">
@@ -33,13 +33,13 @@
                     </h3>
                 </div>
                 <div class="register-wrapper flex justify-between text-sm items-start px-6 pt-4 pb-8 text-zinc-700">
-                    <div class="left-register w-1/2 pr-4">
+                    <div class="left-register w-3/5 pr-2">
                         <div class="register-item w-full flex justify-start items-start">
                             <div class="register-key w-2/5">
                                 <span>No. Pendaftaran</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: PPDB-2-2223001</span>
+                                <span>: <span class="noreg_ppdb"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -47,7 +47,7 @@
                                 <span>NIK</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: 3215142905020001</span>
+                                <span>: <span class="nik"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -55,15 +55,18 @@
                                 <span>NISN</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: 0028688308</span>
+                                <span>: <span class="nisn"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
                             <div class="register-key w-2/5">
                                 <span>Nama Lengkap</span>
                             </div>
+                            <div class="register-separator">
+                                <span>&nbsp;:&nbsp;</span>
+                            </div>
                             <div class="register-value w-3/5">
-                                <span>: KEUKEU MEILANI DWI YANTI</span>
+                                <span class="nama"></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -71,7 +74,7 @@
                                 <span>Jenis Kelamin</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: Perempuan</span>
+                                <span>: <span class="jenis_kelamin"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -79,7 +82,7 @@
                                 <span>TTL</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: KARAWANG, 29 Mei 2002</span>
+                                <span>: <span class="tempat_lahir"></span>, <span class="tanggal_lahir"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -87,7 +90,7 @@
                                 <span>Asal Sekolah</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: SMPN 1 JATISARI</span>
+                                <span>: <span class="asal_sekolah"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -97,26 +100,18 @@
                             <div class="register-separator">
                                 <span>&nbsp;:&nbsp;</span>
                             </div>
-                            <div class="register-value w-3/5">
-                                <span>DUSUN KRAJAN RT. 03 RW. 01 DESA CIREJAG KEC. JATISARI KARAWANG</span>
+                            <div class="register-value w-3/5 whitespace-normal">
+                                <span class="alamat"></span> Dusun <span class="dusun"></span> RT.<span class="rt"></span> RW.<span class="rw"></span> Ds. <span class="desa"></span> Kec. <span class="kecamatan"></span> <span class="kabupaten"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="right-register w-1/2 pl-4">
-                        <div class="register-item w-full flex justify-start items-start">
-                            <div class="register-key w-2/5">
-                                <span>Jalur Pendaftaran</span>
-                            </div>
-                            <div class="register-value w-3/5">
-                                <span>: PRESTASI RAPOR</span>
-                            </div>
-                        </div>
+                    <div class="right-register w-2/5 pl-2">
                         <div class="register-item w-full flex justify-start items-start">
                             <div class="register-key w-2/5">
                                 <span>Advisor</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: VERIFIKATOR</span>
+                                <span>: <span class="user"></span></span>
                             </div>
                         </div>
                         <div class="register-item w-full flex justify-start items-start">
@@ -124,7 +119,7 @@
                                 <span>Tanggal Pendaftaran</span>
                             </div>
                             <div class="register-value w-3/5">
-                                <span>: 06 Juni 2022, 09:24</span>
+                                <span>: <span class="register_date"></span></span>
                             </div>
                         </div>
                     </div>
@@ -266,7 +261,7 @@
                         <img src="{{ asset('assets/img/ttd.png') }}" class="w-[8rem] h-[8rem]" alt="TTD">
                         <ul class="barcode-list list-disc px-8 font-semibold text-base">
                             <li class="barcode-list-item">
-                                Tanggal Cetak 15 Juni 2022, 13:34 WIB
+                                Tanggal Cetak <span class="print_date"></span> WIB
                             </li>
                             <li class="barcode-list-item">
                                 Untuk mendapatkan informasi lebih lanjut, silahkan hubungi kami di instagram <a href="https://instagram.com/sman1rawamerta" class="text-[#0077ff]">@sman1rawamerta</a>
@@ -289,27 +284,104 @@
 
 @push('specifyjs')
     <script>
+        // Fetch register data
+        $.ajax({
+            type: "get",
+            url: "{{ url('cetakPendaftaran') }}",
+            dataType: "json",
+            success: function(response) {
+                document.querySelector(".noreg_ppdb").innerHTML = response.data.biodata.noreg_ppdb
+                document.querySelector(".nik").innerHTML = response.data.biodata.nik
+                document.querySelector(".nisn").innerHTML = response.data.biodata.nisn
+                document.querySelector(".nama").innerHTML = response.data.biodata.nama
+                if (response.data.biodata.jenis_kelamin == "L") {
+                    document.querySelector(".jenis_kelamin").innerHTML = "Laki-laki"
+                } else {
+                    document.querySelector(".jenis_kelamin").innerHTML = "Perempuan"
+                }
+                document.querySelector(".tempat_lahir").innerHTML = response.data.biodata.tempat_lahir
+
+                let month = [
+                    'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember'
+                ];
+                let dateBirth = response.data.biodata.tanggal_lahir;
+                // yyyy-mm-dd
+                let dayBirth = dateBirth.substr(8, 2);
+                let monthBirth = month[parseInt(dateBirth.substr(5, 2)) - 1];
+                let yearBirth = dateBirth.substr(0, 4);
+                let newBirth = dayBirth + ' ' + monthBirth + ' ' + yearBirth;
+                document.querySelector(".tanggal_lahir").innerHTML = newBirth
+                document.querySelector(".asal_sekolah").innerHTML = response.data.biodata.asal_sekolah
+                document.querySelector(".alamat").innerHTML = response.data.biodata.alamat
+                document.querySelector(".dusun").innerHTML = response.data.biodata.dusun
+                document.querySelector(".rt").innerHTML = response.data.biodata.rt
+                document.querySelector(".rw").innerHTML = response.data.biodata.rw
+                document.querySelector(".desa").innerHTML = response.data.biodata.desa
+                document.querySelector(".kecamatan").innerHTML = response.data.biodata.kecamatan
+                document.querySelector(".kabupaten").innerHTML = response.data.biodata.kabupaten
+
+                document.querySelector(".user").innerHTML = "{{ Auth::user()->name }}"
+
+                const dateRegister = response.data.biodata.created_at;
+                console.log(dateRegister);
+                let dayRegister = dateRegister.substr(8, 2);
+                let monthRegister = month[parseInt(dateRegister.substr(5, 2)) - 1];
+                let yearRegister = dateRegister.substr(0, 4);
+                let newRegisterDate = dayRegister + ' ' + monthRegister + ' ' + yearRegister;
+                const timeRegister = dateRegister.substr(11, 5);
+                document.querySelector(".register_date").innerHTML = newRegisterDate + ', ' + timeRegister
+
+                let today = new Date();
+                let date = today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
+                let time = today.getHours() + ":" + ((today.getMinutes().toString().length == 1) ? "0" + today.getMinutes().toString() : today.getMinutes());
+                document.querySelector(".print_date").innerHTML = date + ', ' + time
+            }
+        });
+
         function cetakBukti() {
             let element = document.getElementById('cetak-bukti-pendaftaran');
             document.documentElement.scrollTop = 0;
-            let option = {
-                margin: [0, 0, 0, 0],
-                filename: 'bukti-pendaftaran-ppdb-2-2223001.pdf',
-                image: {
-                    type: 'jpeg',
-                    quality: 1
-                },
-                html2canvas: {
-                    scale: 2
-                },
-                jsPDF: {
-                    unit: 'in',
-                    format: 'A4',
-                    orientation: 'portrait'
-                }
-            };
+            Swal.fire({
+                title: 'Cetak Bukti Pendaftaran',
+                text: 'Apakah anda yakin ingin mencetak bukti pendaftaran ini?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, cetak!'
+            }).then((result) => {
+                if (result.value) {
+                    let option = {
+                        margin: [0, 0, 0, 0],
+                        filename: 'bukti-pendaftaran-ppdb-2-2223001.pdf',
+                        image: {
+                            type: 'jpeg',
+                            quality: 1
+                        },
+                        html2canvas: {
+                            scale: 2
+                        },
+                        jsPDF: {
+                            unit: 'in',
+                            format: 'A4',
+                            orientation: 'portrait'
+                        }
+                    };
 
-            html2pdf().set(option).from(element).save();
+                    html2pdf().set(option).from(element).save();
+                }
+            })
         }
     </script>
 @endpush
