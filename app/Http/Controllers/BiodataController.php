@@ -103,11 +103,12 @@ class BiodataController extends Controller
         $validatedBiodata['tanggal_lahir'] = date('Y-m-d', strtotime($tgl_lahir));
 
         $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
-        // while ($validatedBiodata['noreg_ppdb'] == Biodata::where('noreg_ppdb', $validatedBiodata['noreg_ppdb'])->first()) {
-        //     $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
-        // }
+        while ($validatedBiodata['noreg_ppdb'] == Biodata::where('noreg_ppdb', $validatedBiodata['noreg_ppdb'])->first()) {
+            $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
+        }
 
         Biodata::create($validatedBiodata);
+        $request->session()->put('noreg', $validatedBiodata['noreg_ppdb']);
 
         return response()->json([
             'success' => true,
