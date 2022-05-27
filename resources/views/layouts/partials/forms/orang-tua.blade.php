@@ -2,7 +2,7 @@
     <h3 class="form-title form-biodata-title">
         Formulir Data Orang Tua
     </h3>
-    <form action="" method="post" id="form-data-orang-tua">
+    <form action="{{ url('/data-orangtua') }}" method="post" id="form-data-orang-tua">
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
