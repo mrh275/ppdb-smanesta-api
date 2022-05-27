@@ -269,6 +269,10 @@ html {
     .progress-bar.fixed-nav {
         @apply fixed w-full px-10 left-0 top-[56px] bg-white z-10 shadow-lg;
     }
+    .dark .progress-bar.fixed-nav {
+        @apply bg-zinc-800;
+    }
+
     .step-wizard-list {
         @apply flex py-5 px-[10px] relative z-[2];
     }
@@ -354,15 +358,19 @@ html {
     }
 
     .form-wrapper-responsive.kesejahteraan {
-        @apply h-[34.8rem];
+        @apply h-[49.5rem];
     }
 
     .form-wrapper-responsive.cetak-bukti {
-        @apply h-[75rem];
+        @apply h-max pb-10;
+    }
+
+    .form-wrapper-responsive.cetak-bukti .cetak-pendaftaran-wrapper {
+        @apply relative;
     }
 
     .progress-bar.fixed-nav ~ .form-section {
-        @apply mt-[104px];
+        @apply mt-[117px];
     }
 
     .form-section form {
@@ -462,7 +470,7 @@ html {
         @apply block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400;
     }
 
-    .dropzone#img-upload {
+    .dropzone {
         @apply rounded-xl border-2 border-[#0099ff] border-opacity-50;
     }
 
@@ -738,12 +746,12 @@ html {
     }
 }
 
-.dropzone#img-upload .dz-preview .dz-success-mark svg {
+.dropzone .dz-preview .dz-success-mark svg {
     filter: invert(45%) sepia(39%) saturate(1191%) hue-rotate(80deg)
         brightness(101%) contrast(104%);
 }
 
-.dropzone#img-upload .dz-preview .dz-error-mark svg {
+.dropzone .dz-preview .dz-error-mark svg {
     filter: invert(10%) sepia(84%) saturate(7177%) hue-rotate(371deg)
         brightness(101%) contrast(103%);
 }
