@@ -11,19 +11,19 @@
                 <section class="step-wizard">
                     <ul class="step-wizard-list">
                         <li class="step-wizard-item current-item" id="data-diri">
-                            <span class="progress-count"><i class=" fa-solid fa-user"></i></span>
+                            <span class="progress-count" onclick="jumpToDataDiri()"><i class=" fa-solid fa-user"></i></span>
                             <span class="progress-label">Data Diri</span>
                         </li>
                         <li class="step-wizard-item " id="data-orang-tua">
-                            <span class="progress-count"><i class=" fa-solid fa-users"></i></span>
+                            <span class="progress-count" onclick="jumpToDataOrangTua()"><i class=" fa-solid fa-users"></i></span>
                             <span class="progress-label">Data Orang Tua</span>
                         </li>
                         <li class="step-wizard-item" id="data-periodik">
-                            <span class="progress-count"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <span class="progress-count" onclick="jumpToDataPeriodik()"><i class="fa-solid fa-clipboard-user"></i></span>
                             <span class="progress-label">Data Periodik</span>
                         </li>
                         <li class="step-wizard-item " id="data-kesejahteraan">
-                            <span class="progress-count"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+                            <span class="progress-count" onclick="jumpToUploadFiles()"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
                             <span class="progress-label">Upload Dokumen</span>
                         </li>
                     </ul>
@@ -197,9 +197,12 @@
 
         function dataOrangTuaNext() {
             $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 type: "post",
-                url: "{{ url('orang-tua') }}",
-                data: $('#biodata-cpd').serialize(),
+                url: "{{ url('data-orangtua') }}",
+                data: $('#form-data-orang-tua').serialize(),
                 dataType: "json",
                 success: function(response) {
                     Swal.fire({
@@ -211,40 +214,48 @@
                         }
                     }).
                     then((dismiss) => {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            showCloseButton: true,
-                            timer: 3000,
-                            timerProgressBar: true,
-                        })
+                        if (response.success == 'warning') {
+                            Swal.fire({
+                                icon: response.success,
+                                title: response.message,
+                                text: response.text
+                            })
+                        } else {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                showCloseButton: true,
+                                timer: 3000,
+                                timerProgressBar: true,
+                            })
 
-                        Toast.fire({
-                            icon: 'success',
-                            title: response.message
-                        })
-                        dataOrangTua.classList.remove('current-item');
-                        dataOrangTua.firstElementChild.classList.add('completed');
-                        dataPeriodik.classList.add('current-item');
-                        document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
-                        document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
-                        document.querySelector('.form-periodik-wrapper').classList.add('show')
-                        document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
-                        document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                            Toast.fire({
+                                icon: 'success',
+                                title: response.message
+                            })
+                            dataOrangTua.classList.remove('current-item');
+                            dataOrangTua.firstElementChild.classList.add('completed');
+                            dataPeriodik.classList.add('current-item');
+                            document.querySelector('.form-orang-tua-wrapper').classList.add('completed')
+                            document.querySelector('.form-orang-tua-wrapper').classList.remove('show')
+                            document.querySelector('.form-periodik-wrapper').classList.add('show')
+                            document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
+                            document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                        }
                     })
                 },
-                error: {
-                    function(xhr, status, error) {
-                        var errorMessage = xhr.status + ': ' + xhr.statusText
-                        alert('Error - ' + errorMessage);
-                    }
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText);
                 }
             });
         };
 
         function dataPeriodikNext() {
             $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 type: "post",
                 url: "{{ url('data-periodik') }}",
                 data: $('#biodata-cpd').serialize(),
@@ -301,6 +312,9 @@
 
         function nextUpload() {
             $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 type: "post",
                 url: "{{ url('upload-files') }}",
                 data: $('#biodata-cpd').serialize(),
@@ -421,7 +435,7 @@
             document.querySelector('.form-wrapper-responsive').classList.remove('cetak-bukti')
         };
 
-        function jumpToDataKesejahteraan() {
+        function jumpToUploadFiles() {
             dataDiri.classList.remove('current-item');
             dataOrangTua.classList.remove('current-item');
             dataPeriodik.classList.remove('current-item');
