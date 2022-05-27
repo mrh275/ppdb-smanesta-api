@@ -2,7 +2,7 @@
     <h3 class="form-title form-biodata-title">
         Formulir Data Periodik
     </h3>
-    <form action="" method="post">
+    <form action="{{ url('data-periodik') }}" method="post" id="form-data-periodik">
         <div class="form-wrapper form-biodata">
             <div class="form-section-left">
                 <div class="form-group">
@@ -14,12 +14,12 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="nama_sekolah_asal">Nama Sekolah Asal</label>
-                    <input type="text" class="form-control" id="nama_sekolah_asal" name="nama_sekolah_asal">
+                    <label for="nama_sekolah">Nama Sekolah Asal</label>
+                    <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah">
                 </div>
                 <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <textarea name="alamat_sekolah_asal" id="alamat_sekolah_asal" cols="30" rows="3" class="form-control"></textarea>
+                    <label for="alamat_sekolah">Alamat Sekolah</label>
+                    <textarea name="alamat_sekolah" id="alamat_sekolah" cols="30" rows="3" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="nomor_ijazah">Nomor Ijazah</label>
@@ -122,72 +122,72 @@
                 </h4>
                 <div class="address-group">
                     <div class="form-group kip">
-                        <label for="kip">Apakah kamu memiliki KIP?</label>
-                        <select name="kip" id="kip" class="form-select">
+                        <label for="is_kip">Apakah kamu memiliki KIP?</label>
+                        <select name="is_kip" id="is_kip" class="form-select">
                             <option value="">Pilih :</option>
                             <option value="1" id="kip-1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
                     <div class="form-group nomor-kip">
-                        <label for="nomor_kip">Nomor KIP</label>
-                        <input type="number" class="form-control" id="nomor_kip" name="nomor_kip" disabled="disabled">
+                        <label for="kip">Nomor KIP</label>
+                        <input type="number" class="form-control" id="kip" name="kip" disabled="disabled">
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group kis">
-                        <label for="kis">Apakah kamu memiliki KIS?</label>
-                        <select name="kis" id="kis" class="form-select">
+                        <label for="is_kis">Apakah kamu memiliki KIS?</label>
+                        <select name="is_kis" id="is_kis" class="form-select">
                             <option value="">Pilih :</option>
                             <option value="1" id="kis-1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
                     <div class="form-group nomor-kis">
-                        <label for="nomor_kis">Nomor KIS</label>
-                        <input type="number" class="form-control" id="nomor_kis" name="nomor_kis" disabled="disabled">
+                        <label for="kis">Nomor KIS</label>
+                        <input type="number" class="form-control" id="kis" name="kis" disabled="disabled">
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group kks">
-                        <label for="kks">Apakah kamu memiliki KKS?</label>
-                        <select name="kks" id="kks" class="form-select">
+                        <label for="is_kks">Apakah kamu memiliki KKS?</label>
+                        <select name="is_kks" id="is_kks" class="form-select">
                             <option value="">Pilih :</option>
                             <option value="1" id="kks-1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
                     <div class="form-group nomor-kks">
-                        <label for="nomor_kks">Nomor KKS</label>
-                        <input type="number" class="form-control" id="nomor_kks" name="nomor_kks" disabled="disabled">
+                        <label for="kks">Nomor KKS</label>
+                        <input type="number" class="form-control" id="kks" name="kks" disabled="disabled">
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group kps">
-                        <label for="kps">Apakah kamu memiliki KPS?</label>
-                        <select name="kps" id="kps" class="form-select">
+                        <label for="is_kps">Apakah kamu memiliki KPS?</label>
+                        <select name="is_kps" id="is_kps" class="form-select">
                             <option value="">Pilih :</option>
                             <option value="1" id="kps-1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
                     <div class="form-group nomor-kps">
-                        <label for="nomor_kps">Nomor KPS</label>
-                        <input type="number" class="form-control" id="nomor_kps" name="nomor_kps" disabled="disabled">
+                        <label for="kps">Nomor KPS</label>
+                        <input type="number" class="form-control" id="kps" name="kps" disabled="disabled">
                     </div>
                 </div>
                 <div class="address-group">
                     <div class="form-group pkh">
-                        <label for="pkh">Apakah kamu memiliki PKH?</label>
-                        <select name="pkh" id="pkh" class="form-select">
+                        <label for="is_pkh">Apakah kamu memiliki PKH?</label>
+                        <select name="is_pkh" id="is_pkh" class="form-select">
                             <option value="">Pilih :</option>
                             <option value="1" id="pkh-1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
                     <div class="form-group nomor-pkh">
-                        <label for="nomor_pkh">Nomor PKH</label>
-                        <input type="number" class="form-control" id="nomor_pkh" name="nomor_pkh" disabled="disabled">
+                        <label for="pkh">Nomor PKH</label>
+                        <input type="number" class="form-control" id="pkh" name="pkh" disabled="disabled">
                     </div>
                 </div>
             </div>
