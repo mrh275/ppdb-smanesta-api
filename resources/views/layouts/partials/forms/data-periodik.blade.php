@@ -193,7 +193,7 @@
             </div>
         </div>
         <div class="form-btn">
-            <button type="button" class="btn btn-secondary" onclick="backToDataOrangTua()">Kembali</button>
+            <button type="button" class="btn btn-secondary invisible opacity-0" onclick="backToDataOrangTua()">Kembali</button>
             <button class="btn btn-primary" type="button" id="btn-data-periodik" onclick="dataPeriodikNext()">
                 Simpan
             </button>

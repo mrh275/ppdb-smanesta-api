@@ -140,7 +140,7 @@
             </div>
         </div>
         <div class="form-btn">
-            <button type="button" class="btn btn-secondary" onclick="backToDataDiri()">Kembali</button>
+            <button type="button" class="btn btn-secondary invisible opacity-0" onclick="backToDataDiri()">Kembali</button>
             <button class="btn btn-primary" type="button" id="btn-data-orang-tua" onclick="dataOrangTuaNext()">
                 Simpan
             </button>
