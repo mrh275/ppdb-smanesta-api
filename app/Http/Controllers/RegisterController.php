@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DateTime;
 use DateTimeZone;
+use App\Models\Biodata;
 use Faker\Provider\Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -96,5 +97,17 @@ class RegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cetakPendaftaran(Request $request)
+    {
+        $noreg = $request->session()->get('noreg');
+        $data = [
+            'biodata' => Biodata::where('noreg_ppdb', $noreg)->first(),
+        ];
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ]);
     }
 }
