@@ -201,7 +201,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: "post",
-                url: "{{ url('data-orangtua') }}",
+                url: $('#form-data-orang-tua').attr('action'),
                 data: $('#form-data-orang-tua').serialize(),
                 dataType: "json",
                 success: function(response) {
@@ -257,8 +257,8 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: "post",
-                url: "{{ url('data-periodik') }}",
-                data: $('#biodata-cpd').serialize(),
+                url: $('#form-data-periodik').attr('action'),
+                data: $('#form-data-periodik').serialize(),
                 dataType: "json",
                 success: function(response) {
                     Swal.fire({
@@ -301,11 +301,8 @@
                         dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
                     })
                 },
-                error: {
-                    function(xhr, status, error) {
-                        var errorMessage = xhr.status + ': ' + xhr.statusText
-                        alert('Error - ' + errorMessage);
-                    }
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText);
                 }
             });
         };
@@ -466,43 +463,43 @@
         // End Jump To Specified Form
 
         // Remove disabled attribute onchange select option
-        const disabledAtt = document.querySelector('#nomor_kip').getAttribute('disabled');
-        document.querySelector('#kip').addEventListener('change', function() {
-            if (document.querySelector('#kip-1').selected) {
-                document.querySelector('#nomor_kip').removeAttribute('disabled');
+        $('#is_kip').on('change', function() {
+            if (this.value == '1') {
+                $('#kip').removeAttr('disabled');
             } else {
-                document.querySelector('#nomor_kip').setAttribute('disabled', 'disabled');
+                $('#kip').attr('disabled', 'disabled');
             }
         })
-        document.querySelector('#kis').addEventListener('change', function() {
-            if (document.querySelector('#kis-1').selected) {
-                document.querySelector('#nomor_kis').removeAttribute('disabled');
+        $('#is_kis').on('change', function() {
+            if (this.value == '1') {
+                $('#kis').removeAttr('disabled');
             } else {
-                document.querySelector('#nomor_kis').setAttribute('disabled', 'disabled');
+                $('#kis').attr('disabled', 'disabled');
             }
         })
-        document.querySelector('#kks').addEventListener('change', function() {
-            if (document.querySelector('#kks-1').selected) {
-                document.querySelector('#nomor_kks').removeAttribute('disabled');
+        $('#is_kks').on('change', function() {
+            if (this.value == '1') {
+                $('#kks').removeAttr('disabled');
             } else {
-                document.querySelector('#nomor_kks').setAttribute('disabled', 'disabled');
+                $('#kks').attr('disabled', 'disabled');
             }
         })
-        document.querySelector('#kps').addEventListener('change', function() {
-            if (document.querySelector('#kps-1').selected) {
-                document.querySelector('#nomor_kps').removeAttribute('disabled');
+        $('#is_kps').on('change', function() {
+            if (this.value == '1') {
+                $('#kps').removeAttr('disabled');
             } else {
-                document.querySelector('#nomor_kps').setAttribute('disabled', 'disabled');
+                $('#kps').attr('disabled', 'disabled');
             }
         })
-        document.querySelector('#pkh').addEventListener('change', function() {
-            if (document.querySelector('#pkh-1').selected) {
-                document.querySelector('#nomor_pkh').removeAttribute('disabled');
+        $('#is_pkh').on('change', function() {
+            if (this.value == '1') {
+                $('#pkh').removeAttr('disabled');
             } else {
-                document.querySelector('#nomor_pkh').setAttribute('disabled', 'disabled');
+                $('#pkh').attr('disabled', 'disabled');
             }
         })
 
+        // Enabled select2 library
         $(document).ready(function() {
             $('.form-select').select2({
                 width: 'resolve',
