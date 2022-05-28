@@ -201,16 +201,19 @@
 @push('scripts')
     <script>
         // Close access denied
-        document
-            .querySelector(".close-popup-denied-btn")
-            .addEventListener("click", function(e) {
-                e.preventDefault();
-                document
-                    .querySelector(".access-denied-wrapper")
-                    .classList.add("hidden");
-                @php
-                    session()->forget('access_denied');
-                @endphp
-            });
+        const accessDeniedModal = document.querySelector(".access-denied-wrapper");
+        if (accessDeniedModal) {
+            document
+                .querySelector(".close-popup-denied-btn")
+                .addEventListener("click", function(e) {
+                    e.preventDefault();
+                    document
+                        .querySelector(".access-denied-wrapper")
+                        .classList.add("hidden");
+                    @php
+                        session()->forget('access_denied');
+                    @endphp
+                });
+        }
     </script>
 @endpush
