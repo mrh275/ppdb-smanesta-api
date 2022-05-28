@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Biodata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BiodataController extends Controller
 {
@@ -36,6 +37,7 @@ class BiodataController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'jalur_pendaftaran' => 'required',
             'nisn'  => 'required|numeric',
             'nik'   => 'required|numeric',
             'nama'  => 'required|min:5|max:50',
@@ -56,6 +58,7 @@ class BiodataController extends Controller
         ];
 
         $errorMessage = [
+            'jalur_pendaftaran.required' => 'Jalur Pendaftaran tidak boleh kosong',
             'nisn.required' => 'NISN tidak boleh kosong',
             'nisn.numeric' => 'NISN harus berupa angka',
             'nik.required' => 'NIK tidak boleh kosong',
@@ -108,7 +111,7 @@ class BiodataController extends Controller
         }
 
         Biodata::create($validatedBiodata);
-        $request->session()->put('noreg', $validatedBiodata['noreg_ppdb']);
+        Session::put('noreg', $validatedBiodata['noreg_ppdb']);
 
         return response()->json([
             'success' => true,
