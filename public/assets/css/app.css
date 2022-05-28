@@ -1832,6 +1832,17 @@ div.dropzone{
 .dropzone .dz-preview .dz-error-message{
     left: 20px;
 }
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 .invisible{
     visibility: hidden;
 }
@@ -1939,6 +1950,9 @@ div.dropzone{
 .flex{
     display: flex;
 }
+.table{
+    display: table;
+}
 .grid{
     display: grid;
 }
@@ -2022,6 +2036,17 @@ div.dropzone{
 .w-\[13rem\]{
     width: 13rem;
 }
+.w-max{
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+.w-6{
+    width: 1.5rem;
+}
+.w-2{
+    width: 0.5rem;
+}
 .max-w-6xl{
     max-width: 72rem;
 }
@@ -2076,11 +2101,17 @@ div.dropzone{
 .overflow-hidden{
     overflow: hidden;
 }
+.overflow-x-auto{
+    overflow-x: auto;
+}
 .overflow-x-hidden{
     overflow-x: hidden;
 }
 .whitespace-normal{
     white-space: normal;
+}
+.whitespace-nowrap{
+    white-space: nowrap;
 }
 .rounded-lg{
     border-radius: 0.5rem;
@@ -2154,6 +2185,10 @@ div.dropzone{
     --tw-bg-opacity: 1;
     background-color: rgb(212 212 216 / var(--tw-bg-opacity));
 }
+.bg-zinc-200{
+    --tw-bg-opacity: 1;
+    background-color: rgb(228 228 231 / var(--tw-bg-opacity));
+}
 .bg-opacity-50{
     --tw-bg-opacity: 0.5;
 }
@@ -2207,6 +2242,18 @@ div.dropzone{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
 }
+.py-5{
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+.px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.px-5{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
 .pt-20{
     padding-top: 5rem;
 }
@@ -2246,8 +2293,17 @@ div.dropzone{
 .pl-4{
     padding-left: 1rem;
 }
+.pb-10{
+    padding-bottom: 2.5rem;
+}
+.text-left{
+    text-align: left;
+}
 .text-center{
     text-align: center;
+}
+.text-right{
+    text-align: right;
 }
 .align-middle{
     vertical-align: middle;
@@ -2284,6 +2340,12 @@ div.dropzone{
 }
 .font-bold{
     font-weight: 700;
+}
+.font-medium{
+    font-weight: 500;
+}
+.uppercase{
+    text-transform: uppercase;
 }
 .leading-7{
     line-height: 1.75rem;
@@ -2362,6 +2424,10 @@ div.dropzone{
     --tw-text-opacity: 1;
     color: rgb(0 153 255 / var(--tw-text-opacity));
 }
+.text-blue-600{
+    --tw-text-opacity: 1;
+    color: rgb(37 99 235 / var(--tw-text-opacity));
+}
 .underline{
     -webkit-text-decoration-line: underline;
             text-decoration-line: underline;
@@ -2376,6 +2442,11 @@ div.dropzone{
 .shadow{
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-md{
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .outline-none{
@@ -2493,6 +2564,16 @@ div.dropzone{
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
 }
 
+.odd\:bg-white:nth-child(odd){
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.even\:bg-gray-50:nth-child(even){
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .hover\:text-zinc-600:hover{
     --tw-text-opacity: 1;
     color: rgb(82 82 91 / var(--tw-text-opacity));
@@ -2501,6 +2582,11 @@ div.dropzone{
 .hover\:text-\[\#0099ff\]:hover{
     --tw-text-opacity: 1;
     color: rgb(0 153 255 / var(--tw-text-opacity));
+}
+
+.hover\:underline:hover{
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
 }
 
 .focus\:ring:focus{
@@ -2526,6 +2612,16 @@ div.dropzone{
         background-color: rgb(31 41 55 / var(--tw-bg-opacity));
     }
 
+    .dark\:bg-gray-700{
+        --tw-bg-opacity: 1;
+        background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    }
+
+    .dark\:bg-zinc-800{
+        --tw-bg-opacity: 1;
+        background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+    }
+
     .dark\:text-gray-500{
         --tw-text-opacity: 1;
         color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2539,6 +2635,21 @@ div.dropzone{
     .dark\:text-gray-400{
         --tw-text-opacity: 1;
         color: rgb(156 163 175 / var(--tw-text-opacity));
+    }
+
+    .dark\:text-blue-500{
+        --tw-text-opacity: 1;
+        color: rgb(59 130 246 / var(--tw-text-opacity));
+    }
+
+    .odd\:dark\:bg-gray-800:nth-child(odd){
+        --tw-bg-opacity: 1;
+        background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+    }
+
+    .even\:dark\:bg-gray-700:nth-child(even){
+        --tw-bg-opacity: 1;
+        background-color: rgb(55 65 81 / var(--tw-bg-opacity));
     }
 }
 
