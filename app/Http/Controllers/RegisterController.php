@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use DateTime;
-use DateTimeZone;
 use App\Models\Biodata;
-use Faker\Provider\Image;
-use Illuminate\Support\Str;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -17,7 +13,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $files = scandir(public_path('assets/img'));
         $data = [];
@@ -99,15 +95,21 @@ class RegisterController extends Controller
         //
     }
 
-    public function cetakPendaftaran(Request $request)
+    public function cetakPendaftaran(Request $request, $noreg = null)
     {
-        $noreg = $request->session()->get('noreg');
-        $data = [
-            'biodata' => Biodata::where('noreg_ppdb', $noreg)->first(),
-        ];
-        return response()->json([
-            'message' => 'success',
-            'data' => $data,
-        ]);
+        $noreg = $noreg;
+        try {
+            $data = [
+                'message' => 'success',
+                'biodata' => Biodata::where('noreg_ppdb', $noreg)->first(),
+            ];
+
+            return response()->json($data);
+        } catch (QueryException $error) {
+            return response()->json([
+                'message' => 'error',
+                'error' => $error->getMessage(),
+            ]);
+        }
     }
 }
