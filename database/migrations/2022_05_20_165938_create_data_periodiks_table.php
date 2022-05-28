@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('noreg_ppdb');
             $table->string('hobi');
             $table->string('cita_cita');
-            $table->int('tinggi_badan');
-            $table->int('berat_badan');
-            $table->int('jarak_rumah');
-            $table->int('waktu_tempuh');
-            $table->int('anak_ke');
-            $table->int('jumlah_saudara');
+            $table->integer('tinggi_badan');
+            $table->integer('berat_badan');
+            $table->integer('jarak_rumah');
+            $table->integer('waktu_tempuh');
+            $table->integer('anak_ke');
+            $table->integer('jumlah_saudara');
             $table->timestamps();
         });
     }
