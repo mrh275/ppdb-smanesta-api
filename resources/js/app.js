@@ -21,14 +21,16 @@ window.addEventListener("scroll", function () {
 // Progress Bar fixed on scroll
 let progressBar = document.querySelector(".progress-bar");
 let offsetProgressBar = 91;
-window.addEventListener("scroll", function () {
-    let st = window.pageYOffset;
-    if (st > offsetProgressBar) {
-        progressBar.classList.add("fixed-nav");
-    } else {
-        progressBar.classList.remove("fixed-nav");
-    }
-});
+if (window.location.pathname == "/register") {
+    window.addEventListener("scroll", function () {
+        let st = window.pageYOffset;
+        if (st > offsetProgressBar) {
+            progressBar.classList.add("fixed-nav");
+        } else {
+            progressBar.classList.remove("fixed-nav");
+        }
+    });
+}
 // Toggle Menu
 let hMenu = document.querySelector(".toggle-menu");
 hMenu.addEventListener("click", function () {
@@ -82,11 +84,16 @@ if (window.innerWidth < 768) {
     });
 }
 // Show Login Form
-document.querySelector("#login-btn").addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector("#login-form").classList.remove("invisible");
-    document.querySelector("#login-form").classList.remove("opacity-0");
-});
+const lastMenu = document.querySelector(".nav-menu").lastElementChild;
+
+if (lastMenu.querySelector("a").innerHTML != "Logout")
+    document
+        .querySelector("#login-btn")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector("#login-form").classList.remove("invisible");
+            document.querySelector("#login-form").classList.remove("opacity-0");
+        });
 
 // Close Login Form
 document

@@ -2184,15 +2184,19 @@ window.addEventListener("scroll", function () {
 
 var progressBar = document.querySelector(".progress-bar");
 var offsetProgressBar = 91;
-window.addEventListener("scroll", function () {
-  var st = window.pageYOffset;
 
-  if (st > offsetProgressBar) {
-    progressBar.classList.add("fixed-nav");
-  } else {
-    progressBar.classList.remove("fixed-nav");
-  }
-}); // Toggle Menu
+if (window.location.pathname == "/register") {
+  window.addEventListener("scroll", function () {
+    var st = window.pageYOffset;
+
+    if (st > offsetProgressBar) {
+      progressBar.classList.add("fixed-nav");
+    } else {
+      progressBar.classList.remove("fixed-nav");
+    }
+  });
+} // Toggle Menu
+
 
 var hMenu = document.querySelector(".toggle-menu");
 hMenu.addEventListener("click", function () {
@@ -2245,7 +2249,8 @@ if (window.innerWidth < 768) {
 } // Show Login Form
 
 
-document.querySelector("#login-btn").addEventListener("click", function (e) {
+var lastMenu = document.querySelector(".nav-menu").lastElementChild;
+if (lastMenu.querySelector("a").innerHTML != "Logout") document.querySelector("#login-btn").addEventListener("click", function (e) {
   e.preventDefault();
   document.querySelector("#login-form").classList.remove("invisible");
   document.querySelector("#login-form").classList.remove("opacity-0");
