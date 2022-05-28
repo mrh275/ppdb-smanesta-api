@@ -302,10 +302,10 @@
             dataType: "json",
             success: function(response) {
                 document.querySelector(".noreg_ppdb").innerHTML = response.biodata.noreg_ppdb
-                $jalur = [
+                let jalur = [
                     'KETM', 'Disabilitas', 'Kondisi Tertentu', 'Prestasi Rapor', 'Prestasi Kejuaraan', 'Perpindahan Orang Tua/Anak Guru', 'Zonasi'
                 ];
-                document.querySelector(".jalur_pendaftaran").innerHTML = $jalur[response.biodata.jalur_pendaftaran - 1];
+                document.querySelector(".jalur_pendaftaran").innerHTML = jalur[response.biodata.jalur_pendaftaran - 1];
                 document.querySelector(".nik").innerHTML = response.biodata.nik
                 document.querySelector(".nisn").innerHTML = response.biodata.nisn
                 document.querySelector(".nama").innerHTML = response.biodata.nama
