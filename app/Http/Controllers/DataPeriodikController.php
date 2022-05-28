@@ -90,8 +90,8 @@ class DataPeriodikController extends Controller
             'noreg_ppdb' => $request->session()->get('noreg'),
             'kip' => ($request->kip) ?? '-',
             'kis' => ($request->kis) ?? '-',
-            'kps' => ($request->kps) ?? '-',
             'kks' => ($request->kks) ?? '-',
+            'kps' => ($request->kps) ?? '-',
             'pkh' => ($request->pkh) ?? '-',
         ];
 
