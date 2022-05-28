@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
             $table->string('noreg_ppdb')->unique();
+            $table->integer('jalur_pendaftaran');
             $table->bigInteger('nisn')->unique();
             $table->bigInteger('nik')->unique();
             $table->string('nama');
