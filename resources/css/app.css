@@ -551,6 +551,31 @@ html {
     /* End Cetak Pendaftaran */
     /* End Register PPDB */
 
+    /* Data Pendaftar */
+    .data-pendaftar-title {
+        @apply font-bold text-3xl mb-8 text-zinc-700;
+    }
+
+    #data-pendaftar_wrapper #data-pendaftar_length,
+    #data-pendaftar_wrapper #data-pendaftar_filter {
+        @apply mb-4;
+    }
+
+    #data-pendaftar_wrapper #data-pendaftar_length select,
+    #data-pendaftar_wrapper #data-pendaftar_filter input {
+        @apply rounded-lg outline-none focus:ring focus:ring-[#0099ff] transition-all ease-in-out duration-200;
+    }
+
+    #data-pendaftar_wrapper
+        #data-pendaftar
+        thead#table-header
+        tr#row-header
+        th {
+        @apply text-center;
+    }
+
+    /* End Data Pendaftar */
+
     /* Footer */
     .footer-top {
         @apply px-8 py-4 lg:flex justify-evenly items-center;
@@ -829,4 +854,87 @@ html {
         var(--tw-shadow, 0 0 #0000);
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
+}
+
+.dataTables_wrapper#data-pendaftar_wrapper
+    #data-pendaftar
+    thead#table-header
+    tr#row-header
+    th {
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_paginate#data-pendaftar_paginate,
+.dataTables_wrapper .dataTables_info#data-pendaftar_info {
+    padding-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #a1a1aa;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #0099ff;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.disabled {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #71717a;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
+    background: #71717a;
+    border: none;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+.dataTables_wrapper
+    .dataTables_paginate
+    a.paginate_button.table-paginate.disabled {
+    color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current {
+    background: #0099ff;
+    border: none;
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current:hover {
+    background: #0099ff !important;
+    border: none;
+    color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.disabled:hover {
+    background: #71717a;
+    border: none;
+    color: white !important;
+}
+
+@media (max-width: 512px) {
+    .dataTables_wrapper .dataTables_paginate a.paginate_button,
+    .dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate a.paginate_button.disabled {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
 }

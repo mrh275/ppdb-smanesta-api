@@ -1480,6 +1480,41 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 /* End Cetak Pendaftaran */
 /* End Register PPDB */
+/* Data Pendaftar */
+.data-pendaftar-title{
+    margin-bottom: 2rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+#data-pendaftar_wrapper #data-pendaftar_length, #data-pendaftar_wrapper #data-pendaftar_filter{
+    margin-bottom: 1rem;
+}
+#data-pendaftar_wrapper #data-pendaftar_length select, #data-pendaftar_wrapper #data-pendaftar_filter input{
+    border-radius: 0.5rem;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+#data-pendaftar_wrapper #data-pendaftar_length select:focus, #data-pendaftar_wrapper #data-pendaftar_filter input:focus{
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
+}
+#data-pendaftar_wrapper
+        #data-pendaftar
+        thead#table-header
+        tr#row-header
+        th{
+    text-align: center;
+}
+/* End Data Pendaftar */
 /* Footer */
 .footer-top{
     align-items: center;
@@ -2046,6 +2081,9 @@ div.dropzone{
 .cursor-default{
     cursor: default;
 }
+.resize{
+    resize: both;
+}
 .list-disc{
     list-style-type: disc;
 }
@@ -2082,9 +2120,6 @@ div.dropzone{
 .overflow-hidden{
     overflow: hidden;
 }
-.overflow-x-auto{
-    overflow-x: auto;
-}
 .overflow-x-hidden{
     overflow-x: hidden;
 }
@@ -2093,6 +2128,9 @@ div.dropzone{
 }
 .whitespace-nowrap{
     white-space: nowrap;
+}
+.rounded-xl{
+    border-radius: 0.75rem;
 }
 .rounded-lg{
     border-radius: 0.5rem;
@@ -2138,17 +2176,21 @@ div.dropzone{
     --tw-bg-opacity: 1;
     background-color: rgb(228 228 231 / var(--tw-bg-opacity));
 }
+.bg-white{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .bg-gray-50{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+.bg-zinc-100{
+    --tw-bg-opacity: 1;
+    background-color: rgb(244 244 245 / var(--tw-bg-opacity));
+}
 .bg-zinc-600{
     --tw-bg-opacity: 1;
     background-color: rgb(82 82 91 / var(--tw-bg-opacity));
-}
-.bg-white{
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .bg-gray-100{
     --tw-bg-opacity: 1;
@@ -2187,6 +2229,14 @@ div.dropzone{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
 }
+.px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.py-8{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 .px-2{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -2206,10 +2256,6 @@ div.dropzone{
 .py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
-}
-.px-6{
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
 }
 .py-2{
     padding-top: 0.5rem;
@@ -2334,17 +2380,9 @@ div.dropzone{
 .leading-6{
     line-height: 1.5rem;
 }
-.text-gray-500{
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
-}
 .text-gray-700{
     --tw-text-opacity: 1;
     color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-.text-gray-900{
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 .text-red-500{
     --tw-text-opacity: 1;
@@ -2362,9 +2400,17 @@ div.dropzone{
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+.text-gray-500{
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+}
 .text-gray-600{
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-gray-900{
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 .text-white{
     --tw-text-opacity: 1;
@@ -2538,14 +2584,97 @@ div.dropzone{
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
 }
 
-.odd\:bg-white:nth-child(odd){
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+.dataTables_wrapper#data-pendaftar_wrapper
+    #data-pendaftar
+    thead#table-header
+    tr#row-header
+    th {
+    text-align: center;
 }
 
-.even\:bg-gray-50:nth-child(even){
+.dataTables_wrapper .dataTables_paginate#data-pendaftar_paginate,
+.dataTables_wrapper .dataTables_info#data-pendaftar_info {
+    padding-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #a1a1aa;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #0099ff;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.disabled {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+    border: none;
+    background: #71717a;
+    border-radius: 8px;
+    color: white !important;
+    transition: all ease-in-out 0.2s;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
+    background: #71717a;
+    border: none;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+.dataTables_wrapper
+    .dataTables_paginate
+    a.paginate_button.table-paginate.disabled {
+    color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current {
+    background: #0099ff;
+    border: none;
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current:hover {
+    background: #0099ff !important;
+    border: none;
+    color: white !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.disabled:hover {
+    background: #71717a;
+    border: none;
+    color: white !important;
+}
+
+@media (max-width: 512px) {
+    .dataTables_wrapper .dataTables_paginate a.paginate_button,
+    .dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate a.paginate_button.disabled {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+.odd\:bg-gray-100:nth-child(odd){
     --tw-bg-opacity: 1;
-    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.even\:bg-white:nth-child(even){
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:text-zinc-600:hover{
@@ -2571,14 +2700,9 @@ div.dropzone{
         border-color: rgb(55 65 81 / var(--tw-border-opacity));
     }
 
-    .dark\:bg-zinc-800{
+    .dark\:bg-gray-900{
         --tw-bg-opacity: 1;
-        background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-    }
-
-    .dark\:bg-gray-700{
-        --tw-bg-opacity: 1;
-        background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        background-color: rgb(17 24 39 / var(--tw-bg-opacity));
     }
 
     .dark\:bg-gray-800{
@@ -2586,14 +2710,9 @@ div.dropzone{
         background-color: rgb(31 41 55 / var(--tw-bg-opacity));
     }
 
-    .dark\:bg-gray-900{
-        --tw-bg-opacity: 1;
-        background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-    }
-
-    .dark\:text-gray-400{
+    .dark\:text-gray-500{
         --tw-text-opacity: 1;
-        color: rgb(156 163 175 / var(--tw-text-opacity));
+        color: rgb(107 114 128 / var(--tw-text-opacity));
     }
 
     .dark\:text-white{
@@ -2601,19 +2720,9 @@ div.dropzone{
         color: rgb(255 255 255 / var(--tw-text-opacity));
     }
 
-    .dark\:text-gray-500{
+    .dark\:text-gray-400{
         --tw-text-opacity: 1;
-        color: rgb(107 114 128 / var(--tw-text-opacity));
-    }
-
-    .odd\:dark\:bg-gray-800:nth-child(odd){
-        --tw-bg-opacity: 1;
-        background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-    }
-
-    .even\:dark\:bg-gray-700:nth-child(even){
-        --tw-bg-opacity: 1;
-        background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        color: rgb(156 163 175 / var(--tw-text-opacity));
     }
 }
 
