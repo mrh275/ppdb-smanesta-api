@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('data_kesejahteraans', function (Blueprint $table) {
             $table->id();
+            $table->string('noreg_ppdn')->unique();
+            $table->string('kip');
+            $table->string('kis');
+            $table->string('kks');
+            $table->string('kps');
+            $table->string('pkh');
             $table->timestamps();
         });
     }

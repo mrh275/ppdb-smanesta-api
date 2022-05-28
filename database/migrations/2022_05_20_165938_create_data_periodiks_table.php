@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('data_periodiks', function (Blueprint $table) {
             $table->id();
             $table->string('noreg_ppdb');
-            $table->string('kip');
-            $table->string('kis');
-            $table->string('kks');
-            $table->string('kps');
-            $table->string('pkh');
+            $table->string('hobi');
+            $table->string('cita_cita');
+            $table->int('tinggi_badan');
+            $table->int('berat_badan');
+            $table->int('jarak_rumah');
+            $table->int('waktu_tempuh');
+            $table->int('anak_ke');
+            $table->int('jumlah_saudara');
             $table->timestamps();
         });
     }
