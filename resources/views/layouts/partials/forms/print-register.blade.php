@@ -108,6 +108,17 @@
                     <div class="right-register w-2/5 pl-2">
                         <div class="register-item w-full flex justify-start items-start">
                             <div class="register-key w-2/5">
+                                <span>Jalur Pendaftaran</span>
+                            </div>
+                            <div class="register-separator">
+                                <span>&nbsp;:&nbsp;</span>
+                            </div>
+                            <div class="register-value w-3/5">
+                                <span class="jalur_pendaftaran"></span>
+                            </div>
+                        </div>
+                        <div class="register-item w-full flex justify-start items-start">
+                            <div class="register-key w-2/5">
                                 <span>Advisor</span>
                             </div>
                             <div class="register-value w-3/5">
@@ -287,19 +298,23 @@
         // Fetch register data
         $.ajax({
             type: "get",
-            url: "{{ url('cetakPendaftaran') }}",
+            url: "{{ url('cetakPendaftaran/') . '/' . session()->get('noreg') }}",
             dataType: "json",
             success: function(response) {
-                document.querySelector(".noreg_ppdb").innerHTML = response.data.biodata.noreg_ppdb
-                document.querySelector(".nik").innerHTML = response.data.biodata.nik
-                document.querySelector(".nisn").innerHTML = response.data.biodata.nisn
-                document.querySelector(".nama").innerHTML = response.data.biodata.nama
-                if (response.data.biodata.jenis_kelamin == "L") {
+                document.querySelector(".noreg_ppdb").innerHTML = response.biodata.noreg_ppdb
+                $jalur = [
+                    'KETM', 'Disabilitas', 'Kondisi Tertentu', 'Prestasi Rapor', 'Prestasi Kejuaraan', 'Perpindahan Orang Tua/Anak Guru', 'Zonasi'
+                ];
+                document.querySelector(".jalur_pendaftaran").innerHTML = $jalur[response.biodata.jalur_pendaftaran - 1];
+                document.querySelector(".nik").innerHTML = response.biodata.nik
+                document.querySelector(".nisn").innerHTML = response.biodata.nisn
+                document.querySelector(".nama").innerHTML = response.biodata.nama
+                if (response.biodata.jenis_kelamin == "L") {
                     document.querySelector(".jenis_kelamin").innerHTML = "Laki-laki"
                 } else {
                     document.querySelector(".jenis_kelamin").innerHTML = "Perempuan"
                 }
-                document.querySelector(".tempat_lahir").innerHTML = response.data.biodata.tempat_lahir
+                document.querySelector(".tempat_lahir").innerHTML = response.biodata.tempat_lahir
 
                 let month = [
                     'Januari',
@@ -315,25 +330,25 @@
                     'November',
                     'Desember'
                 ];
-                let dateBirth = response.data.biodata.tanggal_lahir;
+                let dateBirth = response.biodata.tanggal_lahir;
                 // yyyy-mm-dd
                 let dayBirth = dateBirth.substr(8, 2);
                 let monthBirth = month[parseInt(dateBirth.substr(5, 2)) - 1];
                 let yearBirth = dateBirth.substr(0, 4);
                 let newBirth = dayBirth + ' ' + monthBirth + ' ' + yearBirth;
                 document.querySelector(".tanggal_lahir").innerHTML = newBirth
-                document.querySelector(".asal_sekolah").innerHTML = response.data.biodata.asal_sekolah
-                document.querySelector(".alamat").innerHTML = response.data.biodata.alamat
-                document.querySelector(".dusun").innerHTML = response.data.biodata.dusun
-                document.querySelector(".rt").innerHTML = response.data.biodata.rt
-                document.querySelector(".rw").innerHTML = response.data.biodata.rw
-                document.querySelector(".desa").innerHTML = response.data.biodata.desa
-                document.querySelector(".kecamatan").innerHTML = response.data.biodata.kecamatan
-                document.querySelector(".kabupaten").innerHTML = response.data.biodata.kabupaten
+                document.querySelector(".asal_sekolah").innerHTML = response.biodata.asal_sekolah
+                document.querySelector(".alamat").innerHTML = response.biodata.alamat
+                document.querySelector(".dusun").innerHTML = response.biodata.dusun
+                document.querySelector(".rt").innerHTML = response.biodata.rt
+                document.querySelector(".rw").innerHTML = response.biodata.rw
+                document.querySelector(".desa").innerHTML = response.biodata.desa
+                document.querySelector(".kecamatan").innerHTML = response.biodata.kecamatan
+                document.querySelector(".kabupaten").innerHTML = response.biodata.kabupaten
 
                 document.querySelector(".user").innerHTML = "{{ Auth::user()->name }}"
 
-                const dateRegister = response.data.biodata.created_at;
+                const dateRegister = response.biodata.created_at;
                 console.log(dateRegister);
                 let dayRegister = dateRegister.substr(8, 2);
                 let monthRegister = month[parseInt(dateRegister.substr(5, 2)) - 1];
@@ -346,6 +361,18 @@
                 let date = today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
                 let time = today.getHours() + ":" + ((today.getMinutes().toString().length == 1) ? "0" + today.getMinutes().toString() : today.getMinutes());
                 document.querySelector(".print_date").innerHTML = date + ', ' + time
+            },
+            error: function(error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: error.status + '<br/>Data tidak ditemukan',
+                    text: "Silahkan hubungi admin!",
+                    showCancelButton: true,
+                    cancelButtonText: 'Tutup',
+                    showConfirmButton: false
+                }).then((dismiss) => {
+                    window.location.href = "{{ url('/') }}";
+                })
             }
         });
 
