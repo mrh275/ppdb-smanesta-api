@@ -68,6 +68,19 @@
             </div>
             <div class="form-section-right">
                 <div class="form-group">
+                    <label for="jalur_pendaftaran">Jalur Pendaftaran</label>
+                    <select name="jalur_pendaftaran" id="jalur_pendaftaran" class="form-select">
+                        <option value="">Pilih :</option>
+                        <option value="1">KETM</option>
+                        <option value="2">Disabilitas</option>
+                        <option value="3">Kondisi Tertentu</option>
+                        <option value="4">Prestasi Rapor</option>
+                        <option value="5">Prestasi Kejuaraan</option>
+                        <option value="6">Perpindahan Orang Tua/Anak Guru</option>
+                        <option value="7">Zonasi</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3"></textarea>
                 </div>
