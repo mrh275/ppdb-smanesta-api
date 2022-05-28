@@ -5,6 +5,7 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\DataOrangTuaController;
 use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PortalController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UploadFilesController;
 
@@ -19,11 +20,9 @@ use App\Http\Controllers\UploadFilesController;
 |
 */
 
-Route::get('/', function () {
-    return view('portal', [
-        'title' => 'Portal',
-    ]);
-})->name('portal');
+Route::get('/', [PortalController::class, 'index'])->name('portal');
+
+Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('data-pendaftar');
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
