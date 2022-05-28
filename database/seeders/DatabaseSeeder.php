@@ -52,5 +52,6 @@ class DatabaseSeeder extends Seeder
         Kelas::factory(10)->create();
         TahunLulus::factory(4)->create();
         ListSekolahAsal::factory(12)->create();
+        // Biodata::factory(100)->create();
     }
 }
