@@ -669,7 +669,7 @@ html {
 
     .dark .navbar-brand,
     .dark .navbar {
-        @apply bg-zinc-800 lg:bg-transparent;
+        @apply bg-zinc-800;
     }
 
     .dark .nav-menu,

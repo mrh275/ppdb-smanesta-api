@@ -1721,12 +1721,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-bg-opacity: 1;
     background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
-@media (min-width: 1024px){
-
-    .dark .navbar-brand, .dark .navbar{
-        background-color: transparent;
-    }
-}
 .dark .nav-menu, .dark .brand{
     --tw-bg-opacity: 1;
     background-color: rgb(39 39 42 / var(--tw-bg-opacity));
@@ -2216,9 +2210,9 @@ div.dropzone{
 .p-4{
     padding: 1rem;
 }
-.px-10{
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+.px-4{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 .px-6{
     padding-left: 1.5rem;
@@ -2227,10 +2221,6 @@ div.dropzone{
 .py-8{
     padding-top: 2rem;
     padding-bottom: 2rem;
-}
-.px-4{
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 .py-4{
     padding-top: 1rem;
@@ -2259,6 +2249,10 @@ div.dropzone{
 .py-3{
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+}
+.px-10{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 }
 .pt-20{
     padding-top: 5rem;
