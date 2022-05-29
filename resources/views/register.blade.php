@@ -66,6 +66,7 @@
             document.getElementById('menu-terms').remove();
             document.getElementById('menu-kuota').remove();
             document.getElementById('menu-faq').remove();
+            document.getElementById('menu-contact').href = "{{ url('/#contact') }}";
         }
 
         // Get all progress bar necessary element
