@@ -13,6 +13,6 @@ class AdminController extends Controller
             'title' => 'Dashboard',
         ];
 
-        return view('admin.dashboard', compact('data'));
+        return view('admin.dashboard', $data);
     }
 }
