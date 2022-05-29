@@ -1481,6 +1481,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* End Cetak Pendaftaran */
 /* End Register PPDB */
 /* Data Pendaftar */
+.dark .data-pendaftar-wrapper{
+    --tw-bg-opacity: 1;
+    background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
 .data-pendaftar-title{
     margin-bottom: 2rem;
     font-size: 1.875rem;
@@ -2024,9 +2028,6 @@ div.dropzone{
 .w-full{
     width: 100%;
 }
-.w-2{
-    width: 0.5rem;
-}
 .w-5{
     width: 1.25rem;
 }
@@ -2081,9 +2082,6 @@ div.dropzone{
 .cursor-default{
     cursor: default;
 }
-.resize{
-    resize: both;
-}
 .list-disc{
     list-style-type: disc;
 }
@@ -2126,9 +2124,6 @@ div.dropzone{
 .whitespace-normal{
     white-space: normal;
 }
-.whitespace-nowrap{
-    white-space: nowrap;
-}
 .rounded-xl{
     border-radius: 0.75rem;
 }
@@ -2141,11 +2136,11 @@ div.dropzone{
 .border{
     border-width: 1px;
 }
-.border-b{
-    border-bottom-width: 1px;
-}
 .border-t{
     border-top-width: 1px;
+}
+.border-b{
+    border-bottom-width: 1px;
 }
 .border-b-2{
     border-bottom-width: 2px;
@@ -2180,14 +2175,6 @@ div.dropzone{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-gray-50{
-    --tw-bg-opacity: 1;
-    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-.bg-zinc-100{
-    --tw-bg-opacity: 1;
-    background-color: rgb(244 244 245 / var(--tw-bg-opacity));
-}
 .bg-zinc-600{
     --tw-bg-opacity: 1;
     background-color: rgb(82 82 91 / var(--tw-bg-opacity));
@@ -2207,6 +2194,10 @@ div.dropzone{
 .bg-zinc-700{
     --tw-bg-opacity: 1;
     background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
+.bg-gray-50{
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-zinc-300{
     --tw-bg-opacity: 1;
@@ -2237,21 +2228,9 @@ div.dropzone{
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.px-2{
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-.py-5{
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-}
-.px-5{
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-}
-.py-3{
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+.px-4{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 .py-4{
     padding-top: 1rem;
@@ -2265,10 +2244,6 @@ div.dropzone{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
-.px-4{
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
 .px-8{
     padding-left: 2rem;
     padding-right: 2rem;
@@ -2280,6 +2255,10 @@ div.dropzone{
 .px-\[11rem\]{
     padding-left: 11rem;
     padding-right: 11rem;
+}
+.py-3{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 .pt-20{
     padding-top: 5rem;
@@ -2323,9 +2302,6 @@ div.dropzone{
 .pl-4{
     padding-left: 1rem;
 }
-.text-left{
-    text-align: left;
-}
 .text-center{
     text-align: center;
 }
@@ -2335,10 +2311,6 @@ div.dropzone{
 .text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
-}
-.text-xs{
-    font-size: 0.75rem;
-    line-height: 1rem;
 }
 .text-lg{
     font-size: 1.125rem;
@@ -2359,17 +2331,15 @@ div.dropzone{
 .text-\[2rem\]{
     font-size: 2rem;
 }
-.font-medium{
-    font-weight: 500;
+.text-xs{
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 .font-semibold{
     font-weight: 600;
 }
 .font-bold{
     font-weight: 700;
-}
-.uppercase{
-    text-transform: uppercase;
 }
 .leading-7{
     line-height: 1.75rem;
@@ -2379,10 +2349,6 @@ div.dropzone{
 }
 .leading-6{
     line-height: 1.5rem;
-}
-.text-gray-700{
-    --tw-text-opacity: 1;
-    color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .text-red-500{
     --tw-text-opacity: 1;
@@ -2407,6 +2373,10 @@ div.dropzone{
 .text-gray-600{
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-gray-700{
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .text-gray-900{
     --tw-text-opacity: 1;
@@ -2584,12 +2554,13 @@ div.dropzone{
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
 }
 
-.dataTables_wrapper#data-pendaftar_wrapper
-    #data-pendaftar
-    thead#table-header
-    tr#row-header
-    th {
-    text-align: center;
+#data-pendaftar.dataTable tbody tr:hover,
+#data-pendaftar.dataTable tbody tr.odd:hover {
+    background: #ffedd5;
+}
+
+#data-pendaftar.dataTable tbody tr.odd {
+    background: #e4e4e7;
 }
 
 .dataTables_wrapper .dataTables_paginate#data-pendaftar_paginate,
@@ -2658,6 +2629,20 @@ div.dropzone{
     color: white !important;
 }
 
+#data-pendaftar.dataTable.dtr-inline.collapsed
+    > tbody
+    > tr[role="row"]
+    > td:first-child:before {
+    top: 25% !important;
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    background-color: #667eea !important;
+    /*bg-indigo-500*/
+}
+
 @media (max-width: 512px) {
     .dataTables_wrapper .dataTables_paginate a.paginate_button,
     .dataTables_wrapper .dataTables_paginate a.paginate_button.current,
@@ -2665,16 +2650,6 @@ div.dropzone{
         padding: 5px 10px;
         font-size: 0.8rem;
     }
-}
-
-.odd\:bg-gray-100:nth-child(odd){
-    --tw-bg-opacity: 1;
-    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.even\:bg-white:nth-child(even){
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:text-zinc-600:hover{
@@ -2841,6 +2816,11 @@ div.dropzone{
 
     .lg\:w-3\/5{
         width: 60%;
+    }
+
+    .lg\:px-10{
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 
     .lg\:px-8{

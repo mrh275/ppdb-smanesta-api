@@ -552,6 +552,10 @@ html {
     /* End Register PPDB */
 
     /* Data Pendaftar */
+    .dark .data-pendaftar-wrapper {
+        @apply bg-zinc-700;
+    }
+
     .data-pendaftar-title {
         @apply font-bold text-3xl mb-8 text-zinc-700;
     }
@@ -856,12 +860,13 @@ html {
     --tw-ring-color: rgb(0 153 255 / var(--tw-ring-opacity));
 }
 
-.dataTables_wrapper#data-pendaftar_wrapper
-    #data-pendaftar
-    thead#table-header
-    tr#row-header
-    th {
-    text-align: center;
+#data-pendaftar.dataTable tbody tr:hover,
+#data-pendaftar.dataTable tbody tr.odd:hover {
+    background: #ffedd5;
+}
+
+#data-pendaftar.dataTable tbody tr.odd {
+    background: #e4e4e7;
 }
 
 .dataTables_wrapper .dataTables_paginate#data-pendaftar_paginate,
@@ -928,6 +933,20 @@ html {
     background: #71717a;
     border: none;
     color: white !important;
+}
+
+#data-pendaftar.dataTable.dtr-inline.collapsed
+    > tbody
+    > tr[role="row"]
+    > td:first-child:before {
+    top: 25% !important;
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    background-color: #667eea !important;
+    /*bg-indigo-500*/
 }
 
 @media (max-width: 512px) {
