@@ -25,7 +25,7 @@
                 <a href="#faq" class="nav-link" id="menu-faq">FAQ</a>
             </li>
             <li class="nav-item">
-                <a href="#contact" class="nav-link">Kontak</a>
+                <a href="#contact" class="nav-link" id="menu-contact">Kontak</a>
             </li>
             <li class="nav-item">
                 @if (Auth::check())
