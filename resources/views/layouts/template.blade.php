@@ -48,6 +48,22 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @stack('scripts')
     @stack('specifyjs')
+    <script>
+        if (
+            window.location.pathname == "/data-pendaftar"
+        ) {
+            document.querySelector("#menu-home").attributes.href.value =
+                "{{ url('/') }}";
+            document.querySelector("#menu-terms").attributes.href.value =
+                "{{ url('/#terms') }}";
+            document.querySelector("#menu-kuota").attributes.href.value =
+                "{{ url('/#kuota-jalur') }}";
+            document.querySelector("#menu-faq").attributes.href.value =
+                "{{ url('/#faq') }}";
+            document.querySelector("#menu-contact").attributes.href.value =
+                "{{ url('/#contact') }}";
+        }
+    </script>
 </body>
 
 </html>
