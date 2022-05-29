@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\DataOrangTuaController;
@@ -27,7 +28,7 @@ Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::resource('/register', RegisterController::class)->middleware('auth');
+Route::resource('/register', RegisterController::class)->middleware('operator');
 Route::post('/register/upload', [RegisterController::class, 'store']);
 Route::middleware(['operator'])->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
@@ -43,4 +44,9 @@ Route::middleware(['operator'])->group(function () {
     Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
     Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
     Route::get('/cetakPendaftaran/{noreg}', [RegisterController::class, 'cetakPendaftaran']);
+});
+
+// Admin Panel
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('adminDasboard');
 });
