@@ -1748,6 +1748,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-border-opacity: 1;
     border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+.dark .edu-btn.active, .dark .work-btn.active{
+    --tw-text-opacity: 1;
+    color: rgb(0 153 255 / var(--tw-text-opacity));
+}
 /* End Dark Mode */
 div.dropzone{
     padding: 0.25rem;
@@ -1884,6 +1888,15 @@ div.dropzone{
 .order-first{
     order: -9999;
 }
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}
+.m-0{
+    margin: 0px;
+}
 .mx-auto{
     margin-left: auto;
     margin-right: auto;
@@ -1931,6 +1944,24 @@ div.dropzone{
 .-mt-px{
     margin-top: -1px;
 }
+.ml-auto{
+    margin-left: auto;
+}
+.mr-3{
+    margin-right: 0.75rem;
+}
+.mr-1{
+    margin-right: 0.25rem;
+}
+.mt-3{
+    margin-top: 0.75rem;
+}
+.mb-3{
+    margin-bottom: 0.75rem;
+}
+.mb-2{
+    margin-bottom: 0.5rem;
+}
 .mb-4{
     margin-bottom: 1rem;
 }
@@ -1942,9 +1973,6 @@ div.dropzone{
 }
 .mt-auto{
     margin-top: auto;
-}
-.mb-2{
-    margin-bottom: 0.5rem;
 }
 .block{
     display: block;
@@ -2110,6 +2138,9 @@ div.dropzone{
 .rounded{
     border-radius: 0.25rem;
 }
+.border-0{
+    border-width: 0px;
+}
 .border{
     border-width: 1px;
 }
@@ -2160,6 +2191,9 @@ div.dropzone{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.bg-transparent{
+    background-color: transparent;
+}
 .bg-gray-200{
     --tw-bg-opacity: 1;
     background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -2189,6 +2223,9 @@ div.dropzone{
 }
 .p-6{
     padding: 1.5rem;
+}
+.p-0{
+    padding: 0px;
 }
 .p-4{
     padding: 1rem;
@@ -2248,6 +2285,12 @@ div.dropzone{
 }
 .pt-8{
     padding-top: 2rem;
+}
+.pb-3{
+    padding-bottom: 0.75rem;
+}
+.pt-0{
+    padding-top: 0px;
 }
 .pt-4{
     padding-top: 1rem;
