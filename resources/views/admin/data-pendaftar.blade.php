@@ -68,11 +68,11 @@
                                         <td>
                                             {{ $item->asal_sekolah }}
                                         </td>
-                                        <td>
+                                        <td id="{{ $item->is_verified }}">
                                             {{ $item->is_verified == 0 ? 'Belum Verifikasi' : 'Terverifikasi' }}
                                         </td>
                                         <td class="d-flex justify-content-between align-items-center">
-                                            <button class="btn btn-xs btn-success">
+                                            <button class="btn btn-xs btn-success" id="edit-status-verifikasi" type="button" data-toggle="modal" data-target="#modal-default">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button class="btn btn-xs btn-warning">
@@ -97,7 +97,7 @@
 
 @push('scripts')
     <script>
-        $("#data-pendaftar").DataTable({
+        var table = $("#data-pendaftar").DataTable({
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
@@ -113,5 +113,31 @@
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-excel span').html('<i class="fas fa-file-excel"></i> &nbsp;Excel')
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-pdf span').html('<i class="fas fa-file-pdf"></i> &nbsp;Pdf')
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-print span').html('<i class="fas fa-print"></i> &nbsp;Print')
+
+        $('#data-pendaftar tbody').on('click', 'tr', function() {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                $('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+
+        $('#data-pendaftar tbody').on('click', '#edit-status-verifikasi', function() {
+            let selectedRow = $(this).parent().parent();
+            let noregPPDB = selectedRow.find('td:nth-child(1)').html()
+            let namaPendaftar = selectedRow.find('td:nth-child(2)').html()
+            let statusVerifikasi = selectedRow.find('td:nth-child(7)').attr('id')
+            console.log(statusVerifikasi)
+            $('#modal-default .noreg_ppdb').html(noregPPDB);
+            $('#modal-default .nama-peserta').html(namaPendaftar);
+            $('#modal-default #zero').html('Belum Terverifikasi');
+            $('#modal-default #one').html('Terverifikasi');
+            if (statusVerifikasi == 1) {
+                $('#modal-default #one').attr('selected', '');
+            } else {
+                $('#modal-default #zero').attr('selected', '');
+            }
+        });
     </script>
 @endpush
