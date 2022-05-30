@@ -49,4 +49,7 @@ Route::middleware(['operator'])->group(function () {
 // Admin Panel
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('adminDasboard');
+    Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
+    Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
+    Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
 });
