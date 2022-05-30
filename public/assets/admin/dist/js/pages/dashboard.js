@@ -178,39 +178,41 @@ $(function () {
     //-------------
     //- BAR CHART -
     //-------------
-    var barChartCanvas = $("#tahap-1").get(0).getContext("2d");
-    var barChartData = $.extend(true, {}, dataTahap1);
-    var temp0 = dataTahap1.datasets[0];
-    var temp1 = dataTahap1.datasets[1];
-    barChartData.datasets[0] = temp1;
-    barChartData.datasets[1] = temp0;
+    if (window.location.pathname == "/admin") {
+        var barChartCanvas = $("#tahap-1").get(0).getContext("2d");
+        var barChartData = $.extend(true, {}, dataTahap1);
+        var temp0 = dataTahap1.datasets[0];
+        var temp1 = dataTahap1.datasets[1];
+        barChartData.datasets[0] = temp1;
+        barChartData.datasets[1] = temp0;
 
-    var barChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        datasetFill: false,
-    };
+        var barChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            datasetFill: false,
+        };
 
-    new Chart(barChartCanvas, {
-        type: "bar",
-        data: barChartData,
-        options: barChartOptions,
-    });
+        new Chart(barChartCanvas, {
+            type: "bar",
+            data: barChartData,
+            options: barChartOptions,
+        });
 
-    var barChartCanvas1 = $("#tahap-2").get(0).getContext("2d");
-    var barChartData1 = $.extend(true, {}, dataTahap2);
-    var temp01 = dataTahap2.datasets[0];
-    barChartData1.datasets[0] = temp01;
+        var barChartCanvas1 = $("#tahap-2").get(0).getContext("2d");
+        var barChartData1 = $.extend(true, {}, dataTahap2);
+        var temp01 = dataTahap2.datasets[0];
+        barChartData1.datasets[0] = temp01;
 
-    var barChartOptions1 = {
-        responsive: true,
-        maintainAspectRatio: false,
-        datasetFill: false,
-    };
+        var barChartOptions1 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            datasetFill: false,
+        };
 
-    new Chart(barChartCanvas1, {
-        type: "bar",
-        data: barChartData1,
-        options: barChartOptions1,
-    });
+        new Chart(barChartCanvas1, {
+            type: "bar",
+            data: barChartData1,
+            options: barChartOptions1,
+        });
+    }
 });
