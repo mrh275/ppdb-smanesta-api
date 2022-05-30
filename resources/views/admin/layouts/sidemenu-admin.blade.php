@@ -24,10 +24,34 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('/admin') }}" class="nav-link active">
+                    <a href="{{ url('/admin') }}" class="nav-link {{ $title == 'Dashboard' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('admin/data-pendaftar') }}" class="nav-link {{ $title == 'Data Pendaftar' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Data Pendaftar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('admin/seleksi-pendaftar') }}" class="nav-link {{ $title == 'Seleksi Pendaftar' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user-edit"></i>
+                        <p>
+                            Seleksi Pendaftar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('admin/hasil-seleksi') }}" class="nav-link {{ $title == 'Hasil Seleksi' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user-check"></i>
+                        <p>
+                            Hasil Seleksi
                         </p>
                     </a>
                 </li>
