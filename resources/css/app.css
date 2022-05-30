@@ -668,7 +668,8 @@ html {
     }
 
     .dark .navbar-brand,
-    .dark .navbar {
+    .dark .navbar,
+    .dark .menu-dropdown-portal {
         @apply bg-zinc-800;
     }
 
