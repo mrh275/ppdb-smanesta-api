@@ -47,6 +47,17 @@ toggleSwitch.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
 
+// Toggle dropdown
+const menuPortalDropdown = document.querySelector(".dropdown-portal");
+menuPortalDropdown.addEventListener("click", () => {
+    document
+        .querySelector(".menu-dropdown-portal")
+        .classList.toggle("invisible");
+    document
+        .querySelector(".menu-dropdown-portal")
+        .classList.toggle("opacity-0");
+});
+
 // Fasilitas Carousel
 if (window.innerWidth < 768) {
     // Carousel
