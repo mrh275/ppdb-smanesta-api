@@ -2087,9 +2087,6 @@ div.dropzone{
 .grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.flex-row{
-    flex-direction: row;
-}
 .flex-col{
     flex-direction: column;
 }
@@ -2481,14 +2478,14 @@ div.dropzone{
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
+.duration-200{
+    transition-duration: 200ms;
+}
 .duration-300{
     transition-duration: 300ms;
 }
 .duration-100{
     transition-duration: 100ms;
-}
-.duration-200{
-    transition-duration: 200ms;
 }
 .ease-in-out{
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
