@@ -35,6 +35,21 @@
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
     @endif
+
+    <style>
+        #data-pendaftar tbody tr {
+            cursor: pointer;
+        }
+
+        #data-pendaftar tbody tr:hover {
+            background: #fef3c7;
+        }
+
+        #data-pendaftar tbody tr.selected {
+            background: #bae6fd;
+        }
+
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
@@ -47,6 +62,7 @@
         @include('admin.layouts.navbar-admin')
         @include('admin.layouts.sidemenu-admin')
         @yield('content')
+        @include('admin.layouts.components.modal-selection')
         @include('admin.layouts.footer-admin')
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
