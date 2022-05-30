@@ -14,8 +14,9 @@
                         <th data-priority="2">No. Pendaftaran</th>
                         <th data-priority="3">NISN</th>
                         <th data-priority="4">Nama Lengkap</th>
-                        <th data-priority="5">Jalur Pendaftaran</th>
-                        <th data-priority="6">Asal Sekolah</th>
+                        <th data-priority="5">Tahun Lulus</th>
+                        <th data-priority="6">Jalur Pendaftaran</th>
+                        <th data-priority="7">Asal Sekolah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,9 @@
                             </td>
                             <td>
                                 {{ $item->nama }}
+                            </td>
+                            <td>
+                                {{ $item->tahun_lulus }}
                             </td>
                             <td>
                                 {{ $jalur[$item->jalur_pendaftaran - 1] }}
