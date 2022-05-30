@@ -21,7 +21,8 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Data Pendaftar',
-            'biodata' => Biodata::all()
+            'biodata' => Biodata::all(),
+            'statusTitle' => 'Status Verifikasi',
         ];
 
         return view('admin.data-pendaftar', $data);
@@ -31,7 +32,8 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Seleksi Pendaftar',
-            'biodata' => Biodata::all()
+            'biodata' => Biodata::all(),
+            'statusTitle' => 'Status Seleksi',
         ];
 
         return view('admin.seleksi-pendaftar', $data);
