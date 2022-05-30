@@ -27,9 +27,17 @@
             <li class="nav-item">
                 <a href="#contact" class="nav-link" id="menu-contact">Kontak</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item relative dropdown-portal">
                 @if (Auth::check())
-                    <a href="{{ url('logout') }}" class="nav-link">Logout</a>
+                    <a href="javascript:void(0)" class="nav-link">{{ Auth::user()->name }}</a>
+                    <ul class="menu-dropdown-portal absolute bg-white rounded-lg shadow-lg invisible opacity-0 transition-all ease-in-out duration-200">
+                        <li class="nav-item">
+                            <a href="{{ url('admin') }}" class="nav-link pl-4 pr-8">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('logout') }}" class="nav-link pl-4 pr-8">Logout</a>
+                        </li>
+                    </ul>
                 @else
                     <a href="javascript:void(0)" class="nav-link" id="login-btn">Login</a>
                 @endif
