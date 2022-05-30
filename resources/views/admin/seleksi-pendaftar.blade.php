@@ -78,7 +78,7 @@
                                             @endif
                                         </td>
                                         <td class="d-flex flex-column justify-content-center align-items-center">
-                                            <button class="btn btn-sm btn-success">
+                                            <button class="btn btn-sm btn-success" id="edit-status-diterima" type="button" data-toggle="modal" data-target="#modal-default">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                         </td>
@@ -116,5 +116,26 @@
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-excel span').html('<i class="fas fa-file-excel"></i> &nbsp;Excel')
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-pdf span').html('<i class="fas fa-file-pdf"></i> &nbsp;Pdf')
         $('#data-pendaftar_wrapper .col-md-6:eq(0) .btn-group .buttons-print span').html('<i class="fas fa-print"></i> &nbsp;Print')
+
+        $('#data-pendaftar tbody').on('click', 'tr', function() {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                $('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+
+        $('#data-pendaftar tbody').on('click', '#edit-status-diterima', function() {
+            let selectedRow = $(this).parent().parent();
+            let noregPPDB = selectedRow.find('td:nth-child(1)').html()
+            let namaPendaftar = selectedRow.find('td:nth-child(2)').html()
+            let statusDiterima = selectedRow.find('td:nth-child(7)').attr('id')
+            console.log(statusDiterima)
+            $('#modal-default .noreg_ppdb').html(noregPPDB);
+            $('#modal-default .nama-peserta').html(namaPendaftar);
+            $('#modal-default #zero').html('Tidak diterima');
+            $('#modal-default #one').html('Diterima');
+        });
     </script>
 @endpush
