@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Biodata;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AcceptController extends Controller
 {
@@ -69,7 +70,21 @@ class AcceptController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            Biodata::where('noreg_ppdb', $id)->update(['is_accepted' => 1]);
+
+            $data = [
+                'status' => 200,
+                'success' => 'Data berhasil diverifikasi'
+            ];
+
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 
     /**
