@@ -12,6 +12,7 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
+            'statusTitle' => null
         ];
 
         return view('admin.dashboard', $data);
