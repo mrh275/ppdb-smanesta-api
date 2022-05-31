@@ -50,7 +50,7 @@
                             <tbody>
                                 @foreach ($biodata as $item)
                                     <tr role="row">
-                                        <td>
+                                        <td id="{{ $item->noreg_ppdb }}">
                                             {{ $item->noreg_ppdb }}
                                         </td>
                                         <td style="width: 10rem">
@@ -78,9 +78,15 @@
                                             @endif
                                         </td>
                                         <td class="d-flex flex-column justify-content-center align-items-center">
-                                            <button class="btn btn-sm btn-success" id="edit-status-diterima" type="button" data-toggle="modal" data-target="#modal-default">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
+                                            @if ($item->is_accepted == 0)
+                                                <button class="btn btn-sm btn-success" id="edit-status-diterima" type="button" data-toggle="modal" data-target="#modal-default">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            @else
+                                                <button class="btn btn-sm btn-success disabled" disabled id="edit-status-diterima" type="button" data-toggle="modal" data-target="#modal-default">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -128,14 +134,66 @@
 
         $('#data-pendaftar tbody').on('click', '#edit-status-diterima', function() {
             let selectedRow = $(this).parent().parent();
-            let noregPPDB = selectedRow.find('td:nth-child(1)').html()
+            let noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
             let namaPendaftar = selectedRow.find('td:nth-child(2)').html()
             let statusDiterima = selectedRow.find('td:nth-child(7)').attr('id')
-            console.log(statusDiterima)
-            $('#modal-default .noreg_ppdb').html(noregPPDB);
-            $('#modal-default .nama-peserta').html(namaPendaftar);
-            $('#modal-default #zero').html('Tidak diterima');
-            $('#modal-default #one').html('Diterima');
+            Swal.fire({
+                'icon': 'question',
+                'title': 'Verifikasi Pendaftar',
+                'html': 'Apa anda akan menerima pendaftar <strong>' + namaPendaftar + '</strong> dengan nomor pendaftaran <strong>' + noregPPDB + '</strong> ?',
+                showConfirmButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "post",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "{{ url('admin/accept') }}" + '/' + noregPPDB,
+                        data: $('#modalPrompt').serialize(),
+                        dataType: "json",
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Doing a magic trick...',
+                                timer: 1000,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            }).
+                            then((dismiss) => {
+                                if (response.status == 200) {
+                                    $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').html('Diterima');
+                                    $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').attr('id', '1');
+                                    selectedRow.find('#edit-status-diterima').addClass('disabled');
+                                    selectedRow.find('#edit-status-diterima').attr('disabled', 'disabled');
+                                } else {
+                                    $('#modal-default').modal('hide');
+                                    $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').html('Belum Terverifikasi');
+                                    $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').attr('id', '0');
+                                }
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    showCloseButton: true,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                })
+
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: response.success
+                                })
+                            })
+
+                        }
+                    });
+                }
+            })
         });
     </script>
 @endpush
