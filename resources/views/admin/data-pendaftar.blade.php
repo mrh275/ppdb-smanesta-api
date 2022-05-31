@@ -87,7 +87,6 @@
                                                     <i class="fas fa-user-edit"></i>
                                                 </button>
                                             @endif
-
                                         </td>
                                     </tr>
                                 @endforeach
@@ -133,7 +132,7 @@
             }
         });
 
-        $('#data-pendaftar tbody').on('click', '#edit-status-verifikasi', function() {
+        $('#data-pendaftar tbody').on('click', '#edit-status-verifikasi', function(e) {
             let selectedRow = $(this).parent().parent();
             var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
             let namaPendaftar = selectedRow.find('td:nth-child(2)').html()
@@ -149,7 +148,10 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        type: "post",
+                        type: 'post',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
                         url: "{{ url('admin/verifikasi') }}" + '/' + noregPPDB,
                         data: $('#modalPrompt').serialize(),
                         dataType: "json",
@@ -164,7 +166,6 @@
                             }).
                             then((dismiss) => {
                                 if (response.status == 200) {
-                                    $('#modal-default').modal('hide');
                                     $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').html('Terverifikasi');
                                     $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').attr('id', '1');
                                     selectedRow.find('#edit-status-verifikasi').addClass('disabled');
@@ -196,45 +197,5 @@
                 }
             })
         });
-
-        function verifiedPendaftar() {
-            let noregTable = $('#data-pendaftar tbody tr.selected');
-            let noregPPDB = noregTable.find('td:nth-child(1)').attr('id')
-            $.ajax({
-                type: "post",
-                url: "{{ url('admin/verifikasi') }}" + '/' + noregPPDB,
-                data: $('#modalPrompt').serialize(),
-                dataType: "json",
-                success: function(response) {
-                    if (response.status == 200) {
-                        $('#modal-default').modal('hide');
-                        $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').html('Terverifikasi');
-                        $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').attr('id', '1');
-                    } else {
-                        $('#modal-default').modal('hide');
-                        $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').html('Belum Terverifikasi');
-                        $('#data-pendaftar tbody tr.selected').find('td:nth-child(7)').attr('id', '0');
-                    }
-                    toastr["success"](response.success);
-                    toastr.options = {
-                        "closeButton": false,
-                        "debug": false,
-                        "newestOnTop": false,
-                        "progressBar": true,
-                        "positionClass": "toast-top-right",
-                        "preventDuplicates": false,
-                        "onclick": null,
-                        "showDuration": "300",
-                        "hideDuration": "1000",
-                        "timeOut": "5000",
-                        "extendedTimeOut": "1000",
-                        "showEasing": "swing",
-                        "hideEasing": "linear",
-                        "showMethod": "fadeIn",
-                        "hideMethod": "fadeOut"
-                    }
-                }
-            });
-        }
     </script>
 @endpush
