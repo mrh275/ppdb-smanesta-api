@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.css" />
     @endif
 
     <style>
@@ -62,7 +63,9 @@
         @include('admin.layouts.navbar-admin')
         @include('admin.layouts.sidemenu-admin')
         @yield('content')
-        @include('admin.layouts.components.modal-selection')
+        @if ($statusTitle != null)
+            @include('admin.layouts.components.modal-selection')
+        @endif
         @include('admin.layouts.footer-admin')
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -95,6 +98,7 @@
         <script src="{{ asset('assets/admin/plugins') }}/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="{{ asset('assets/admin/plugins') }}/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="{{ asset('assets/admin/plugins') }}/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.js"></script>
     @endif
     <!-- ChartJS -->
     <script src="{{ asset('assets/admin/plugins') }}/chart.js/Chart.min.js"></script>
