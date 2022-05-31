@@ -63,9 +63,6 @@
         @include('admin.layouts.navbar-admin')
         @include('admin.layouts.sidemenu-admin')
         @yield('content')
-        @if ($statusTitle != null)
-            @include('admin.layouts.components.modal-selection')
-        @endif
         @include('admin.layouts.footer-admin')
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
