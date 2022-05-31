@@ -71,8 +71,6 @@ class VerifikasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
         try {
             Biodata::where('noreg_ppdb', $id)->update(['is_verified' => 1]);
 
