@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\VerifikasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\DataOrangTuaController;
@@ -52,4 +53,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
     Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
     Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
+    Route::resource('/admin/verifikasi', VerifikasiController::class);
 });
