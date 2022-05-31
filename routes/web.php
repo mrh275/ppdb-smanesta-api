@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\VerifikasiController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BiodataController;
-use App\Http\Controllers\DataOrangTuaController;
-use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortalController;
+use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UploadFilesController;
+use App\Http\Controllers\Admin\AcceptController;
+use App\Http\Controllers\DataOrangTuaController;
+use App\Http\Controllers\DataPeriodikController;
+use App\Http\Controllers\Admin\VerifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
     Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
     Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
-    Route::resource('/admin/verifikasi', VerifikasiController::class);
+    Route::post('/admin/verifikasi/{id}', [VerifikasiController::class, 'update']);
+    Route::post('/admin/accept/{id}', [AcceptController::class, 'update']);
 });
