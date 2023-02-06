@@ -16,13 +16,13 @@ class Operator
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->username == 'operator') {
-            return $next($request);
+        if ($request->user()->username != null) {
+            if ($request->user()->username == 'operator') {
+                return $next($request);
+            }
         } else {
-            return response()->json([
-                'message' => 'Not Allowed!',
-                'data' => 'Anda tidak memiliki hak akses untuk mengakses halaman ini',
-            ]);
+            session()->put('login_session', false);
+            return route('portal');
         }
     }
 }
