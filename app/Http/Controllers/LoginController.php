@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,11 +12,18 @@ class LoginController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('portal');
+        try {
+            Auth::attempt($credentials);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Login successfully!'
+            ]);
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
+            ]);
         }
-
-        return redirect()->route('login')->withErrors(['username' => 'Username atau password salah']);
     }
 
     public function logout()
