@@ -10,7 +10,7 @@
                 <a href="#" class="nav-link" id="menu-home">Beranda</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('register') }}" class="nav-link" id="menu-register">Daftar</a>
+                <button style="cursor:pointer;" onclick="userCheck()" class="nav-link" id="menu-register">Daftar</button>
             </li>
             <li class="nav-item">
                 <a href="#terms" class="nav-link" id="menu-terms">Persyaratan</a>
@@ -27,15 +27,15 @@
             <li class="nav-item">
                 <a href="#contact" class="nav-link" id="menu-contact">Kontak</a>
             </li>
-            <li class="nav-item relative dropdown-portal">
+            <li class="relative nav-item dropdown-portal">
                 @if (Auth::check())
                     <a href="javascript:void(0)" class="nav-link">{{ Auth::user()->name }}</a>
-                    <ul class="menu-dropdown-portal absolute bg-white rounded-lg shadow-lg invisible opacity-0 transition-all ease-in-out duration-200">
+                    <ul class="absolute invisible transition-all duration-200 ease-in-out bg-white rounded-lg shadow-lg opacity-0 menu-dropdown-portal">
                         <li class="nav-item">
-                            <a href="{{ url('admin') }}" class="nav-link pl-4 pr-8">Dashboard</a>
+                            <a href="{{ url('admin') }}" class="pl-4 pr-8 nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('logout') }}" class="nav-link pl-4 pr-8">Logout</a>
+                            <a href="{{ url('logout') }}" class="pl-4 pr-8 nav-link">Logout</a>
                         </li>
                     </ul>
                 @else
@@ -45,9 +45,9 @@
         </ul>
 
         <div class="toggle-darkMode" id="toggle-darkMode">
-            <span class="darkMode-btn flex w-4 overflow-x-hidden">
-                <i class="bx bxs-moon text-white"></i>
-                <i class="bx bxs-sun text-yellow-600"></i>
+            <span class="flex w-4 overflow-x-hidden darkMode-btn">
+                <i class="text-white bx bxs-moon"></i>
+                <i class="text-yellow-600 bx bxs-sun"></i>
             </span>
         </div>
     </div>
@@ -59,6 +59,6 @@
     </div>
 </nav>
 
-<div class="login-form fixed z-50 w-full top-0 transition-all ease-in-out duration-300 invisible opacity-0" id="login-form">
+<div class="fixed top-0 z-50 invisible w-full transition-all duration-300 ease-in-out opacity-0 login-form" id="login-form">
     @include('layouts.partials.forms.login')
 </div>
