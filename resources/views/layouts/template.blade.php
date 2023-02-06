@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/css/splide.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.css" />
     @if (Request::segment(1) == 'register')
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     @endif
 
     {{-- Library --}}
     @if (Request::segment(1) == 'register')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.css" />
         <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -48,12 +48,11 @@
     {{-- JS --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.2/dist/js/splide.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.js"></script>
-    @if (Request::segment(1) == 'register')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.js"></script>
-    @endif
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.js"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     @stack('scripts')
     @stack('specifyjs')
+    @stack('login')
     <script>
         if (
             window.location.pathname == "/data-pendaftar"
@@ -68,6 +67,22 @@
                 "{{ url('/#faq') }}";
             document.querySelector("#menu-contact").attributes.href.value =
                 "{{ url('/#contact') }}";
+        }
+
+        function userCheck() {
+            if (!'{{ Auth::user() }}') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops... Anda belum login!',
+                    text: 'Silahkan login terlebih dahulu.',
+                    confirmButtonText: 'Tutup',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    allowEnterKey: false
+                });
+            } else {
+                window.location.href = '/register'
+            }
         }
     </script>
 </body>
