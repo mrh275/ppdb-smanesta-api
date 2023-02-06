@@ -93,7 +93,7 @@ if (window.innerWidth < 768) {
 // Show Login Form
 const lastMenu = document.querySelector(".nav-menu").lastElementChild;
 
-if (lastMenu.querySelector("a").innerHTML != "Logout")
+if (lastMenu.querySelector("a").innerHTML != "Logout") {
     document
         .querySelector("#login-btn")
         .addEventListener("click", function (e) {
@@ -101,6 +101,7 @@ if (lastMenu.querySelector("a").innerHTML != "Logout")
             document.querySelector("#login-form").classList.remove("invisible");
             document.querySelector("#login-form").classList.remove("opacity-0");
         });
+}
 
 // Close Login Form
 document
