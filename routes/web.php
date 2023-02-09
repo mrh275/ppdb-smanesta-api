@@ -32,7 +32,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middl
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('checkRole');
 Route::post('/register/upload', [RegisterController::class, 'store']);
-Route::middleware(['operator'])->group(function () {
+Route::middleware(['checkRole'])->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
     Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
