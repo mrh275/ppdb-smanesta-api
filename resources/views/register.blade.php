@@ -193,6 +193,7 @@
                                 document.querySelector('.form-biodata-wrapper').classList.add('completed')
                                 document.querySelector('.form-orang-tua-wrapper').classList.add('show')
                                 document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
+                                sessionStorage.setItem('biodata', true);
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
@@ -261,6 +262,7 @@
                                     document.querySelector('.form-periodik-wrapper').classList.add('show')
                                     document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
                                     document.querySelector('.form-wrapper-responsive').classList.add('periodik')
+                                    sessionStorage.setItem('orangTua', true);
                                 }
                             })
                         },
@@ -326,6 +328,7 @@
                                 dataOrangTua.firstElementChild.classList.add('cursor-pointer')
                                 dataPeriodik.firstElementChild.classList.add('cursor-pointer')
                                 dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
+                                sessionStorage.setItem('periodik', true);
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
