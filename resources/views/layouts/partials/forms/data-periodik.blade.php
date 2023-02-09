@@ -116,7 +116,7 @@
                         <input type="number" class="form-control" id="jumlah_saudara" name="jumlah_saudara">
                     </div>
                 </div>
-                <hr class="border-b-2 border-t-0 border-solid border-zinc-400 my-2">
+                <hr class="my-2 border-t-0 border-b-2 border-solid border-zinc-400">
                 <h4 class="title-kesejahteraan">
                     Data Kesejahteraan
                 </h4>
@@ -193,7 +193,7 @@
             </div>
         </div>
         <div class="form-btn">
-            <button type="button" class="btn btn-secondary invisible opacity-0" onclick="backToDataOrangTua()">Kembali</button>
+            <button type="button" class="btn btn-secondary" onclick="backToDataOrangTua()">Kembali</button>
             <button class="btn btn-primary" type="button" id="btn-data-periodik" onclick="dataPeriodikNext()">
                 Simpan
             </button>

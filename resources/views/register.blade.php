@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="wrapper relative pt-28">
+    <div class="relative wrapper pt-28">
         <div class="register-section">
             <h2 class="register-title">
                 Pendaftaran PPDB

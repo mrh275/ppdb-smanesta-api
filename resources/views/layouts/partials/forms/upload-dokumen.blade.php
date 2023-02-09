@@ -3,13 +3,13 @@
         Upload Dokumen
     </h3>
 
-    <div class="form-wrapper form-biodata mb-6">
+    <div class="mb-6 form-wrapper form-biodata">
         <div class="w-full">
-            {{-- <form method="post" class="flex flox-col items-center justify-between flex-wrap" id="img-upload" enctype="multipart/form-data"> --}}
+            {{-- <form method="post" class="flex flex-wrap items-center justify-between flox-col" id="img-upload" enctype="multipart/form-data"> --}}
 
-            <div class="left-upload w-full flex justify-evenly items-start mb-6">
+            <div class="flex items-start w-full mb-6 left-upload justify-evenly">
                 <div class="upload-group">
-                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Ijazah/Surat Kelulusan</label>
+                    <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Ijazah/Surat Kelulusan</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ijazah-upload">
                         @csrf
                         <div class="dz-message">
@@ -26,7 +26,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Kartu Keluarga</label>
+                    <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Keluarga</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kk-upload">
                         @csrf
                         <div class="dz-message">
@@ -43,7 +43,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">Akte Kelahiran</label>
+                    <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Akte Kelahiran</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="akte-upload">
                         @csrf
                         <div class="dz-message">
@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="ijazah-upload" class="text-lg font-semibold inline-block mb-1">KTP Orang Tua</label>
+                    <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">KTP Orang Tua</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ktp-upload">
                         @csrf
                         <div class="dz-message">
@@ -77,9 +77,9 @@
                     </form>
                 </div>
             </div>
-            <div class="right-upload w-full flex justify-evenly items-start">
+            <div class="flex items-start w-full right-upload justify-evenly">
                 <div class="upload-group">
-                    <label for="kip-upload" class="text-lg font-semibold inline-block mb-1">Kartu Indonesia Pintar</label>
+                    <label for="kip-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Indonesia Pintar</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kip-upload">
                         @csrf
                         <div class="dz-message">
@@ -96,7 +96,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="kis-upload" class="text-lg font-semibold inline-block mb-1">Kartu Indonesia Sehat</label>
+                    <label for="kis-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Indonesia Sehat</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kis-upload">
                         @csrf
                         <div class="dz-message">
@@ -113,7 +113,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="kks-upload" class="text-lg font-semibold inline-block mb-1">KKS/KPS</label>
+                    <label for="kks-upload" class="inline-block mb-1 text-lg font-semibold">KKS/KPS</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kks-upload">
                         @csrf
                         <div class="dz-message">
@@ -130,7 +130,7 @@
                     </form>
                 </div>
                 <div class="upload-group">
-                    <label for="pkh-upload" class="text-lg font-semibold inline-block mb-1">Kartu PKH</label>
+                    <label for="pkh-upload" class="inline-block mb-1 text-lg font-semibold">Kartu PKH</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="pkh-upload">
                         @csrf
                         <div class="dz-message">
@@ -151,7 +151,7 @@
         </div>
     </div>
     <div class="form-btn">
-        <button type="button" class="btn btn-secondary invisible opacity-0" onclick="backToDataPeriodik()">Kembali</button>
+        <button type="button" class="btn btn-secondary" onclick="backToDataPeriodik()">Kembali</button>
         <button class="btn btn-primary" type="button" id="btn-upload-files" onclick="nextUpload()">
             Simpan
         </button>
