@@ -70,7 +70,9 @@
         }
 
         function userCheck() {
-            if (!'{{ Auth::user() }}') {
+            if ('{{ Auth::user() }}') {
+                window.location.href = '/register'
+            } else {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops... Anda belum login!',
@@ -80,8 +82,6 @@
                     allowEscapeKey: false,
                     allowEnterKey: false
                 });
-            } else {
-                window.location.href = '/register'
             }
         }
     </script>
