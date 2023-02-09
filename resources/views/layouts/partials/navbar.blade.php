@@ -10,7 +10,7 @@
                 <a href="#" class="nav-link" id="menu-home">Beranda</a>
             </li>
             <li class="nav-item">
-                <button style="cursor:pointer;" onclick="userCheck()" class="nav-link" id="menu-register">Daftar</button>
+                <a href="javascript:void(0)" onclick="userCheck()" class="nav-link" id="menu-register">Daftar</a>
             </li>
             <li class="nav-item">
                 <a href="#terms" class="nav-link" id="menu-terms">Persyaratan</a>
