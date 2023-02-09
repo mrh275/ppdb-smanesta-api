@@ -44,9 +44,9 @@
                     <label for="tahun_lulus">Tahun Lulus</label>
                     <select name="tahun_lulus" id="tahun_lulus" class="form-select">
                         <option value="">Pilih :</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
+                        <option value="3">2022</option>
+                        <option value="2">2021</option>
+                        <option value="1">2020</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="form-btn">
-            <button type="button" class="btn btn-secondary opacity-0 cursor-default" disabled>Kembali</button>
+            <button type="button" class="opacity-0 cursor-default btn btn-secondary" disabled>Kembali</button>
             <button class="btn btn-primary" type="button" id="btn-data-diri" onclick="dataDiriNext()">
                 Simpan
             </button>
