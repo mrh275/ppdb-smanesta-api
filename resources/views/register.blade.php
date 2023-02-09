@@ -194,6 +194,8 @@
                                 document.querySelector('.form-orang-tua-wrapper').classList.add('show')
                                 document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
                                 sessionStorage.setItem('biodata', true);
+                                const noregPPDB = response.noreg_ppdb;
+                                sessionStorage.setItem('noregPPDB', noregPPDB);
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
