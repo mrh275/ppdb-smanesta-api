@@ -2883,3 +2883,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
     }
 }
 
+.splide__pagination.fasilitas-pagination {
+    bottom: -1.5em !important;
+}
+
+@media (min-width: 1024px) {
+
+    .splide__pagination.fasilitas-pagination {
+        bottom: -3.5em !important;
+    }
+}
