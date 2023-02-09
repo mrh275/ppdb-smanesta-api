@@ -30,7 +30,7 @@ Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::resource('/register', RegisterController::class)->middleware('operator');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('checkRole');
 Route::post('/register/upload', [RegisterController::class, 'store']);
 Route::middleware(['operator'])->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
