@@ -1,3 +1,14 @@
+window.addEventListener("load", function () {
+    // Check register last session
+    if (sessionStorage.getItem('periodik') == 'true') {
+        jumpToUploadFiles();
+    } else if (sessionStorage.getItem('orangTua') == 'true') {
+        jumpToDataPeriodik()
+    } else if (sessionStorage.getItem('biodata') == 'true') {
+        jumpToDataOrangTua();
+    }
+})
+
 // Navbar Animation on Scroll
 let navbar = document.querySelector(".navbar");
 let offset = 0;
