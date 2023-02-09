@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Biodata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -116,6 +117,7 @@ class BiodataController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Data berhasil disimpan',
+            'noreg_ppdb' => $validatedBiodata['noreg_ppdb']
         ]);
     }
 
@@ -136,9 +138,24 @@ class BiodataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $noregPPDB = $request->input('noreg-ppdb');
+
+        try {
+            $data = Biodata::where('noreg_ppdb', $noregPPDB)->get();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Login successfully!',
+                'noreg' => $noregPPDB,
+                'data' => $data
+            ]);
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
+            ]);
+        }
     }
 
     /**
