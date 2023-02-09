@@ -57,3 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/verifikasi/{id}', [VerifikasiController::class, 'update']);
     Route::post('/admin/accept/{id}', [AcceptController::class, 'update']);
 });
+
+// Register Route
+Route::middleware('checkRole')->group(function () {
+    Route::post('/biodata/edit', [BiodataController::class, 'edit']);
+});
