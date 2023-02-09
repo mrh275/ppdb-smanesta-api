@@ -6,6 +6,40 @@ window.addEventListener("load", function () {
         jumpToDataPeriodik()
     } else if (sessionStorage.getItem('biodata') == 'true') {
         jumpToDataOrangTua();
+        const data = {
+            'noreg-ppdb': sessionStorage.getItem('noregPPDB')
+        };
+        fetch('/biodata/edit', {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                const item = data.data[0];
+                document.querySelector('#nisn').value = item.nisn
+                document.querySelector('#nik').value = item.nik
+                document.querySelector('#nama').value = item.nama
+                $("#jenis_kelamin").select2('val', item.jenis_kelamin)
+                document.querySelector('#tempat_lahir').value = item.tempat_lahir
+                document.querySelector('#tanggal_lahir').value = item.tanggal_lahir
+                document.querySelector('#asal_sekolah').value = item.asal_sekolah
+                $("#tahun_lulus").select2('val', item.tahun_lulus)
+                $("#kelas").select2('val', item.kelas)
+                $("#jalur_pendaftaran").select2('val', item.jalur_pendaftaran)
+                document.querySelector('#alamat').value = item.alamat
+                document.querySelector('#dusun').value = item.dusun
+                document.querySelector('#rt').value = item.rt
+                document.querySelector('#rw').value = item.rw
+                document.querySelector('#desa').value = item.desa
+                document.querySelector('#kecamatan').value = item.kecamatan
+                document.querySelector('#kabupaten').value = item.kabupaten
+                document.querySelector('#provinsi').value = item.provinsi
+                document.querySelector('#kode_pos').value = item.kode_pos
+            })
     }
 })
 
