@@ -80,8 +80,8 @@ class DataOrangTuaController extends Controller
         $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
         $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
 
-        if ($request->session()->exists('noreg')) {
-            $validatedDataOrangTua['noreg_ppdb'] = $request->session()->get('noreg');
+        if ($request->input('noreg-ppdb')) {
+            $validatedDataOrangTua['noreg_ppdb'] = $request->input('noreg-ppdb');
             DataOrangTua::create($validatedDataOrangTua);
 
             return response()->json([
