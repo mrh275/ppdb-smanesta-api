@@ -20,7 +20,7 @@ class CheckRole
             if ($request->user()->username == 'administrator' || $request->user()->username == 'operator') {
                 return $next($request);
             } else {
-                return redirect()->route('portal');
+                return redirect()->route('adminDasboard');
             }
         } else {
             return redirect()->route('portal');
