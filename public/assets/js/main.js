@@ -157,8 +157,6 @@ function getCurrentDataSession() {
             document.querySelector('#tempat_lahir').value = item.tempat_lahir
             document.querySelector('#tanggal_lahir').value = item.tanggal_lahir
             document.querySelector('#asal_sekolah').value = item.asal_sekolah
-            console.log(item.tahun_lulus)
-            console.log(item.jalur_pendaftaran)
             $("#tahun_lulus").select2('val', item.tahun_lulus)
             $("#kelas").select2('val', item.kelas)
             $("#jalur_pendaftaran").select2('val', item.jalur_pendaftaran)
