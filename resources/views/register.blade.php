@@ -196,6 +196,12 @@
                                 sessionStorage.setItem('biodata', true);
                                 const noregPPDB = response.noreg_ppdb;
                                 sessionStorage.setItem('noregPPDB', noregPPDB);
+                                const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg-ppdb"]');
+                                const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
+                                const formUpload = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
+                                formOrangTua.setAttribute('value', noregPPDB);
+                                formPeriodik.setAttribute('value', noregPPDB);
+                                formUpload.setAttribute('value', noregPPDB);
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
