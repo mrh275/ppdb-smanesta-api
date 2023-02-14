@@ -12,6 +12,7 @@
                     <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Ijazah/Surat Kelulusan</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ijazah-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -29,6 +30,7 @@
                     <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Keluarga</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kk-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -46,6 +48,7 @@
                     <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Akte Kelahiran</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="akte-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -63,6 +66,7 @@
                     <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">KTP Orang Tua</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ktp-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -82,6 +86,7 @@
                     <label for="kip-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Indonesia Pintar</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kip-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -99,6 +104,7 @@
                     <label for="kis-upload" class="inline-block mb-1 text-lg font-semibold">Kartu Indonesia Sehat</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kis-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -116,6 +122,7 @@
                     <label for="kks-upload" class="inline-block mb-1 text-lg font-semibold">KKS/KPS</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="kks-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
@@ -133,6 +140,7 @@
                     <label for="pkh-upload" class="inline-block mb-1 text-lg font-semibold">Kartu PKH</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="pkh-upload">
                         @csrf
+                        <input type="hidden" name="noreg-ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">

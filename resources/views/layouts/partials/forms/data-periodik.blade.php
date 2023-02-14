@@ -4,6 +4,7 @@
     </h3>
     <form action="{{ url('data-periodik') }}" method="post" id="form-data-periodik">
         <div class="form-wrapper form-biodata">
+            <input type="hidden" name="noreg-ppdb">
             <div class="form-section-left">
                 <div class="form-group">
                     <label for="jenjang">Jenjang</label>
