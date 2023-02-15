@@ -4,9 +4,11 @@ window.addEventListener("load", function () {
         jumpToUploadFiles();
     } else if (sessionStorage.getItem('orangTua') == 'true') {
         jumpToDataPeriodik()
+        getCurrentBiodataSession();
+        getCurrentDataOrangTua();
     } else if (sessionStorage.getItem('biodata') == 'true') {
         jumpToDataOrangTua();
-        getCurrentDataSession();
+        getCurrentBiodataSession();
     }
 })
 
@@ -135,7 +137,7 @@ document
         }
     });
 
-function getCurrentDataSession() {
+function getCurrentBiodataSession() {
     const data = {
         'noreg-ppdb': sessionStorage.getItem('noregPPDB')
     };
@@ -150,12 +152,13 @@ function getCurrentDataSession() {
         .then((response) => response.json())
         .then((data) => {
             const item = data.data[0];
+            const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
             document.querySelector('#nisn').value = item.nisn
             document.querySelector('#nik').value = item.nik
             document.querySelector('#nama').value = item.nama
             $("#jenis_kelamin").select2('val', item.jenis_kelamin)
             document.querySelector('#tempat_lahir').value = item.tempat_lahir
-            document.querySelector('#tanggal_lahir').value = item.tanggal_lahir
+            document.querySelector('#tanggal_lahir').value = tanggalLahir
             document.querySelector('#asal_sekolah').value = item.asal_sekolah
             $("#tahun_lulus").select2('val', item.tahun_lulus)
             $("#kelas").select2('val', item.kelas)
@@ -169,5 +172,38 @@ function getCurrentDataSession() {
             document.querySelector('#kabupaten').value = item.kabupaten
             document.querySelector('#provinsi').value = item.provinsi
             document.querySelector('#kode_pos').value = item.kode_pos
+        })
+}
+
+function getCurrentDataOrangTua() {
+    const data = {
+        'noreg-ppdb': sessionStorage.getItem('noregPPDB')
+    };
+    fetch('/data-orang-tua/edit', {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const item = data.data[0];
+            const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
+            document.querySelector('#nama_ayah').value = item.nama_ayah
+            document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
+            document.querySelector('#tanggal_lahir_ayah').value = tanggalLahirAyah
+            $("#input-pendidikan-ayah").select2('val', item.pendidikan_ayah)
+            $("#input-pekerjaan-ayah").select2('val', item.pekerjaan_ayah)
+            $("#input-penghasilan-ayah").select2('val', item.penghasilan_ayah)
+            document.querySelector('#input-alamat-ayah').value = item.alamat_ayah
+            document.querySelector('#nama_ibu').value = item.nama_ibu
+            document.querySelector('#tempat_lahir_ibu').value = item.tempat_lahir_ibu
+            document.querySelector('#tanggal_lahir_ibu').value = item.tanggal_lahir_ibu
+            $("#input-pendidikan-ibu").select2('val', item.pendidikan_ibu)
+            $("#input-pekerjaan-ibu").select2('val', item.pekerjaan_ibu)
+            $("#input-penghasilan-ibu").select2('val', item.penghasilan_ibu)
+            document.querySelector('#input-alamat-ibu').value = item.alamat_ibu
         })
 }
