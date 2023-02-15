@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\DataOrangTua;
 use Illuminate\Http\Request;
 
@@ -114,9 +115,24 @@ class DataOrangTuaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $noregPPDB = $request->input('noreg-ppdb');
+
+        try {
+            $data = DataOrangTua::where('noreg_ppdb', $noregPPDB)->get();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Login successfully!',
+                'noreg' => $noregPPDB,
+                'data' => $data
+            ]);
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
+            ]);
+        }
     }
 
     /**
