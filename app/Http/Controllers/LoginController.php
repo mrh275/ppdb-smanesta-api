@@ -14,9 +14,11 @@ class LoginController extends Controller
 
         try {
             Auth::attempt($credentials);
+            $token = $request->user()->createToken('accessToken')->plainTextToken;
             return response()->json([
                 'status' => 200,
-                'message' => 'Login successfully!'
+                'message' => 'Login successfully!',
+                'accessToken' => $token
             ]);
         } catch (Exception $error) {
             return response()->json([
