@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class LoginController extends Controller
 {
@@ -14,7 +16,8 @@ class LoginController extends Controller
 
         try {
             Auth::attempt($credentials);
-            $token = $request->user()->createToken('accessToken')->plainTextToken;
+            $user = User::where('username', $credentials['username'])->first();
+            $token = $user->createToken('accessToken')->plainTextToken;
             return response()->json([
                 'status' => 200,
                 'message' => 'Login successfully!',
@@ -28,9 +31,14 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        auth()->logout();
-        return redirect()->route('portal');
+        $token = $request->bearerToken();
+        $currentToken = PersonalAccessToken::findToken($token);
+        $currentToken->delete();
+        return response()->json([
+            'status' => 200,
+            'message' => 'User logout successfully!'
+        ]);
     }
 }
