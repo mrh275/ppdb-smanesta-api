@@ -111,20 +111,44 @@ class BiodataController extends Controller
         $validatedBiodata = $request->validate($rules, $errorMessage);
         $tgl_lahir = str_replace('/', '-', $request->tanggal_lahir);
         $validatedBiodata['tanggal_lahir'] = date('Y-m-d', strtotime($tgl_lahir));
+        $validatedBiodata['noreg_ppdb'] = '';
 
-        $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
-        while ($validatedBiodata['noreg_ppdb'] == Biodata::where('noreg_ppdb', $validatedBiodata['noreg_ppdb'])->first()) {
-            $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
+        if ($request->input('noreg_ppdb')) {
+            try {
+                $noregPPDB = $request->input('noreg_ppdb');
+                $validatedBiodata['noreg_ppdb'] = $noregPPDB;
+                Biodata::where('noreg_ppdb', $noregPPDB)->update($validatedBiodata);
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Data berhasil diperbaharui',
+                ]);
+            } catch (Exception $error) {
+                return response()->json([
+                    'status' => $error->getCode(),
+                    'message' => $error->getMessage(),
+                ]);
+            }
+        } else {
+            try {
+                $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
+                while ($validatedBiodata['noreg_ppdb'] == Biodata::where('noreg_ppdb', $validatedBiodata['noreg_ppdb'])->first()) {
+                    $validatedBiodata['noreg_ppdb'] = 'PPDB-' . date('y') . date('y') + 1 . '-' . random_int(10000, 99999);
+                }
+                Biodata::create($validatedBiodata);
+                Session::put('noreg', $validatedBiodata['noreg_ppdb']);
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Data berhasil disimpan',
+                    'noreg_ppdb' => $validatedBiodata['noreg_ppdb']
+                ]);
+            } catch (Exception $error) {
+                return response()->json([
+                    'status' => $error->getCode(),
+                    'message' => $error->getMessage()
+                ]);
+            }
         }
-
-        Biodata::create($validatedBiodata);
-        Session::put('noreg', $validatedBiodata['noreg_ppdb']);
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Data berhasil disimpan',
-            'noreg_ppdb' => $validatedBiodata['noreg_ppdb']
-        ]);
     }
 
     /**
