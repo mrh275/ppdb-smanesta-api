@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('noreg_ppdb')->unique();
             $table->string('jalur_pendaftaran');
-            $table->bigInteger('nisn')->unique();
-            $table->bigInteger('nik')->unique();
+            $table->bigInteger('nisn');
+            $table->bigInteger('nik');
             $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
