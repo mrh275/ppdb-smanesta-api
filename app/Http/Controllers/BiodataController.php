@@ -16,7 +16,13 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        //
+        $data = Biodata::with(['dataOrangTua'])->get();
+
+        return response()->json([
+            'stasus' => 200,
+            'message' => 'Data has been retrieved',
+            'data' => $data
+        ]);
     }
 
     /**
