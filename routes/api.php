@@ -20,4 +20,5 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/data-pendaftar', [BiodataController::class, 'index']);
+    Route::post('/active-pendaftar', [BiodataController::class, 'edit']);
 });
