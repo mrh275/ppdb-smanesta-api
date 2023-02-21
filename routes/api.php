@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/data-pendaftar', [BiodataController::class, 'index']);
     Route::post('/active-pendaftar', [BiodataController::class, 'edit']);
+    Route::post('/biodata', [BiodataController::class, 'store']);
 });
