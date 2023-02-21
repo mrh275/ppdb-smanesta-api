@@ -146,13 +146,13 @@ class BiodataController extends Controller
      */
     public function edit(Request $request)
     {
-        $noregPPDB = $request->input('noreg-ppdb');
+        $noregPPDB = $request->input('noreg_ppdb');
 
         try {
-            $data = Biodata::where('noreg_ppdb', $noregPPDB)->get();
+            $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
             return response()->json([
                 'status' => 200,
-                'message' => 'Login successfully!',
+                'message' => 'Data successfully retrieved',
                 'noreg' => $noregPPDB,
                 'data' => $data
             ]);
