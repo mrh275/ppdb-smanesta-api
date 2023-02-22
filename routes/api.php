@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\BiodataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\DataOrangTuaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/data-pendaftar', [BiodataController::class, 'index']);
     Route::post('/active-pendaftar', [BiodataController::class, 'edit']);
     Route::post('/biodata', [BiodataController::class, 'store']);
+    Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
 });
