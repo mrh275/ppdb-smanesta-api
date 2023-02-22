@@ -81,19 +81,37 @@ class DataOrangTuaController extends Controller
         $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
         $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
 
-        if ($request->input('noreg-ppdb')) {
-            $validatedDataOrangTua['noreg_ppdb'] = $request->input('noreg-ppdb');
-            DataOrangTua::create($validatedDataOrangTua);
+        $noregPPDB = $request->input('noreg_ppdb');
+        $oldData = DataOrangTua::where('noreg_ppdb', $request->input('noreg_ppdb'))->first();
+        try {
+            if ($request->input('noreg_ppdb')) {
+                if ($oldData) {
+                    $validatedDataOrangTua['noreg_ppdb'] = $noregPPDB;
+                    DataOrangTua::where('noreg_ppdb', $noregPPDB)->update($validatedDataOrangTua);
+                    return response()->json([
+                        'status' => 200,
+                        'message' => 'Data berhasil diperbaharui',
+                    ]);
+                } else {
+                    $validatedDataOrangTua['noreg_ppdb'] = $noregPPDB;
+                    DataOrangTua::create($validatedDataOrangTua);
 
+                    return response()->json([
+                        'status' => 200,
+                        'message' => 'Data berhasil disimpan',
+                    ]);
+                }
+            } else {
+                return response()->json([
+                    'status' => 'warning',
+                    'message' => 'Nomor Registrasi tidak ditemukan.',
+                    'text'    => 'Silahkan lakukan pendaftaran ulang. Dan meminta untuk reset data terlebih dahulu kepada panitia.',
+                ]);
+            }
+        } catch (Exception $error) {
             return response()->json([
-                'success' => true,
-                'message' => 'Data berhasil disimpan',
-            ]);
-        } else {
-            return response()->json([
-                'success' => 'warning',
-                'message' => 'Nomor Registrasi tidak ditemukan.',
-                'text'    => 'Silahkan lakukan pendaftaran ulang. Dan meminta untuk reset data terlebih dahulu kepada panitia.',
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
             ]);
         }
     }
