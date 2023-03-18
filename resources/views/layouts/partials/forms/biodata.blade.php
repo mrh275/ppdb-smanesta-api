@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                    <input type="text" class="form-control date-input" id="tanggal_lahir" name="tanggal_lahir">
                 </div>
                 <div class="form-group">
                     <label for="asal_sekolah">Asal Sekolah</label>
