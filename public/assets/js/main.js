@@ -1,12 +1,13 @@
+const dataRegister = (JSON.parse(localStorage.dataRegister)) ? JSON.parse(localStorage.dataRegister) : {};
 window.addEventListener("load", function () {
     // Check register last session
-    if (sessionStorage.getItem('periodik') == 'true') {
+    if (dataRegister.periodik == 'true') {
         jumpToUploadFiles();
-    } else if (sessionStorage.getItem('orangTua') == 'true') {
+    } else if (dataRegister.orangTua == 'true') {
         jumpToDataPeriodik()
         getCurrentBiodataSession();
         getCurrentDataOrangTua();
-    } else if (sessionStorage.getItem('biodata') == 'true') {
+    } else if (dataRegister.biodata == true) {
         jumpToDataOrangTua();
         getCurrentBiodataSession();
     }
@@ -139,7 +140,7 @@ document
 
 function getCurrentBiodataSession() {
     const data = {
-        'noreg-ppdb': sessionStorage.getItem('noregPPDB')
+        'noreg_ppdb': dataRegister.noregPPDB
     };
     fetch('/biodata/edit', {
         headers: {
@@ -151,6 +152,7 @@ function getCurrentBiodataSession() {
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log(data.data)
             const item = data.data[0];
             const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
             document.querySelector('#nisn').value = item.nisn
@@ -177,7 +179,7 @@ function getCurrentBiodataSession() {
 
 function getCurrentDataOrangTua() {
     const data = {
-        'noreg-ppdb': sessionStorage.getItem('noregPPDB')
+        'noreg-ppdb': dataRegister.noregPPDB
     };
     fetch('/data-orang-tua/edit', {
         headers: {
