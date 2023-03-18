@@ -193,15 +193,21 @@
                                 document.querySelector('.form-biodata-wrapper').classList.add('completed')
                                 document.querySelector('.form-orang-tua-wrapper').classList.add('show')
                                 document.querySelector('.form-wrapper-responsive').classList.add('orang-tua')
-                                sessionStorage.setItem('biodata', true);
-                                const noregPPDB = response.noreg_ppdb;
-                                sessionStorage.setItem('noregPPDB', noregPPDB);
+                                const dataRegister = {
+                                    biodata: true,
+                                    noregPPDB: response.noreg_ppdb,
+                                }
+                                if (localStorage.dataRegister) {
+                                    localStorage.removeItem("dataRegister");
+                                } else {
+                                    localStorage.setItem("dataRegister", JSON.stringify(dataRegister));
+                                }
                                 const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg-ppdb"]');
                                 const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
                                 const formUpload = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
-                                formOrangTua.setAttribute('value', noregPPDB);
-                                formPeriodik.setAttribute('value', noregPPDB);
-                                formUpload.setAttribute('value', noregPPDB);
+                                formOrangTua.setAttribute('value', dataRegister.noregPPDB);
+                                formPeriodik.setAttribute('value', dataRegister.noregPPDB);
+                                formUpload.setAttribute('value', dataRegister.noregPPDB);
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
