@@ -135,7 +135,7 @@ class DataOrangTuaController extends Controller
      */
     public function edit(Request $request)
     {
-        $noregPPDB = $request->input('noreg-ppdb');
+        $noregPPDB = $request->input('noreg_ppdb');
 
         try {
             $data = DataOrangTua::where('noreg_ppdb', $noregPPDB)->get();
