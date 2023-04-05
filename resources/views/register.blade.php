@@ -202,9 +202,9 @@
                                 } else {
                                     localStorage.setItem("dataRegister", JSON.stringify(dataRegister));
                                 }
-                                const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg-ppdb"]');
-                                const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
-                                const formUpload = document.querySelector('#form-data-periodik input[name="noreg-ppdb"]');
+                                const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg_ppdb"]');
+                                const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
+                                const formUpload = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
                                 formOrangTua.setAttribute('value', dataRegister.noregPPDB);
                                 formPeriodik.setAttribute('value', dataRegister.noregPPDB);
                                 formUpload.setAttribute('value', dataRegister.noregPPDB);
@@ -277,6 +277,12 @@
                                     document.querySelector('.form-wrapper-responsive').classList.remove('orang-tua')
                                     document.querySelector('.form-wrapper-responsive').classList.add('periodik')
                                     sessionStorage.setItem('orangTua', true);
+                                    let dataRegister = JSON.parse(localStorage.dataRegister)
+                                    dataRegister = {
+                                        ...dataRegister,
+                                        dataOrangTua: true
+                                    }
+                                    localStorage.setItem('dataRegister', JSON.stringify(dataRegister))
                                 }
                             })
                         },
@@ -342,7 +348,12 @@
                                 dataOrangTua.firstElementChild.classList.add('cursor-pointer')
                                 dataPeriodik.firstElementChild.classList.add('cursor-pointer')
                                 dataKesejahteraan.firstElementChild.classList.add('cursor-pointer')
-                                sessionStorage.setItem('periodik', true);
+                                let dataRegister = JSON.parse(localStorage.dataRegister)
+                                dataRegister = {
+                                    ...dataRegister,
+                                    dataPeriodik: true
+                                }
+                                localStorage.setItem('dataRegister', JSON.stringify(dataRegister))
                             })
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
@@ -380,7 +391,7 @@
                             title: 'Pendaftaran berhasil!',
                             text: 'Silahkan lakukan verifikasi pendaftaran pada meja Verifikator.'
                         }).then((dismiss) => {
-                            window.location.href = "{{ url('') }}";
+                            localStorage.removeItem('dataRegister');
                             @php
                                 session()->forget('noreg');
                             @endphp
