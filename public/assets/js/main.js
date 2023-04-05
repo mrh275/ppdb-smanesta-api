@@ -1,9 +1,9 @@
-const dataRegister = (JSON.parse(localStorage.dataRegister)) ? JSON.parse(localStorage.dataRegister) : {};
+const dataRegister = (localStorage.dataRegister) ? JSON.parse(localStorage.dataRegister) : {};
 window.addEventListener("load", function () {
     // Check register last session
-    if (dataRegister.periodik == 'true') {
+    if (dataRegister.dataPeriodik == true) {
         jumpToUploadFiles();
-    } else if (dataRegister.orangTua == 'true') {
+    } else if (dataRegister.dataOrangTua == true) {
         jumpToDataPeriodik()
         getCurrentBiodataSession();
         getCurrentDataOrangTua();
@@ -20,12 +20,8 @@ window.addEventListener("scroll", function () {
     let st = window.pageYOffset;
     if (st > offset) {
         navbar.classList.add("fixed-nav");
-        // document.querySelector(".scroll-top-btn").classList.add("bottom-20");
-        // document.querySelector(".scroll-top-btn").classList.remove("-bottom-10");
     } else {
         navbar.classList.remove("fixed-nav");
-        // document.querySelector(".scroll-top-btn").classList.remove("bottom-20");
-        // document.querySelector(".scroll-top-btn").classList.add("-bottom-10");
     }
 });
 
@@ -142,6 +138,12 @@ function getCurrentBiodataSession() {
     const data = {
         'noreg_ppdb': dataRegister.noregPPDB
     };
+    const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg_ppdb"]');
+    const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
+    const formUpload = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
+    formOrangTua.setAttribute('value', dataRegister.noregPPDB);
+    formPeriodik.setAttribute('value', dataRegister.noregPPDB);
+    formUpload.setAttribute('value', dataRegister.noregPPDB);
     fetch('/biodata/edit', {
         headers: {
             'Content-Type': 'application/json',
@@ -152,7 +154,6 @@ function getCurrentBiodataSession() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data.data)
             const item = data.data[0];
             const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
             document.querySelector('#nisn').value = item.nisn
@@ -179,7 +180,7 @@ function getCurrentBiodataSession() {
 
 function getCurrentDataOrangTua() {
     const data = {
-        'noreg-ppdb': dataRegister.noregPPDB
+        'noreg_ppdb': dataRegister.noregPPDB
     };
     fetch('/data-orang-tua/edit', {
         headers: {
@@ -192,6 +193,7 @@ function getCurrentDataOrangTua() {
         .then((response) => response.json())
         .then((data) => {
             const item = data.data[0];
+            console.log(data.data[0])
             const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
             document.querySelector('#nama_ayah').value = item.nama_ayah
             document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
