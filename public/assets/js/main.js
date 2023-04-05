@@ -3,6 +3,8 @@ window.addEventListener("load", function () {
     // Check register last session
     if (dataRegister.dataPeriodik == true) {
         jumpToUploadFiles();
+        getCurrentBiodataSession();
+        getCurrentDataOrangTua();
     } else if (dataRegister.dataOrangTua == true) {
         jumpToDataPeriodik()
         getCurrentBiodataSession();
@@ -12,6 +14,119 @@ window.addEventListener("load", function () {
         getCurrentBiodataSession();
     }
 })
+
+function getCurrentBiodataSession() {
+    const data = {
+        'noreg_ppdb': dataRegister.noregPPDB
+    };
+    const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg_ppdb"]');
+    const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
+    const formUpload = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
+    formOrangTua.setAttribute('value', dataRegister.noregPPDB);
+    formPeriodik.setAttribute('value', dataRegister.noregPPDB);
+    formUpload.setAttribute('value', dataRegister.noregPPDB);
+    fetch('/biodata/edit', {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const item = data.data[0];
+            console.log(data.data[0]);
+            const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
+            document.querySelector('#nisn').value = item.nisn
+            document.querySelector('#nik').value = item.nik
+            document.querySelector('#nama').value = item.nama
+            $("#jenis_kelamin").select2('val', item.jenis_kelamin)
+            document.querySelector('#tempat_lahir').value = item.tempat_lahir
+            document.querySelector('#tanggal_lahir').value = tanggalLahir
+            document.querySelector('#asal_sekolah').value = item.asal_sekolah
+            $("#tahun_lulus").select2('val', item.tahun_lulus)
+            $("#kelas").select2('val', item.kelas)
+            $("#jalur_pendaftaran").select2('val', item.jalur_pendaftaran)
+            document.querySelector('#alamat').value = item.alamat
+            document.querySelector('#dusun').value = item.dusun
+            document.querySelector('#rt').value = item.rt
+            document.querySelector('#rw').value = item.rw
+            document.querySelector('#desa').value = item.desa
+            document.querySelector('#kecamatan').value = item.kecamatan
+            document.querySelector('#kabupaten').value = item.kabupaten
+            document.querySelector('#provinsi').value = item.provinsi
+            document.querySelector('#kode_pos').value = item.kode_pos
+        })
+}
+
+function getCurrentDataOrangTua() {
+    const data = {
+        'noreg_ppdb': dataRegister.noregPPDB
+    };
+    fetch('/data-orang-tua/edit', {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const item = data.data[0];
+            console.log(data.data[0])
+            const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
+            document.querySelector('#nama_ayah').value = item.nama_ayah
+            document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
+            document.querySelector('#tanggal_lahir_ayah').value = tanggalLahirAyah
+            $("#input-pendidikan-ayah").select2('val', item.pendidikan_ayah)
+            $("#input-pekerjaan-ayah").select2('val', item.pekerjaan_ayah)
+            $("#input-penghasilan-ayah").select2('val', item.penghasilan_ayah)
+            document.querySelector('#input-alamat-ayah').value = item.alamat_ayah
+            document.querySelector('#nama_ibu').value = item.nama_ibu
+            document.querySelector('#tempat_lahir_ibu').value = item.tempat_lahir_ibu
+            document.querySelector('#tanggal_lahir_ibu').value = item.tanggal_lahir_ibu
+            $("#input-pendidikan-ibu").select2('val', item.pendidikan_ibu)
+            $("#input-pekerjaan-ibu").select2('val', item.pekerjaan_ibu)
+            $("#input-penghasilan-ibu").select2('val', item.penghasilan_ibu)
+            document.querySelector('#input-alamat-ibu').value = item.alamat_ibu
+        })
+}
+
+function getCurrentPreiodik() {
+    const data = {
+        'noreg_ppdb': dataRegister.noregPPDB
+    };
+    fetch('/data-periodik/edit', {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const item = data.data[0];
+            console.log(data.data[0])
+            const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
+            document.querySelector('#nama_ayah').value = item.nama_ayah
+            document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
+            document.querySelector('#tanggal_lahir_ayah').value = tanggalLahirAyah
+            $("#input-pendidikan-ayah").select2('val', item.pendidikan_ayah)
+            $("#input-pekerjaan-ayah").select2('val', item.pekerjaan_ayah)
+            $("#input-penghasilan-ayah").select2('val', item.penghasilan_ayah)
+            document.querySelector('#input-alamat-ayah').value = item.alamat_ayah
+            document.querySelector('#nama_ibu').value = item.nama_ibu
+            document.querySelector('#tempat_lahir_ibu').value = item.tempat_lahir_ibu
+            document.querySelector('#tanggal_lahir_ibu').value = item.tanggal_lahir_ibu
+            $("#input-pendidikan-ibu").select2('val', item.pendidikan_ibu)
+            $("#input-pekerjaan-ibu").select2('val', item.pekerjaan_ibu)
+            $("#input-penghasilan-ibu").select2('val', item.penghasilan_ibu)
+            document.querySelector('#input-alamat-ibu').value = item.alamat_ibu
+        })
+}
 
 // Navbar Animation on Scroll
 let navbar = document.querySelector(".navbar");
@@ -134,80 +249,4 @@ document
         }
     });
 
-function getCurrentBiodataSession() {
-    const data = {
-        'noreg_ppdb': dataRegister.noregPPDB
-    };
-    const formOrangTua = document.querySelector('#form-data-orang-tua input[name="noreg_ppdb"]');
-    const formPeriodik = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
-    const formUpload = document.querySelector('#form-data-periodik input[name="noreg_ppdb"]');
-    formOrangTua.setAttribute('value', dataRegister.noregPPDB);
-    formPeriodik.setAttribute('value', dataRegister.noregPPDB);
-    formUpload.setAttribute('value', dataRegister.noregPPDB);
-    fetch('/biodata/edit', {
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        method: 'POST',
-        body: JSON.stringify(data)
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            const item = data.data[0];
-            const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
-            document.querySelector('#nisn').value = item.nisn
-            document.querySelector('#nik').value = item.nik
-            document.querySelector('#nama').value = item.nama
-            $("#jenis_kelamin").select2('val', item.jenis_kelamin)
-            document.querySelector('#tempat_lahir').value = item.tempat_lahir
-            document.querySelector('#tanggal_lahir').value = tanggalLahir
-            document.querySelector('#asal_sekolah').value = item.asal_sekolah
-            $("#tahun_lulus").select2('val', item.tahun_lulus)
-            $("#kelas").select2('val', item.kelas)
-            $("#jalur_pendaftaran").select2('val', item.jalur_pendaftaran)
-            document.querySelector('#alamat').value = item.alamat
-            document.querySelector('#dusun').value = item.dusun
-            document.querySelector('#rt').value = item.rt
-            document.querySelector('#rw').value = item.rw
-            document.querySelector('#desa').value = item.desa
-            document.querySelector('#kecamatan').value = item.kecamatan
-            document.querySelector('#kabupaten').value = item.kabupaten
-            document.querySelector('#provinsi').value = item.provinsi
-            document.querySelector('#kode_pos').value = item.kode_pos
-        })
-}
 
-function getCurrentDataOrangTua() {
-    const data = {
-        'noreg_ppdb': dataRegister.noregPPDB
-    };
-    fetch('/data-orang-tua/edit', {
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        method: 'POST',
-        body: JSON.stringify(data)
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            const item = data.data[0];
-            console.log(data.data[0])
-            const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
-            document.querySelector('#nama_ayah').value = item.nama_ayah
-            document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
-            document.querySelector('#tanggal_lahir_ayah').value = tanggalLahirAyah
-            $("#input-pendidikan-ayah").select2('val', item.pendidikan_ayah)
-            $("#input-pekerjaan-ayah").select2('val', item.pekerjaan_ayah)
-            $("#input-penghasilan-ayah").select2('val', item.penghasilan_ayah)
-            document.querySelector('#input-alamat-ayah').value = item.alamat_ayah
-            document.querySelector('#nama_ibu').value = item.nama_ibu
-            document.querySelector('#tempat_lahir_ibu').value = item.tempat_lahir_ibu
-            document.querySelector('#tanggal_lahir_ibu').value = item.tanggal_lahir_ibu
-            $("#input-pendidikan-ibu").select2('val', item.pendidikan_ibu)
-            $("#input-pekerjaan-ibu").select2('val', item.pekerjaan_ibu)
-            $("#input-penghasilan-ibu").select2('val', item.penghasilan_ibu)
-            document.querySelector('#input-alamat-ibu').value = item.alamat_ibu
-        })
-}
