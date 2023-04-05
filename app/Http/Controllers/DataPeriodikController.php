@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\AsalSekolah;
 use App\Models\DataPeriodik;
 use Illuminate\Http\Request;
@@ -87,7 +88,7 @@ class DataPeriodikController extends Controller
         $validatedSekolahAsal = $request->validate($rulesSekolahAsal, $errorMessageSekolahAsal);
         $validatedDataPeriodik = $request->validate($rulesPeriodik, $errorMessagePeriodik);
         $dataKesejahteraan = [
-            'noreg_ppdb' => $request->session()->get('noreg'),
+            'noreg_ppdb' => $request->input('noreg_ppdb'),
             'kip' => ($request->kip) ?? '-',
             'kis' => ($request->kis) ?? '-',
             'kks' => ($request->kks) ?? '-',
@@ -95,22 +96,51 @@ class DataPeriodikController extends Controller
             'pkh' => ($request->pkh) ?? '-',
         ];
 
-        if ($request->session()->exists('noreg')) {
-            $validatedSekolahAsal['noreg_ppdb'] = $request->session()->get('noreg');
-            $validatedDataPeriodik['noreg_ppdb'] = $request->session()->get('noreg');
-            AsalSekolah::create($validatedSekolahAsal);
-            DataPeriodik::create($validatedDataPeriodik);
-            DataKesejahteraan::create($dataKesejahteraan);
+        try {
+            $noregPPDB = $request->input('noreg_ppdb');
+            $oldPeriodik = DataPeriodik::where('noreg_ppdb', $noregPPDB)->first();
+            $oldAsalSekolah = AsalSekolah::where('noreg_ppdb', $noregPPDB)->first();
+            $oldKesejahteraan = DataKesejahteraan::where('noreg_ppdb', $noregPPDB)->first();
 
+            if ($noregPPDB) {
+                $validatedSekolahAsal['noreg_ppdb'] = $noregPPDB;
+                $validatedDataPeriodik['noreg_ppdb'] = $noregPPDB;
+                if ($oldPeriodik) {
+                    if ($oldAsalSekolah) {
+                        AsalSekolah::where('noreg_ppdb', $noregPPDB)->update($validatedSekolahAsal);
+                    }
+                    if ($oldPeriodik) {
+                        DataPeriodik::where('noreg_ppdb', $noregPPDB)->update($validatedDataPeriodik);
+                    }
+                    if ($oldKesejahteraan) {
+                        DataKesejahteraan::where('noreg_ppdb', $noregPPDB)->update($dataKesejahteraan);
+                    }
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Data berhasil diperbaharui',
+                    ]);
+                } else {
+                    AsalSekolah::create($validatedSekolahAsal);
+                    DataPeriodik::create($validatedDataPeriodik);
+                    DataKesejahteraan::create($dataKesejahteraan);
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Data berhasil disimpan',
+                    ]);
+                }
+            } else {
+                return response()->json([
+                    'success' => 'warning',
+                    'message' => 'Nomor Registrasi tidak ditemukan.',
+                    'text'    => 'Silahkan lakukan pendaftaran ulang. Dan meminta untuk reset data terlebih dahulu kepada panitia.',
+                ]);
+            }
+        } catch (Exception $e) {
             return response()->json([
-                'success' => true,
-                'message' => 'Data berhasil disimpan',
-            ]);
-        } else {
-            return response()->json([
-                'success' => 'warning',
-                'message' => 'Nomor Registrasi tidak ditemukan.',
-                'text'    => 'Silahkan lakukan pendaftaran ulang. Dan meminta untuk reset data terlebih dahulu kepada panitia.',
+                'status' => $e->getCode(),
+                'message' => $e->getMessage(),
             ]);
         }
     }
