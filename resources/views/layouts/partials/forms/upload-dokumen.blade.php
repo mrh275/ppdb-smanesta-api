@@ -12,7 +12,7 @@
                     <label for="ijazah-upload" class="inline-block mb-1 text-lg font-semibold">Ijazah/Surat Kelulusan</label>
                     <form method="post" enctype="multipart/form-data" class="dropzone w-[13rem] h-[15rem] flex items-center justify-center rounded-lg border-[#0099ff]" id="ijazah-upload">
                         @csrf
-                        <input type="hidden" name="noreg-ppdb">
+                        <input type="hidden" name="noreg_ppdb">
                         <div class="dz-message">
                             <div class="mb-4">
                                 <div class="text-center">
