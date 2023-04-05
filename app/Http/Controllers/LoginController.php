@@ -33,12 +33,15 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $token = $request->bearerToken();
-        $currentToken = PersonalAccessToken::findToken($token);
-        $currentToken->delete();
-        return response()->json([
-            'status' => 200,
-            'message' => 'User logout successfully!'
-        ]);
+        // $token = $request->bearerToken();
+        // $currentToken = PersonalAccessToken::findToken($token);
+        // $currentToken->delete();
+        // return response()->json([
+        //     'status' => 200,
+        //     'message' => 'User logout successfully!'
+        // ]);
+        session()->flush();
+
+        return redirect()->to('/');
     }
 }
