@@ -45,7 +45,6 @@ Route::middleware(['checkRole'])->group(function () {
     Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
     Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
     Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
-    Route::get('/cetakPendaftaran/{noreg}', [RegisterController::class, 'cetakPendaftaran']);
 });
 
 // Admin Panel
