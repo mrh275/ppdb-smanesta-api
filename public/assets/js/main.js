@@ -5,6 +5,7 @@ window.addEventListener("load", function () {
         jumpToUploadFiles();
         getCurrentBiodataSession();
         getCurrentDataOrangTua();
+        getCurrentPeriodik();
     } else if (dataRegister.dataOrangTua == true) {
         jumpToDataPeriodik()
         getCurrentBiodataSession();
@@ -36,7 +37,6 @@ function getCurrentBiodataSession() {
         .then((response) => response.json())
         .then((data) => {
             const item = data.data[0];
-            console.log(data.data[0]);
             const tanggalLahir = item.tanggal_lahir.substr(8, 2) + '/' + item.tanggal_lahir.substr(5, 2) + '/' + item.tanggal_lahir.substr(0, 4);
             document.querySelector('#nisn').value = item.nisn
             document.querySelector('#nik').value = item.nik
@@ -75,7 +75,6 @@ function getCurrentDataOrangTua() {
         .then((response) => response.json())
         .then((data) => {
             const item = data.data[0];
-            console.log(data.data[0])
             const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
             document.querySelector('#nama_ayah').value = item.nama_ayah
             document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
@@ -94,7 +93,7 @@ function getCurrentDataOrangTua() {
         })
 }
 
-function getCurrentPreiodik() {
+function getCurrentPeriodik() {
     const data = {
         'noreg_ppdb': dataRegister.noregPPDB
     };
@@ -108,23 +107,34 @@ function getCurrentPreiodik() {
     })
         .then((response) => response.json())
         .then((data) => {
-            const item = data.data[0];
-            console.log(data.data[0])
-            const tanggalLahirAyah = item.tanggal_lahir_ayah.substr(8, 2) + '/' + item.tanggal_lahir_ayah.substr(5, 2) + '/' + item.tanggal_lahir_ayah.substr(0, 4);
-            document.querySelector('#nama_ayah').value = item.nama_ayah
-            document.querySelector('#tempat_lahir_ayah').value = item.tempat_lahir_ayah
-            document.querySelector('#tanggal_lahir_ayah').value = tanggalLahirAyah
-            $("#input-pendidikan-ayah").select2('val', item.pendidikan_ayah)
-            $("#input-pekerjaan-ayah").select2('val', item.pekerjaan_ayah)
-            $("#input-penghasilan-ayah").select2('val', item.penghasilan_ayah)
-            document.querySelector('#input-alamat-ayah').value = item.alamat_ayah
-            document.querySelector('#nama_ibu').value = item.nama_ibu
-            document.querySelector('#tempat_lahir_ibu').value = item.tempat_lahir_ibu
-            document.querySelector('#tanggal_lahir_ibu').value = item.tanggal_lahir_ibu
-            $("#input-pendidikan-ibu").select2('val', item.pendidikan_ibu)
-            $("#input-pekerjaan-ibu").select2('val', item.pekerjaan_ibu)
-            $("#input-penghasilan-ibu").select2('val', item.penghasilan_ibu)
-            document.querySelector('#input-alamat-ibu').value = item.alamat_ibu
+            const item = data.data;
+            $("#jenjang").select2('val', item.asal_sekolah[0].jenjang.toString())
+            document.querySelector('#nama_sekolah').value = item.asal_sekolah[0].nama_sekolah
+            document.querySelector('#alamat_sekolah').value = item.asal_sekolah[0].alamat_sekolah
+            document.querySelector('#nomor_ijazah').value = item.asal_sekolah[0].nomor_ijazah
+            document.querySelector('#nopes_ujian').value = item.asal_sekolah[0].nopes_ujian
+            $("#hobi").select2('val', item.periodik[0].hobi)
+            $("#cita_cita").select2('val', item.periodik[0].cita_cita)
+            document.querySelector('#tinggi_badan').value = item.periodik[0].tinggi_badan
+            document.querySelector('#berat_badan').value = item.periodik[0].berat_badan
+            document.querySelector('#jarak_rumah').value = item.periodik[0].jarak_rumah
+            document.querySelector('#anak_ke').value = item.periodik[0].anak_ke
+            document.querySelector('#jumlah_saudara').value = item.periodik[0].jumlah_saudara
+            if ($("#is_kip").select2("data") == 1) {
+                document.querySelector('#kip').value = item.kesejahteraan[0].kip
+            }
+            if ($("#is_kis").select2("data") == 1) {
+                document.querySelector('#kis').value = item.kesejahteraan[0].kis
+            }
+            if ($("#is_kks").select2("data") == 1) {
+                document.querySelector('#kks').value = item.kesejahteraan[0].kks
+            }
+            if ($("#is_kps").select2("data") == 1) {
+                document.querySelector('#kps').value = item.kesejahteraan[0].kps
+            }
+            if ($("#is_pkh").select2("data") == 1) {
+                document.querySelector('#pkh').value = item.kesejahteraan[0].pkh
+            }
         })
 }
 
