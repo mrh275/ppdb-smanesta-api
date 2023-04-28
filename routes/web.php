@@ -61,4 +61,5 @@ Route::middleware('auth')->group(function () {
 Route::middleware('checkRole')->group(function () {
     Route::post('/biodata/edit', [BiodataController::class, 'edit']);
     Route::post('/data-orang-tua/edit', [DataOrangTuaController::class, 'edit']);
+    Route::post('/data-periodik/edit', [DataPeriodikController::class, 'edit']);
 });
