@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 
 class CheckRole
@@ -16,13 +17,17 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->username != null) {
-            if ($request->user()->username == 'administrator' || $request->user()->username == 'operator') {
-                return $next($request);
+        try {
+            if ($request->user()->username != null) {
+                if ($request->user()->username == 'administrator' || $request->user()->username == 'operator') {
+                    return $next($request);
+                } else {
+                    return redirect()->route('adminDasboard');
+                }
             } else {
-                return redirect()->route('adminDasboard');
+                return redirect()->route('portal');
             }
-        } else {
+        } catch (Exception $error) {
             return redirect()->route('portal');
         }
     }
