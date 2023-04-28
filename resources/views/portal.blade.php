@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="wrapper relative pt-20 lg:pt-32">
+    <div class="relative pt-20 wrapper lg:pt-32">
         {{-- Hero Section --}}
         <div class="hero-section">
             <div class="hero-img">
@@ -189,8 +189,8 @@
     </div>
 
     {{-- Access Denied Section --}}
-    @if (session('access_denied'))
-        <div class="access-denied-wrapper fixed z-50 top-0 w-full h-screen bg-zinc-600 flex justify-center items-center bg-opacity-50">
+    @if (session('flashdata'))
+        <div class="fixed top-0 z-50 flex items-center justify-center w-full h-screen bg-opacity-50 access-denied-wrapper bg-zinc-600">
             @include('layouts.partials.components.access-denied')
         </div>
     @endif
