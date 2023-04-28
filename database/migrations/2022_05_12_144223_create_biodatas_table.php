@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
-            $table->string('noreg_ppdb')->unique();
+            $table->string('noreg_ppdb', 20)->unique();
             $table->string('jalur_pendaftaran');
-            $table->bigInteger('nisn');
-            $table->bigInteger('nik');
-            $table->string('nama');
+            $table->string('nisn', 11);
+            $table->string('nik', 16);
+            $table->string('nama', 255);
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('alamat');
             $table->string('dusun');
-            $table->string('rt');
-            $table->string('rw');
+            $table->string('rt', 3);
+            $table->string('rw', 3);
             $table->string('desa');
             $table->string('kecamatan');
             $table->string('kabupaten');
