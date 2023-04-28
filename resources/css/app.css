@@ -25,12 +25,12 @@ html {
     }
 
     .navbar.fixed-nav {
-        @apply bg-white shadow-md transition-all duration-200 ease-in-out;
+        @apply transition-all duration-200 ease-in-out bg-white;
     }
 
     /* Brand */
     .brand {
-        @apply w-full lg:w-max flex items-center relative z-10 bg-white py-2 lg:py-0;
+        @apply relative z-10 flex items-center w-full py-2 bg-white lg:w-max lg:py-0;
     }
 
     .brand-img {
@@ -42,13 +42,13 @@ html {
     }
 
     .brand-title {
-        @apply inline-block mx-auto text-center font-semibold text-base lg:text-xl lg:mx-4 text-zinc-800;
+        @apply inline-block mx-auto text-base font-semibold text-center lg:text-xl lg:mx-4 text-zinc-800;
     }
     /* End Brand */
 
     /* Menu */
     .menu-wrapper {
-        @apply lg:flex items-center justify-evenly;
+        @apply items-center lg:flex justify-evenly;
     }
     .nav-menu {
         @apply absolute lg:relative bg-white lg:bg-transparent w-full lg:w-max -left-[3px] lg:left-0 top-[47px] lg:top-0 rounded-b-xl mx-1 py-4 -translate-y-[120%] opacity-0 lg:opacity-100 lg:translate-y-0 transition-all ease-in-out duration-300 lg:flex;
@@ -64,7 +64,7 @@ html {
 
     /* Toggle Menu */
     .toggle-menu {
-        @apply block cursor-pointer lg:hidden z-50 pt-1;
+        @apply z-50 block pt-1 cursor-pointer lg:hidden;
     }
     .burger {
         @apply block border-t-[2.5px] border-gray-700 w-5 h-1.5 transition duration-200 origin-top-right;
@@ -83,7 +83,7 @@ html {
     }
 
     .nav-menu.show {
-        @apply translate-y-0 shadow-lg lg:shadow-none opacity-100;
+        @apply translate-y-0 shadow-lg opacity-100 lg:shadow-none;
     }
 
     .navbar.show {
@@ -100,7 +100,7 @@ html {
     }
 
     .hero-section {
-        @apply lg:flex flex-row-reverse items-center justify-center;
+        @apply flex-row-reverse items-center justify-center lg:flex;
     }
 
     .hero-splash,
@@ -110,11 +110,11 @@ html {
 
     .hero-splash,
     .hero-img {
-        @apply lg:w-1/2 flex justify-center;
+        @apply flex justify-center lg:w-1/2;
     }
 
     .hero-title {
-        @apply text-zinc-700 font-bold text-2xl lg:text-3xl lg:pl-8;
+        @apply text-2xl font-bold text-zinc-700 lg:text-3xl lg:pl-8;
     }
 
     .hero-img img {
@@ -128,7 +128,7 @@ html {
 
     /* CTA */
     .cta-content {
-        @apply w-full flex flex-col items-center justify-center lg:py-6;
+        @apply flex flex-col items-center justify-center w-full lg:py-6;
     }
 
     .cta-desc {
@@ -136,17 +136,17 @@ html {
     }
 
     .cta-btn {
-        @apply inline-block my-4 mx-auto;
+        @apply inline-block mx-auto my-4;
     }
     /* End CTA */
 
     /* Terms */
     .terms-section {
-        @apply px-6 pb-4 pt-16 my-4 bg-zinc-200 lg:px-16;
+        @apply px-6 pt-16 pb-4 my-4 bg-zinc-200 lg:px-16;
     }
 
     .terms-title {
-        @apply flex flex-col text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-20 lg:pb-8;
+        @apply flex flex-col py-4 text-2xl font-semibold text-center text-zinc-700 lg:text-3xl lg:pt-20 lg:pb-8;
     }
 
     .terms-desc {
@@ -154,7 +154,7 @@ html {
     }
 
     .terms-content {
-        @apply lg:flex justify-center items-start lg:py-4 lg:px-8;
+        @apply items-start justify-center lg:flex lg:py-4 lg:px-8;
     }
 
     .regular-terms {
@@ -167,26 +167,26 @@ html {
 
     .regular-terms-title,
     .special-terms-title {
-        @apply font-semibold text-lg;
+        @apply text-lg font-semibold;
     }
 
     .regular-terms-list,
     .special-terms-list {
-        @apply list-decimal ml-8;
+        @apply ml-8 list-decimal;
     }
 
     .keterangan {
-        @apply text-zinc-700 inline-block py-4;
+        @apply inline-block py-4 text-zinc-700;
     }
 
     .terms-btn-wrapper {
-        @apply w-full flex justify-center items-center mt-4 mb-6;
+        @apply flex items-center justify-center w-full mt-4 mb-6;
     }
     /* End Terms */
 
     /* Kuota dan Jalur */
     .jalur-section {
-        @apply px-6 pb-2 pt-16 my-4 lg:px-16 lg:pb-8 lg:pt-20;
+        @apply px-6 pt-16 pb-2 my-4 lg:px-16 lg:pb-8 lg:pt-20;
     }
 
     .jalur-wrapper {
@@ -194,21 +194,21 @@ html {
     }
 
     .jalur-title {
-        @apply text-center font-semibold text-2xl text-zinc-700 py-4 lg:text-3xl lg:pt-4 lg:pb-8;
+        @apply py-4 text-2xl font-semibold text-center text-zinc-700 lg:text-3xl lg:pt-4 lg:pb-8;
     }
 
     .jalur-content {
-        @apply lg:flex justify-center items-start;
+        @apply items-start justify-center lg:flex;
     }
 
     .kuota-title,
     .jalur-list-title {
-        @apply font-semibold text-lg text-zinc-700;
+        @apply text-lg font-semibold text-zinc-700;
     }
 
     .kuota-list,
     .jalur-list {
-        @apply list-decimal ml-8 text-zinc-700;
+        @apply ml-8 list-decimal text-zinc-700;
     }
 
     .kuota-desc,
@@ -218,17 +218,17 @@ html {
 
     .kuota-btn-wrapper,
     .jalur-btn-wrapper {
-        @apply flex justify-center items-center;
+        @apply flex items-center justify-center;
     }
     /* End Kuota dan Jalur */
 
     /* Fasilitas */
     .fasilitas-wrapper {
-        @apply bg-zinc-200 px-6 pt-4 pb-10 my-4 lg:pt-8 lg:pb-20;
+        @apply px-6 pt-4 pb-10 my-4 bg-zinc-200 lg:pt-8 lg:pb-20;
     }
 
     .fasilitas-title {
-        @apply text-2xl text-center font-semibold text-zinc-700 py-4 lg:pb-8;
+        @apply py-4 text-2xl font-semibold text-center text-zinc-700 lg:pb-8;
     }
 
     .fasilitas-wrapper li {
@@ -241,7 +241,7 @@ html {
     }
 
     .fasilitas-wrapper .fasilitas-sub {
-        @apply text-center font-semibold text-zinc-700;
+        @apply font-semibold text-center text-zinc-700;
     }
 
     .splide__pagination.fasilitas-pagination {
@@ -267,7 +267,7 @@ html {
         @apply w-full;
     }
     .progress-bar.fixed-nav {
-        @apply fixed w-full px-10 left-0 top-[56px] bg-white z-10 shadow-lg;
+        @apply fixed w-full px-10 left-0 top-[56px] bg-white z-[9] shadow-lg;
     }
     .dark .progress-bar.fixed-nav {
         @apply bg-zinc-800;
@@ -342,7 +342,7 @@ html {
 
     /* Form PPDB */
     .form-section {
-        @apply rounded-xl shadow-lg relative w-full overflow-hidden mb-8;
+        @apply relative w-full mb-8 overflow-hidden shadow-lg rounded-xl;
     }
 
     .form-wrapper-responsive {
@@ -362,7 +362,7 @@ html {
     }
 
     .form-wrapper-responsive.cetak-bukti {
-        @apply h-max pb-10;
+        @apply pb-10 h-max;
     }
 
     .form-wrapper-responsive.cetak-bukti .cetak-pendaftaran-wrapper {
@@ -396,22 +396,22 @@ html {
     .form-orang-tua-wrapper.completed,
     .form-periodik-wrapper.completed,
     .form-kesejahteraan-wrapper.completed {
-        @apply opacity-0 -translate-x-full;
+        @apply -translate-x-full opacity-0;
     }
 
     .form-orang-tua-wrapper.show,
     .form-periodik-wrapper.show,
     .form-kesejahteraan-wrapper.show,
     .cetak-pendaftaran-wrapper.show {
-        @apply opacity-100 translate-x-0;
+        @apply translate-x-0 opacity-100;
     }
 
     .form-title {
-        @apply text-3xl font-bold text-zinc-800 mb-8 mt-4;
+        @apply mt-4 mb-8 text-3xl font-bold text-zinc-800;
     }
 
     .form-wrapper {
-        @apply flex justify-between items-start;
+        @apply flex items-start justify-between;
     }
 
     .form-section-left,
@@ -428,18 +428,18 @@ html {
     }
 
     .form-group {
-        @apply flex flex-col justify-center mb-3 relative;
+        @apply relative flex flex-col justify-center mb-3;
     }
 
     .form-radio-group {
-        @apply flex justify-start items-center flex-wrap;
+        @apply flex flex-wrap items-center justify-start;
     }
     .form-radio-group label {
         @apply w-full;
     }
 
     .form-group label {
-        @apply w-max whitespace-nowrap mr-4;
+        @apply mr-4 w-max whitespace-nowrap;
     }
 
     .form-group label#label-upload-file {
@@ -459,15 +459,15 @@ html {
     }
 
     .form-radio {
-        @apply w-max mx-2;
+        @apply mx-2 w-max;
     }
 
     .form-control:disabled {
-        @apply opacity-80 bg-white cursor-not-allowed;
+        @apply bg-white cursor-not-allowed opacity-80;
     }
 
     .form-upload {
-        @apply block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400;
+        @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400;
     }
 
     .dropzone {
@@ -475,7 +475,7 @@ html {
     }
 
     .address-group {
-        @apply flex justify-center items-center;
+        @apply flex items-center justify-center;
     }
 
     .dusun,
@@ -486,7 +486,7 @@ html {
 
     .rt,
     .rw {
-        @apply w-28 ml-4;
+        @apply ml-4 w-28;
     }
 
     .desa,
@@ -536,17 +536,17 @@ html {
     }
 
     .title-kesejahteraan {
-        @apply font-semibold text-lg text-zinc-800 mb-2;
+        @apply mb-2 text-lg font-semibold text-zinc-800;
     }
 
     .form-btn {
-        @apply flex justify-between items-center pt-6;
+        @apply flex items-center justify-between pt-6;
     }
     /* End Form */
 
     /* Cetak Pendaftara */
     .cetak-pendaftaran-title {
-        @apply text-3xl font-bold text-zinc-800 mb-8 mt-4;
+        @apply mt-4 mb-8 text-3xl font-bold text-zinc-800;
     }
     /* End Cetak Pendaftaran */
     /* End Register PPDB */
@@ -557,7 +557,7 @@ html {
     }
 
     .data-pendaftar-title {
-        @apply font-bold text-3xl mb-8 text-zinc-700;
+        @apply mb-8 text-3xl font-bold text-zinc-700;
     }
 
     #data-pendaftar_wrapper #data-pendaftar_length,
@@ -582,7 +582,7 @@ html {
 
     /* Footer */
     .footer-top {
-        @apply px-8 py-4 lg:flex justify-evenly items-center;
+        @apply items-center px-8 py-4 lg:flex justify-evenly;
     }
     .footer-left,
     .footer-middle,
@@ -590,7 +590,7 @@ html {
         @apply w-full lg:w-1/3;
     }
     .footer-left {
-        @apply lg:px-4 py-2;
+        @apply py-2 lg:px-4;
     }
     .footer-brand {
         @apply flex items-center;
@@ -599,14 +599,14 @@ html {
         @apply w-[35px] mr-2;
     }
     .footer-brand-text {
-        @apply font-semibold text-lg text-zinc-800;
+        @apply text-lg font-semibold text-zinc-800;
     }
     .footer-text {
         @apply py-2 text-zinc-800;
     }
 
     .footer-middle {
-        @apply px-6 lg:px-20 py-4;
+        @apply px-6 py-4 lg:px-20;
     }
 
     .footer-related-link {
@@ -621,7 +621,7 @@ html {
     }
 
     .footer-bottom {
-        @apply bg-zinc-300 flex flex-col lg:flex-row justify-center lg:justify-between items-center px-4 py-6;
+        @apply flex flex-col items-center justify-center px-4 py-6 bg-zinc-300 lg:flex-row lg:justify-between;
     }
 
     .footer-bottom-left,
@@ -632,11 +632,11 @@ html {
 
     /* Buttons */
     .btn {
-        @apply py-2 px-4 rounded-lg text-white transition-all ease-in-out duration-200;
+        @apply px-4 py-2 text-white transition-all duration-200 ease-in-out rounded-lg;
     }
 
     .btn-sm {
-        @apply py-1 px-2 rounded-md text-white transition-all ease-in-out duration-200;
+        @apply px-2 py-1 text-white transition-all duration-200 ease-in-out rounded-md;
     }
 
     .btn-primary {
@@ -650,12 +650,12 @@ html {
 
     /* Dark Mode */
     .toggle-darkMode {
-        @apply block relative w-max h-max border border-zinc-600 bg-zinc-700 p-1 rounded-full cursor-pointer z-10 mr-3;
+        @apply relative z-10 block p-1 mr-3 border rounded-full cursor-pointer w-max h-max border-zinc-600 bg-zinc-700;
     }
 
     .bxs-sun,
     .bxs-moon {
-        @apply transition-all ease-in-out duration-300;
+        @apply transition-all duration-300 ease-in-out;
     }
     .dark .bxs-sun,
     .dark .bxs-moon {
