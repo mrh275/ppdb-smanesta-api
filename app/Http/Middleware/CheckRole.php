@@ -28,7 +28,7 @@ class CheckRole
                 return redirect()->route('portal');
             }
         } catch (Exception $error) {
-            return redirect()->route('portal');
+            return redirect()->route('portal')->with('flashdata', 'Eits! Mau ngapain hayo?');
         }
     }
 }
