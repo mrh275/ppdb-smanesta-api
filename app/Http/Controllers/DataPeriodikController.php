@@ -162,9 +162,28 @@ class DataPeriodikController extends Controller
      * @param  \App\Models\DataPeriodik  $dataPeriodik
      * @return \Illuminate\Http\Response
      */
-    public function edit(DataPeriodik $dataPeriodik)
+    public function edit(Request $request)
     {
-        //
+        $noregPPDB = $request->input('noreg_ppdb');
+
+        try {
+            $data = [
+                'asal_sekolah' => AsalSekolah::where('noreg_ppdb', $noregPPDB)->get(),
+                'periodik' => DataPeriodik::where('noreg_ppdb', $noregPPDB)->get(),
+                'kesejahteraan' => DataKesejahteraan::where('noreg_ppdb', $noregPPDB)->get()
+            ];
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data fetched successfully!',
+                'noreg' => $noregPPDB,
+                'data' => $data
+            ]);
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
+            ]);
+        }   //
     }
 
     /**
