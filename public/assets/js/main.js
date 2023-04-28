@@ -120,19 +120,24 @@ function getCurrentPeriodik() {
             document.querySelector('#jarak_rumah').value = item.periodik[0].jarak_rumah
             document.querySelector('#anak_ke').value = item.periodik[0].anak_ke
             document.querySelector('#jumlah_saudara').value = item.periodik[0].jumlah_saudara
-            if ($("#is_kip").select2("data") == 1) {
+            if (item.kesejahteraan[0].kip != '-') {
+                $("#is_kip").select2("val", "1")
                 document.querySelector('#kip').value = item.kesejahteraan[0].kip
             }
-            if ($("#is_kis").select2("data") == 1) {
+            if (item.kesejahteraan[0].kis != '-') {
+                $("#is_kis").select2("val", "1")
                 document.querySelector('#kis').value = item.kesejahteraan[0].kis
             }
-            if ($("#is_kks").select2("data") == 1) {
+            if (item.kesejahteraan[0].kks != '-') {
+                $("#is_kks").select2("val", "1")
                 document.querySelector('#kks').value = item.kesejahteraan[0].kks
             }
-            if ($("#is_kps").select2("data") == 1) {
+            if (item.kesejahteraan[0].kps != '-') {
+                $("#is_kps").select2("val", "1")
                 document.querySelector('#kps').value = item.kesejahteraan[0].kps
             }
-            if ($("#is_pkh").select2("data") == 1) {
+            if (item.kesejahteraan[0].pkh != '-') {
+                $("#is_pkh").select2("val", "1")
                 document.querySelector('#pkh').value = item.kesejahteraan[0].pkh
             }
         })
