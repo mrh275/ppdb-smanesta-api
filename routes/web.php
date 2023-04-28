@@ -30,9 +30,9 @@ Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('checkRole');
 Route::post('/register/upload', [RegisterController::class, 'store']);
 Route::middleware(['checkRole'])->group(function () {
+    Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
     Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
