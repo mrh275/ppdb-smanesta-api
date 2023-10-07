@@ -18,9 +18,9 @@ use App\Http\Controllers\DataOrangTuaController;
 */
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/data-pendaftar', [BiodataController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/data-pendaftar', [BiodataController::class, 'index']);
     Route::post('/active-pendaftar', [BiodataController::class, 'edit']);
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
