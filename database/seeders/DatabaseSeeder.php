@@ -9,7 +9,6 @@ use App\Models\ListSekolahAsal;
 use App\Models\TahunLulus;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,21 +26,21 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
+        User::factory()->create([
             'name' => 'Administrator',
             'username' => 'administrator',
             'password' => Hash::make('dnezast'),
             'role' => 'admin',
             'created_at' => now(),
         ]);
-        User::create([
+        User::factory()->create([
             'name' => 'Verifikator',
             'username' => 'advisor',
             'password' => Hash::make('smanesta'),
             'role' => 'advisor',
             'created_at' => now(),
         ]);
-        User::create([
+        User::factory()->create([
             'name' => 'Operator',
             'username' => 'operator',
             'password' => Hash::make('operator'),
