@@ -328,11 +328,6 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   color: #9ca3af; /* 2 */
 }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
-}
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
@@ -2318,6 +2313,10 @@ div.dropzone{
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
+.text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
 .text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
@@ -2419,6 +2418,10 @@ div.dropzone{
 .text-\[\#0099ff\]{
     --tw-text-opacity: 1;
     color: rgb(0 153 255 / var(--tw-text-opacity));
+}
+.text-indigo-500{
+    --tw-text-opacity: 1;
+    color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 .underline{
     -webkit-text-decoration-line: underline;
