@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        $data = [
+            'title' => 'Login Admin | PPDB SMA Negeri 1 Rawamerta'
+        ];
+
+        return view('admin.auth.login', $data);
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
