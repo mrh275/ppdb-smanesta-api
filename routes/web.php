@@ -23,29 +23,34 @@ use App\Http\Controllers\Admin\VerifikasiController;
 |
 */
 
-Route::get('/', [PortalController::class, 'index'])->name('portal');
-
-Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('data-pendaftar');
-
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
-
-Route::post('/register/upload', [RegisterController::class, 'store']);
-Route::middleware(['checkRole'])->group(function () {
-    Route::get('/register', [RegisterController::class, 'index']);
-    Route::post('/biodata', [BiodataController::class, 'store']);
-    Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
-    Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
-    Route::post('/upload-files', [UploadFilesController::class, 'uploadFiles']);
-    Route::post('/upload-files/ijazah', [UploadFilesController::class, 'uploadIjazah']);
-    Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
-    Route::post('/upload-files/akte', [UploadFilesController::class, 'uploadAkte']);
-    Route::post('/upload-files/ktp', [UploadFilesController::class, 'uploadKTP']);
-    Route::post('/upload-files/kip', [UploadFilesController::class, 'uploadKIP']);
-    Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
-    Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
-    Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
+Route::get('/', function () {
+    return response()->json([
+        'status' => 501,
+        'message' => 'Nothing\'s here! What are you looking for?'
+    ]);
 });
+
+// Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('data-pendaftar');
+
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Route::post('/register/upload', [RegisterController::class, 'store']);
+// Route::middleware(['checkRole'])->group(function () {
+//     Route::get('/register', [RegisterController::class, 'index']);
+//     Route::post('/biodata', [BiodataController::class, 'store']);
+//     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
+//     Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
+//     Route::post('/upload-files', [UploadFilesController::class, 'uploadFiles']);
+//     Route::post('/upload-files/ijazah', [UploadFilesController::class, 'uploadIjazah']);
+//     Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
+//     Route::post('/upload-files/akte', [UploadFilesController::class, 'uploadAkte']);
+//     Route::post('/upload-files/ktp', [UploadFilesController::class, 'uploadKTP']);
+//     Route::post('/upload-files/kip', [UploadFilesController::class, 'uploadKIP']);
+//     Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
+//     Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
+//     Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
+// });
 
 // Admin Panel
 Route::middleware('auth')->group(function () {
