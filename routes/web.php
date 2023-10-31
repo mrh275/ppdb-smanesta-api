@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UploadFilesController;
 use App\Http\Controllers\Admin\AcceptController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\DataOrangTuaController;
 use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\Admin\VerifikasiController;
@@ -22,13 +23,6 @@ use App\Http\Controllers\Admin\VerifikasiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return response()->json([
-        'status' => 501,
-        'message' => 'Nothing\'s here! What are you looking for?'
-    ]);
-});
 
 // Route::get('/data-pendaftar', [PortalController::class, 'showRegister'])->name('data-pendaftar');
 
@@ -51,6 +45,8 @@ Route::get('/', function () {
 //     Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
 //     Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
 // });
+
+Route::get('/', [AuthController::class, 'index'])->name('login');
 
 // Admin Panel
 Route::middleware('auth')->group(function () {
