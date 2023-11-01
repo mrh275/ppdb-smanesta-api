@@ -42,5 +42,35 @@
                 password.type = "password";
             }
         });
+
+        // Auth attempt
+        const loginBtn = document.querySelector(".login-btn");
+        const username = document.querySelector("#username");
+        const password = document.querySelector("#password");
+
+        loginBtn.addEventListener("click", function() {
+            const data = {
+                username: username.value,
+                password: password.value
+            };
+
+            fetch("{{ route('auth.login') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(response => {
+                    if (response.status === 200) {
+                        window.location.href = "{{ route('adminDashboard') }}";
+                    } else {
+                        alert(response.message);
+                    }
+                })
+                .catch(error => console.log(error));
+        });
     </script>
 @endpush
