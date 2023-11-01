@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .input-group {
+        @apply relative my-6 w-80;
+    }
+
+    .input-group label {
+        @apply absolute top-1/2 left-[5px] -translate-y-1/2 text-[16px] text-gray-700 px-[5px] pointer-events-none transition-all duration-300;
+    }
+
+    .input-group input {
+        @apply w-full h-[40px] text-[16px] text-gray-700 px-[10px] bg-transparent border-[1.2px] border-gray-700 rounded-md outline-none;
+    }
+
+    .input-group input:focus~label,
+    .input-group input:valid~label {
+        @apply top-0 text-[12px] bg-white;
+    }
+
+    .login-btn {
+        @apply bg-blue-500 px-4 py-2 font-semibold text-white text-[16px] rounded-md transition-all duration-300;
+    }
+}
