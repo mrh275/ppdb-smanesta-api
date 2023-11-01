@@ -47,10 +47,12 @@ use App\Http\Controllers\Admin\VerifikasiController;
 // });
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 // Admin Panel
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', [AdminController::class, 'dashboard'])->name('adminDasboard');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('adminDashboard');
     Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
     Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
     Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
