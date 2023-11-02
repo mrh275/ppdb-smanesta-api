@@ -60,8 +60,7 @@
                 password: password.value
             };
 
-            console.log(data);
-
+            loginBtn.style.background = "#3b82f6"
             loginBtn.innerHTML = `
         <i class="fas fa-circle-notch fa-spin"></i>
         Loading...
@@ -80,17 +79,35 @@
                     if (response.status === 200) {
                         loginBtn.style.background = "#22c55e"
                         loginBtn.innerHTML = "Success";
+
+                        username.style.border = "1.2px solid #374151"
+                        wrongUsername.innerHTML = ""
+                        insertAfter(username, wrongUsername)
+                        userLabel.style.color = "#374151"
+
+                        wrongPassword.innerHTML = ""
+                        insertAfter(password, wrongPassword)
+                        password.style.border = "1.2px solid #374151"
+                        passwordLabel.style.color = "#374151"
+
                         window.location.href = "{{ route('adminDashboard') }}";
                     } else if (response.status === 401) {
                         loginBtn.style.background = "#ef4444"
                         loginBtn.innerHTML = "Login Gagal!";
+
                         username.style.border = "1.2px solid #ef4444"
                         wrongUsername.innerHTML = response.message
                         insertAfter(username, wrongUsername)
                         userLabel.style.color = "#ef4444"
                     } else {
+                        username.style.border = "1.2px solid #374151"
+                        wrongUsername.innerHTML = ""
+                        insertAfter(username, wrongUsername)
+                        userLabel.style.color = "#374151"
+
                         loginBtn.style.background = "#ef4444"
                         loginBtn.innerHTML = "Login Gagal!";
+
                         wrongPassword.innerHTML = response.message
                         insertAfter(password, wrongPassword)
                         password.style.border = "1.2px solid #ef4444"
