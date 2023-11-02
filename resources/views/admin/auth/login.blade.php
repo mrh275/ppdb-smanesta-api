@@ -11,11 +11,11 @@
             <div class="card-body">
                 <div class="input-group">
                     <input type="text" id="username" name="username" required>
-                    <label for="">Username</label>
+                    <label for=username"" id="user-label">Username</label>
                 </div>
                 <div class="input-group">
                     <input type="password" required id="password" name="password">
-                    <label for="">Password</label>
+                    <label for="password" id="password-label">Password</label>
                 </div>
                 <div class="password-visibility-wrapper">
                     <input type="checkbox" id="password-visibility" name="password-visibility">
@@ -47,6 +47,12 @@
         const loginBtn = document.querySelector(".login-btn");
         const username = document.querySelector("#username");
         const password = document.querySelector("#password");
+        const userLabel = document.querySelector("#user-label");
+        const passwordLabel = document.querySelector("#password-label");
+        const wrongUsername = document.createElement('small')
+        wrongUsername.style.color = "#ef4444"
+        const wrongPassword = document.createElement('small')
+        wrongPassword.style.color = "#ef4444"
 
         loginBtn.addEventListener("click", function() {
             const data = {
@@ -54,10 +60,12 @@
                 password: password.value
             };
 
+            console.log(data);
+
             loginBtn.innerHTML = `
-            <i class="fas fa-circle-notch fa-spin"></i>
-            Loading...
-            `;
+        <i class="fas fa-circle-notch fa-spin"></i>
+        Loading...
+        `;
 
             fetch("{{ route('auth.login') }}", {
                     method: "POST",
@@ -73,11 +81,29 @@
                         loginBtn.style.background = "#22c55e"
                         loginBtn.innerHTML = "Success";
                         window.location.href = "{{ route('adminDashboard') }}";
+                    } else if (response.status === 401) {
+                        loginBtn.style.background = "#ef4444"
+                        loginBtn.innerHTML = "Login Gagal!";
+                        username.style.border = "1.2px solid #ef4444"
+                        wrongUsername.innerHTML = response.message
+                        insertAfter(username, wrongUsername)
+                        userLabel.style.color = "#ef4444"
                     } else {
-                        alert(response.message);
+                        loginBtn.style.background = "#ef4444"
+                        loginBtn.innerHTML = "Login Gagal!";
+                        wrongPassword.innerHTML = response.message
+                        insertAfter(password, wrongPassword)
+                        password.style.border = "1.2px solid #ef4444"
+                        passwordLabel.style.color = "#ef4444"
                     }
                 })
-                .catch(error => console.log(error));
+                .catch(error => {
+                    console.log(error.status)
+                });
         });
+
+        function insertAfter(referenceNode, newNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
     </script>
 @endpush
