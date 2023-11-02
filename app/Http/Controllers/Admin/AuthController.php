@@ -23,19 +23,33 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        try {
-            Auth::attempt($credentials);
-            $user = User::where('username', $credentials['username'])->first();
-            $token = $user->createToken('accessToken')->plainTextToken;
+        $user = User::where('username', $credentials['username'])->first();
+        if ($user) {
+            try {
+                if (Auth::attempt($credentials)) {
+                    $request->session()->regenerate();
+                    $token = $user->createToken('accessToken')->plainTextToken;
+                    return response()->json([
+                        'status' => 200,
+                        'message' => 'Login successfully!',
+                        'accessToken' => $token
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 402,
+                        'message' => "Kata sandi yang anda masukan salah!."
+                    ]);
+                }
+            } catch (Exception $error) {
+                return response()->json([
+                    'status' => $error->getCode(),
+                    'message' => $error->getMessage()
+                ]);
+            }
+        } else {
             return response()->json([
-                'status' => 200,
-                'message' => 'Login successfully!',
-                'accessToken' => $token
-            ]);
-        } catch (Exception $error) {
-            return response()->json([
-                'status' => $error->getCode(),
-                'message' => $error->getMessage()
+                'status' => 401,
+                'message' => "Username yang anda masukan salah!."
             ]);
         }
     }
