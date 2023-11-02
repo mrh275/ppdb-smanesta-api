@@ -54,6 +54,11 @@
                 password: password.value
             };
 
+            loginBtn.innerHTML = `
+            <i class="fas fa-circle-notch fa-spin"></i>
+            Loading...
+            `;
+
             fetch("{{ route('auth.login') }}", {
                     method: "POST",
                     headers: {
@@ -65,6 +70,8 @@
                 .then(response => response.json())
                 .then(response => {
                     if (response.status === 200) {
+                        loginBtn.style.background = "#22c55e"
+                        loginBtn.innerHTML = "Success";
                         window.location.href = "{{ route('adminDashboard') }}";
                     } else {
                         alert(response.message);
