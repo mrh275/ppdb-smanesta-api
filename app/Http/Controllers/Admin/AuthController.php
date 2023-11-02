@@ -28,11 +28,9 @@ class AuthController extends Controller
             try {
                 if (Auth::attempt($credentials)) {
                     $request->session()->regenerate();
-                    $token = $user->createToken('accessToken')->plainTextToken;
                     return response()->json([
                         'status' => 200,
                         'message' => 'Login successfully!',
-                        'accessToken' => $token
                     ]);
                 } else {
                     return response()->json([
