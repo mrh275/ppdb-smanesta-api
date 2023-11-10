@@ -16,7 +16,7 @@ class Authenticate extends Middleware
     {
         if (!$request->expectsJson()) {
             session()->put('access_denied', true);
-            return route('portal');
+            return route('login');
         }
     }
 }
