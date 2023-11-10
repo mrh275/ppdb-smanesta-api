@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex items-center justify-center w-full h-screen bg-gray-200 login-wrapper">
-        <div class="px-16 py-4 mx-auto bg-white rounded-lg shadow-sm card-login">
+        <div class="px-16 py-8 mx-auto bg-white rounded-lg shadow-sm card-login">
             <div class="flex flex-col items-center card-header">
                 <img src="{{ asset('assets/img/LOGO-SMALL.png') }}" alt="Logo Sekolah" class="mb-2 w-14 card-img">
                 <h3 class="text-3xl font-bold text-gray-700 card-title">Login Admin</h3>
