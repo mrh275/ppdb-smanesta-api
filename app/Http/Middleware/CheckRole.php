@@ -19,16 +19,16 @@ class CheckRole
     {
         try {
             if ($request->user()->username != null) {
-                if ($request->user()->username == 'administrator' || $request->user()->username == 'operator') {
+                if ($request->user()->username == 'administrator' || $request->user()->username == 'advisor') {
                     return $next($request);
                 } else {
                     return redirect()->route('adminDasboard');
                 }
             } else {
-                return redirect()->route('portal');
+                return redirect()->route('login');
             }
         } catch (Exception $error) {
-            return redirect()->route('portal')->with('flashdata', 'Eits! Mau ngapain hayo?');
+            return redirect()->route('login')->with('flashdata', 'Eits! Mau ngapain hayo?');
         }
     }
 }
