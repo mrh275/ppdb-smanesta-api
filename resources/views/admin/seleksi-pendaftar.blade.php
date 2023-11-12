@@ -71,7 +71,7 @@
                                         <td>
                                             @if ($item->is_verified == 1 && $item->is_accepted == 1)
                                                 Diterima
-                                            @elseif($item->is_accepted == 1 && $item->is_accepted == 0)
+                                            @elseif($item->is_verified == 1 && $item->is_accepted == 0)
                                                 Terverifikasi
                                             @elseif($item->is_verified == 0 && $item->is_accepted == 0)
                                                 Belum Verifikasi
