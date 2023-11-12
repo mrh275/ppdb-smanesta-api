@@ -39,7 +39,7 @@
                                 <tr>
                                     <th>Nomor Pendaftaran</th>
                                     <th>Nama</th>
-                                    <th>NISN(s)</th>
+                                    <th>NISN</th>
                                     <th>Tempat, tanggal lahir</th>
                                     <th>Jalur Pendaftaran</th>
                                     <th>Asal Sekolah</th>
