@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\DataOrangTuaController;
 use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\Admin\VerifikasiController;
+use App\Models\Biodata;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::middleware(['auth', 'checkRole'])->group(function () {
     Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
     Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
     Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
+    Route::get('/admin/data-pendaftar/edit/{id}', [BiodataController::class, 'edit']);
     Route::post('/admin/verifikasi/{id}', [VerifikasiController::class, 'update']);
     Route::post('/admin/accept/{id}', [AcceptController::class, 'update']);
 });
