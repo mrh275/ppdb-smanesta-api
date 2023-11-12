@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="mb-2 row">
                     <div class="col-sm-6">
                         <h1 class="m-0">{{ $title }}</h1>
                     </div>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th>Nomor Pendaftaran</th>
                                     <th>Nama</th>
-                                    <th>NISN(s)</th>
+                                    <th>NISN</th>
                                     <th>Tempat, tanggal lahir</th>
                                     <th>Jalur Pendaftaran</th>
                                     <th>Asal Sekolah</th>
@@ -76,7 +76,7 @@
                                                 <button class="btn btn-xs btn-success" id="edit-status-verifikasi" type="button">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <button class="btn btn-xs btn-warning" id="edit-data-pendaftar">
+                                                <button class="btn btn-xs btn-warning" id="edit-data-pendaftar" data-toggle="modal" data-target="#modal-default">
                                                     <i class="fas fa-user-edit"></i>
                                                 </button>
                                             @else
@@ -102,6 +102,29 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Default Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 @endsection
 
 @push('scripts')
@@ -130,6 +153,12 @@
                 $('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
             }
+        });
+
+        $('#data-pendaftar tbody').on('click', '#edit-data-pendaftar', function(e) {
+            let selectedRow = $(this).parent().parent();
+            var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
+
         });
 
         $('#data-pendaftar tbody').on('click', '#edit-status-verifikasi', function(e) {
