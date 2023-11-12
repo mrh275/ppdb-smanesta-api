@@ -34,7 +34,7 @@ class AuthController extends Controller
                     ]);
                 } else {
                     return response()->json([
-                        'status' => 402,
+                        'status' => 400,
                         'message' => "Kata sandi yang anda masukan salah!."
                     ]);
                 }
@@ -46,7 +46,7 @@ class AuthController extends Controller
             }
         } else {
             return response()->json([
-                'status' => 401,
+                'status' => 400,
                 'message' => "Username yang anda masukan salah!."
             ]);
         }
