@@ -168,9 +168,9 @@ class BiodataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-        $noregPPDB = $request->input('noreg_ppdb');
+        $noregPPDB = $id;
 
         try {
             $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
