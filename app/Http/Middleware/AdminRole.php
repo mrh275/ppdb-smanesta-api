@@ -25,10 +25,10 @@ class AdminRole
                     return redirect()->route('adminDashboard');
                 }
             } else {
-                return redirect()->route('login');
+                return redirect()->route('login')->with('flashdata', 'Silahkan login terlebih dahulu!');
             }
         } catch (Exception $error) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('flashdata', 'Silahkan login terlebih dahulu!');
         }
     }
 }
