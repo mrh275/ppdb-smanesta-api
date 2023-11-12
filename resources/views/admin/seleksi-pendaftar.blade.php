@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="mb-2 row">
                     <div class="col-sm-6">
                         <h1 class="m-0">{{ $title }}</h1>
                     </div>
@@ -69,16 +69,18 @@
                                             {{ $item->asal_sekolah }}
                                         </td>
                                         <td>
-                                            @if ($item->is_accepted == 0)
-                                                Belum ditentukan
-                                            @elseif ($item->is_accepted == 1)
+                                            @if ($item->is_verified == 1 && $item->is_accepted == 1)
                                                 Diterima
+                                            @elseif($item->is_accepted == 1 && $item->is_accepted == 0)
+                                                Terverifikasi
+                                            @elseif($item->is_verified == 0 && $item->is_accepted == 0)
+                                                Belum Verifikasi
                                             @else
                                                 Tidak diterima
                                             @endif
                                         </td>
                                         <td class="d-flex flex-column justify-content-center align-items-center">
-                                            @if ($item->is_accepted == 0)
+                                            @if ($item->is_accepted == 0 && $item->is_verified == 1)
                                                 <button class="btn btn-sm btn-success" id="edit-status-diterima" type="button" data-toggle="modal" data-target="#modal-default">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
