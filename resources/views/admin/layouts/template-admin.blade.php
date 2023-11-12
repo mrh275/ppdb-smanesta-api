@@ -49,7 +49,6 @@
         #data-pendaftar tbody tr.selected {
             background: #bae6fd;
         }
-
     </style>
 </head>
 
