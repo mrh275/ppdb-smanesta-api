@@ -12,6 +12,9 @@ class AuthController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
+            return redirect()->route('adminDashboard');
+        }
         $data = [
             'title' => 'Login Admin | PPDB SMA Negeri 1 Rawamerta'
         ];
