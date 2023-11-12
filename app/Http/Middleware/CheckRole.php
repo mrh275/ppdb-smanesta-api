@@ -22,7 +22,7 @@ class CheckRole
                 if ($request->user()->username == 'administrator' || $request->user()->username == 'advisor') {
                     return $next($request);
                 } else {
-                    return redirect()->route('adminDasboard');
+                    return redirect()->route('adminDashboard');
                 }
             } else {
                 return redirect()->route('login');
