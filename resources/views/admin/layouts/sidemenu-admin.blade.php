@@ -9,7 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="pb-3 mt-3 mb-3 user-panel d-flex">
             <div class="image">
                 <img src="{{ asset('assets/admin/dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image" />
             </div>
@@ -39,22 +39,24 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('admin/seleksi-pendaftar') }}" class="nav-link {{ $title == 'Seleksi Pendaftar' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user-edit"></i>
-                        <p>
-                            Seleksi Pendaftar
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('admin/hasil-seleksi') }}" class="nav-link {{ $title == 'Hasil Seleksi' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user-check"></i>
-                        <p>
-                            Hasil Seleksi
-                        </p>
-                    </a>
-                </li>
+                @if (Auth::user()->username == 'administrator')
+                    <li class="nav-item">
+                        <a href="{{ url('admin/seleksi-pendaftar') }}" class="nav-link {{ $title == 'Seleksi Pendaftar' ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user-edit"></i>
+                            <p>
+                                Seleksi Pendaftar
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/hasil-seleksi') }}" class="nav-link {{ $title == 'Hasil Seleksi' ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user-check"></i>
+                            <p>
+                                Hasil Seleksi
+                            </p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
