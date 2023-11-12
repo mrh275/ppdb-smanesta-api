@@ -15,7 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            session()->put('access_denied', true);
+            session()->flash('flashdata', 'Silahkan login terlebih dahulu!');
             return route('login');
         }
     }
