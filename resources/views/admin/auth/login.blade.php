@@ -33,6 +33,23 @@
 
 @push('script')
     <script>
+        // Error handling for unauthorized access
+
+        if ("{{ session()->has('flashdata') }}") {
+            Swal.fire({
+                'icon': 'error',
+                'title': `Oops...
+                Unauthorized access has been occured!`,
+                'text': "{{ session()->get('flashdata') }}",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonText: 'Close',
+                allowOutsideClick: false,
+            });
+        }
+
+
+        // Password visibility
         const passwordVisibility = document.querySelector("#password-visibility");
         passwordVisibility.addEventListener("click", function() {
             const password = document.querySelector("#password");
