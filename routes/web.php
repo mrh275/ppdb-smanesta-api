@@ -55,16 +55,16 @@ Route::middleware(['auth', 'checkRole'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('adminDashboard');
     Route::get('/admin/data-pendaftar', [AdminController::class, 'dataPendaftar']);
-    Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
-    Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
     Route::get('/admin/data-pendaftar/edit/{id}', [BiodataController::class, 'edit']);
     Route::post('/admin/verifikasi/{id}', [VerifikasiController::class, 'update']);
-    Route::post('/admin/accept/{id}', [AcceptController::class, 'update']);
 });
 
 // Register Route
-Route::middleware('checkRole')->group(function () {
-    Route::post('/biodata/edit', [BiodataController::class, 'edit']);
-    Route::post('/data-orang-tua/edit', [DataOrangTuaController::class, 'edit']);
-    Route::post('/data-periodik/edit', [DataPeriodikController::class, 'edit']);
+Route::middleware(['auth', 'adminRole'])->group(function () {
+    Route::get('/admin/seleksi-pendaftar', [AdminController::class, 'seleksiPendaftar']);
+    Route::get('/admin/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
+    Route::post('/admin/accept/{id}', [AcceptController::class, 'update']);
+    // Route::post('/biodata/edit', [BiodataController::class, 'edit']);
+    // Route::post('/data-orang-tua/edit', [DataOrangTuaController::class, 'edit']);
+    // Route::post('/data-periodik/edit', [DataPeriodikController::class, 'edit']);
 });
