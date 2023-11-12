@@ -28,7 +28,7 @@ class CheckRole
                 return redirect()->route('login');
             }
         } catch (Exception $error) {
-            return redirect()->route('login')->with('flashdata', 'Eits! Mau ngapain hayo?');
+            return redirect()->route('login')->with('flashdata', 'Silahkan login terlebih dahulu!');
         }
     }
 }
