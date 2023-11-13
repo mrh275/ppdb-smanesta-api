@@ -103,18 +103,25 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <div class="modal fade" id="modal-xl">
-        <div class="modal-dialog modal-xl">
+    {{-- Modal for edit data registrant --}}
+    <div class="modal fade" id="modal-xl" data-backdrop="static">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Default Modal</h4>
+                    <h4 class="modal-title">Modal Title</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nam nobis velit commodi sint enim numquam sequi saepe perferendis! Praesentium nostrum repellendus eius, quisquam vel quae nihil maiores eos, itaque commodi at possimus aliquam incidunt corporis. At unde cum qui, fugit ipsa ducimus in suscipit enim distinctio labore minus. Debitis excepturi laborum veritatis accusantium pariatur quas autem at architecto ipsa. Totam amet voluptatibus aspernatur debitis. Officiis
-                        reprehenderit iste commodi et dolore quibusdam amet autem aliquam tenetur alias adipisci enim excepturi quis facere quisquam soluta labore impedit quasi at voluptatem, odit itaque reiciendis. Enim in eaque minus voluptates soluta aspernatur inventore aliquam, sit quam commodi beatae corrupti quos labore odio qui, pariatur a aut earum cupiditate. Quas iusto aspernatur officia tempore!</p>
+                    <div class="form-section">
+                        <div class="form-wrapper-responsive">
+                            @include('layouts.partials.forms.biodata')
+                            @include('layouts.partials.forms.orang-tua')
+                            @include('layouts.partials.forms.data-periodik')
+                            @include('layouts.partials.forms.upload-dokumen')
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -125,7 +132,7 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
+    <!-- End of modal edit data pendaftar -->
 @endsection
 
 @push('scripts')
@@ -156,12 +163,14 @@
             }
         });
 
+        // Edit data pendaftar
         $('#data-pendaftar tbody').on('click', '#edit-data-pendaftar', function(e) {
             e.preventDefault();
             $('#modal-xl').modal('show')
             let selectedRow = $(this).parent().parent();
             var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
             $('#modal-xl .modal-title').html('Edit Data Pendaftar ' + noregPPDB)
+
             try {
                 $.ajax({
                     type: 'get',
@@ -175,7 +184,9 @@
                 console.log(err.message);
             }
         });
+        // End edit data pendaftar
 
+        // Edit status verifikasi
         $('#data-pendaftar tbody').on('click', '#edit-status-verifikasi', function(e) {
             let selectedRow = $(this).parent().parent();
             var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
@@ -241,5 +252,6 @@
                 }
             })
         });
+        // End edit status verifikasi
     </script>
 @endpush
