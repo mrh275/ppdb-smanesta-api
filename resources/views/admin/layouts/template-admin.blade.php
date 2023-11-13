@@ -36,6 +36,12 @@
         <link rel="stylesheet" href="{{ asset('assets/admin/plugins') }}/datatables-buttons/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.14/sweetalert2.min.css" />
     @endif
+    @if (Request::segment(2) == 'data-pendaftar')
+        <link rel="stylesheet" href="{{ asset('assets/css/edit-registrant.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mohamadadithya/calendarify@latest/dist/calendarify.min.css">
+    @endif
 
     <style>
         #data-pendaftar tbody tr {
@@ -122,6 +128,29 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('assets/admin/dist') }}/js/pages/dashboard.js"></script>
     @stack('scripts')
+
+    @if (Request::segment(2) == 'data-pendaftar')
+        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/mohamadadithya/calendarify@latest/dist/calendarify.iife.js"></script>
+        <script>
+            const datepicker = new Calendarify('.date-input', {
+                isDark: false,
+                zIndex: 9999,
+                position: 'bottom-start',
+                quickActions: false
+            });
+            datepicker.init();
+            // Enabled select2 library
+            $(document).ready(function() {
+                $('.form-select').select2({
+                    width: 'resolve',
+                });
+            });
+        </script>
+    @endif
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
