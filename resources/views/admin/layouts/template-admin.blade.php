@@ -61,10 +61,6 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 
     <div class="wrapper">
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('assets/img/LOGO-XS.png') }}" alt="SMAN 1 Rawamerta Logo" height="60" width="60" />
-        </div>
         @include('admin.layouts.navbar-admin')
         @include('admin.layouts.sidemenu-admin')
         @yield('content')
@@ -123,8 +119,6 @@
     <script src="{{ asset('assets/admin/plugins') }}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/admin/dist') }}/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('assets/admin/dist') }}/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('assets/admin/dist') }}/js/pages/dashboard.js"></script>
     @stack('scripts')
