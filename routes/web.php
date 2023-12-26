@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\RegisterController;
@@ -12,7 +11,6 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\DataOrangTuaController;
 use App\Http\Controllers\DataPeriodikController;
 use App\Http\Controllers\Admin\VerifikasiController;
-use App\Models\Biodata;
 
 /*
 |--------------------------------------------------------------------------
