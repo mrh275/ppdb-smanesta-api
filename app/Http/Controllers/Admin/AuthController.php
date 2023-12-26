@@ -60,6 +60,6 @@ class AuthController extends Controller
         $request->user()->tokens()->delete();
         session()->flush();
 
-        return redirect()->route('login');
+        return redirect()->route('portal');
     }
 }
