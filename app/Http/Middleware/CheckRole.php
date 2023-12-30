@@ -22,7 +22,7 @@ class CheckRole
                 if ($request->user()->username == 'administrator' || $request->user()->username == 'advisor') {
                     return $next($request);
                 } else {
-                    return redirect()->route('portal');
+                    return redirect('http://google.com');
                 }
             } else {
                 return redirect()->route('login');
