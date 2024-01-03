@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\UploadFilesController;
 use App\Http\Controllers\DataOrangTuaController;
+use App\Http\Controllers\DataPeriodikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +26,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/active-pendaftar/{id}', [BiodataController::class, 'edit']);
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
+    Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
+    Route::post('/upload-files', [UploadFilesController::class, 'uploadFiles']);
+    Route::post('/upload-files/ijazah', [UploadFilesController::class, 'uploadIjazah']);
+    Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
+    Route::post('/upload-files/akte', [UploadFilesController::class, 'uploadAkte']);
+    Route::post('/upload-files/ktp', [UploadFilesController::class, 'uploadKTP']);
+    Route::post('/upload-files/kip', [UploadFilesController::class, 'uploadKIP']);
+    Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
+    Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
+    Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
 });
