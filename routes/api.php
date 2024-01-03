@@ -21,7 +21,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/data-pendaftar', [BiodataController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/active-pendaftar', [BiodataController::class, 'edit']);
+    Route::get('/active-pendaftar/{id}', [BiodataController::class, 'edit']);
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
 });
