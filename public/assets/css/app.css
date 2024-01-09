@@ -1292,7 +1292,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     opacity: 0;
 }
 .form-orang-tua-wrapper.show, .form-periodik-wrapper.show, .form-kesejahteraan-wrapper.show, .cetak-pendaftaran-wrapper.show{
-    --tw-translate-x: 0px;
+    --tw-translate-x: 0;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     opacity: 1;
 }
