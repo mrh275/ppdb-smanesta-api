@@ -22,10 +22,10 @@ class CheckRole
                 if ($request->user()->username == 'administrator' || $request->user()->username == 'advisor') {
                     return $next($request);
                 } else {
-                    return redirect('http://google.com');
+                    return redirect()->route('portal');
                 }
             } else {
-                return redirect()->route('login');
+                return redirect()->route('portal');
             }
         } catch (Exception $error) {
             return redirect()->route('login')->with('flashdata', 'Silahkan login terlebih dahulu!');
