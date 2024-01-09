@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::get('/', [PortalController::class, 'index'])->name('portal');
 // Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
