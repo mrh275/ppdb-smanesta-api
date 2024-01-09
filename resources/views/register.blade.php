@@ -36,6 +36,7 @@
                     @include('layouts.partials.forms.orang-tua')
                     @include('layouts.partials.forms.data-periodik')
                     @include('layouts.partials.forms.upload-dokumen')
+                    @include('layouts.partials.forms.print-register')
                 </div>
             </div>
         </div>
@@ -384,18 +385,25 @@
                         }
                     }).
                     then((dismiss) => {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            showCloseButton: true,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: "Pendaftaran berhasil! Silahkan cetak bukti pendaftaran."
+                        })
                         dataKesejahteraan.classList.remove('current-item');
                         dataKesejahteraan.firstElementChild.classList.add('completed');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Pendaftaran berhasil!',
-                            text: 'Silahkan lakukan verifikasi pendaftaran pada meja Verifikator.'
-                        }).then((dismiss) => {
-                            localStorage.removeItem('dataRegister');
-                            @php
-                                session()->forget('noreg');
-                            @endphp
-                        })
+                        document.querySelector('.form-kesejahteraan-wrapper').classList.remove('show')
+                        document.querySelector('.cetak-pendaftaran-wrapper').classList.add('show')
+                        document.querySelector('.form-wrapper-responsive').classList.remove('kesejahteraan')
+                        document.querySelector('.form-wrapper-responsive').classList.add('cetak-bukti')
                     })
                 }
             });
