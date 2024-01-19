@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload-files/kis', [UploadFilesController::class, 'uploadKIS']);
     Route::post('/upload-files/kks', [UploadFilesController::class, 'uploadKKS']);
     Route::post('/upload-files/pkh', [UploadFilesController::class, 'uploadPKH']);
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
 Route::get('/', [PortalController::class, 'index'])->name('portal');
