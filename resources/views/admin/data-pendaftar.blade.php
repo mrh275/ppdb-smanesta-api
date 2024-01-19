@@ -164,26 +164,26 @@
         });
 
         // Edit data pendaftar
-        $('#data-pendaftar tbody').on('click', '#edit-data-pendaftar', function(e) {
-            e.preventDefault();
-            $('#modal-xl').modal('show')
-            let selectedRow = $(this).parent().parent();
-            var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
-            $('#modal-xl .modal-title').html('Edit Data Pendaftar ' + noregPPDB)
+        // $('#data-pendaftar tbody').on('click', '#edit-data-pendaftar', function(e) {
+        //     e.preventDefault();
+        //     $('#modal-xl').modal('show')
+        //     let selectedRow = $(this).parent().parent();
+        //     var noregPPDB = selectedRow.find('td:nth-child(1)').attr('id')
+        //     $('#modal-xl .modal-title').html('Edit Data Pendaftar ' + noregPPDB)
 
-            try {
-                $.ajax({
-                    type: 'get',
-                    url: "{{ url('admin/data-pendaftar/edit') }}" + '/' + noregPPDB,
-                    dataType: "json",
-                    success: function(response) {
-                        console.log(response.data[0]);
-                    }
-                });
-            } catch (err) {
-                console.log(err.message);
-            }
-        });
+        //     try {
+        //         $.ajax({
+        //             type: 'get',
+        //             url: "{{ url('admin/data-pendaftar/edit') }}" + '/' + noregPPDB,
+        //             dataType: "json",
+        //             success: function(response) {
+        //                 console.log(response.data[0]);
+        //             }
+        //         });
+        //     } catch (err) {
+        //         console.log(err.message);
+        //     }
+        // });
         // End edit data pendaftar
 
         // Edit status verifikasi
