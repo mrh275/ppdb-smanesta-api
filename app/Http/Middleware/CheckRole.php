@@ -28,7 +28,7 @@ class CheckRole
                 return redirect()->route('portal');
             }
         } catch (Exception $error) {
-            return redirect()->route('login')->with('flashdata', 'Silahkan login terlebih dahulu!');
+            return redirect()->route('portal')->with('flashdata', 'Silahkan login terlebih dahulu!');
         }
     }
 }

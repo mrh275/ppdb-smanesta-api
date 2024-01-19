@@ -16,7 +16,7 @@ class Authenticate extends Middleware
     {
         if (!$request->expectsJson()) {
             session()->flash('flashdata', 'Silahkan login terlebih dahulu!');
-            return route('login');
+            return route('portal');
         }
     }
 }
