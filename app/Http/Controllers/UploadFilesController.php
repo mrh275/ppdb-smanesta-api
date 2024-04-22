@@ -12,8 +12,6 @@ class UploadFilesController extends Controller
 {
     public function uploadFiles(Request $request)
     {
-        $files = $request->file('file');
-        $noRegister = $request->input('noreg_ppdb');
         $data = $request->all();
         UploadFiles::create($data);
         // $date = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
