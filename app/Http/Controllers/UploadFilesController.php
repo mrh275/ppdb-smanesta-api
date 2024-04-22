@@ -30,7 +30,7 @@ class UploadFilesController extends Controller
     public function uploadIjazah(Request $request)
     {
         $files = $request->file('ijazahFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-ijazah.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -56,7 +56,7 @@ class UploadFilesController extends Controller
     public function uploadKK(Request $request)
     {
         $files = $request->file('kkFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-kk.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -82,7 +82,7 @@ class UploadFilesController extends Controller
     public function uploadAkte(Request $request)
     {
         $files = $request->file('akteFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-akte.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -108,7 +108,7 @@ class UploadFilesController extends Controller
     public function uploadKTP(Request $request)
     {
         $files = $request->file('ktpFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-ktp.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -134,7 +134,7 @@ class UploadFilesController extends Controller
     public function uploadKIP(Request $request)
     {
         $files = $request->file('kipFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-kip.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -160,7 +160,7 @@ class UploadFilesController extends Controller
     public function uploadKIS(Request $request)
     {
         $files = $request->file('kisFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-kis.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -186,7 +186,7 @@ class UploadFilesController extends Controller
     public function uploadKKS(Request $request)
     {
         $files = $request->file('kksFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-kks.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
@@ -212,7 +212,7 @@ class UploadFilesController extends Controller
     public function uploadPKH(Request $request)
     {
         $files = $request->file('pkhFile');
-        $noRegister = $request->session()->get('noreg');
+        $noRegister = ($request->input('noreg_ppdb')) ? $request->input('noreg_ppdb') : $request->session()->get('noreg');
         $newName = $noRegister . '-pkh.' . $files->extension();
 
         if (UploadFiles::where('noreg_ppdb', $noRegister)->first()) {
