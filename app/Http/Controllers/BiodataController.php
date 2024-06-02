@@ -14,12 +14,14 @@ class BiodataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->get();
+        $search = $request->input('search');
+        $itemPerPage = ($request->input('itemPerPage')) ? $request->input('itemPerPage') : 10;
+        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('nama', 'LIKE', '%' . $search . '%')->paginate($itemPerPage);
 
         return response()->json([
-            'stasus' => 200,
+            'status' => 200,
             'message' => 'Data has been retrieved',
             'data' => $data
         ]);
