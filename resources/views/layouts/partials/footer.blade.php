@@ -3,29 +3,29 @@
         <div class="footer-top">
             <div class="footer-left">
                 <div class="footer-brand">
-                    <img src="{{ asset('assets/img/LOGO-SMALL.png') }}" alt="Logo PPDB SMA Negeri 1 Rawamerta" class="footer-img-brand">
-                    <span class="footer-brand-text">SMA Negeri 1 Rawamerta</span>
+                    <img src="{{ asset('assets/img/Logo-SMK-Ar-Raihan-XS.png') }}" alt="Logo PPDB SMA Negeri 1 Rawamerta" class="footer-img-brand">
+                    <span class="footer-brand-text">SMK Ar-Raihan Cikampek</span>
                 </div>
                 <div class="footer-text">
                     <p class="py-2">
                         <strong>Address</strong> <br>
-                        Jl. Raya Garunggung - Panyingkiran Kec. Rawamerta Kab. Karawang, Jawa Barat 41382
+                        JL. Ahmad Yani - Dawuan Barat Kec. Cikampek Kab. Karawang, Jawa Barat 41373
                     </p>
                     <p>
                         <i class="fa-solid fa-phone"></i> -
                     </p>
                     <p>
-                        <i class="fa-solid fa-globe"></i> <a href="https://sman1rawamerta.sch.id" target="_blank">https://sman1rawamerta.sch.id</a>
+                        <i class="fa-solid fa-globe"></i> <a href="http://www.smkarraihan.sch.id" target="_blank">http://www.smkarraihan.sch.id</a>
                     </p>
                     <p>
-                        <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/sman1rawamerta/" target="_blank">@sman1rawamerta</a>
+                        <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/smkarraihancikampekofficial/" target="_blank">@smkarraihancikampekofficial</a>
                     </p>
                     <p>
-                        <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/channel/UCvTaB-4bPPasVnUf7QYI3tg" target="_blank">SMAN 1 RAWAMERTA</a>
+                        <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/channel/UCOUclinXBfFmonuFoVAitHA" target="_blank">SMK KESEHATAN AR RAIHAN OFFICIAL</a>
                     </p>
                 </div>
             </div>
-            <hr class="border-b border-b-zinc-300 w-full lg:hidden">
+            <hr class="w-full border-b border-b-zinc-300 lg:hidden">
             <div class="footer-middle">
                 <h3 class="footer-related-link">Link Terkait</h3>
                 <div class="backlink">
