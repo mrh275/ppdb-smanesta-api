@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="brand">
-        <img src="{{ asset('assets/img/LOGO-XS.png') }}" alt="Logo Sekolah" class="brand-img">
-        <a href="{{ url('') }}" class="brand-title">PPDB SMAN 1 RAWAMERTA</a>
+        <img src="{{ asset('assets/img/Logo-SMK-Ar-Raihan-S.png') }}" alt="Logo Sekolah" class="brand-img">
+        <a href="{{ url('') }}" class="brand-title">PPDB SMK AR-RAIHAN</a>
     </div>
 
     <div class="menu-wrapper">
