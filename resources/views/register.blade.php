@@ -242,7 +242,7 @@
                         success: function(response) {
                             Swal.fire({
                                 title: 'Sedang menyimpan data...',
-                                timer: 2000,
+                                timer: 500,
                                 showConfirmButton: false,
                                 didOpen: () => {
                                     Swal.showLoading()
@@ -385,6 +385,7 @@
                         }
                     }).
                     then((dismiss) => {
+                        cetakPendaftaran();
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',
@@ -544,6 +545,10 @@
             $('.form-select').select2({
                 width: 'resolve',
             });
+        });
+
+        $(document).on('select2:open', function(e) {
+            document.querySelector(`[aria-controls="select2-${e.target.id}-results"]`).focus();
         });
     </script>
 @endpush

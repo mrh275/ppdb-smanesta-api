@@ -44,9 +44,9 @@
                     <label for="tahun_lulus">Tahun Lulus</label>
                     <select name="tahun_lulus" id="tahun_lulus" class="form-select">
                         <option value="">Pilih :</option>
-                        <option value="3">2022</option>
-                        <option value="2">2021</option>
-                        <option value="1">2020</option>
+                        <option value="3">2024</option>
+                        <option value="2">2023</option>
+                        <option value="1">2022</option>
                     </select>
                 </div>
                 <div class="form-group">

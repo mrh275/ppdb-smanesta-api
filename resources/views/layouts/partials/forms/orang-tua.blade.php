@@ -15,8 +15,8 @@
                     <input type="text" class="form-control" id="tempat_lahir_ayah" name="tempat_lahir_ayah">
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_lahir_ayah">Tanggal Lahir Ayah</label>
-                    <input type="text" class="form-control" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah">
+                    <label for="tanggal_lahir_ayah">Tahun Lahir Ayah</label>
+                    <input type="text" class="form-control date-input-ayah" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah">
                 </div>
                 <div class="form-group">
                     <label for="pendidikan_ayah">Pendidikan Ayah</label>
@@ -82,8 +82,8 @@
                     <input type="text" class="form-control" id="tempat_lahir_ibu" name="tempat_lahir_ibu">
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_lahir_ibu">Tanggal Lahir Ibu</label>
-                    <input type="text" class="form-control" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu">
+                    <label for="tanggal_lahir_ibu">Tahun Lahir Ibu</label>
+                    <input type="text" class="form-control date-input-ibu" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu">
                 </div>
                 <div class="form-group">
                     <label for="pendidikan_ibu">Pendidikan Ibu</label>
@@ -149,3 +149,13 @@
     </form>
 
 </div>
+
+@push('specifyjs')
+    <script>
+        // const datepickerAyah = new Calendarify('input.date-input-ayah', {
+        //     isDark: true,
+        //     zIndex: 9999,
+        // });
+        // datepickerAyah.init();
+    </script>
+@endpush

@@ -3,25 +3,25 @@
         <div class="footer-top">
             <div class="footer-left">
                 <div class="footer-brand">
-                    <img src="{{ asset('assets/img/Logo-SMK-Ar-Raihan-XS.png') }}" alt="Logo PPDB SMA Negeri 1 Rawamerta" class="footer-img-brand">
-                    <span class="footer-brand-text">SMK Ar-Raihan Cikampek</span>
+                    <img src="{{ asset('assets/img/Logo-XS.png') }}" alt="Logo PPDB SMA Negeri 1 Rawamerta" class="footer-img-brand">
+                    <span class="footer-brand-text">SMA Negeri 1 Rawamerta</span>
                 </div>
                 <div class="footer-text">
                     <p class="py-2">
                         <strong>Address</strong> <br>
-                        JL. Ahmad Yani - Dawuan Barat Kec. Cikampek Kab. Karawang, Jawa Barat 41373
+                        Jl. Garunggung - Panyingkiran Kec. Rawamerta Kab. Karawang - Jawa Barat, 41382
                     </p>
                     <p>
                         <i class="fa-solid fa-phone"></i> -
                     </p>
                     <p>
-                        <i class="fa-solid fa-globe"></i> <a href="http://www.smkarraihan.sch.id" target="_blank">http://www.smkarraihan.sch.id</a>
+                        <i class="fa-solid fa-globe"></i> <a href="http://sman1rawamerta.sch.id" target="_blank">http://sman1rawamerta.sch.id</a>
                     </p>
                     <p>
-                        <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/smkarraihancikampekofficial/" target="_blank">@smkarraihancikampekofficial</a>
+                        <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/sman1rawamerta/" target="_blank">@sman1rawamerta</a>
                     </p>
                     <p>
-                        <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/channel/UCOUclinXBfFmonuFoVAitHA" target="_blank">SMK KESEHATAN AR RAIHAN OFFICIAL</a>
+                        <i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/@sman1rawamerta552" target="_blank">SMAN 1 RAWAMERTA</a>
                     </p>
                 </div>
             </div>

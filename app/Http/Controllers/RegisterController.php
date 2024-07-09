@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Biodata;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -95,7 +96,7 @@ class RegisterController extends Controller
         //
     }
 
-    public function cetakPendaftaran(Request $request, $noreg = null)
+    public function cetakPendaftaran($noreg = null)
     {
         $noreg = $noreg;
         try {
@@ -111,5 +112,14 @@ class RegisterController extends Controller
                 'error' => $error->getMessage(),
             ]);
         }
+    }
+
+    public function daftarSelesai(Request $request)
+    {
+        $request->session()->forget('noreg');
+
+        return response()->json([
+            'message' => 'Pendaftaran Selesai!',
+        ]);
     }
 }

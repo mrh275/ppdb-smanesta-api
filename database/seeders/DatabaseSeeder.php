@@ -48,9 +48,9 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
         ]);
 
-        Kelas::factory(10)->create();
-        TahunLulus::factory(4)->create();
-        ListSekolahAsal::factory(12)->create();
-        Biodata::factory(100)->create();
+        // Kelas::factory(10)->create();
+        // TahunLulus::factory(4)->create();
+        // ListSekolahAsal::factory(12)->create();
+        // Biodata::factory(100)->create();
     }
 }

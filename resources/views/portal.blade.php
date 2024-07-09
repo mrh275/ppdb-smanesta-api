@@ -11,7 +11,7 @@
                 <h1 class="hero-title">
                     <span class="lg:text-5xl">Selamat Datang!</span><br>
                     di Portal <span class="ppdb">Penerimaan Peserta Didik Baru (PPDB)</span> <br>
-                    SMA Ar-Raihan Cikampek
+                    SMA Negeri 1 Rawamerta
                 </h1>
             </div>
         </div>

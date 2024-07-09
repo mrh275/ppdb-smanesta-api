@@ -4,8 +4,8 @@
     </h3>
 
     <button class="btn btn-primary" type="button" onclick="cetakBukti()">Cetak Bukti Pendaftaran</button>
-    <a href="{{ url('') }}" class="btn btn-secondary">Tutup Halaman</a>
-    <div class="card-bukti-pendaftaran my-4 px-[11rem] 2xl:px-[28rem]">
+    <button type="button" class="btn btn-secondary" onclick="daftarSelesai()">Tutup Halaman</button>
+    <div class="card-bukti-pendaftaran my-4 px-[11rem] 2xl:px-[12rem]">
         <div class="w-full mx-auto bg-white rounded-lg card-body" id="cetak-bukti-pendaftaran">
             <div class="flex items-center justify-start px-8 pt-6 pb-4 cetak-header">
                 <img src="{{ asset('assets/img/LOGO-SMALL.png') }}" alt="Logo Sekolah" class="w-20 h-20 cetak-logo">
@@ -55,7 +55,7 @@
                                 <span>NISN</span>
                             </div>
                             <div class="w-3/5 register-value">
-                                <span>: <span class="nisn"></span></span>
+                                <span>: <span id="nisn"></span></span>
                             </div>
                         </div>
                         <div class="flex items-start justify-start w-full register-item">
@@ -79,7 +79,7 @@
                         </div>
                         <div class="flex items-start justify-start w-full register-item">
                             <div class="w-2/5 register-key">
-                                <span>TTL</span>
+                                <span>Tempat, Tanggal Lahir</span>
                             </div>
                             <div class="w-3/5 register-value">
                                 <span>: <span class="tempat_lahir"></span>, <span class="tanggal_lahir"></span></span>
@@ -101,7 +101,7 @@
                                 <span>&nbsp;:&nbsp;</span>
                             </div>
                             <div class="w-3/5 whitespace-normal register-value">
-                                <span class="alamat"></span> Dusun <span class="dusun"></span> RT.<span class="rt"></span> RW.<span class="rw"></span> Ds. <span class="desa"></span> Kec. <span class="kecamatan"></span> <span class="kabupaten"></span>
+                                <span id="alamat"></span> RT.<span id="rt"></span> RW.<span id="rw"></span> DESA <span id="desa"></span> KEC. <span id="kecamatan"></span> KAB. <span id="kabupaten"></span>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                                 <span>&nbsp;:&nbsp;</span>
                             </div>
                             <div class="w-3/5 register-value">
-                                <span class="jalur_pendaftaran"></span>
+                                <span class="jalur_pendaftaran">Tahap 3</span>
                             </div>
                         </div>
                         <div class="flex items-start justify-start w-full register-item">
@@ -185,14 +185,14 @@
                                 <span>: Ada</span>
                             </div>
                         </div>
-                        <div class="flex items-center justify-start w-full terms-cpd-item">
+                        {{-- <div class="flex items-center justify-start w-full terms-cpd-item">
                             <div class="w-3/5 terms-cpd-key">
                                 <span>SKKB</span>
                             </div>
                             <div class="w-2/5 terms-cpd-value">
                                 <span>: Ada</span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="w-1/2 pl-4 right-terms-cpd">
                         <h4 class="mb-4 text-lg font-semibold specified-terms-cpd-title">
@@ -203,7 +203,7 @@
                                 <span>Sertifikat Juara</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -211,7 +211,7 @@
                                 <span>Rapor</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -219,7 +219,7 @@
                                 <span>Kartu Indonesia Pintar</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -227,7 +227,7 @@
                                 <span>Kartu Indonesia Sehat</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -235,7 +235,7 @@
                                 <span>Kartu Keluarga Sejahtera</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -243,7 +243,7 @@
                                 <span>Kartu Perlindungan Sosial</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -251,7 +251,7 @@
                                 <span>Program Keluarga Harapan</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-start w-full terms-cpd-item">
@@ -259,7 +259,7 @@
                                 <span>Surat Tugas Orang Tua</span>
                             </div>
                             <div class="w-1/4 terms-cpd-value">
-                                <span>: Ada</span>
+                                <span>: Tidak Ada</span>
                             </div>
                         </div>
                     </div>
@@ -275,10 +275,10 @@
                                 Tanggal Cetak <span class="print_date"></span> WIB
                             </li>
                             <li class="barcode-list-item">
-                                Untuk mendapatkan informasi lebih lanjut, silahkan hubungi kami di instagram <a href="https://instagram.com/sman1rawamerta" class="text-[#0077ff]">@sman1rawamerta</a>
+                                Untuk mendapatkan informasi lebih lanjut, silahkan bergabung dengan grup Whatsapp khusus Calon Peserta Didik Baru SMAN 1 Rawamerta <a href="https://chat.whatsapp.com/DgHl3td3vzQK11CoZWkISi" class="text-[#0077ff]">https://chat.whatsapp.com/DgHl3td3vzQK11CoZWkISi</a>
                             </li>
                             <li class="barcode-list-item">
-                                Atau kunjungi website resmi PPDB SMAN 1 RAWAMERTA 2022 <a href="https://ppdb.sman1rawamerta.sch.id" class="text-[#0077ff]">https://ppdb.sman1rawamerta.sch.id</a>
+                                Atau kunjungi kami di instagram <a href="https://instagram.com/sman1rawamerta" class="text-[#0077ff]">@sman1rawamerta</a>
                             </li>
                         </ul>
                     </div>
@@ -296,92 +296,97 @@
 @push('specifyjs')
     <script>
         // Fetch register data
-        const noregPPDB = "PPDB-2324-75247";
-        $.ajax({
-            type: "get",
-            url: "{{ url('/cetak-pendaftaran/') }}/" + noregPPDB,
-            dataType: "json",
-            success: function(response) {
-                // document.querySelector(".noreg_ppdb").innerHTML = response.biodata.noreg_ppdb
-                // let jalur = [
-                //     'KETM', 'Disabilitas', 'Kondisi Tertentu', 'Prestasi Rapor', 'Prestasi Kejuaraan', 'Perpindahan Orang Tua/Anak Guru', 'Zonasi'
-                // ];
-                // document.querySelector(".jalur_pendaftaran").innerHTML = jalur[response.biodata.jalur_pendaftaran - 1];
-                // document.querySelector(".nik").innerHTML = response.biodata.nik
-                // document.querySelector(".nisn").innerHTML = response.biodata.nisn
-                // document.querySelector(".nama").innerHTML = response.biodata.nama
-                // if (response.biodata.jenis_kelamin == "L") {
-                //     document.querySelector(".jenis_kelamin").innerHTML = "Laki-laki"
-                // } else {
-                //     document.querySelector(".jenis_kelamin").innerHTML = "Perempuan"
-                // }
-                // document.querySelector(".tempat_lahir").innerHTML = response.biodata.tempat_lahir
+        const noregPPDB = '<?= session('noreg') ?>';
+        let namaSiswa = ''
 
-                // let month = [
-                //     'Januari',
-                //     'Februari',
-                //     'Maret',
-                //     'April',
-                //     'Mei',
-                //     'Juni',
-                //     'Juli',
-                //     'Agustus',
-                //     'September',
-                //     'Oktober',
-                //     'November',
-                //     'Desember'
-                // ];
-                // let dateBirth = response.biodata.tanggal_lahir;
-                // // yyyy-mm-dd
-                // let dayBirth = dateBirth.substr(8, 2);
-                // let monthBirth = month[parseInt(dateBirth.substr(5, 2)) - 1];
-                // let yearBirth = dateBirth.substr(0, 4);
-                // let newBirth = dayBirth + ' ' + monthBirth + ' ' + yearBirth;
-                // document.querySelector(".tanggal_lahir").innerHTML = newBirth
-                // document.querySelector(".asal_sekolah").innerHTML = response.biodata.asal_sekolah
-                // document.querySelector(".alamat").innerHTML = response.biodata.alamat
-                // document.querySelector(".dusun").innerHTML = response.biodata.dusun
-                // document.querySelector(".rt").innerHTML = response.biodata.rt
-                // document.querySelector(".rw").innerHTML = response.biodata.rw
-                // document.querySelector(".desa").innerHTML = response.biodata.desa
-                // document.querySelector(".kecamatan").innerHTML = response.biodata.kecamatan
-                // document.querySelector(".kabupaten").innerHTML = response.biodata.kabupaten
+        function cetakPendaftaran() {
+            $.ajax({
+                type: "get",
+                url: "{{ url('/cetak-pendaftaran/') }}/" + noregPPDB,
+                dataType: "json",
+                success: function(response) {
+                    console.log(response)
+                    document.querySelector(".noreg_ppdb").innerHTML = response.biodata.noreg_ppdb
+                    // let jalur = [
+                    //     'KETM', 'Disabilitas', 'Kondisi Tertentu', 'Prestasi Rapor', 'Prestasi Kejuaraan', 'Perpindahan Orang Tua/Anak Guru', 'Zonasi'
+                    // ];
+                    // document.querySelector(".jalur_pendaftaran").innerHTML = jalur[response.biodata.jalur_pendaftaran - 1];
+                    document.querySelector(".nik").innerHTML = response.biodata.nik
+                    document.querySelector("span#nisn").innerHTML = response.biodata.nisn
+                    document.querySelector(".nama").innerHTML = response.biodata.nama
+                    namaSiswa = response.biodata.nama.toLowerCase()
+                    if (response.biodata.jenis_kelamin == "L") {
+                        document.querySelector(".jenis_kelamin").innerHTML = "Laki-laki"
+                    } else {
+                        document.querySelector(".jenis_kelamin").innerHTML = "Perempuan"
+                    }
+                    document.querySelector(".tempat_lahir").innerHTML = response.biodata.tempat_lahir
 
-                // document.querySelector(".user").innerHTML = "{{ Auth::user()->name }}"
+                    let month = [
+                        'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    ];
+                    let dateBirth = response.biodata.tanggal_lahir;
+                    // yyyy-mm-dd
+                    let dayBirth = dateBirth.substr(8, 2);
+                    let monthBirth = month[parseInt(dateBirth.substr(5, 2)) - 1];
+                    let yearBirth = dateBirth.substr(0, 4);
+                    let newBirth = dayBirth + ' ' + monthBirth + ' ' + yearBirth;
+                    document.querySelector(".tanggal_lahir").innerHTML = newBirth
+                    document.querySelector(".asal_sekolah").innerHTML = response.biodata.asal_sekolah
+                    document.querySelector("span#alamat").innerHTML = response.biodata.alamat
+                    document.querySelector("span#rt").innerHTML = response.biodata.rt
+                    document.querySelector("span#rw").innerHTML = response.biodata.rw
+                    document.querySelector("span#desa").innerHTML = response.biodata.desa
+                    document.querySelector("span#kecamatan").innerHTML = response.biodata.kecamatan
+                    document.querySelector("span#kabupaten").innerHTML = response.biodata.kabupaten
 
-                // const dateRegister = response.biodata.created_at;
-                // console.log(dateRegister);
-                // let dayRegister = dateRegister.substr(8, 2);
-                // let monthRegister = month[parseInt(dateRegister.substr(5, 2)) - 1];
-                // let yearRegister = dateRegister.substr(0, 4);
-                // let newRegisterDate = dayRegister + ' ' + monthRegister + ' ' + yearRegister;
-                // const timeRegister = dateRegister.substr(11, 5);
-                // document.querySelector(".register_date").innerHTML = newRegisterDate + ', ' + timeRegister
+                    document.querySelector(".user").innerHTML = "{{ Auth::user()->name }}"
 
-                // let today = new Date();
-                // let date = today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
-                // let time = today.getHours() + ":" + ((today.getMinutes().toString().length == 1) ? "0" + today.getMinutes().toString() : today.getMinutes());
-                // document.querySelector(".print_date").innerHTML = date + ', ' + time
-                console.log(response)
-            },
-            error: function(error) {
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: error.status + '<br/>Data tidak ditemukan',
-                //     text: "Silahkan hubungi admin!",
-                //     showCancelButton: true,
-                //     cancelButtonText: 'Tutup',
-                //     showConfirmButton: false
-                // }).then((dismiss) => {
-                //     window.location.href = "{{ url('/') }}";
-                // })
-                // console.log(error)
-            }
-        });
+                    const dateRegister = response.biodata.created_at;
+                    console.log(dateRegister);
+                    let dayRegister = dateRegister.substr(8, 2);
+                    let monthRegister = month[parseInt(dateRegister.substr(5, 2)) - 1];
+                    let yearRegister = dateRegister.substr(0, 4);
+                    let newRegisterDate = dayRegister + ' ' + monthRegister + ' ' + yearRegister;
+                    const timeRegister = dateRegister.substr(11, 5);
+                    document.querySelector(".register_date").innerHTML = newRegisterDate + ', ' + timeRegister
+
+                    let today = new Date();
+                    let date = today.getDate() + ' ' + month[today.getMonth()] + ' ' + today.getFullYear();
+                    let time = today.getHours() + ":" + ((today.getMinutes().toString().length == 1) ? "0" + today.getMinutes().toString() : today.getMinutes());
+                    document.querySelector(".print_date").innerHTML = date + ', ' + time
+                    console.log(response)
+                },
+                error: function(error) {
+                    console.log(error)
+                    // Swal.fire({
+                    //         icon: 'error',
+                    //         title: error.status + '<br/>Data tidak ditemukan',
+                    //         text: "Silahkan hubungi admin!",
+                    //         showCancelButton: true,
+                    //         cancelButtonText: 'Tutup',
+                    //         showConfirmButton: false
+                    //     })
+                    //     .then((dismiss) => {
+                    //         window.location.href = "{{ url('/') }}";
+                    //     })
+                }
+            });
+        }
 
         function cetakBukti() {
             let element = document.getElementById('cetak-bukti-pendaftaran');
-            document.documentElement.scrollTop = 0;
             Swal.fire({
                 title: 'Cetak Bukti Pendaftaran',
                 text: 'Apakah anda yakin ingin mencetak bukti pendaftaran ini?',
@@ -394,16 +399,17 @@
                 if (result.value) {
                     let option = {
                         margin: [0, 0, 0, 0],
-                        filename: 'bukti-pendaftaran-ppdb-2-2223001.pdf',
+                        filename: 'bukti-pendaftaran-' + namaSiswa + '.pdf',
                         image: {
                             type: 'jpeg',
                             quality: 1
                         },
                         html2canvas: {
-                            scale: 2
+                            scale: 2,
+                            scrollY: 0
                         },
                         jsPDF: {
-                            unit: 'in',
+                            unit: 'mm',
                             format: 'A4',
                             orientation: 'portrait'
                         }
@@ -412,6 +418,39 @@
                     html2pdf().set(option).from(element).save();
                 }
             })
+        }
+
+        function daftarSelesai() {
+            $.ajax({
+                type: "get",
+                url: "{{ url('/daftar-selesai') }}",
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire({
+                        title: "Sedang mengarahkan...",
+                        timer: 500,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).then((dismiss) => {
+                        localStorage.clear();
+                        window.location.href = "{{ url('/') }}";
+                    })
+                },
+                error: function(error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: error.status + '<br/>Data tidak ditemukan',
+                        text: "Silahkan hubungi admin!",
+                        showCancelButton: true,
+                        cancelButtonText: 'Tutup',
+                        showConfirmButton: false
+                    }).then((dismiss) => {
+                        window.location.href = "{{ url('/') }}";
+                    })
+                }
+            });
         }
     </script>
 @endpush

@@ -77,9 +77,9 @@ class DataOrangTuaController extends Controller
         ];
 
         $validatedDataOrangTua = $request->validate($rules, $errorMessage);
-        $tgl_lahir = str_replace('/', '-', $request->tanggal_lahir);
-        $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
-        $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
+        // $tgl_lahir = str_replace('/', '-', $request->tanggal_lahir);
+        // $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
+        // $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
 
         $noregPPDB = $request->input('noreg_ppdb');
         $oldData = DataOrangTua::where('noreg_ppdb', $request->input('noreg_ppdb'))->first();

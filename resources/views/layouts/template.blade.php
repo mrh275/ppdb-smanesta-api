@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>{{ $title }} | PPDB SMK Ar-Raihan Cikampek</title>
+    <title>{{ $title }} | PPDB SMA Negeri 1 Rawamerta</title>
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon-arraihan.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/png">
 
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
@@ -56,6 +56,12 @@
                 zIndex: 9999,
             });
             datepicker.init();
+
+            // const datepickerIbu = new Calendarify('.date-input-ibu', {
+            //     isDark: true,
+            //     zIndex: 9999,
+            // });
+            // datepickerIbu.init();
         </script>
     @endif
     <script src="{{ asset('assets/js/main.js') }}"></script>
