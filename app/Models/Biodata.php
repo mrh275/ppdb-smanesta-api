@@ -34,4 +34,9 @@ class Biodata extends Model
     {
         return $this->hasMany(UploadFiles::class, 'noreg_ppdb', 'noreg_ppdb');
     }
+
+    public function asalSekolah()
+    {
+        return $this->hasMany(AsalSekolah::class, 'noreg_ppdb', 'noreg_ppdb');
+    }
 }
