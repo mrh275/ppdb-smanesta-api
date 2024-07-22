@@ -18,7 +18,7 @@ class BiodataController extends Controller
     {
         $search = $request->input('search');
         $itemPerPage = ($request->input('itemPerPage')) ? $request->input('itemPerPage') : 10;
-        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('nama', 'LIKE', '%' . $search . '%')->paginate($itemPerPage);
+        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'asalSekolah', 'dataUpload'])->where('nama', 'LIKE', '%' . $search . '%')->paginate($itemPerPage);
 
         return response()->json([
             'status' => 200,
@@ -175,7 +175,7 @@ class BiodataController extends Controller
         $noregPPDB = $id;
 
         try {
-            $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
+            $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'asalSekolah', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
             return response()->json([
                 'status' => 200,
                 'message' => 'Data successfully retrieved',
