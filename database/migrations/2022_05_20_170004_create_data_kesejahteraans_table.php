@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('data_kesejahteraans', function (Blueprint $table) {
             $table->id();
             $table->string('noreg_ppdb')->unique();
+            $table->enum('is_kip', [0, 1]);
+            $table->enum('is_kis', [0, 1]);
+            $table->enum('is_kks', [0, 1]);
+            $table->enum('is_kps', [0, 1]);
+            $table->enum('is_pkh', [0, 1]);
             $table->string('kip');
             $table->string('kis');
             $table->string('kks');
