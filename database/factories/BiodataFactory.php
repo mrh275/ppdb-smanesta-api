@@ -18,7 +18,7 @@ class BiodataFactory extends Factory
     {
         return [
             'noreg_ppdb' => 'PPDB-' . date('y') . date('y') + 1 . '-' . $this->faker->unique()->numberBetween(10000, 99999),
-            'jalur_pendaftaran' => $this->faker->numberBetween(1, 7),
+            'jalur_pendaftaran' => $this->faker->numberBetween(1, 3),
             'nisn' => 30 . $this->faker->unique()->numberBetween(80000000, 89999999),
             'nik' => 321518 . $this->faker->unique()->numberBetween(1000000001, 2999999999),
             'nama' => $this->faker->firstName() . ' ' . $this->faker->lastName(),
