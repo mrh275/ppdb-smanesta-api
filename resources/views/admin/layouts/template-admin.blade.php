@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>{{ $title }} | Admin PPDB SMA Negeri 1 Rawamerta</title>
+    <title>{{ $title }} | Admin PPDB SMK Ar-Raihan Cikampek</title>
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon-arraihan.png') }}" type="image/png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
     <!-- Font Awesome -->

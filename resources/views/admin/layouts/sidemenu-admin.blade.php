@@ -2,8 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('admin') }}" class="brand-link">
-        <img src="{{ asset('assets/img/LOGO-XS.png') }}" alt="SMAN 1 Rawamerta Logo" class="brand-image" style="opacity: 0.8" />
-        <span class="brand-text font-weight-light">PPDB SMANESTA</span>
+        <img src="{{ asset('assets/img/Logo-SMK-Ar-Raihan-XS.png') }}" alt="SMAN 1 Rawamerta Logo" class="brand-image" style="opacity: 0.8" />
+        <span class="brand-text font-weight-light">PPDB AR-RAIHAN</span>
     </a>
 
     <!-- Sidebar -->
