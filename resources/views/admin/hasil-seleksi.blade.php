@@ -62,7 +62,7 @@
                                             {{ $item->tempat_lahir . ', ' . \Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMMM Y') }}
                                         </td>
                                         <td style="width: 7rem">
-                                            {{ $jalur[$item->jalur_pendaftaran - 1] }}
+                                            {{ $jalur[$item->gelombang - 1] }}
                                         </td>
                                         <td>
                                             {{ $item->asal_sekolah }}
