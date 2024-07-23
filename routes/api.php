@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\AsalSekolahController;
 use App\Http\Controllers\UploadFilesController;
 use App\Http\Controllers\DataOrangTuaController;
 use App\Http\Controllers\DataPeriodikController;
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/biodata', [BiodataController::class, 'store']);
     Route::post('/data-orangtua', [DataOrangTuaController::class, 'store']);
     Route::post('/data-periodik', [DataPeriodikController::class, 'store']);
+    Route::get('/asal-sekolah/{noreg_ppdb}', [AsalSekolahController::class, 'edit']);
     Route::post('/upload-files', [UploadFilesController::class, 'uploadFiles']);
     Route::post('/upload-files/ijazah', [UploadFilesController::class, 'uploadIjazah']);
     Route::post('/upload-files/kk', [UploadFilesController::class, 'uploadKK']);
