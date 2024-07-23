@@ -61,7 +61,7 @@
                         }).then((dismiss) => {
                             document.querySelector("#login-form").classList.add("invisible");
                             document.querySelector("#login-form").classList.add("opacity-0");
-                            window.location.href = '/register';
+                            window.location.href = '/admin';
                         })
                     })
                     .catch((error) => {
