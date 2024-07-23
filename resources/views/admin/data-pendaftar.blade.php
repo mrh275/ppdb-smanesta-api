@@ -41,7 +41,7 @@
                                     <th>Nama</th>
                                     <th>NISN</th>
                                     <th>Tempat, tanggal lahir</th>
-                                    <th>Jalur Pendaftaran</th>
+                                    <th>Gelombang Pendaftaran</th>
                                     <th>Asal Sekolah</th>
                                     <th>Status Verifikasi</th>
                                     <th>Action</th>
@@ -63,7 +63,7 @@
                                             {{ $item->tempat_lahir . ', ' . \Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMMM Y') }}
                                         </td>
                                         <td style="width: 7rem">
-                                            {{ $jalur[$item->gelombang - 1] }}
+                                            {{ $item->gelombang }}
                                         </td>
                                         <td>
                                             {{ $item->asal_sekolah }}
@@ -71,20 +71,14 @@
                                         <td id="{{ $item->is_verified }}">
                                             {{ $item->is_verified == 0 ? 'Belum Verifikasi' : 'Terverifikasi' }}
                                         </td>
-                                        <td class="d-flex justify-content-between align-items-center">
+                                        <td class="d-flex justify-content-center align-items-center">
                                             @if ($item->is_verified == 0)
                                                 <button class="btn btn-xs btn-success" id="edit-status-verifikasi" type="button">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <button class="btn btn-xs btn-warning" id="edit-data-pendaftar">
-                                                    <i class="fas fa-user-edit"></i>
-                                                </button>
                                             @else
                                                 <button class="btn btn-xs btn-success disabled" disabled id="edit-status-verifikasi" type="button">
                                                     <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-xs btn-warning disabled" disabled id="edit-data-pendaftar">
-                                                    <i class="fas fa-user-edit"></i>
                                                 </button>
                                             @endif
                                         </td>

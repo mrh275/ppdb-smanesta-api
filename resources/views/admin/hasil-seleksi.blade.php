@@ -41,7 +41,7 @@
                                     <th>Nama</th>
                                     <th>NISN</th>
                                     <th>Tempat, tanggal lahir</th>
-                                    <th>Jalur Pendaftaran</th>
+                                    <th>Gelombang Pendaftaran</th>
                                     <th>Asal Sekolah</th>
                                     <th>Hasil Seleksi</th>
                                 </tr>
@@ -62,7 +62,7 @@
                                             {{ $item->tempat_lahir . ', ' . \Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMMM Y') }}
                                         </td>
                                         <td style="width: 7rem">
-                                            {{ $jalur[$item->gelombang - 1] }}
+                                            {{ $item->gelombang }}
                                         </td>
                                         <td>
                                             {{ $item->asal_sekolah }}

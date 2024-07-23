@@ -41,7 +41,7 @@
                                     <th>Nama</th>
                                     <th>NISN</th>
                                     <th>Tempat, tanggal lahir</th>
-                                    <th>Jalur Pendaftaran</th>
+                                    <th>Gelombang Pendaftaran</th>
                                     <th>Asal Sekolah</th>
                                     <th>Status Seleksi</th>
                                     <th>Action</th>
@@ -63,7 +63,7 @@
                                             {{ $item->tempat_lahir . ', ' . \Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMMM Y') }}
                                         </td>
                                         <td style="width: 7rem">
-                                            {{ $jalur[$item->gelombang - 1] }}
+                                            {{ $item->gelombang }}
                                         </td>
                                         <td>
                                             {{ $item->asal_sekolah }}
@@ -112,7 +112,6 @@
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
-            "buttons": ["excel", "pdf", "print"],
             init: function() {},
         }).buttons().container().appendTo('#data-pendaftar_wrapper .col-md-6:eq(0)');
 
@@ -141,7 +140,7 @@
             let statusDiterima = selectedRow.find('td:nth-child(7)').attr('id')
             Swal.fire({
                 'icon': 'question',
-                'title': 'Verifikasi Pendaftar',
+                'title': 'Validasi Pendaftar',
                 'html': 'Apa anda akan menerima pendaftar <strong>' + namaPendaftar + '</strong> dengan nomor pendaftaran <strong>' + noregPPDB + '</strong> ?',
                 showConfirmButton: true,
                 showCancelButton: true,
