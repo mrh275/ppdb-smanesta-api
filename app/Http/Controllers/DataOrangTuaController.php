@@ -39,14 +39,14 @@ class DataOrangTuaController extends Controller
         $rules = [
             'nama_ayah' => 'required|min:3',
             'tempat_lahir_ayah' => 'required|min:3',
-            'tanggal_lahir_ayah' => 'required',
+            'tahun_lahir_ayah' => 'required',
             'pendidikan_ayah' => 'required',
             'pekerjaan_ayah' => 'required',
             'penghasilan_ayah' => 'required',
             'alamat_ayah' => 'required|min:15',
             'nama_ibu' => 'required|min:3',
             'tempat_lahir_ibu' => 'required|min:3',
-            'tanggal_lahir_ibu' => 'required',
+            'tahun_lahir_ibu' => 'required',
             'pendidikan_ibu' => 'required',
             'pekerjaan_ibu' => 'required',
             'penghasilan_ibu' => 'required',
@@ -58,7 +58,7 @@ class DataOrangTuaController extends Controller
             'nama_ayah.min' => 'Nama Ayah minimal 3 karakter',
             'tempat_lahir_ayah.required' => 'Tempat Lahir Ayah tidak boleh kosong',
             'tempat_lahir_ayah.min' => 'Tempat Lahir Ayah minimal 3 karakter',
-            'tanggal_lahir_ayah.required' => 'Tanggal Lahir Ayah tidak boleh kosong',
+            'tahun_lahir_ayah.required' => 'Tahun Lahir Ayah tidak boleh kosong',
             'pendidikan_ayah.required' => 'Pendidikan Ayah tidak boleh kosong',
             'pekerjaan_ayah.required' => 'Pekerjaan Ayah tidak boleh kosong',
             'penghasilan_ayah.required' => 'Penghasilan Ayah tidak boleh kosong',
@@ -68,7 +68,7 @@ class DataOrangTuaController extends Controller
             'nama_ibu.min' => 'Nama Ibu minimal 3 karakter',
             'tempat_lahir_ibu.required' => 'Tempat Lahir Ibu tidak boleh kosong',
             'tempat_lahir_ibu.min' => 'Tempat Lahir Ibu minimal 3 karakter',
-            'tanggal_lahir_ibu.required' => 'Tanggal Lahir Ibu tidak boleh kosong',
+            'tahun_lahir_ibu.required' => 'Tahun Lahir Ibu tidak boleh kosong',
             'pendidikan_ibu.required' => 'Pendidikan Ibu tidak boleh kosong',
             'pekerjaan_ibu.required' => 'Pekerjaan Ibu tidak boleh kosong',
             'penghasilan_ibu.required' => 'Penghasilan Ibu tidak boleh kosong',
@@ -77,9 +77,9 @@ class DataOrangTuaController extends Controller
         ];
 
         $validatedDataOrangTua = $request->validate($rules, $errorMessage);
-        $tgl_lahir = str_replace('/', '-', $request->tanggal_lahir);
-        $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
-        $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
+        // $tgl_lahir = str_replace('/', '-', $request->tahun_lahir);
+        // $validatedDataOrangTua['tanggal_lahir_ayah'] = date('Y-m-d', strtotime($tgl_lahir));
+        // $validatedDataOrangTua['tanggal_lahir_ibu'] = date('Y-m-d', strtotime($tgl_lahir));
 
         $noregPPDB = $request->input('noreg_ppdb');
         $oldData = DataOrangTua::where('noreg_ppdb', $request->input('noreg_ppdb'))->first();

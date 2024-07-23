@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use App\Models\AsalSekolah;
 use Illuminate\Http\Request;
 
 class AsalSekolahController extends Controller
@@ -56,7 +58,19 @@ class AsalSekolahController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $data = AsalSekolah::where('noreg_ppdb', $id)->get();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data successfully retrieved',
+                'data' => $data
+            ]);
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => $error->getCode(),
+                'message' => $error->getMessage()
+            ]);
+        }
     }
 
     /**

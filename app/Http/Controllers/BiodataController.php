@@ -18,7 +18,7 @@ class BiodataController extends Controller
     {
         $search = $request->input('search');
         $itemPerPage = ($request->input('itemPerPage')) ? $request->input('itemPerPage') : 10;
-        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'asalSekolah', 'dataUpload'])->where('nama', 'LIKE', '%' . $search . '%')->paginate($itemPerPage);
+        $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('nama', 'LIKE', '%' . $search . '%')->paginate($itemPerPage);
 
         return response()->json([
             'status' => 200,
@@ -46,7 +46,7 @@ class BiodataController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'jalur_pendaftaran' => 'required',
+            'gelombang' => 'required',
             'nisn'  => 'required|numeric',
             'nik'   => 'required|numeric',
             'nama'  => 'required|min:5|max:50',
@@ -67,7 +67,7 @@ class BiodataController extends Controller
         ];
 
         $errorMessage = [
-            'jalur_pendaftaran.required' => 'Jalur Pendaftaran tidak boleh kosong',
+            'gelombang.required' => 'Gelombang Pendaftaran tidak boleh kosong',
             'nisn.required' => 'NISN tidak boleh kosong',
             'nisn.numeric' => 'NISN harus berupa angka',
             'nik.required' => 'NIK tidak boleh kosong',
@@ -175,7 +175,7 @@ class BiodataController extends Controller
         $noregPPDB = $id;
 
         try {
-            $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'asalSekolah', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
+            $data = Biodata::with(['dataOrangTua', 'dataPeriodik', 'dataKesejahteraan', 'dataUpload'])->where('noreg_ppdb', $noregPPDB)->get();
             return response()->json([
                 'status' => 200,
                 'message' => 'Data successfully retrieved',
