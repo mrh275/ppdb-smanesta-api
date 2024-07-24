@@ -41,7 +41,7 @@ class DataPeriodikController extends Controller
         $rulesSekolahAsal = [
             'jenjang' => 'required',
             'nama_sekolah' => 'required|min:5',
-            'alamat_sekolah' => 'required|min:15',
+            'alamat_sekolah' => 'required|min:5',
             'nomor_ijazah' => 'required',
             'nopes_ujian' => 'required',
 
@@ -94,6 +94,11 @@ class DataPeriodikController extends Controller
             'kks' => ($request->kks) ?? '-',
             'kps' => ($request->kps) ?? '-',
             'pkh' => ($request->pkh) ?? '-',
+            'is_kip' => ($request->is_kip) ?? '-',
+            'is_kis' => ($request->is_kis) ?? '-',
+            'is_kks' => ($request->is_kks) ?? '-',
+            'is_kps' => ($request->is_kps) ?? '-',
+            'is_pkh' => ($request->is_pkh) ?? '-',
         ];
 
         try {
